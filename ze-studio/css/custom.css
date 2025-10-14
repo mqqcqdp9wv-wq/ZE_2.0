@@ -98,6 +98,15 @@
   opacity: 1;
 }
 
+/* Specific logo size adjustments */
+.logo-3m {
+  max-height: 50px !important;
+}
+
+.logo-suntek {
+  max-height: 55px !important;
+}
+
 /* Mobile partner logos */
 @media (max-width: 768px) {
   .col-partner {

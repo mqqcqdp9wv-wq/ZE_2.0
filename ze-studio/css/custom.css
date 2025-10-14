@@ -99,6 +99,10 @@
 }
 
 /* Specific logo size adjustments */
+.logo-rayno {
+  max-height: 75px !important;
+}
+
 .logo-3m {
   max-height: 50px !important;
 }

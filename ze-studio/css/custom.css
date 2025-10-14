@@ -31,3 +31,10 @@
   background-color: #23a592 !important;
   color: #fff !important;
 }
+
+/* Gold stars for testimonials */
+.stars .fa-star {
+  color: #FFD700;
+  font-size: 24px;
+  margin: 0 2px;
+}

@@ -1,0 +1,21 @@
+/* Custom styles for ZE-Studio */
+
+/* Progress bars animation */
+.progress-bar {
+  width: 0%;
+  transition: width 2s ease-in-out;
+}
+
+.progress-bar.animated {
+  /* Width will be set by JavaScript */
+}
+
+/* Ensure progress bars are visible */
+.progress {
+  background-color: #e9ecef;
+  height: 0.5rem;
+}
+
+.progress-bar {
+  background-color: #23a592;
+}

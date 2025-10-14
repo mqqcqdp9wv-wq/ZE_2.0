@@ -100,7 +100,7 @@
 
 /* Specific logo size adjustments */
 .logo-rayno {
-  max-height: 75px !important;
+  max-height: 85px !important;
 }
 
 .logo-3m {
@@ -125,6 +125,10 @@
   
   .col-partner img:hover {
     opacity: 0.6;
+  }
+  
+  .logo-rayno {
+    max-height: 65px !important;
   }
   
   .logo-3m {

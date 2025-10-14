@@ -82,6 +82,17 @@
   justify-content: center;
   min-height: 120px;
   padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.col-partner:hover {
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
 }
 
 .col-partner img {
@@ -90,11 +101,11 @@
   width: auto;
   height: auto;
   object-fit: contain;
-  opacity: 0.8;
+  opacity: 0.7;
   transition: opacity 0.3s ease;
 }
 
-.col-partner img:hover {
+.col-partner:hover img {
   opacity: 1;
 }
 

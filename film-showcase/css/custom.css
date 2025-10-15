@@ -1,0 +1,141 @@
+/* Custom styles for ZE-Studio */
+
+/* Progress bars animation */
+.progress-bar {
+  width: 0%;
+  transition: width 2s ease-in-out;
+}
+
+.progress-bar.animated {
+  /* Width will be set by JavaScript */
+}
+
+/* Ensure progress bars are visible */
+.progress {
+  background-color: #e9ecef;
+  height: 0.5rem;
+}
+
+.progress-bar {
+  background-color: #23a592;
+}
+
+/* Transparent button with green outline */
+.btn-outline {
+  background-color: transparent !important;
+  border: 2px solid #23a592 !important;
+  color: #23a592 !important;
+}
+
+.btn-outline:hover {
+  background-color: #23a592 !important;
+  color: #fff !important;
+}
+
+/* Gold stars for testimonials */
+.stars .fa-star {
+  color: #FFD700;
+  font-size: 24px;
+  margin: 0 2px;
+}
+
+/* Testimonials styling */
+.col-testimonial {
+  padding: 40px 30px;
+}
+
+.col-testimonial p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #666;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.col-testimonial .text-dark {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333 !important;
+  margin-top: 30px !important;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .col-testimonial {
+    padding: 30px 20px;
+  }
+  
+  .col-testimonial p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  .stars .fa-star {
+    font-size: 20px;
+  }
+}
+
+/* Partner logos alignment */
+.col-partner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: 20px;
+}
+
+.col-partner img {
+  max-width: 100%;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+}
+
+.col-partner img:hover {
+  opacity: 0.6;
+}
+
+/* Specific logo size adjustments */
+.logo-rayno {
+  max-height: 100px !important;
+}
+
+.logo-3m {
+  max-height: 50px !important;
+}
+
+.logo-suntek {
+  max-height: 55px !important;
+}
+
+/* Mobile partner logos */
+@media (max-width: 768px) {
+  .col-partner {
+    min-height: 100px;
+    padding: 15px;
+  }
+  
+  .col-partner img {
+    max-height: 60px;
+    opacity: 0.35;
+  }
+  
+  .col-partner img:hover {
+    opacity: 0.6;
+  }
+  
+  .logo-rayno {
+    max-height: 80px !important;
+  }
+  
+  .logo-3m {
+    max-height: 40px !important;
+  }
+  
+  .logo-suntek {
+    max-height: 45px !important;
+  }
+}

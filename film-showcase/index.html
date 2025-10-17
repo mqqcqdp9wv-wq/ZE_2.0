@@ -38,6 +38,28 @@
         letter-spacing: 1px !important;
       }
       
+      /* Стили для легенды аббревиатур */
+      .legend-item strong {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 700 !important;
+        color: #343434 !important;
+        font-size: 14px !important;
+      }
+      
+      .legend-item .legend-english {
+        font-family: 'Work Sans', sans-serif !important;
+        font-weight: 400 !important;
+        color: #767676 !important;
+        font-size: 12px !important;
+      }
+      
+      .legend-item .legend-russian {
+        font-family: 'Work Sans', sans-serif !important;
+        font-weight: 400 !important;
+        color: #767676 !important;
+        font-size: 13px !important;
+      }
+      
       /* Адаптивность для мобильных устройств */
       @media (max-width: 767px) {
         /* Заголовок карточки на мобильных */
@@ -112,21 +134,21 @@
         <div class="row mt-4 pt-3" data-aos="fade-up" data-aos-delay="100">
           <div class="col-12 col-lg-10 offset-lg-1">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 15px 0; flex-wrap: wrap;">
-              <div style="flex: 1; min-width: 200px;">
-                <strong style="color: #343434; font-size: 14px;">VLT</strong> <span style="color: #767676; font-size: 12px;">(Visible Light Transmission)</span><br>
-                <span style="color: #767676; font-size: 13px;">Пропускание видимого света</span>
+              <div class="legend-item" style="flex: 1; min-width: 200px;">
+                <strong>VLT</strong> <span class="legend-english">(Visible Light Transmission)</span><br>
+                <span class="legend-russian">Пропускание видимого света</span>
               </div>
-              <div style="flex: 1; min-width: 200px;">
-                <strong style="color: #343434; font-size: 14px;">TSER</strong> <span style="color: #767676; font-size: 12px;">(Total Solar Energy Rejected)</span><br>
-                <span style="color: #767676; font-size: 13px;">Полное отражение солнечной энергии</span>
+              <div class="legend-item" style="flex: 1; min-width: 200px;">
+                <strong>TSER</strong> <span class="legend-english">(Total Solar Energy Rejected)</span><br>
+                <span class="legend-russian">Полное отражение солнечной энергии</span>
               </div>
-              <div style="flex: 1; min-width: 200px;">
-                <strong style="color: #343434; font-size: 14px;">UV</strong> <span style="color: #767676; font-size: 12px;">(Ultraviolet)</span><br>
-                <span style="color: #767676; font-size: 13px;">Отражение УФ лучей</span>
+              <div class="legend-item" style="flex: 1; min-width: 200px;">
+                <strong>UV</strong> <span class="legend-english">(Ultraviolet)</span><br>
+                <span class="legend-russian">Отражение УФ лучей</span>
               </div>
-              <div style="flex: 1; min-width: 200px;">
-                <strong style="color: #343434; font-size: 14px;">IR</strong> <span style="color: #767676; font-size: 12px;">(Infrared Rejection)</span><br>
-                <span style="color: #767676; font-size: 13px;">Отражение инфракрасного излучения</span>
+              <div class="legend-item" style="flex: 1; min-width: 200px;">
+                <strong>IR</strong> <span class="legend-english">(Infrared Rejection)</span><br>
+                <span class="legend-russian">Отражение инфракрасного излучения</span>
               </div>
             </div>
           </div>

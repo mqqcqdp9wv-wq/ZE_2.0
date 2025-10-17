@@ -14,6 +14,63 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
 
     <title>Витрина плёнок</title>
+    
+    <style>
+      /* Адаптивность для мобильных устройств */
+      @media (max-width: 767px) {
+        /* Заголовок карточки на мобильных */
+        .project-item h3 {
+          font-size: 16px !important;
+          padding: 0.15rem 0.4rem !important;
+          white-space: nowrap;
+        }
+        
+        /* Подзаголовок карточки на мобильных */
+        .project-item figure p {
+          font-size: 11px !important;
+          padding-left: 0.4rem !important;
+        }
+        
+        /* Уменьшаем отступы заголовка */
+        .film-card-title {
+          top: 1rem !important;
+          left: 1rem !important;
+        }
+        
+        /* Статистика внизу карточки - уменьшаем размеры */
+        .film-stats-container {
+          padding: 30px 10px 15px !important;
+        }
+        
+        .film-stat-value {
+          font-size: 28px !important;
+        }
+        
+        .film-stat-label {
+          font-size: 8px !important;
+          margin-top: 5px !important;
+        }
+        
+        .film-stat-divider {
+          height: 35px !important;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        /* Еще более компактно для очень маленьких экранов */
+        .film-stat-value {
+          font-size: 24px !important;
+        }
+        
+        .film-stat-label {
+          font-size: 7px !important;
+        }
+        
+        .film-stat-divider {
+          height: 30px !important;
+        }
+      }
+    </style>
   </head>
 <body>
    
@@ -76,39 +133,39 @@
                 </div>
                 
                 <!-- ЗАГОЛОВОК И ПОДЗАГОЛОВОК - левый верхний угол с отступом как в оригинале -->
-                <div style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
+                <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
                   <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO centum 80</h3>
                   <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Керамическая плёнка</p>
                 </div>
                 
                 <!-- Информационная полоска снизу -->
-                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
+                <div class="film-stats-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
                   <div style="display: flex; justify-content: space-around; align-items: center; max-width: 900px; margin: 0 auto;">
                     <!-- Характеристика 1 -->
                     <div style="text-align: center;">
-                      <div style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">80%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
+                      <div class="film-stat-value" style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">80%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
                     </div>
                     <!-- Разделитель -->
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <!-- Характеристика 2 -->
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">39%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">39%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
                     </div>
                     <!-- Разделитель -->
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <!-- Характеристика 3 -->
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
                     </div>
                     <!-- Разделитель -->
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <!-- Характеристика 4 -->
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">80%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">IR</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">80%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">IR</div>
                     </div>
                   </div>
                 </div>
@@ -128,31 +185,31 @@
                   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.25);"></div>
                 </div>
                 
-                <div style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
+                <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
                   <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO centum 50</h3>
                   <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Углеродная плёнка</p>
                 </div>
                 
-                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
+                <div class="film-stats-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
                   <div style="display: flex; justify-content: space-around; align-items: center; max-width: 900px; margin: 0 auto;">
                     <div style="text-align: center;">
-                      <div style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">50%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
+                      <div class="film-stat-value" style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">50%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">28%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">28%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">42%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">42%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
                     </div>
                   </div>
                 </div>
@@ -172,31 +229,31 @@
                   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.35);"></div>
                 </div>
                 
-                <div style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
+                <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
                   <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO centum 35</h3>
                   <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Углеродная плёнка</p>
                 </div>
                 
-                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
+                <div class="film-stats-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
                   <div style="display: flex; justify-content: space-around; align-items: center; max-width: 900px; margin: 0 auto;">
                     <div style="text-align: center;">
-                      <div style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">35%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
+                      <div class="film-stat-value" style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">35%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">35%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">35%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">59%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">59%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
                     </div>
                   </div>
                 </div>
@@ -216,31 +273,31 @@
                   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.50);"></div>
                 </div>
                 
-                <div style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
+                <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
                   <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO centum 15</h3>
                   <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Углеродная плёнка</p>
                 </div>
                 
-                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
+                <div class="film-stats-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
                   <div style="display: flex; justify-content: space-around; align-items: center; max-width: 900px; margin: 0 auto;">
                     <div style="text-align: center;">
-                      <div style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">15%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
+                      <div class="film-stat-value" style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">15%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">45%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">45%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">80%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">80%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
                     </div>
                   </div>
                 </div>
@@ -260,31 +317,31 @@
                   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.70);"></div>
                 </div>
                 
-                <div style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
+                <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
                   <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO centum 05</h3>
                   <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Углеродная плёнка</p>
                 </div>
                 
-                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
+                <div class="film-stats-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
                   <div style="display: flex; justify-content: space-around; align-items: center; max-width: 900px; margin: 0 auto;">
                     <div style="text-align: center;">
-                      <div style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">5%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
+                      <div class="film-stat-value" style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">5%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">54%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">54%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
                     </div>
-                    <div style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
                     <div style="text-align: center;">
-                      <div style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">95%</div>
-                      <div style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">95%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
                     </div>
                   </div>
                 </div>

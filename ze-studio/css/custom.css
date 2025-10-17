@@ -139,3 +139,104 @@
     max-height: 45px !important;
   }
 }
+
+/* Film Showcase Styles */
+
+/* Применяем правильные шрифты ко всем элементам карточек */
+.project-item h3 {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.project-item figure p {
+  font-family: 'Work Sans', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.film-stat-value {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.film-stat-label {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 1px !important;
+}
+
+/* Стили для легенды аббревиатур */
+.legend-item strong {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  color: #343434 !important;
+  font-size: 14px !important;
+}
+
+.legend-item .legend-english {
+  font-family: 'Work Sans', sans-serif !important;
+  font-weight: 400 !important;
+  color: #767676 !important;
+  font-size: 12px !important;
+}
+
+.legend-item .legend-russian {
+  font-family: 'Work Sans', sans-serif !important;
+  font-weight: 400 !important;
+  color: #767676 !important;
+  font-size: 13px !important;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 767px) {
+  /* Заголовок карточки на мобильных */
+  .project-item h3 {
+    font-size: 16px !important;
+    padding: 0.15rem 0.4rem !important;
+    white-space: nowrap;
+  }
+  
+  /* Подзаголовок карточки на мобильных */
+  .project-item figure p {
+    font-size: 11px !important;
+    padding-left: 0.4rem !important;
+  }
+  
+  /* Уменьшаем отступы заголовка */
+  .film-card-title {
+    top: 1rem !important;
+    left: 1rem !important;
+  }
+  
+  /* Статистика внизу карточки - уменьшаем размеры */
+  .film-stats-container {
+    padding: 30px 10px 15px !important;
+  }
+  
+  .film-stat-value {
+    font-size: 28px !important;
+  }
+  
+  .film-stat-label {
+    font-size: 8px !important;
+    margin-top: 5px !important;
+  }
+  
+  .film-stat-divider {
+    height: 35px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Еще более компактно для очень маленьких экранов */
+  .film-stat-value {
+    font-size: 24px !important;
+  }
+  
+  .film-stat-label {
+    font-size: 7px !important;
+  }
+  
+  .film-stat-divider {
+    height: 30px !important;
+  }
+}

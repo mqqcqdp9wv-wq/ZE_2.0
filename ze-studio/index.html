@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/custom.css?v=3">
+    <link rel="stylesheet" href="css/custom.css?v=4">
 
     <title>ZE-Studio - Тонирование автомобилей | Липецк</title>
   </head>
@@ -256,157 +256,380 @@
 
     
     <!-- Projects -->
+    <!-- БЛОК Витрина плёнок RAYNO -->
     <section id="projects" class="section">
      <div class="container">
         <div class="text-center col-md-8 col-lg-6 offset-md-2 offset-lg-3">
-          <h2 class="mb-3 mb-md-0" data-aos="fade-up">Featured <span class="mark"><span>projects</span></span></h2>
+          <h2 class="mb-3 mb-md-0" data-aos="fade-up">Плёнки <span class="mark"><span>RAYNO</span></span></h2>
+        </div>
+        
+        <!-- Расшифровка аббревиатур - одна строка -->
+        <div class="row mt-4 pt-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-12 col-lg-10 offset-lg-1">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 15px 0; flex-wrap: wrap;">
+              <div class="legend-item" style="flex: 1; min-width: 200px;">
+                <strong>VLT</strong> <span class="legend-english">(Visible Light Transmission)</span><br>
+                <span class="legend-russian">Пропускание видимого света</span>
+              </div>
+              <div class="legend-item" style="flex: 1; min-width: 200px;">
+                <strong>TSER</strong> <span class="legend-english">(Total Solar Energy Rejected)</span><br>
+                <span class="legend-russian">Полное отражение солнечной энергии</span>
+              </div>
+              <div class="legend-item" style="flex: 1; min-width: 200px;">
+                <strong>UV</strong> <span class="legend-english">(Ultraviolet)</span><br>
+                <span class="legend-russian">Отражение УФ лучей</span>
+              </div>
+              <div class="legend-item" style="flex: 1; min-width: 200px;">
+                <strong>IR</strong> <span class="legend-english">(Infrared Rejection)</span><br>
+                <span class="legend-russian">Отражение инфракрасного излучения</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="mt-5 pt-5" data-aos="fade-in">
         <div class="carousel-project-2 owl-carousel">
-         <div class="project-item">
-            <a href="#project1" class="popup-with-zoom-anim">
-              <figure class="position-relative">
-                <img alt="" class="w-100" src="img/portfolio/1140x641-4.jpg">
-                <figcaption class="text-white">
-                  <h3 class="mb-2 text-white">Neuro</h3>
-                  <p>Branding</p>
-                </figcaption>
-              </figure>
-            </a>
-         </div>
+         
+          <!-- КАРТОЧКА 1: RAYNO centum 80 -->
           <div class="project-item">
             <a href="#project2" class="popup-with-zoom-anim">
               <figure class="position-relative">
-                <img alt="" class="w-100" src="img/portfolio/1140x641-3.jpg">
-                <figcaption class="text-white">
-                  <h3 class="mb-2 text-white">Unero</h3>
-                  <p>Illustration</p>
-                </figcaption>
+                <!-- Градиент + текстура плёнки 80% VLT (очень светлая) -->
+                <div style="width: 100%; padding-bottom: 56.25%; position: relative; overflow: hidden;">
+                  <!-- Светлый базовый фон (почти белый для 80% VLT) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #f8fcfd 0%, #e5f2f7 40%, #d4e8f0 100%);"></div>
+                  
+                  <!-- Легкая текстура плёнки -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(35,165,146,0.02) 2px, rgba(35,165,146,0.02) 4px); opacity: 0.5;"></div>
+                  
+                  <!-- Блики (имитация стекла) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 50%), radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.3) 0%, transparent 40%);"></div>
+                  
+                  <!-- Минимальное затемнение (20%) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.08);"></div>
+                </div>
+                
+                <!-- ЗАГОЛОВОК И ПОДЗАГОЛОВОК - левый верхний угол с отступом как в оригинале -->
+                <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
+                  <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO centum 80</h3>
+                  <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Керамическая плёнка</p>
+                </div>
+                
+                <!-- Информационная полоска снизу -->
+                <div class="film-stats-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
+                  <div style="display: flex; justify-content: space-around; align-items: center; max-width: 900px; margin: 0 auto;">
+                    <!-- Характеристика 1 -->
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">80%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
+                    </div>
+                    <!-- Разделитель -->
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <!-- Характеристика 2 -->
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">39%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
+                    </div>
+                    <!-- Разделитель -->
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <!-- Характеристика 3 -->
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
+                    </div>
+                    <!-- Разделитель -->
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <!-- Характеристика 4 -->
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">80%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">IR</div>
+                    </div>
+                  </div>
+                </div>
               </figure>
             </a>
          </div>
+
+          <!-- КАРТОЧКА 2: RAYNO centum 50 -->
           <div class="project-item">
-            <a href="#project3" class="popup-with-zoom-anim">
+            <a href="#project5" class="popup-with-zoom-anim">
               <figure class="position-relative">
-                <img alt="" class="w-100" src="img/portfolio/1140x641-2.jpg">
-                <figcaption class="text-white">
-                  <h3 class="mb-2 text-white">Guino</h3>
-                  <p>Branding</p>
-                </figcaption>
+                <!-- Градиент + текстура плёнки 50% VLT (средняя) -->
+                <div style="width: 100%; padding-bottom: 56.25%; position: relative; overflow: hidden;">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #e0eff5 0%, #b8d8e5 40%, #90c1d5 100%);"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(35,165,146,0.03) 2px, rgba(35,165,146,0.03) 4px); opacity: 0.5;"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%), radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.25) 0%, transparent 40%);"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.25);"></div>
+                </div>
+                
+                <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
+                  <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO centum 50</h3>
+                  <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Углеродная плёнка</p>
+                </div>
+                
+                <div class="film-stats-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
+                  <div style="display: flex; justify-content: space-around; align-items: center; max-width: 900px; margin: 0 auto;">
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">50%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">28%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">42%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
+                    </div>
+                  </div>
+                </div>
               </figure>
             </a>
-         </div>
+          </div>
+
+          <!-- КАРТОЧКА 4: RAYNO centum 35 -->
+          <div class="project-item">
+            <a href="#project6" class="popup-with-zoom-anim">
+              <figure class="position-relative">
+                <!-- Градиент + текстура плёнки 35% VLT (заметная тонировка) -->
+                <div style="width: 100%; padding-bottom: 56.25%; position: relative; overflow: hidden;">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #c5dde8 0%, #95bed5 40%, #6fa0c0 100%);"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(35,165,146,0.04) 2px, rgba(35,165,146,0.04) 4px); opacity: 0.5;"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.25) 0%, transparent 50%), radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.2) 0%, transparent 40%);"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.35);"></div>
+                </div>
+                
+                <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
+                  <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO centum 35</h3>
+                  <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Углеродная плёнка</p>
+                </div>
+                
+                <div class="film-stats-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
+                  <div style="display: flex; justify-content: space-around; align-items: center; max-width: 900px; margin: 0 auto;">
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">35%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">35%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">59%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </a>
+          </div>
+
+          <!-- КАРТОЧКА 4: RAYNO centum 15 -->
+          <div class="project-item">
+            <a href="#project7" class="popup-with-zoom-anim">
+              <figure class="position-relative">
+                <!-- Градиент + текстура плёнки 15% VLT (темная) -->
+                <div style="width: 100%; padding-bottom: 56.25%; position: relative; overflow: hidden;">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #a0c8d8 0%, #6fa0c0 40%, #4a7a98 100%);"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(35,165,146,0.05) 2px, rgba(35,165,146,0.05) 4px); opacity: 0.5;"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%), radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.15) 0%, transparent 40%);"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.50);"></div>
+                </div>
+                
+                <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
+                  <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO centum 15</h3>
+                  <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Углеродная плёнка</p>
+                </div>
+                
+                <div class="film-stats-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
+                  <div style="display: flex; justify-content: space-around; align-items: center; max-width: 900px; margin: 0 auto;">
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">15%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">45%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">80%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </a>
+          </div>
+
+          <!-- КАРТОЧКА 6: RAYNO centum 05 -->
+          <div class="project-item">
+            <a href="#project8" class="popup-with-zoom-anim">
+              <figure class="position-relative">
+                <!-- Градиент + текстура плёнки 5% VLT (лимузинная, очень темная) -->
+                <div style="width: 100%; padding-bottom: 56.25%; position: relative; overflow: hidden;">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #708898 0%, #4a6478 40%, #2d4558 100%);"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(35,165,146,0.06) 2px, rgba(35,165,146,0.06) 4px); opacity: 0.5;"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.1) 0%, transparent 40%);"></div>
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.70);"></div>
+                </div>
+                
+                <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
+                  <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO centum 05</h3>
+                  <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Углеродная плёнка</p>
+                </div>
+                
+                <div class="film-stats-container" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); padding: 40px 30px 20px; pointer-events: none;">
+                  <div style="display: flex; justify-content: space-around; align-items: center; max-width: 900px; margin: 0 auto;">
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 42px; font-weight: 700; color: #23a592; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">5%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">VLT</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">54%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">TSER</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">99.9%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">UV</div>
+                    </div>
+                    <div class="film-stat-divider" style="width: 1px; height: 50px; background: rgba(255,255,255,0.2);"></div>
+                    <div style="text-align: center;">
+                      <div class="film-stat-value" style="font-size: 36px; font-weight: 700; color: white; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">95%</div>
+                      <div class="film-stat-label" style="font-size: 9px; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px;">Блики</div>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </a>
+          </div>
+
        </div>
       </div>
     </section>
 
-    <!-- Project Modal Dialog 1 -->
-    <div id="project1" class="container mfp-hide zoom-anim-dialog">
-      <h2 class="mt-0">Neuro</h2>
-      <div class="mt-5 pt-2 text-dark">
-        <div class="row">
-          <div class="mb-5 col-md-6 col-lg-3">
-            <h6 class="my-0">Clients:</h6>
-            <span>Ethan Hunt, John Doe</span>
-          </div>
-          <div class="mb-5 col-md-6 col-lg-3">
-            <h6 class="my-0">Completion:</h6>
-            <span>February 5th, 2020</span>
-          </div>
-          <div class="mb-5 col-md-6 col-lg-3">
-            <h6 class="my-0">Project Type:</h6>
-            <span>Illustration</span>
-          </div>
-          <div class="mb-5 col-md-6 col-lg-3">
-            <h6 class="my-0">Authors</h6>
-            <span>Logan Cee, Paul</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-3">
-            <h6 class="my-0">Budget:</h6>
-            <span>$12000</span>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <h6 class="my-0">Authors</h6>
-            <span>Logan Cee, Paul</span>
-          </div>
-        </div>
-      </div>
-      <img alt="" class="mt-5 pt-2 w-100" src="img/portfolio/1140x641-1.jpg">
-    </div>
-
-    <!-- Project Modal Dialog 2 -->
+    <!-- Modal: RAYNO centum 80 -->
     <div id="project2" class="container mfp-hide zoom-anim-dialog">
-      <h2 class="mt-0">Neuro</h2>
-      <div class="mt-5 pt-2 text-dark">
-        <div class="row">
-          <div class="col-md-3">
-            <h6 class="my-0">Clients:</h6>
-            <span>Ethan Hunt, John Doe</span>
-          </div>
-          <div class="col-md-3">
-            <h6 class="my-0">Completion:</h6>
-            <span>February 5th, 2020</span>
-          </div>
-          <div class="col-md-3">
-            <h6 class="my-0">Project Type:</h6>
-            <span>Illustration</span>
-          </div>
-          <div class="col-md-3">
-            <h6 class="my-0">Authors</h6>
-            <span>Logan Cee, Paul</span>
-          </div>
-        </div>
-        <div class="mt-5 row">
-          <div class="col-md-3">
-            <h6 class="my-0">Budget:</h6>
-            <span>$12000</span>
-          </div>
-          <div class="col-md-3">
-            <h6 class="my-0">Authors</h6>
-            <span>Logan Cee, Paul</span>
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <h2 class="mt-0" style="color: #343434;">RAYNO <span style="color: #23a592;">Centum 80</span></h2>
+          <p style="color: #767676; font-size: 16px; margin-bottom: 2rem;">Керамическая атермальная плёнка</p>
+          
+          <div class="mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
+            <p>
+              <strong>RAYNO Centum 80</strong> — это атермальная пленка для автомобилей на основе керамики, созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
+            </p>
+            <p>
+              Керамическая пленка позволяет достичь сочетания высокого светопропускания и мощного отражения солнечной энергии. Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
+            </p>
           </div>
         </div>
       </div>
-      <img alt="" class="mt-5 pt-2 w-100" src="img/portfolio/1140x641-2.jpg">
+      <button title="Close (Esc)" type="button" class="mfp-close">×</button>
     </div>
 
-    <!-- Project Modal Dialog 3 -->
-    <div id="project3" class="container mfp-hide zoom-anim-dialog">
-      <h2 class="mt-0">Neuro</h2>
-      <div class="mt-5 pt-2 text-dark">
-        <div class="row">
-          <div class="col-md-3">
-            <h6 class="my-0">Clients:</h6>
-            <span>Ethan Hunt, John Doe</span>
-          </div>
-          <div class="col-md-3">
-            <h6 class="my-0">Completion:</h6>
-            <span>February 5th, 2020</span>
-          </div>
-          <div class="col-md-3">
-            <h6 class="my-0">Project Type:</h6>
-            <span>Illustration</span>
-          </div>
-          <div class="col-md-3">
-            <h6 class="my-0">Authors</h6>
-            <span>Logan Cee, Paul</span>
-          </div>
-        </div>
-        <div class="mt-5 row">
-          <div class="col-md-3">
-            <h6 class="my-0">Budget:</h6>
-            <span>$12000</span>
-          </div>
-          <div class="col-md-3">
-            <h6 class="my-0">Authors</h6>
-            <span>Logan Cee, Paul</span>
+    <!-- Modal: RAYNO centum 50 -->
+    <div id="project5" class="container mfp-hide zoom-anim-dialog">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <h2 class="mt-0" style="color: #343434;">RAYNO <span style="color: #23a592;">Centum 50</span></h2>
+          <p style="color: #767676; font-size: 16px; margin-bottom: 2rem;">Углеродная тонировочная плёнка</p>
+          
+          <div class="mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
+            <p>
+              <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
+            </p>
+            <p>
+              Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
+            </p>
           </div>
         </div>
       </div>
-      <img alt="" class="mt-5 pt-2 w-100" src="img/portfolio/1140x641-3.jpg">
+      <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+    </div>
+
+    <!-- Modal: RAYNO centum 35 -->
+    <div id="project6" class="container mfp-hide zoom-anim-dialog">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <h2 class="mt-0" style="color: #343434;">RAYNO <span style="color: #23a592;">Centum 35</span></h2>
+          <p style="color: #767676; font-size: 16px; margin-bottom: 2rem;">Углеродная тонировочная плёнка</p>
+          
+          <div class="mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
+            <p>
+              <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
+            </p>
+            <p>
+              Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
+            </p>
+          </div>
+        </div>
+      </div>
+      <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+    </div>
+
+    <!-- Modal: RAYNO centum 15 -->
+    <div id="project7" class="container mfp-hide zoom-anim-dialog">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <h2 class="mt-0" style="color: #343434;">RAYNO <span style="color: #23a592;">Centum 15</span></h2>
+          <p style="color: #767676; font-size: 16px; margin-bottom: 2rem;">Углеродная тонировочная плёнка</p>
+          
+          <div class="mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
+            <p>
+              <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
+            </p>
+            <p>
+              Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
+            </p>
+          </div>
+        </div>
+      </div>
+      <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+    </div>
+
+    <!-- Modal: RAYNO centum 05 -->
+    <div id="project8" class="container mfp-hide zoom-anim-dialog">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <h2 class="mt-0" style="color: #343434;">RAYNO <span style="color: #23a592;">Centum 05</span></h2>
+          <p style="color: #767676; font-size: 16px; margin-bottom: 2rem;">Углеродная тонировочная плёнка</p>
+          
+          <div class="mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
+            <p>
+              <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
+            </p>
+            <p>
+              Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
+            </p>
+          </div>
+        </div>
+      </div>
+      <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+    </div>
+
     </div>
     
 

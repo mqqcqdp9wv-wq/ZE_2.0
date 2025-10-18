@@ -222,6 +222,12 @@
   .film-stat-divider {
     height: 35px !important;
   }
+  
+  /* Скрываем стрелки навигации карусели на мобильных */
+  .carousel-project-2.owl-carousel .owl-nav button.owl-prev,
+  .carousel-project-2.owl-carousel .owl-nav button.owl-next {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {

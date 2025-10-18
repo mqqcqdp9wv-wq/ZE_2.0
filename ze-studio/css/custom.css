@@ -169,21 +169,19 @@
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 700 !important;
   color: #343434 !important;
-  font-size: 14px !important;
 }
 
 .legend-item .legend-english {
   font-family: 'Work Sans', sans-serif !important;
   font-weight: 400 !important;
   color: #767676 !important;
-  font-size: 12px !important;
+  font-size: 0.875rem !important;
 }
 
 .legend-item .legend-russian {
   font-family: 'Work Sans', sans-serif !important;
   font-weight: 400 !important;
   color: #767676 !important;
-  font-size: 13px !important;
 }
 
 /* Адаптивность для мобильных устройств */

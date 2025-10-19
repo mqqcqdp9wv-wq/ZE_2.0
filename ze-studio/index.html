@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/custom.css?v=6">
+    <link rel="stylesheet" href="css/custom.css?v=7">
 
     <title>ZE-Studio - Тонирование автомобилей | Липецк</title>
   </head>
@@ -262,30 +262,6 @@
         <div class="text-center col-md-8 col-lg-6 offset-md-2 offset-lg-3">
           <h2 class="mb-3 mb-md-0" data-aos="fade-up">Плёнки <span class="mark"><span>RAYNO</span></span></h2>
         </div>
-        
-        <!-- Расшифровка аббревиатур - одна строка -->
-        <div class="row mt-4 pt-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-12 col-lg-10 offset-lg-1">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 15px 0; flex-wrap: wrap;">
-              <div class="legend-item" style="flex: 1; min-width: 200px;">
-                <strong>VLT</strong> <span class="legend-english">(Visible Light Transmission)</span><br>
-                <span class="legend-russian">Пропускание видимого света</span>
-              </div>
-              <div class="legend-item" style="flex: 1; min-width: 200px;">
-                <strong>TSER</strong> <span class="legend-english">(Total Solar Energy Rejected)</span><br>
-                <span class="legend-russian">Полное отражение солнечной энергии</span>
-              </div>
-              <div class="legend-item" style="flex: 1; min-width: 200px;">
-                <strong>UV</strong> <span class="legend-english">(Ultraviolet)</span><br>
-                <span class="legend-russian">Отражение УФ лучей</span>
-              </div>
-              <div class="legend-item" style="flex: 1; min-width: 200px;">
-                <strong>IR</strong> <span class="legend-english">(Infrared Rejection)</span><br>
-                <span class="legend-russian">Отражение инфракрасного излучения</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="mt-5 pt-5" data-aos="fade-in">
         <div class="carousel-project-2 owl-carousel">
@@ -294,19 +270,22 @@
           <div class="project-item">
             <a href="#project2" class="popup-with-zoom-anim">
               <figure class="position-relative">
-                <!-- Градиент + текстура плёнки 80% VLT (очень светлая) -->
+                <!-- Градиент + текстура плёнки 80% VLT (очень светлая, почти прозрачная) -->
                 <div style="width: 100%; padding-bottom: 56.25%; position: relative; overflow: hidden;">
-                  <!-- Светлый базовый фон (почти белый для 80% VLT) -->
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #f8fcfd 0%, #e5f2f7 40%, #d4e8f0 100%);"></div>
+                  <!-- Очень светлый базовый фон для 80% VLT -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #f0f8ff 0%, #e8f4f8 30%, #e0f0f8 100%);"></div>
                   
-                  <!-- Легкая текстура плёнки -->
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(35,165,146,0.02) 2px, rgba(35,165,146,0.02) 4px); opacity: 0.5;"></div>
+                  <!-- Легкая текстура стекла -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.03) 3px, rgba(255,255,255,0.03) 6px); opacity: 0.4;"></div>
                   
-                  <!-- Блики (имитация стекла) -->
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 50%), radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.3) 0%, transparent 40%);"></div>
+                  <!-- Реалистичные блики от солнца -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 25% 25%, rgba(255,255,255,0.5) 0%, transparent 45%), radial-gradient(ellipse at 75% 65%, rgba(255,255,255,0.4) 0%, transparent 40%);"></div>
                   
-                  <!-- Минимальное затемнение (20%) -->
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.08);"></div>
+                  <!-- Минимальное затемнение 15% (80% светопропускания) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.15);"></div>
+                  
+                  <!-- Анимированный блик -->
+                  <div class="film-shine-overlay"></div>
                 </div>
                 
                 <!-- ЗАГОЛОВОК И ПОДЗАГОЛОВОК - левый верхний угол с отступом как в оригинале -->
@@ -354,12 +333,22 @@
           <div class="project-item">
             <a href="#project5" class="popup-with-zoom-anim">
               <figure class="position-relative">
-                <!-- Градиент + текстура плёнки 50% VLT (средняя) -->
+                <!-- Градиент + текстура плёнки 50% VLT (средняя тонировка) -->
                 <div style="width: 100%; padding-bottom: 56.25%; position: relative; overflow: hidden;">
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #e0eff5 0%, #b8d8e5 40%, #90c1d5 100%);"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(35,165,146,0.03) 2px, rgba(35,165,146,0.03) 4px); opacity: 0.5;"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%), radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.25) 0%, transparent 40%);"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.25);"></div>
+                  <!-- Средний базовый фон для 50% VLT -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #d0e8f0 0%, #b0d0e0 30%, #a0c8d8 100%);"></div>
+                  
+                  <!-- Текстура стекла -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.04) 6px); opacity: 0.5;"></div>
+                  
+                  <!-- Блики от солнца -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 25% 25%, rgba(255,255,255,0.35) 0%, transparent 45%), radial-gradient(ellipse at 75% 65%, rgba(255,255,255,0.3) 0%, transparent 40%);"></div>
+                  
+                  <!-- Затемнение 50% (50% светопропускания) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.35);"></div>
+                  
+                  <!-- Анимированный блик -->
+                  <div class="film-shine-overlay"></div>
                 </div>
                 
                 <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
@@ -400,10 +389,20 @@
               <figure class="position-relative">
                 <!-- Градиент + текстура плёнки 35% VLT (заметная тонировка) -->
                 <div style="width: 100%; padding-bottom: 56.25%; position: relative; overflow: hidden;">
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #c5dde8 0%, #95bed5 40%, #6fa0c0 100%);"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(35,165,146,0.04) 2px, rgba(35,165,146,0.04) 4px); opacity: 0.5;"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.25) 0%, transparent 50%), radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.2) 0%, transparent 40%);"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.35);"></div>
+                  <!-- Базовый фон для 35% VLT -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #b0d0e0 0%, #8ab0c8 30%, #7098b0 100%);"></div>
+                  
+                  <!-- Текстура стекла -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.05) 3px, rgba(255,255,255,0.05) 6px); opacity: 0.5;"></div>
+                  
+                  <!-- Блики от солнца (менее выражены) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 25% 25%, rgba(255,255,255,0.28) 0%, transparent 45%), radial-gradient(ellipse at 75% 65%, rgba(255,255,255,0.22) 0%, transparent 40%);"></div>
+                  
+                  <!-- Затемнение 65% (35% светопропускания) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.50);"></div>
+                  
+                  <!-- Анимированный блик -->
+                  <div class="film-shine-overlay"></div>
                 </div>
                 
                 <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
@@ -444,10 +443,20 @@
               <figure class="position-relative">
                 <!-- Градиент + текстура плёнки 15% VLT (темная) -->
                 <div style="width: 100%; padding-bottom: 56.25%; position: relative; overflow: hidden;">
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #a0c8d8 0%, #6fa0c0 40%, #4a7a98 100%);"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(35,165,146,0.05) 2px, rgba(35,165,146,0.05) 4px); opacity: 0.5;"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%), radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.15) 0%, transparent 40%);"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.50);"></div>
+                  <!-- Темный базовый фон для 15% VLT -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #8098a8 0%, #607888 30%, #506070 100%);"></div>
+                  
+                  <!-- Текстура стекла -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.06) 3px, rgba(255,255,255,0.06) 6px); opacity: 0.4;"></div>
+                  
+                  <!-- Слабые блики (темное стекло) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 25% 25%, rgba(255,255,255,0.2) 0%, transparent 45%), radial-gradient(ellipse at 75% 65%, rgba(255,255,255,0.15) 0%, transparent 40%);"></div>
+                  
+                  <!-- Сильное затемнение 85% (15% светопропускания) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.70);"></div>
+                  
+                  <!-- Анимированный блик -->
+                  <div class="film-shine-overlay"></div>
                 </div>
                 
                 <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
@@ -486,12 +495,22 @@
           <div class="project-item">
             <a href="#project8" class="popup-with-zoom-anim">
               <figure class="position-relative">
-                <!-- Градиент + текстура плёнки 5% VLT (лимузинная, очень темная) -->
+                <!-- Градиент + текстура плёнки 5% VLT (лимузинная, почти черная) -->
                 <div style="width: 100%; padding-bottom: 56.25%; position: relative; overflow: hidden;">
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #708898 0%, #4a6478 40%, #2d4558 100%);"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(35,165,146,0.06) 2px, rgba(35,165,146,0.06) 4px); opacity: 0.5;"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.1) 0%, transparent 40%);"></div>
-                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.70);"></div>
+                  <!-- Очень темный базовый фон для 5% VLT -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #505860 0%, #3a4550 30%, #283038 100%);"></div>
+                  
+                  <!-- Текстура стекла (едва заметна) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.04) 6px); opacity: 0.3;"></div>
+                  
+                  <!-- Минимальные блики (почти не видны) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 25% 25%, rgba(255,255,255,0.12) 0%, transparent 45%), radial-gradient(ellipse at 75% 65%, rgba(255,255,255,0.08) 0%, transparent 40%);"></div>
+                  
+                  <!-- Максимальное затемнение 95% (5% светопропускания) -->
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85);"></div>
+                  
+                  <!-- Анимированный блик -->
+                  <div class="film-shine-overlay"></div>
                 </div>
                 
                 <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
@@ -537,13 +556,39 @@
           <h2 class="mt-0" style="color: #343434;">RAYNO <span style="color: #23a592;">Centum 80</span></h2>
           <p style="color: #767676; font-size: 16px; margin-bottom: 2rem;">Керамическая атермальная плёнка</p>
           
-          <div class="mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
-            <p>
-              <strong>RAYNO Centum 80</strong> — это атермальная пленка для автомобилей на основе керамики, созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
-            </p>
-            <p>
-              Керамическая пленка позволяет достичь сочетания высокого светопропускания и мощного отражения солнечной энергии. Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
-            </p>
+          <div class="modal-content-wrapper">
+            <!-- Описание продукта -->
+            <div class="modal-description mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
+              <p>
+                <strong>RAYNO Centum 80</strong> — это атермальная пленка для автомобилей на основе керамики, созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
+              </p>
+              <p>
+                Керамическая пленка позволяет достичь сочетания высокого светопропускания и мощного отражения солнечной энергии. Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
+              </p>
+            </div>
+            
+            <!-- Характеристики плёнки -->
+            <div class="modal-characteristics mt-5 pt-4" style="border-top: 1px solid #e0e0e0;">
+              <h5 style="color: #343434; margin-bottom: 1.5rem; font-weight: 600;">Характеристики плёнки:</h5>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Пропускание видимого света:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">80%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Полное отражение солнечной энергии:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">39%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Отражение УФ лучей:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">99%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Отражение инфракрасного излучения:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">80%</strong>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -557,13 +602,39 @@
           <h2 class="mt-0" style="color: #343434;">RAYNO <span style="color: #23a592;">Monocarbon 50</span></h2>
           <p style="color: #767676; font-size: 16px; margin-bottom: 2rem;">Углеродная тонировочная плёнка</p>
           
-          <div class="mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
-            <p>
-              <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
-            </p>
-            <p>
-              Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
-            </p>
+          <div class="modal-content-wrapper">
+            <!-- Описание продукта -->
+            <div class="modal-description mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
+              <p>
+                <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
+              </p>
+              <p>
+                Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
+              </p>
+            </div>
+            
+            <!-- Характеристики плёнки -->
+            <div class="modal-characteristics mt-5 pt-4" style="border-top: 1px solid #e0e0e0;">
+              <h5 style="color: #343434; margin-bottom: 1.5rem; font-weight: 600;">Характеристики плёнки:</h5>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Пропускание видимого света:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">50%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Полное отражение солнечной энергии:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">28%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Отражение УФ лучей:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">99.9%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Блики:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">42%</strong>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -577,13 +648,39 @@
           <h2 class="mt-0" style="color: #343434;">RAYNO <span style="color: #23a592;">Monocarbon 35</span></h2>
           <p style="color: #767676; font-size: 16px; margin-bottom: 2rem;">Углеродная тонировочная плёнка</p>
           
-          <div class="mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
-            <p>
-              <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
-            </p>
-            <p>
-              Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
-            </p>
+          <div class="modal-content-wrapper">
+            <!-- Описание продукта -->
+            <div class="modal-description mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
+              <p>
+                <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
+              </p>
+              <p>
+                Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
+              </p>
+            </div>
+            
+            <!-- Характеристики плёнки -->
+            <div class="modal-characteristics mt-5 pt-4" style="border-top: 1px solid #e0e0e0;">
+              <h5 style="color: #343434; margin-bottom: 1.5rem; font-weight: 600;">Характеристики плёнки:</h5>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Пропускание видимого света:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">35%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Полное отражение солнечной энергии:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">35%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Отражение УФ лучей:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">99.9%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Блики:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">59%</strong>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -597,13 +694,39 @@
           <h2 class="mt-0" style="color: #343434;">RAYNO <span style="color: #23a592;">Monocarbon 15</span></h2>
           <p style="color: #767676; font-size: 16px; margin-bottom: 2rem;">Углеродная тонировочная плёнка</p>
           
-          <div class="mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
-            <p>
-              <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
-            </p>
-            <p>
-              Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
-            </p>
+          <div class="modal-content-wrapper">
+            <!-- Описание продукта -->
+            <div class="modal-description mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
+              <p>
+                <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
+              </p>
+              <p>
+                Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
+              </p>
+            </div>
+            
+            <!-- Характеристики плёнки -->
+            <div class="modal-characteristics mt-5 pt-4" style="border-top: 1px solid #e0e0e0;">
+              <h5 style="color: #343434; margin-bottom: 1.5rem; font-weight: 600;">Характеристики плёнки:</h5>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Пропускание видимого света:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">15%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Полное отражение солнечной энергии:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">45%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Отражение УФ лучей:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">99.9%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Блики:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">80%</strong>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -617,13 +740,39 @@
           <h2 class="mt-0" style="color: #343434;">RAYNO <span style="color: #23a592;">Monocarbon 05</span></h2>
           <p style="color: #767676; font-size: 16px; margin-bottom: 2rem;">Углеродная тонировочная плёнка</p>
           
-          <div class="mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
-            <p>
-              <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
-            </p>
-            <p>
-              Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
-            </p>
+          <div class="modal-content-wrapper">
+            <!-- Описание продукта -->
+            <div class="modal-description mt-4 pt-2" style="color: #343434; font-size: 16px; line-height: 1.8;">
+              <p>
+                <strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.
+              </p>
+              <p>
+                Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%! Плюс вы получите повышенную защиту от ультрафиолетовых лучей, потрясающую видимость и комфортную температуру в салоне без дополнительных затрат!
+              </p>
+            </div>
+            
+            <!-- Характеристики плёнки -->
+            <div class="modal-characteristics mt-5 pt-4" style="border-top: 1px solid #e0e0e0;">
+              <h5 style="color: #343434; margin-bottom: 1.5rem; font-weight: 600;">Характеристики плёнки:</h5>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Пропускание видимого света:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">5%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Полное отражение солнечной энергии:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">54%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Отражение УФ лучей:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">99.9%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="color: #343434; font-size: 15px;">Блики:</span>
+                  <strong style="color: #23a592; font-size: 18px; margin-left: 10px;">95%</strong>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

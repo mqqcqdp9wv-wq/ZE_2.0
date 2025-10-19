@@ -2,6 +2,16 @@
    CONTACT FORM STYLES - HYBRID VERSION
    =================================== */
 
+/* Intro Text - центрированный */
+.form-intro-text {
+  text-align: center;
+  line-height: 1.6;
+  color: #555;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Goal Selection Cards */
 .goal-cards {
   display: grid;
@@ -153,6 +163,25 @@
   box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.15);
 }
 
+/* Placeholder styles - менее яркий текст */
+.contact-form .form-control::placeholder {
+  color: #999;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.contact-form .form-control::-webkit-input-placeholder {
+  color: #999;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.contact-form .form-control::-moz-placeholder {
+  color: #999;
+  opacity: 0.7;
+  font-style: italic;
+}
+
 .contact-form select.form-control {
   cursor: pointer;
 }
@@ -290,6 +319,25 @@
 
 .modal-header {
   padding-bottom: 1.2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.modal-title {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.modal-header .close {
+  position: absolute;
+  right: 1.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
 }
 
 .modal-header .close:focus {

@@ -39,7 +39,8 @@
         <a class="navbar-brand" href="#">ze.studio</a>
           <ul class="navbar-nav-desctop mr-auto d-none d-lg-block">
             <li><a class="nav-link" href="#about">О нас</a></li>
-            <li><a class="nav-link" href="#rayno">Плёнки</a></li>
+            <li><a class="nav-link" href="#rayno">Пленки</a></li>
+            <li><a class="nav-link" href="#services">Услуги</a></li>
             <li><a class="nav-link" href="#news">Новости</a></li>
             <li><a class="nav-link" href="#contact">Контакты</a></li>
           </ul>
@@ -76,7 +77,8 @@
 
       <ul class="navbar-nav navbar-nav-mobile">
         <li><a class="nav-link" href="#about">О нас</a></li>
-        <li><a class="nav-link" href="#rayno">Плёнки</a></li>
+        <li><a class="nav-link" href="#rayno">Пленки</a></li>
+        <li><a class="nav-link" href="#services">Услуги</a></li>
         <li><a class="nav-link" href="#news">Новости</a></li>
         <li><a class="nav-link" href="#contact">Контакты</a></li>
        </ul>
@@ -129,36 +131,6 @@
             </div>
           </div>
         </section>
-     </div>
-    </section>
-
-    <!-- Services / Specialization -->
-    <section id="services" class="section bg-dark">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="text-white d-none">Наши <span class="text-primary">услуги</span></h2>
-        </div>
-        <div class="mt-5 pt-5">
-          <div class="row">
-            <div class="col-md-4 mb-4 mb-md-0 text-center" data-aos="fade-up">
-              <ion-icon class="text-primary" name="finger-print-outline" style="font-size: 64px;"></ion-icon>
-              <h6 class="text-white text-uppercase mt-4">БЕРЕЖНАЯ ТЕХНОЛОГИЯ</h6>
-              <p class="text-white-50">Тонирую без разбора дверей и снятия стёкол. Заводская посадка не нарушается, клипсы остаются целыми. Бережно и безопасно.</p>
-            </div>
-            <div class="col-md-4 mb-4 mb-md-0 text-center" data-aos="fade-up" data-aos-delay="100">
-              <ion-icon class="text-primary" name="logo-sass" style="font-size: 64px;"></ion-icon>
-              <h6 class="text-white text-uppercase mt-4">БЫСТРО И КАЧЕСТВЕННО</h6>
-              <p class="text-white-50">Среднее время работы — 1 час. Быстро не значит плохо, это значит профессионально. Уровень мастера с многолетним опытом.</p>
-            </div>
-            <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
-              <ion-icon class="text-primary" name="calendar-outline" style="font-size: 64px;"></ion-icon>
-              <h6 class="text-white text-uppercase mt-4">УДОБНОЕ ВРЕМЯ ДЛЯ ВАС</h6>
-              <p class="text-white-50">Работаю каждый день по записи. Вы выбираете удобное время, приезжаете без очередей. Гибкий подход к графику каждого клиента.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
      <!-- RAYNO -->
      <section id="rayno" class="section pb-0">
       <div class="container">
@@ -213,8 +185,78 @@
       </div>
     </section>
 
+    <!-- Services / Specialization -->
+    <section id="services" class="section bg-dark">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="text-white d-none">Наши <span class="text-primary">услуги</span></h2>
+        </div>
+        <div class="mt-5 pt-5">
+          <div class="row">
+            <div class="col-md-4 mb-4 mb-md-0 text-center" data-aos="fade-up">
+              <ion-icon class="text-primary" name="finger-print-outline" style="font-size: 64px;"></ion-icon>
+              <h6 class="text-white text-uppercase mt-4">БЕРЕЖНАЯ ТЕХНОЛОГИЯ</h6>
+              <p class="text-white-50">Тонирую без разбора дверей и снятия стёкол. Заводская посадка не нарушается, клипсы остаются целыми. Бережно и безопасно.</p>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0 text-center" data-aos="fade-up" data-aos-delay="100">
+              <ion-icon class="text-primary" name="logo-sass" style="font-size: 64px;"></ion-icon>
+              <h6 class="text-white text-uppercase mt-4">БЫСТРО И КАЧЕСТВЕННО</h6>
+              <p class="text-white-50">Среднее время работы — 1 час. Быстро не значит плохо, это значит профессионально. Уровень мастера с многолетним опытом.</p>
+            </div>
+            <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
+              <ion-icon class="text-primary" name="calendar-outline" style="font-size: 64px;"></ion-icon>
+              <h6 class="text-white text-uppercase mt-4">УДОБНОЕ ВРЕМЯ ДЛЯ ВАС</h6>
+              <p class="text-white-50">Работаю каждый день по записи. Вы выбираете удобное время, приезжаете без очередей. Гибкий подход к графику каждого клиента.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- News -->
+    <section id="news" class="section bg-light">
+     <div class="container">
+        <div class="text-center col-md-8 col-lg-6 offset-md-2 offset-lg-3" data-aos="fade-up">
+         <h2>Последние <span class="mark"><span>новости</span></span></h2>
+       </div>
+        <div class="mt-5 pt-5">
+          <div class="row-news row">
+            <div class="col-news col-md-6 col-lg-4" data-aos="fade-in" data-aos-delay="0">
+              <figure class="position-relative">
+                <div class="position-relative">
+                  <mark class="date">14.10.2024</mark>
+                </div>
+                <figcaption><h5><a href="">Luxury атермальная плёнка RAYNO CENTUM</a></h5>В студии появилась премиальная атермальная плёнка RAYNO CENTUM — максимальная защита от жары и UV при высокой светопропускаемости. Комфорт и стиль!
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-news col-md-6 col-lg-4" data-aos="fade-in" data-aos-delay="100">
+              <figure class="position-relative">
+                <div class="position-relative">
+                  <mark class="date">22.08.2024</mark>
+                </div>
+                <figcaption><h5><a href="">Новая плёнка RAYNO MONOCARBON</a></h5>
+                В наличии премиальная карбоновая плёнка RAYNO MONOCARBON — без красителей и металлов, выцветание менее 1% за 10 лет.
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-news col-md-6 col-lg-4" data-aos="fade-in" data-aos-delay="200">
+              <figure class="position-relative">
+                <div class="position-relative">
+                  <mark class="date">05.07.2024</mark>
+                </div>
+                <figcaption><h5><a href="">Последний рулон LLUMAR ATR 05</a></h5>Последний рулон плёнки LLUMAR ATR 05 CH SR HPR. Студия переходит на новые премиальные материалы RAYNO.
+                </figcaption>
+              </figure>
+            </div>
+         </div>
+        </div>
+      </div>
+    </section>
+
+
+    
+    <!-- Projects -->
     <!-- БЛОК Витрина плёнок RAYNO -->
     <section id="projects" class="section">
      <div class="container">
@@ -507,47 +549,6 @@
        </div>
       </div>
     </section>
-
-    <section id="news" class="section bg-light">
-     <div class="container">
-        <div class="text-center col-md-8 col-lg-6 offset-md-2 offset-lg-3" data-aos="fade-up">
-         <h2>Последние <span class="mark"><span>новости</span></span></h2>
-       </div>
-        <div class="mt-5 pt-5">
-          <div class="row-news row">
-            <div class="col-news col-md-6 col-lg-4" data-aos="fade-in" data-aos-delay="0">
-              <figure class="position-relative">
-                <div class="position-relative">
-                  <mark class="date">14.10.2024</mark>
-                </div>
-                <figcaption><h5><a href="">Luxury атермальная плёнка RAYNO CENTUM</a></h5>В студии появилась премиальная атермальная плёнка RAYNO CENTUM — максимальная защита от жары и UV при высокой светопропускаемости. Комфорт и стиль!
-                </figcaption>
-              </figure>
-            </div>
-            <div class="col-news col-md-6 col-lg-4" data-aos="fade-in" data-aos-delay="100">
-              <figure class="position-relative">
-                <div class="position-relative">
-                  <mark class="date">22.08.2024</mark>
-                </div>
-                <figcaption><h5><a href="">Новая плёнка RAYNO MONOCARBON</a></h5>
-                В наличии премиальная карбоновая плёнка RAYNO MONOCARBON — без красителей и металлов, выцветание менее 1% за 10 лет.
-                </figcaption>
-              </figure>
-            </div>
-            <div class="col-news col-md-6 col-lg-4" data-aos="fade-in" data-aos-delay="200">
-              <figure class="position-relative">
-                <div class="position-relative">
-                  <mark class="date">05.07.2024</mark>
-                </div>
-                <figcaption><h5><a href="">Последний рулон LLUMAR ATR 05</a></h5>Последний рулон плёнки LLUMAR ATR 05 CH SR HPR. Студия переходит на новые премиальные материалы RAYNO.
-                </figcaption>
-              </figure>
-            </div>
-         </div>
-        </div>
-      </div>
-    </section>
-
 
     <!-- Modal: RAYNO centum 80 -->
     <div id="project2" class="container mfp-hide zoom-anim-dialog">
@@ -904,21 +905,17 @@
             <div class="col-md-6 col-lg-3">
               <h6 class="text-white mb-4">Я в соцсетях:</h6>
               <ul class="social-icons">
+               <li><a href="tel:+79158582115" title="Позвонить"><ion-icon name="call-outline"></ion-icon></a></li>
                <li><a href="https://wa.me/79158582115" target="_blank" title="WhatsApp"><ion-icon name="logo-whatsapp"></ion-icon></a></li>
                <li><a href="https://vk.com/tonirowka48" target="_blank" title="ВКонтакте"><ion-icon name="logo-vk"></ion-icon></a></li>
                <li><a href="https://instagram.com/ze.studio48" target="_blank" title="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
             </ul>
             </div>
             <div class="col-md-6 col-lg-3">
-              <h6 class="text-white mb-4">Быстрая связь:</h6>
-              <div class="quick-contact-buttons">
-                <a href="tel:+79158582115" class="btn-icon-circle" title="Позвонить">
-                  <ion-icon name="call-outline"></ion-icon>
-                </a>
-                <button type="button" class="btn-icon-circle" data-toggle="modal" data-target="#send-request" title="Оставить сообщение">
-                  <ion-icon name="mail-outline"></ion-icon>
-                </button>
-              </div>
+              <h6 class="text-white mb-4">Режим работы:</h6>
+              <p class="text-white mb-2">Ежедневно</p>
+              <p class="text-white-50 small">с 9:00 до 21:00</p>
+              <p class="text-white-50 small mt-3">Записывайтесь по телефону или через мессенджеры</p>
             </div>
           </div>
         </div>

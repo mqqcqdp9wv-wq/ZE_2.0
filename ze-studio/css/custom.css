@@ -32,6 +32,74 @@
   color: #fff !important;
 }
 
+/* Bootstrap outline primary button override */
+.btn-outline-primary {
+  background-color: transparent !important;
+  border: 2px solid #23a592 !important;
+  color: #23a592 !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #23a592 !important;
+  color: #fff !important;
+  border-color: #23a592 !important;
+}
+
+/* Quick contact buttons container */
+.quick-contact-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Circular icon button for footer */
+.btn-icon-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent !important;
+  border: 2px solid #23a592 !important;
+  color: #23a592 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  text-decoration: none !important;
+}
+
+.btn-icon-circle ion-icon {
+  font-size: 24px;
+  color: #23a592 !important;
+}
+
+.btn-icon-circle:hover {
+  background-color: #23a592 !important;
+  border-color: #23a592 !important;
+}
+
+.btn-icon-circle:hover ion-icon {
+  color: #fff !important;
+}
+
+.btn-icon-circle:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(35, 165, 146, 0.3);
+}
+
+/* Mobile specific styles for icon button */
+@media (max-width: 768px) {
+  .btn-icon-circle {
+    background-color: transparent !important;
+    border: 2px solid #23a592 !important;
+  }
+  
+  .btn-icon-circle ion-icon {
+    color: #23a592 !important;
+  }
+}
+
 /* Gold stars for testimonials */
 .stars .fa-star {
   color: #FFD700;

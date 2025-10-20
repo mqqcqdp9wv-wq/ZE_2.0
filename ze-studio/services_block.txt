@@ -1,0 +1,27 @@
+    <!-- Services / Specialization -->
+    <section id="services" class="section bg-dark">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="text-white d-none">Наши <span class="text-primary">услуги</span></h2>
+        </div>
+        <div class="mt-5 pt-5">
+          <div class="row">
+            <div class="col-md-4 mb-4 mb-md-0 text-center" data-aos="fade-up">
+              <ion-icon class="text-primary" name="finger-print-outline" style="font-size: 64px;"></ion-icon>
+              <h6 class="text-white text-uppercase mt-4">БЕРЕЖНАЯ ТЕХНОЛОГИЯ</h6>
+              <p class="text-white-50">Тонирую без разбора дверей и снятия стёкол. Заводская посадка не нарушается, клипсы остаются целыми. Бережно и безопасно.</p>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0 text-center" data-aos="fade-up" data-aos-delay="100">
+              <ion-icon class="text-primary" name="logo-sass" style="font-size: 64px;"></ion-icon>
+              <h6 class="text-white text-uppercase mt-4">БЫСТРО И КАЧЕСТВЕННО</h6>
+              <p class="text-white-50">Среднее время работы — 1 час. Быстро не значит плохо, это значит профессионально. Уровень мастера с многолетним опытом.</p>
+            </div>
+            <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
+              <ion-icon class="text-primary" name="calendar-outline" style="font-size: 64px;"></ion-icon>
+              <h6 class="text-white text-uppercase mt-4">УДОБНОЕ ВРЕМЯ ДЛЯ ВАС</h6>
+              <p class="text-white-50">Работаю каждый день по записи. Вы выбираете удобное время, приезжаете без очередей. Гибкий подход к графику каждого клиента.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

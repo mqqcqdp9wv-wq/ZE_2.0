@@ -1,6 +1,6 @@
 // Custom JavaScript for ZE-Studio
 
-// Progress bars animation on scroll
+// Progress bars animation on scroll (repeatable)
 document.addEventListener('DOMContentLoaded', function() {
   
   // Animate progress bars when they come into view
@@ -9,22 +9,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // Use Intersection Observer to detect when progress bars are visible
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      const progressBar = entry.target;
+      const targetWidth = progressBar.getAttribute('aria-valuenow') + '%';
+      
       if (entry.isIntersecting) {
-        const progressBar = entry.target;
-        const targetWidth = progressBar.getAttribute('aria-valuenow') + '%';
-        
-        // Delay animation slightly for better effect
+        // Animate to full width when visible
         setTimeout(() => {
           progressBar.style.width = targetWidth;
           progressBar.classList.add('animated');
         }, 200);
-        
-        // Unobserve after animation
-        observer.unobserve(progressBar);
+      } else {
+        // Reset to 0 when out of view (for re-animation)
+        progressBar.style.width = '0%';
+        progressBar.classList.remove('animated');
       }
     });
   }, {
-    threshold: 0.5 // Trigger when 50% of element is visible
+    threshold: 0.3 // Trigger when 30% of element is visible
   });
   
   // Observe all progress bars

@@ -61,27 +61,50 @@
   animation-delay: 1.5s;
 }
 
-/* Phone button specific animation - shake on hover */
+/* Phone button icon - constant ringing animation */
+.quick-contact-buttons .btn-icon-circle:first-child ion-icon {
+  animation: phone-ring-constant 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes phone-ring-constant {
+  0%, 10%, 100% { transform: rotate(0deg); }
+  2%, 6% { transform: rotate(-12deg); }
+  4%, 8% { transform: rotate(12deg); }
+}
+
+/* Phone button hover - intensified shake */
 .quick-contact-buttons .btn-icon-circle:first-child:hover ion-icon {
-  animation: phone-ring 0.5s ease-in-out;
+  animation: phone-ring-hover 0.4s ease-in-out infinite;
 }
 
-@keyframes phone-ring {
-  0%, 100% { transform: rotate(0deg); }
-  10%, 30%, 50%, 70%, 90% { transform: rotate(-10deg); }
-  20%, 40%, 60%, 80% { transform: rotate(10deg); }
+@keyframes phone-ring-hover {
+  0%, 100% { transform: rotate(0deg) scale(1.1); }
+  25% { transform: rotate(-15deg) scale(1.15); }
+  75% { transform: rotate(15deg) scale(1.15); }
 }
 
-/* Mail button specific animation - bounce on hover */
-.quick-contact-buttons .btn-icon-circle:last-child:hover ion-icon {
-  animation: mail-bounce 0.6s ease-in-out;
+/* Mail button icon - constant gentle float animation */
+.quick-contact-buttons .btn-icon-circle:last-child ion-icon {
+  animation: mail-float-constant 3s ease-in-out infinite;
+  animation-delay: 2s;
 }
 
-@keyframes mail-bounce {
+@keyframes mail-float-constant {
   0%, 100% { transform: translateY(0); }
-  25% { transform: translateY(-8px); }
-  50% { transform: translateY(0); }
-  75% { transform: translateY(-4px); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Mail button hover - bounce animation */
+.quick-contact-buttons .btn-icon-circle:last-child:hover ion-icon {
+  animation: mail-bounce-hover 0.6s ease-in-out;
+}
+
+@keyframes mail-bounce-hover {
+  0%, 100% { transform: translateY(0) scale(1.1); }
+  25% { transform: translateY(-10px) scale(1.15); }
+  50% { transform: translateY(0) scale(1.1); }
+  75% { transform: translateY(-5px) scale(1.12); }
 }
 
 /* Circular icon button for footer */

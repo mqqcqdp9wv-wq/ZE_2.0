@@ -1,5 +1,17 @@
 /* Custom styles for ZE-Studio */
 
+/* Make VK icon lighter (outline style) */
+ion-icon[name="logo-vk"] {
+  -webkit-text-stroke: 1px currentColor;
+  -webkit-text-fill-color: transparent;
+  font-weight: normal;
+}
+
+/* For better visibility in footer */
+.footer ion-icon[name="logo-vk"] {
+  -webkit-text-stroke: 1.5px currentColor;
+}
+
 /* Progress bars animation */
 .progress-bar {
   width: 0%;

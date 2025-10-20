@@ -52,24 +52,7 @@
   align-items: center;
 }
 
-/* Quick contact buttons in mobile menu */
-.quick-contact-buttons-mobile {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0;
-  flex-wrap: wrap;
-}
 
-/* Disable constant animations for mobile menu buttons */
-.quick-contact-buttons-mobile .btn-icon-circle {
-  animation: none !important;
-}
-
-.quick-contact-buttons-mobile .btn-icon-circle ion-icon {
-  animation: none !important;
-}
 
 /* Individual button animations with delay */
 .quick-contact-buttons .btn-icon-circle:first-child {

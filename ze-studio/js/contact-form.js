@@ -212,10 +212,6 @@
     // Disable button and show loading
     $btn.prop('disabled', true).text('Отправляем... ⏳');
     
-    // Log to console
-    console.log('Form Data:', data);
-    console.log('Formatted Message:', formatTelegramMessage(data));
-    
     // Real AJAX request to Telegram backend (Custom Domain)
     $.ajax({
       url: 'https://bot.ze-studio48.ru',
@@ -225,7 +221,6 @@
       dataType: 'json',
       timeout: 10000,
       success: function(response) {
-        console.log('Success:', response);
         if (response.success) {
           showSuccess();
           clearSavedData();

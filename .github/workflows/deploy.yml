@@ -22,5 +22,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 7c29884944aa6b6c1a00905be02ec021
           projectName: ze-studio-production
-          directory: .
+          directory: ze-studio
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

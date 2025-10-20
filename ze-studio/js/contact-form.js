@@ -212,40 +212,36 @@
     // Disable button and show loading
     $btn.prop('disabled', true).text('Отправляем... ⏳');
     
-    // Log to console (for testing)
+    // Log to console
     console.log('Form Data:', data);
     console.log('Formatted Message:', formatTelegramMessage(data));
     
-    // Simulate AJAX request (replace with real endpoint)
-    setTimeout(function() {
-      // Simulate success (90% success rate for testing)
-      if (Math.random() > 0.1) {
-        showSuccess();
-        clearSavedData();
-      } else {
-        showError();
-      }
-      
-      // Re-enable button
-      $btn.prop('disabled', false).text(originalText);
-    }, 1500);
-    
-    /* REAL IMPLEMENTATION:
+    // Real AJAX request to Telegram backend
     $.ajax({
-      url: '/api/send-form.php', // Your backend endpoint
+      url: 'https://9001-itdase4sprh4qjvfj3yg6-0e616f0a.sandbox.novita.ai',
       method: 'POST',
-      data: data,
+      data: JSON.stringify(data),
+      contentType: 'application/json',
+      dataType: 'json',
+      timeout: 10000,
       success: function(response) {
-        showSuccess();
-        clearSavedData();
+        console.log('Success:', response);
+        if (response.success) {
+          showSuccess();
+          clearSavedData();
+        } else {
+          console.error('Backend error:', response.error);
+          showError();
+        }
         $btn.prop('disabled', false).text(originalText);
       },
-      error: function() {
+      error: function(xhr, status, error) {
+        console.error('AJAX Error:', status, error);
+        console.error('Response:', xhr.responseText);
         showError();
         $btn.prop('disabled', false).text(originalText);
       }
     });
-    */
   }
 
   function showSuccess() {

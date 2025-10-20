@@ -48,7 +48,7 @@
 /* Quick contact buttons container */
 .quick-contact-buttons {
   display: flex;
-  gap: 15px;
+  gap: 25px;
   align-items: center;
 }
 
@@ -147,7 +147,7 @@
   font-size: 24px !important;
   width: 24px !important;
   height: 24px !important;
-  color: #23a592 !important;
+  color: #ffffff !important;
   transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
   position: relative !important;
   z-index: 2 !important;
@@ -156,7 +156,7 @@
 
 /* Hover effects */
 .btn-icon-circle:hover {
-  background-color: #23a592 !important;
+  background-color: #ffffff !important;
   border-color: #23a592 !important;
   transform: scale(1.15) rotate(5deg);
   animation: none;
@@ -164,7 +164,7 @@
 }
 
 .btn-icon-circle:hover ion-icon {
-  color: #fff !important;
+  color: #23a592 !important;
   transform: scale(1.1) rotate(-5deg);
 }
 
@@ -210,7 +210,7 @@
   }
   
   .btn-icon-circle ion-icon {
-    color: #23a592 !important;
+    color: #ffffff !important;
     font-size: 24px !important;
   }
 }
@@ -225,7 +225,7 @@
   }
   
   .btn-icon-circle ion-icon {
-    color: #23a592 !important;
+    color: #ffffff !important;
     font-size: 24px !important;
   }
 }

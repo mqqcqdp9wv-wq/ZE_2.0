@@ -216,9 +216,9 @@
     console.log('Form Data:', data);
     console.log('Formatted Message:', formatTelegramMessage(data));
     
-    // Real AJAX request to Telegram backend (Cloudflare Worker)
+    // Real AJAX request to Telegram backend (Custom Domain)
     $.ajax({
-      url: 'https://ze-studio-telegram-bot.566znvfbyd.workers.dev',
+      url: 'https://bot.ze-studio48.ru',
       method: 'POST',
       data: JSON.stringify(data),
       contentType: 'application/json',

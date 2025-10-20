@@ -242,6 +242,12 @@
   function showSuccess() {
     $('#step-booking, #step-pricing, #step-question').hide();
     $('#step-success').show();
+    
+    // Отправка цели в Яндекс.Метрику
+    if (typeof ym !== 'undefined') {
+      ym(104717172, 'reachGoal', 'form_submit');
+      console.log('Яндекс.Метрика: Цель "form_submit" отправлена');
+    }
   }
 
   function showError() {

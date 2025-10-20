@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Telegram Integration</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/contact-form.css">
+  <style>
+    body {
+      padding: 50px;
+      background: #f5f5f5;
+    }
+    .test-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    .status-message {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+    }
+    .status-success {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+    }
+    .status-error {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      color: #721c24;
+    }
+    .test-info {
+      background: #e7f3ff;
+      border: 1px solid #b3d9ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="test-container">
+    <h2>🧪 Тест Telegram интеграции</h2>
+    <p class="text-muted">Проверка отправки заявок в Telegram</p>
+    
+    <div class="test-info">
+      <strong>📱 Bot:</strong> @ze_studio48bid_bot<br>
+      <strong>🔑 Token:</strong> 8223297194:AAG***<br>
+      <strong>📍 Chat ID:</strong> <span id="chat-id-display">8141249044 (Владислав)</span>
+    </div>
+    
+    <hr>
+    
+    <!-- Тестовая форма -->
+    <form id="test-form">
+      <h5 class="mb-3">Тестовая заявка на запись</h5>
+      
+      <div class="form-group">
+        <label>Имя *</label>
+        <input type="text" name="name" class="form-control" value="Тестовый клиент" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Телефон *</label>
+        <input type="tel" name="phone" class="form-control phone-mask" value="+7 (900) 123-45-67" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Автомобиль *</label>
+        <input type="text" name="car" class="form-control" value="BMW X5 2022" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Услуга</label>
+        <select name="service" class="form-control">
+          <option value="Полная тонировка">Полная тонировка</option>
+          <option value="Передние стёкла">Передние стёкла</option>
+          <option value="Задние стёкла">Задние стёкла</option>
+          <option value="Только заднее стекло">Только заднее стекло</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>Комментарий</label>
+        <textarea name="comment" class="form-control" rows="3">Тестовое сообщение для проверки интеграции</textarea>
+      </div>
+      
+      <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+        📤 Отправить тест в Telegram
+      </button>
+    </form>
+    
+    <!-- Статус сообщения -->
+    <div id="status-message" class="status-message"></div>
+    
+    <!-- Лог ответа -->
+    <div class="mt-4">
+      <h6>📋 Лог ответа от сервера:</h6>
+      <pre id="response-log" style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-size: 12px; max-height: 300px; overflow-y: auto;"></pre>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Phone mask
+    $('.phone-mask').on('input', function() {
+      let value = this.value.replace(/\D/g, '');
+      if (value.length > 0 && value[0] !== '7') {
+        value = '7' + value;
+      }
+      if (value.length > 11) {
+        value = value.slice(0, 11);
+      }
+      
+      let formatted = '+7';
+      if (value.length > 1) {
+        formatted += ' (' + value.slice(1, 4);
+      }
+      if (value.length >= 5) {
+        formatted += ') ' + value.slice(4, 7);
+      }
+      if (value.length >= 8) {
+        formatted += '-' + value.slice(7, 9);
+      }
+      if (value.length >= 10) {
+        formatted += '-' + value.slice(9, 11);
+      }
+      
+      this.value = formatted;
+    });
+    
+    // Form submit
+    $('#test-form').on('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = $('#submit-btn');
+      const statusMsg = $('#status-message');
+      const responseLog = $('#response-log');
+      
+      // Disable button
+      submitBtn.prop('disabled', true).text('⏳ Отправка...');
+      statusMsg.hide();
+      responseLog.text('Отправка запроса...');
+      
+      // Collect form data
+      const formData = {
+        goal: 'Запись на тонировку (ТЕСТ)',
+        name: $('input[name="name"]').val(),
+        phone: $('input[name="phone"]').val(),
+        car: $('input[name="car"]').val(),
+        service: $('select[name="service"]').val(),
+        comment: $('textarea[name="comment"]').val(),
+        timestamp: new Date().toLocaleString('ru-RU')
+      };
+      
+      console.log('Sending data:', formData);
+      responseLog.text(JSON.stringify(formData, null, 2));
+      
+      // Send to backend
+      $.ajax({
+        url: 'https://9001-itdase4sprh4qjvfj3yg6-0e616f0a.sandbox.novita.ai',
+        method: 'POST',
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function(response) {
+          console.log('Success:', response);
+          responseLog.text(JSON.stringify(response, null, 2));
+          
+          if (response.success) {
+            statusMsg
+              .removeClass('status-error')
+              .addClass('status-success')
+              .html('✅ <strong>Успех!</strong> Сообщение отправлено в Telegram')
+              .show();
+          } else {
+            statusMsg
+              .removeClass('status-success')
+              .addClass('status-error')
+              .html('❌ <strong>Ошибка:</strong> ' + (response.error || 'Неизвестная ошибка'))
+              .show();
+          }
+          
+          submitBtn.prop('disabled', false).text('📤 Отправить тест в Telegram');
+        },
+        error: function(xhr, status, error) {
+          console.error('Error:', error);
+          responseLog.text('Error: ' + error + '\n\nStatus: ' + status + '\n\nResponse: ' + xhr.responseText);
+          
+          statusMsg
+            .removeClass('status-success')
+            .addClass('status-error')
+            .html('❌ <strong>Ошибка сети:</strong> ' + error)
+            .show();
+          
+          submitBtn.prop('disabled', false).text('📤 Отправить тест в Telegram');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

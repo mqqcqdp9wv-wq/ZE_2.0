@@ -1,0 +1,7 @@
+name = "ze-studio-telegram-bot"
+main = "contact-form/cloudflare-worker.js"
+compatibility_date = "2024-10-20"
+account_id = "7c29884944aa6b6c1a00905be02ec021"
+
+[env.production]
+workers_dev = true

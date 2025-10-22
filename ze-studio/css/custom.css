@@ -533,3 +533,45 @@ ion-icon[name="logo-vk"] {
     opacity: 1 !important;
   }
 }
+
+/* Make phone icon same size as other icons */
+.social-icons ion-icon[name="call"] {
+  font-size: 1.2rem !important;
+}
+
+.navbar-mobile .social-icons ion-icon[name="call"] {
+  font-size: 1.2rem !important;
+}
+
+/* Custom WhatsApp SVG icon styling */
+.social-icons .whatsapp-icon {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Gray background for services section - more welcoming than black */
+.bg-gray {
+  background: #f5f5f5 !important;
+  color: #343434;
+}
+
+.bg-gray h6 {
+  color: #343434 !important;
+}
+
+.bg-gray p {
+  color: #666666 !important;
+}
+
+.bg-gray .text-primary {
+  color: #23a592 !important;
+}

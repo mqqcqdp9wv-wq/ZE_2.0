@@ -559,19 +559,20 @@ ion-icon[name="logo-vk"] {
 }
 
 /* Gray background for services section - more welcoming than black */
-.bg-gray {
+/* Применяется ТОЛЬКО к секции #services */
+section#services.bg-gray {
   background: #f5f5f5 !important;
   color: #343434;
 }
 
-.bg-gray h6 {
+section#services.bg-gray h6 {
   color: #343434 !important;
 }
 
-.bg-gray p {
+section#services.bg-gray p {
   color: #666666 !important;
 }
 
-.bg-gray .text-primary {
+section#services.bg-gray .text-primary {
   color: #23a592 !important;
 }

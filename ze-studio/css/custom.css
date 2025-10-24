@@ -576,3 +576,70 @@ section#services.bg-gray p {
 section#services.bg-gray .text-primary {
   color: #23a592 !important;
 }
+
+/* Адаптивная загрузка главного фото */
+/* Мобильные устройства (до 768px) */
+@media only screen and (max-width: 767px) {
+  .masthead.jarallax {
+    background-image: url('../img/bg/personal2-mobile.jpg?v=7') !important;
+  }
+}
+
+/* Планшеты (768px - 1279px) */
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .masthead.jarallax {
+    background-image: url('../img/bg/personal2-hd.jpg?v=6') !important;
+  }
+}
+
+/* Десктопы (1280px - 1919px) */
+@media only screen and (min-width: 1280px) and (max-width: 1919px) {
+  .masthead.jarallax {
+    background-image: url('../img/bg/personal2-fullhd.jpg?v=6') !important;
+  }
+}
+
+/* Большие экраны (1920px+) - 4K версия */
+@media only screen and (min-width: 1920px) {
+  .masthead.jarallax {
+    background-image: url('../img/bg/personal2.jpg?v=6') !important;
+  }
+}
+
+/* Поднять текст на главном экране вверх для центрирования по перчатке */
+.masthead .opener {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 5rem;
+}
+
+.masthead .opener .container {
+  margin-top: -16rem;
+}
+
+/* Затемняющий градиент для читаемости текста на мобильных */
+@media only screen and (max-width: 767px) {
+  .masthead::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 40%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .masthead .opener {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .masthead .opener .container {
+    position: relative;
+    z-index: 1;
+    margin-top: -10rem;
+  }
+}

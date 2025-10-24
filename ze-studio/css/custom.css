@@ -631,6 +631,17 @@ section#services.bg-gray .text-primary {
   margin-top: -16rem;
 }
 
+/* Фоновое изображение для цифры 18 в блоке "О себе" */
+.experience-number {
+  background-image: url('../img/bg/about-photo-2.jpg');
+  background-size: 200%;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Красный ярлык для новой новости */
 .date.red {
   background-color: #E63946 !important;

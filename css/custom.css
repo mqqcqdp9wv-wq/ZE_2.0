@@ -666,12 +666,15 @@ section#services.bg-gray .text-primary {
   .masthead .opener {
     position: relative;
     z-index: 1;
+    min-height: auto !important;
   }
   
   .masthead .opener .container {
     position: relative;
     z-index: 1;
-    margin-top: -10rem;
+    margin-top: 0 !important;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
   }
   
   /* Выравнивание текста в секции services по левому краю на мобильных */

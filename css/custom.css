@@ -633,13 +633,11 @@ section#services.bg-gray .text-primary {
 
 /* Фоновое изображение для цифры 18 в блоке "О себе" */
 .experience-number {
-  background-image: url('../img/bg/about-photo-2.jpg');
-  background-size: 200%;
-  background-position: center 30%;
-  background-repeat: no-repeat;
+  background: url('../img/bg/text-parallax.jpg') 50% 50% no-repeat;
+  background-size: cover;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* Красный ярлык для новой новости */

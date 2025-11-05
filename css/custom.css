@@ -689,3 +689,21 @@ section#services.bg-gray .text-primary {
     text-align: left !important;
   }
 }
+
+/* Убрать белое пространство после футера на мобильной */
+@media (max-width: 767px) {
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+  
+  footer {
+    margin-bottom: 0 !important;
+  }
+  
+  .footer-copy {
+    margin-bottom: 0 !important;
+    padding-bottom: 2rem !important;
+  }
+}

@@ -212,9 +212,9 @@
     // Disable button and show loading
     $btn.prop('disabled', true).text('Отправляем... ⏳');
     
-    // Real AJAX request to Telegram backend (Custom Domain)
+    // Real AJAX request to Telegram backend (Workers.dev URL)
     $.ajax({
-      url: 'https://bot.ze-studio48.ru',
+      url: 'https://ze-studio-telegram-bot.566znvfbyd.workers.dev',
       method: 'POST',
       data: JSON.stringify(data),
       contentType: 'application/json',

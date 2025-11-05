@@ -594,7 +594,7 @@ section#services.bg-gray .text-primary {
 /* Мобильные устройства (до 768px) */
 @media only screen and (max-width: 767px) {
   .masthead.jarallax {
-    background-image: url('../img/bg/personal2-mobile.jpg?v=newphoto1') !important;
+    background-image: url('../img/bg/personal2-mobile.jpg?v=newphoto2') !important;
   }
 }
 
@@ -730,6 +730,16 @@ section#services.bg-gray .text-primary {
   .masthead .lead,
   .masthead .masthead-description {
     color: #d0d0d0 !important;
+  }
+  
+  /* Скрыть описание на мобильных */
+  .masthead .desktop-only-description {
+    display: none !important;
+  }
+  
+  /* Убрать отступ сверху у заголовка на мобильных */
+  .masthead h1 {
+    margin-top: 4rem !important;
   }
   
   /* Выравнивание текста в секции services по левому краю на мобильных */

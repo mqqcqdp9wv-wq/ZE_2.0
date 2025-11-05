@@ -689,3 +689,10 @@ section#services.bg-gray .text-primary {
     text-align: left !important;
   }
 }
+
+/* Выравнивание текста в секции services по правому краю на десктопе */
+@media only screen and (min-width: 768px) {
+  section#services .text-center {
+    text-align: right !important;
+  }
+}

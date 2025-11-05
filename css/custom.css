@@ -683,4 +683,9 @@ section#services.bg-gray .text-primary {
     z-index: 1;
     margin-top: -10rem;
   }
+  
+  /* Выравнивание текста в секции services по левому краю на мобильных */
+  section#services .text-center {
+    text-align: left !important;
+  }
 }

@@ -113,7 +113,7 @@ h1 .mark,
   color: #fff;
   background-color: #343434;
   transform: rotate(-0.5deg);
-  padding: 0; background: none;
+  
 }
 
 h1 .mark:before,
@@ -1577,4 +1577,15 @@ footer .social-icons ion-icon{
   margin-bottom: 1rem;
   display: none;
   color:#23a592;
+}
+/* Dark overlay for light photos */
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
 }

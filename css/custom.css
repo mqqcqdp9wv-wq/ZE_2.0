@@ -594,7 +594,7 @@ section#services.bg-gray .text-primary {
 /* Мобильные устройства (до 768px) */
 @media only screen and (max-width: 767px) {
   .masthead.jarallax {
-    background-image: url('../img/bg/personal2-mobile.jpg?v=back4') !important;
+    background-image: url('../img/bg/personal2-mobile.jpg?v=final7') !important;
   }
 }
 
@@ -677,8 +677,8 @@ section#services.bg-gray .text-primary {
 /* Мобильная версия - градиент снизу до текста */
 @media only screen and (max-width: 767px) {
   .masthead {
-    background-size: 120% auto !important;
-    background-position: 10% center !important;
+    background-size: 320% auto !important;
+    background-position: 10% 30% !important;
   }
   
   .masthead::after {

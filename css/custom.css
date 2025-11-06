@@ -592,12 +592,90 @@ section#services.bg-gray .text-primary {
 
 /* Адаптивная загрузка главного фото */
 /* Мобильные устройства (до 768px) */
-/* Мобильная версия */
 @media only screen and (max-width: 767px) {
   .masthead.jarallax {
     background-image: url('../img/bg/personal2-mobile.jpg?v=back4') !important;
   }
+}
+
+/* Планшеты (768px - 1279px) */
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .masthead.jarallax {
+    background-image: url('../img/bg/personal2-hd.jpg?v=6') !important;
+  }
+}
+
+/* Десктопы (1280px - 1919px) */
+@media only screen and (min-width: 1280px) and (max-width: 1919px) {
+  .masthead.jarallax {
+    background-image: url('../img/bg/personal2-fullhd.jpg?v=6') !important;
+  }
+}
+
+/* Большие экраны (1920px+) - 4K версия */
+@media only screen and (min-width: 1920px) {
+  .masthead.jarallax {
+    background-image: url('../img/bg/personal2.jpg?v=6') !important;
+  }
+}
+
+/* Поднять текст на главном экране вверх для центрирования по перчатке */
+.masthead .opener {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 5rem;
+}
+
+.masthead .opener .container {
+  margin-top: -16rem;
+}
+
+/* Фоновое изображение для цифры 18 в блоке "О себе" */
+.experience-number {
+  background: url('../img/bg/text-parallax.jpg') 50% 50% no-repeat;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Красный ярлык для новой новости */
+.date.red {
+  background-color: #E63946 !important;
+}
+
+/* Улучшение читаемости текста на десктопе */
+@media only screen and (min-width: 768px) {
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
   
+  .masthead .opener {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .masthead .lead {
+    font-size: 1.375rem !important;
+    font-weight: 300 !important;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4), 
+                 0px 0px 8px rgba(0, 0, 0, 0.3) !important;
+    line-height: 1.8 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+}
+
+/* Мобильная версия - градиент снизу до текста */
+@media only screen and (max-width: 767px) {
   .masthead {
     background-size: 120% auto !important;
     background-position: 10% center !important;
@@ -670,89 +748,27 @@ section#services.bg-gray .text-primary {
   }
 }
 
-/* Планшеты (768px - 1279px) */
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .masthead.jarallax {
-    background-image: url('../img/bg/personal2-hd.jpg?v=6') !important;
-  }
-}
-
-/* Десктопы (1280px - 1919px) */
-@media only screen and (min-width: 1280px) and (max-width: 1919px) {
-  .masthead.jarallax {
-    background-image: url('../img/bg/personal2-fullhd.jpg?v=6') !important;
-  }
-}
-
-/* Большие экраны (1920px+) - 4K версия */
-@media only screen and (min-width: 1920px) {
-  .masthead.jarallax {
-    background-image: url('../img/bg/personal2.jpg?v=6') !important;
-  }
-}
-
-/* Поднять текст на главном экране вверх для центрирования по перчатке */
-.masthead .opener {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  padding-top: 5rem;
-}
-
-.masthead .opener .container {
-  margin-top: -16rem;
-}
-
-/* Фоновое изображение для цифры 18 в блоке "О себе" */
-.experience-number {
-  background-image: url('../img/bg/about-photo-2.jpg');
-  background-size: 200%;
-  background-position: center 30%;
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Красный ярлык для новой новости */
-.date.red {
-  background-color: #E63946 !important;
-}
-
-/* Улучшение читаемости текста на десктопе */
+/* Выравнивание текста в секции services по левому краю на десктопе */
 @media only screen and (min-width: 768px) {
-  .masthead .lead {
-    font-size: 1.375rem !important;
-    font-weight: 300 !important;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4), 
-                 0px 0px 8px rgba(0, 0, 0, 0.3) !important;
-    line-height: 1.8 !important;
-    color: rgba(255, 255, 255, 0.9) !important;
+  section#services .text-center {
+    text-align: left !important;
   }
 }
 
-/* Затемняющий градиент для читаемости текста на мобильных */
-@media only screen and (max-width: 767px) {
-  .masthead::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 40%, transparent 70%);
-    z-index: 0;
-    pointer-events: none;
+/* Убрать белое пространство после футера на мобильной */
+@media (max-width: 767px) {
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
   }
   
-  .masthead .opener {
-    position: relative;
-    z-index: 1;
+  footer {
+    margin-bottom: 0 !important;
   }
   
-  .masthead .opener .container {
-    position: relative;
-    z-index: 1;
-    margin-top: -10rem;
+  .footer-copy {
+    margin-bottom: 0 !important;
+    padding-bottom: 2rem !important;
   }
 }

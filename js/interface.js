@@ -1,4 +1,4 @@
-﻿( function($) {
+( function($) {
   'use strict';
   	
 
@@ -8,10 +8,12 @@
 	});
 
 
-	/* Parallax */
-	$('.jarallax').jarallax({
-	    speed: 0.75
-	});
+	/* Parallax - отключен на мобильных устройствах */
+	if ($(window).width() > 767) {
+		$('.jarallax').jarallax({
+		    speed: 0.75
+		});
+	}
 
     
 	/* Aos */

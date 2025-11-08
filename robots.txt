@@ -1,10 +1,13 @@
 User-agent: *
 Allow: /
 
+# Разрешить CSS и JS для правильного рендеринга
+Allow: /css/
+Allow: /js/
+Allow: /img/
+
 # Не индексировать служебные файлы
 Disallow: /vendor/
-Disallow: /css/
-Disallow: /js/
 
 # Sitemap
 Sitemap: https://ze-studio48.ru/sitemap.xml
@@ -12,6 +15,7 @@ Sitemap: https://ze-studio48.ru/sitemap.xml
 # Яндекс
 User-agent: Yandex
 Allow: /
+Crawl-delay: 0.5
 
 # Google
 User-agent: Googlebot

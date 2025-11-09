@@ -45,6 +45,12 @@
     <link rel="stylesheet" href="css/custom.css?v=test3">
     <link rel="stylesheet" href="css/contact-form.css">
 
+    <!-- Preload critical images for faster loading -->
+    <link rel="preload" as="image" href="img/bg/personal2-mobile.webp" type="image/webp" media="(max-width: 767px)">
+    <link rel="preload" as="image" href="img/bg/personal2-hd.webp" type="image/webp" media="(min-width: 768px) and (max-width: 1279px)">
+    <link rel="preload" as="image" href="img/bg/personal2-fullhd.webp" type="image/webp" media="(min-width: 1280px) and (max-width: 1919px)">
+    <link rel="preload" as="image" href="img/bg/personal2.webp" type="image/webp" media="(min-width: 1920px)">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -60,6 +66,19 @@
     <meta name="geo.position" content="52.60;39.57" />
     
     <title>Тонировка авто Липецк | ZE-STUDIO | RAYNO пленка | Елена Захарова</title>
+    
+    <!-- WebP detection script -->
+    <script>
+      (function() {
+        var webP = new Image();
+        webP.onload = webP.onerror = function() {
+          if (webP.height == 2) {
+            document.documentElement.classList.add('webp');
+          }
+        };
+        webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+      })();
+    </script>
   </head>
 <body>
   

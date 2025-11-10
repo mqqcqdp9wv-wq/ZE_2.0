@@ -2,7 +2,11 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta name="description" content="ZE-STUDIO – профессиональное тонирование автомобилей премиум плёнкой RAYNO в Липецке. Качественная тонировка стёкол, бронирование фар. Мастер Елена Захарова. Гарантия качества. ☎️ +7 (915) 858-21-15">
     <meta name="keywords" content="тонировка липецк, тонировка Липецк, тонирование автомобилей, тонировка RAYNO, пленка RAYNO Липецк, тонировка авто Липецк, бронирование фар, Елена Захарова тонировка, атермальная тонировка, ZE-STUDIO, тонировка цена Липецк">
     <meta name="author" content="Елена Захарова, ZE-STUDIO">
@@ -41,9 +45,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=2032">
-    <link rel="stylesheet" href="css/custom.css?v=test3">
+    <link rel="stylesheet" href="css/style.css?v=2034">
+    <link rel="stylesheet" href="css/custom.css?v=test4">
     <link rel="stylesheet" href="css/contact-form.css">
+    <link rel="stylesheet" href="css/tint-simulator.css?v=restored">
 
     <!-- Preload critical images for faster loading -->
     <link rel="preload" as="image" href="img/bg/personal2-mobile.webp" type="image/webp" media="(max-width: 767px)">
@@ -255,7 +260,7 @@
       </div>
     </section>
      <!-- RAYNO -->
-     <section id="rayno" class="section pb-0">
+     <section id="rayno" class="section">
       <div class="container">
         <div class="row align-items-end">
           <div class="col-md-6" data-aos="fade-up"><h2 class="mb-3 mb-md-0">Чем работаю</h2></div>
@@ -301,13 +306,103 @@
         </div>
       </div>
     </section>
+
+
+    <!-- ИНТЕРАКТИВНЫЙ СИМУЛЯТОР ТОНИРОВКИ -->
+    <section id="tint-simulator" class="section">
+      <div class="container">
+        <!-- Заголовок -->
+        <div class="simulator-header" data-aos="fade-up">
+          <h2>Подберите свою <span class="mark"><span>тонировку.</span></span></h2>
+          <p>Выберите уровень светопропускания и посмотрите, как будет выглядеть ваш автомобиль</p>
+        </div>
+
+        <!-- Превью машины с тонировкой -->
+        <div class="car-preview-wrapper" data-aos="fade-up" data-aos-delay="100">
+          <div class="car-preview">
+            <img src="img/car-new.png" alt="Автомобиль" class="car-image">
+            <!-- Тонировка стёкол (одна маска) -->
+            <div class="tint-overlay"></div>
+          </div>
+        </div>
+
+        <!-- Компактные характеристики + кнопка Подробнее -->
+        <div class="specs-wrapper" data-aos="fade-up" data-aos-delay="200">
+          <div class="specs-compact">
+            <!-- Заполнится после выбора VLT -->
+          </div>
+          <div class="vlt-indicator" style="display: none;">
+            Подробнее
+          </div>
+        </div>
+
+        <!-- Кнопки выбора VLT -->
+        <div class="vlt-controls" data-aos="fade-up" data-aos-delay="250">
+          <button class="vlt-btn" data-vlt="80">
+            <div class="vlt-btn-content">
+              <span class="vlt-value">80%</span>
+              <span class="film-name">Centum</span>
+            </div>
+          </button>
+          <button class="vlt-btn" data-vlt="50">
+            <div class="vlt-btn-content">
+              <span class="vlt-value">50%</span>
+              <span class="film-name">Monocarbon</span>
+            </div>
+          </button>
+          <button class="vlt-btn" data-vlt="35">
+            <div class="vlt-btn-content">
+              <span class="vlt-value">35%</span>
+              <span class="film-name">Monocarbon</span>
+            </div>
+          </button>
+          <button class="vlt-btn" data-vlt="15">
+            <div class="vlt-btn-content">
+              <span class="vlt-value">15%</span>
+              <span class="film-name">Monocarbon</span>
+            </div>
+          </button>
+          <button class="vlt-btn" data-vlt="5">
+            <div class="vlt-btn-content">
+              <span class="vlt-value">5%</span>
+              <span class="film-name">Monocarbon</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Название плёнки (скрыто - не нужно) -->
+        <div class="film-name-block" data-aos="fade-up" data-aos-delay="300" style="display: none;">
+          <h3 class="film-name-title"></h3>
+          <div class="film-type-subtitle"></div>
+        </div>
+
+        <!-- Модальное окно с детальной информацией -->
+        <div class="film-modal" id="filmModal">
+          <div class="film-modal-overlay" id="filmModalOverlay"></div>
+          <div class="film-modal-content">
+            <button class="film-modal-close" id="filmModalClose">&times;</button>
+            <div class="film-modal-body" id="filmModalBody">
+              <h4>О плёнке RAYNO Monocarbon 50</h4>
+              <p><strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона), созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.</p>
+              <p>Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%!</p>
+              <h4>Преимущества:</h4>
+              <ul>
+                <li>Настоящий углерод (карбон) в составе</li>
+                <li>Без красителей — стабильный цвет</li>
+                <li>Выцветание менее 1% за 10 лет</li>
+                <li>Универсальная средняя тонировка</li>
+                <li>Отличная видимость днём и ночью</li>
+              </ul>
+              <h4>Рекомендации:</h4>
+              <p>Универсальный выбор для боковых стёкол. Хороший баланс между приватностью и видимостью. Комфортное вождение в любое время суток.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-
-    <!-- News -->
-    <!-- БЛОК Витрина плёнок RAYNO -->
-    <section id="projects" class="section">
+    <!-- Старый блок карточек (оставлен для модальных окон) -->
+    <section id="projects-old" class="section" style="display: none;">
      <div class="container">
         <div class="text-center col-md-8 col-lg-6 offset-md-2 offset-lg-3">
           <h2 class="mb-3 mb-md-0" data-aos="fade-up">RAYNO <span class="mark"><span>MONOCARBON.</span></span></h2>
@@ -402,7 +497,7 @@
                 </div>
                 
                 <div class="film-card-title" style="position: absolute; top: 2rem; left: 2rem; pointer-events: none;">
-                  <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rem 0.5rem; margin: 0; font-weight: 700;">RAYNO Monocarbon 50</h3>
+                  <h3 style="color: #fff; display: inline-block; background: #343434; padding: 0.2rerem 0.5rem; margin: 0; font-weight: 700;">RAYNO Monocarbon 50</h3>
                   <p style="color: #fff; margin: 0; padding-left: 0.5rem; font-size: 14px;">Углеродная плёнка</p>
                 </div>
                 
@@ -1387,5 +1482,7 @@
 <script src="js/custom.js"></script>
 <script src="js/contact-form.js?v=workersfix1"></script>
 <script src="js/yandex-goals.js"></script>
+<script src="js/tint-simulator.js?v=final123"></script>
 </body>
 </html><!-- Auto-deploy test Mon Oct 20 08:41:37 UTC 2025 -->
+>

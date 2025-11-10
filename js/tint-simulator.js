@@ -118,29 +118,122 @@
       return;
     }
 
-    // По умолчанию БЕЗ выбора - пользователь должен выбрать сам
-    // Скрываем тонировку
-    if (tintOverlay) {
-      tintOverlay.style.opacity = 0;
+    // На мобильных - активируем среднюю кнопку (35%) по умолчанию
+    if (window.innerWidth <= 480) {
+      const defaultButton = document.querySelector('.vlt-btn[data-vlt="35"]');
+      if (defaultButton) {
+        defaultButton.classList.add('active');
+        updateSimulator(35);
+        
+        // Центрируем кнопку в карусели
+        setTimeout(() => {
+          const container = defaultButton.parentElement;
+          const scrollLeft = defaultButton.offsetLeft - (container.offsetWidth / 2) + (defaultButton.offsetWidth / 2);
+          container.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
+    } else {
+      // На десктопе - без выбора по умолчанию
+      if (tintOverlay) {
+        tintOverlay.style.opacity = 0;
+      }
+      if (vltIndicator) {
+        vltIndicator.style.display = 'none';
+      }
+    }
+
+    // Функция автофокуса на мобильных при скролле карусели
+    function updateButtonFocus() {
+      if (window.innerWidth > 480) return; // Только на мобильных
+      
+      const container = document.querySelector('.vlt-controls');
+      if (!container) return;
+      
+      const containerCenter = container.offsetWidth / 2 + container.scrollLeft;
+      let closestButton = null;
+      let minDistance = Infinity;
+      
+      buttons.forEach(button => {
+        const buttonCenter = button.offsetLeft + button.offsetWidth / 2;
+        const distance = Math.abs(containerCenter - buttonCenter);
+        
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestButton = button;
+        }
+      });
+      
+      // Обновляем активную кнопку только если это ближайшая к центру
+      if (closestButton && !closestButton.classList.contains('active')) {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        closestButton.classList.add('active');
+        updateSimulator(parseInt(closestButton.dataset.vlt));
+        
+        // Показываем характеристики после выбора
+        const specsWrapper = document.querySelector('.specs-wrapper');
+        if (specsWrapper) {
+          setTimeout(() => {
+            specsWrapper.classList.add('show');
+          }, 300);
+        }
+      }
     }
     
-    // Скрываем индикатор VLT
-    if (vltIndicator) {
-      vltIndicator.style.display = 'none';
+    // Слушаем скролл на мобильных для обновления фокуса
+    if (window.innerWidth <= 480) {
+      const container = document.querySelector('.vlt-controls');
+      if (container) {
+        let scrollTimeout;
+        
+        container.addEventListener('scroll', function() {
+          // Debounce для производительности
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(updateButtonFocus, 50);
+        });
+      }
     }
-    
-    // Характеристики останутся скрытыми (opacity: 0 в CSS)
 
     // Обработчики кликов на кнопки
     buttons.forEach(button => {
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function(event) {
         const vlt = parseInt(this.dataset.vlt);
+        const wasActive = this.classList.contains('active');
         
         // Убираем активный класс со всех кнопок
         buttons.forEach(btn => btn.classList.remove('active'));
         
         // Добавляем активный класс к текущей кнопке
         this.classList.add('active');
+        
+        // На мобильных
+        if (window.innerWidth <= 480) {
+          const container = this.parentElement;
+          const scrollLeft = this.offsetLeft - (container.offsetWidth / 2) + (this.offsetWidth / 2);
+          container.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+          });
+          
+          // Показываем характеристики
+          const specsWrapper = document.querySelector('.specs-wrapper');
+          if (specsWrapper) {
+            setTimeout(() => {
+              specsWrapper.classList.add('show');
+            }, 300);
+          }
+          
+          // Открываем модальное окно ТОЛЬКО при повторном клике на активную кнопку
+          if (wasActive) {
+            const modal = document.getElementById('filmModal');
+            if (modal) {
+              modal.classList.add('show');
+              document.body.style.overflow = 'hidden';
+            }
+          }
+        }
         
         // Обновляем симулятор
         updateSimulator(vlt);
@@ -214,11 +307,6 @@
         
         setTimeout(() => {
           let specsHTML = `
-          <div class="spec-compact-item">
-            <span class="spec-compact-value">${filmData.vlt}%</span>
-            <div class="spec-compact-label">VLT</div>
-            <div class="spec-compact-desc">Светопропускание</div>
-          </div>
           <div class="spec-compact-item">
             <span class="spec-compact-value">${filmData.tser}%</span>
             <div class="spec-compact-label">TSER</div>

@@ -118,18 +118,32 @@
       return;
     }
 
-    // По умолчанию БЕЗ выбора - пользователь должен выбрать сам
-    // Скрываем тонировку
-    if (tintOverlay) {
-      tintOverlay.style.opacity = 0;
+    // На мобильных - активируем центральную кнопку 35% по умолчанию
+    if (window.innerWidth <= 480) {
+      const defaultButton = document.querySelector('.vlt-btn[data-vlt="35"]');
+      if (defaultButton) {
+        defaultButton.classList.add('active');
+        updateSimulator(35);
+        
+        // Центрируем кнопку в карусели
+        setTimeout(() => {
+          const container = defaultButton.parentElement;
+          const scrollLeft = defaultButton.offsetLeft - (container.offsetWidth / 2) + (defaultButton.offsetWidth / 2);
+          container.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
+    } else {
+      // На десктопе - БЕЗ выбора, пользователь должен выбрать сам
+      if (tintOverlay) {
+        tintOverlay.style.opacity = 0;
+      }
+      if (vltIndicator) {
+        vltIndicator.style.display = 'none';
+      }
     }
-    
-    // Скрываем индикатор VLT
-    if (vltIndicator) {
-      vltIndicator.style.display = 'none';
-    }
-    
-    // Характеристики останутся скрытыми (opacity: 0 в CSS)
 
     // Функция обновления эффекта фокуса на кнопках (для мобильной карусели)
     let isScrolling = false;

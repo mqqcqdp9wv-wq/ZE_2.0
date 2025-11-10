@@ -118,96 +118,22 @@
       return;
     }
 
-    // На мобильных - активируем центральную кнопку 35% по умолчанию
-    if (window.innerWidth <= 480) {
-      const defaultButton = document.querySelector('.vlt-btn[data-vlt="35"]');
-      if (defaultButton) {
-        defaultButton.classList.add('active');
-        updateSimulator(35);
-        
-        // Центрируем кнопку в карусели
-        setTimeout(() => {
-          const container = defaultButton.parentElement;
-          const scrollLeft = defaultButton.offsetLeft - (container.offsetWidth / 2) + (defaultButton.offsetWidth / 2);
-          container.scrollTo({
-            left: scrollLeft,
-            behavior: 'smooth'
-          });
-        }, 100);
-      }
-    } else {
-      // На десктопе - БЕЗ выбора, пользователь должен выбрать сам
-      if (tintOverlay) {
-        tintOverlay.style.opacity = 0;
-      }
-      if (vltIndicator) {
-        vltIndicator.style.display = 'none';
-      }
-    }
-
-    // Функция обновления эффекта фокуса на кнопках (для мобильной карусели)
-    let isScrolling = false;
-    
-    function updateButtonFocus() {
-      if (window.innerWidth > 480) return; // Только на мобильных
-      
-      const container = document.querySelector('.vlt-controls');
-      if (!container) return;
-      
-      const containerCenter = container.offsetWidth / 2 + container.scrollLeft;
-      let closestButton = null;
-      let minDistance = Infinity;
-      
-      buttons.forEach(button => {
-        const buttonCenter = button.offsetLeft + button.offsetWidth / 2;
-        const distance = Math.abs(containerCenter - buttonCenter);
-        
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestButton = button;
-        }
-      });
-      
-      // Обновляем активную кнопку только если это ближайшая к центру
-      if (closestButton && !closestButton.classList.contains('active')) {
-        buttons.forEach(btn => btn.classList.remove('active'));
-        closestButton.classList.add('active');
-        updateSimulator(parseInt(closestButton.dataset.vlt));
-        
-        // Показываем характеристики после выбора
-        const specsWrapper = document.querySelector('.specs-wrapper');
-        if (specsWrapper) {
-          setTimeout(() => {
-            specsWrapper.classList.add('show');
-          }, 300);
-        }
-      }
+    // По умолчанию БЕЗ выбора - пользователь должен выбрать сам
+    // Скрываем тонировку
+    if (tintOverlay) {
+      tintOverlay.style.opacity = 0;
     }
     
-    // Слушаем скролл на мобильных для обновления фокуса
-    if (window.innerWidth <= 480) {
-      const container = document.querySelector('.vlt-controls');
-      if (container) {
-        let scrollTimeout;
-        
-        container.addEventListener('scroll', function() {
-          // Debounce для производительности
-          clearTimeout(scrollTimeout);
-          scrollTimeout = setTimeout(updateButtonFocus, 50);
-        });
-        
-        // Инициализируем фокус при загрузке
-        setTimeout(updateButtonFocus, 100);
-      }
+    // Скрываем индикатор VLT
+    if (vltIndicator) {
+      vltIndicator.style.display = 'none';
     }
+    
+    // Характеристики останутся скрытыми (opacity: 0 в CSS)
 
     // Обработчики кликов на кнопки
     buttons.forEach(button => {
-      button.addEventListener('click', function(event) {
-        // Предотвращаем стандартное поведение и скролл вверх
-        event.preventDefault();
-        event.stopPropagation();
-        
+      button.addEventListener('click', function() {
         const vlt = parseInt(this.dataset.vlt);
         
         // Убираем активный класс со всех кнопок
@@ -216,28 +142,8 @@
         // Добавляем активный класс к текущей кнопке
         this.classList.add('active');
         
-        // На мобильных - прокручиваем к выбранной кнопке (центрирование)
-        if (window.innerWidth <= 480) {
-          const container = this.parentElement;
-          const scrollLeft = this.offsetLeft - (container.offsetWidth / 2) + (this.offsetWidth / 2);
-          container.scrollTo({
-            left: scrollLeft,
-            behavior: 'smooth'
-          });
-        }
-        
         // Обновляем симулятор
         updateSimulator(vlt);
-        
-        // Показываем характеристики при клике на мобильных
-        if (window.innerWidth <= 480) {
-          const specsWrapper = document.querySelector('.specs-wrapper');
-          if (specsWrapper) {
-            setTimeout(() => {
-              specsWrapper.classList.add('show');
-            }, 300);
-          }
-        }
 
         // Яндекс Метрика цель (если подключена)
         if (typeof ym !== 'undefined') {
@@ -462,8 +368,5 @@
   }
 
   // Инициализация модального окна после загрузки DOM
-  document.addEventListener('DOMContentLoaded', initModal);
-})();
-�ьного окна после загрузки DOM
   document.addEventListener('DOMContentLoaded', initModal);
 })();

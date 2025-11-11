@@ -834,4 +834,10 @@ section#services.bg-gray .text-primary {
     margin-bottom: 0 !important;
     padding-bottom: 2rem !important;
   }
+  
+  /* Кнопка меню слева на мобильных */
+  .toggler {
+    margin-right: 1rem !important;
+    order: -1; /* Перемещаем в начало flexbox */
+  }
 }

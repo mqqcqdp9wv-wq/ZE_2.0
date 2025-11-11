@@ -846,4 +846,28 @@ section#services.bg-gray .text-primary {
     margin-left: auto !important;
     margin-right: 0 !important;
   }
+  
+  /* Мобильное меню выезжает СЛЕВА */
+  .navbar-mobile {
+    left: 0 !important;
+    right: auto !important;
+    -webkit-transform: translateX(-100%) !important;
+    -ms-transform: translateX(-100%) !important;
+    -o-transform: translateX(-100%) !important;
+    transform: translateX(-100%) !important;
+  }
+  
+  /* Когда меню открыто */
+  .menu-is-open .navbar-mobile {
+    -webkit-transform: translateX(0) !important;
+    -ms-transform: translateX(0) !important;
+    -o-transform: translateX(0) !important;
+    transform: translateX(0) !important;
+  }
+  
+  /* Кнопка закрытия меню слева */
+  .navbar-mobile .close {
+    left: 1rem !important;
+    right: auto !important;
+  }
 }

@@ -840,4 +840,10 @@ section#services.bg-gray .text-primary {
     margin-right: 1rem !important;
     order: -1; /* Перемещаем в начало flexbox */
   }
+  
+  /* Логотип справа на мобильных */
+  .navbar-brand {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
 }

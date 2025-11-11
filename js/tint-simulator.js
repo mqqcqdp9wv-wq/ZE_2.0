@@ -208,7 +208,7 @@
         // Добавляем активный класс к текущей кнопке
         this.classList.add('active');
         
-        // На мобильных
+        // На мобильных - прокрутка карусели
         if (window.innerWidth <= 480) {
           const container = this.parentElement;
           const scrollLeft = this.offsetLeft - (container.offsetWidth / 2) + (this.offsetWidth / 2);
@@ -216,22 +216,22 @@
             left: scrollLeft,
             behavior: 'smooth'
           });
-          
-          // Показываем характеристики
-          const specsWrapper = document.querySelector('.specs-wrapper');
-          if (specsWrapper) {
-            setTimeout(() => {
-              specsWrapper.classList.add('show');
-            }, 300);
-          }
-          
-          // Открываем модальное окно ТОЛЬКО при повторном клике на активную кнопку
-          if (wasActive) {
-            const modal = document.getElementById('filmModal');
-            if (modal) {
-              modal.classList.add('show');
-              document.body.style.overflow = 'hidden';
-            }
+        }
+        
+        // Показываем характеристики (для всех устройств)
+        const specsWrapper = document.querySelector('.specs-wrapper');
+        if (specsWrapper) {
+          setTimeout(() => {
+            specsWrapper.classList.add('show');
+          }, 300);
+        }
+        
+        // Открываем модальное окно ТОЛЬКО при повторном клике (для всех устройств)
+        if (wasActive) {
+          const modal = document.getElementById('filmModal');
+          if (modal) {
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
           }
         }
         

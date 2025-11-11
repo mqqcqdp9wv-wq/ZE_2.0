@@ -18,7 +18,7 @@
 
 /* Заголовок секции */
 .simulator-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 60px;
 }
 
@@ -29,18 +29,49 @@
   margin-bottom: 15px;
 }
 
+.simulator-header p {
+  font-size: 1.125rem;
+  color: #767676;
+  max-width: 600px;
+  margin: 0;
+}
+
 /* На десктопе можно увеличить */
 @media (min-width: 768px) {
+  .simulator-header {
+    text-align: center;
+  }
+
   .simulator-header h2 {
     font-size: 42px;
   }
+
+  .simulator-header p {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Скрываем кнопку "Подробнее" на десктопе - как на мобильной */
+  .vlt-indicator {
+    display: none !important;
+  }
+
+  /* Анимация дыхания для активной кнопки на десктопе */
+  .vlt-btn.active {
+    animation: breathe-btn-desktop 2.5s ease-in-out infinite;
+  }
 }
 
-.simulator-header p {
-  font-size: 16px;
-  color: #767676;
-  max-width: 600px;
-  margin: 0 auto;
+/* Анимация дыхания для десктопа */
+@keyframes breathe-btn-desktop {
+  0%, 100% {
+    transform: translateY(-3px) scale(1);
+    box-shadow: 0 8px 25px rgba(35, 165, 146, 0.35);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(35, 165, 146, 0.5);
+  }
 }
 
 /* Область превью машины */
@@ -56,7 +87,7 @@
 .specs-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 40px;
   max-width: 1000px;
   margin: 0 auto 20px;
@@ -75,9 +106,8 @@
 /* Компактные характеристики */
 .specs-compact {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 45px;
-  flex: 1;
 }
 
 .spec-compact-item {
@@ -230,6 +260,12 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  outline: none;
+}
+
+.vlt-btn:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .vlt-btn::before {
@@ -573,7 +609,7 @@
   }
 
   .simulator-header p {
-    font-size: 16px;
+    font-size: 1.125rem;
   }
 
   .car-preview-wrapper {
@@ -665,23 +701,30 @@
 }
 
 @media (max-width: 480px) {
+  /* Секция симулятора на мобильных */
+  #tint-simulator {
+    padding: 30px 0;
+  }
+
   /* Заголовок симулятора на мобильных */
   .simulator-header {
-    text-align: left;
-    margin-bottom: 30px;
-    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0;
   }
   
   .simulator-header h2 {
     /* Используем базовый размер h2 из style.css */
+    margin-bottom: 40px;
   }
   
   .simulator-header p {
     /* Описание по левому краю */
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1.5;
     max-width: 100%;
+    margin-bottom: 30px;
   }
 
   /* Машинка на мобильных - увеличиваем */

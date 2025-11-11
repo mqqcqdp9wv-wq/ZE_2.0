@@ -1,0 +1,374 @@
+/* ===================================
+   CONTACT FORM STYLES - HYBRID VERSION
+   =================================== */
+
+/* Intro Text - центрированный */
+.form-intro-text {
+  text-align: center;
+  line-height: 1.6;
+  color: #555;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Goal Selection Cards */
+.goal-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.goal-card {
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.goal-card:hover {
+  background: #fff;
+  border-color: #007bff;
+  -webkit-transform: translateY(-3px);
+  -moz-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,123,255,0.2);
+}
+
+.goal-card-wide {
+  grid-column: 1 / -1;
+}
+
+.goal-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.5;
+  padding: 10px 0;
+}
+
+/* Form Sections */
+.form-section {
+  margin-bottom: 25px;
+}
+
+.section-label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Custom Checkbox Styles */
+.checkbox-group,
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.custom-checkbox,
+.custom-radio {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 0;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.custom-checkbox input[type="checkbox"],
+.custom-radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  left: 0;
+  top: 2px;
+}
+
+.custom-checkbox span,
+.custom-radio span {
+  position: relative;
+  padding-left: 0;
+}
+
+.custom-checkbox span:before,
+.custom-radio span:before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox span:before {
+  border-radius: 4px;
+}
+
+.custom-radio span:before {
+  border-radius: 50%;
+}
+
+.custom-checkbox input:checked ~ span:before,
+.custom-radio input:checked ~ span:before {
+  background: #007bff;
+  border-color: #007bff;
+}
+
+.custom-checkbox input:checked ~ span:after {
+  content: '✓';
+  position: absolute;
+  left: -28px;
+  top: 2px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.custom-radio input:checked ~ span:after {
+  content: '';
+  position: absolute;
+  left: -26px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Form Controls */
+.contact-form .form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+}
+
+.contact-form .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.15);
+}
+
+/* Placeholder styles - менее яркий текст */
+.contact-form .form-control::placeholder {
+  color: #999;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.contact-form .form-control::-webkit-input-placeholder {
+  color: #999;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.contact-form .form-control::-moz-placeholder {
+  color: #999;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.contact-form select.form-control {
+  cursor: pointer;
+}
+
+/* Alert Info Box */
+.alert-info {
+  background-color: #e7f3ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+}
+
+.alert-info small {
+  color: #004085;
+  display: block;
+  line-height: 1.5;
+}
+
+/* Error Icon */
+.error-icon {
+  font-size: 72px;
+  margin-bottom: 20px;
+}
+
+/* Button Styles - синхронизированы с основным сайтом */
+.btn-primary,
+.btn-secondary {
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  display: inline-block;
+  border: 1px solid #23a592;
+  border-radius: 30px;
+  padding: 1.2em 2.4em 1.15em;
+  font-size: 0.875em;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #23a592;
+  transition: all 0.3s ease-out !important;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  color: #000;
+  background-color: transparent;
+  border-color: #23a592;
+  box-shadow: none;
+  outline: none !important;
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled {
+  background: #6c757d;
+  border-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-primary:disabled:hover,
+.btn-secondary:disabled:hover {
+  background: #6c757d;
+  color: #fff;
+}
+
+/* Step Content Animation */
+.step-content {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .goal-cards {
+    gap: 12px;
+  }
+  
+  .goal-card {
+    padding: 25px 15px;
+    min-height: 120px;
+  }
+  
+  .goal-text {
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  
+  .custom-checkbox,
+  .custom-radio {
+    font-size: 14px;
+  }
+  
+  .modal-dialog {
+    margin: 10px;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  /* Larger close button for mobile */
+  .modal-header .close {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 36px !important;
+    opacity: 0.8 !important;
+    padding: 0;
+    margin: -15px -15px -15px auto;
+  }
+}
+
+/* Modal styles - синхронизированы с основным сайтом */
+.modal-content {
+  border-radius: 30px;
+}
+
+.modal-header,
+.modal-body {
+  padding: 1.7rem;
+  border: 0;
+}
+
+.modal-header {
+  padding-bottom: 1.2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.modal-title {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.modal-header .close {
+  position: absolute;
+  right: 1.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+}
+
+.modal-header .close:focus {
+  outline: none;
+}
+
+.modal-body {
+  padding-top: 0;
+}
+
+/* Larger screens */
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 600px;
+  }
+}
+
+/* Privacy link styling */
+.custom-checkbox a,
+.custom-radio a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.custom-checkbox a:hover,
+.custom-radio a:hover {
+  color: #0056b3;
+}

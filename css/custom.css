@@ -1052,7 +1052,7 @@ section#services.bg-gray .text-primary {
 /* Зум изображения/видео при hover */
 .news-card:hover .news-image img,
 .news-card:hover .news-image video {
-  transform: scale(1.05);
+  transform: scale(1.1) !important;
 }
 
 /* Градиент внизу для читаемости текста */
@@ -1156,7 +1156,7 @@ section#services.bg-gray .text-primary {
   }
   
   .news-card figure {
-    height: 580px;
+    height: 620px;
   }
   
   .news-tab {

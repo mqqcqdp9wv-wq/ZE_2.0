@@ -816,7 +816,7 @@ section#services.bg-gray .text-primary {
   
   /* Опустить заголовок ниже на мобильных */
   .masthead h1 {
-    margin-top: 12rem !important;
+    margin-top: 8rem !important;
   }
   
   /* Выравнивание текста в секции services по левому краю на мобильных */

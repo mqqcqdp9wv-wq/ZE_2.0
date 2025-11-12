@@ -84,6 +84,12 @@
         webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
       })();
     </script>
+    
+    <!-- Preload критичных изображений для ускорения загрузки -->
+    <link rel="preload" as="image" href="img/bg/personal2-mobile.webp" type="image/webp" media="(max-width: 767px)">
+    <link rel="preload" as="image" href="img/bg/personal2-mobile.jpg" type="image/jpeg" media="(max-width: 767px)">
+    <link rel="preload" as="image" href="img/bg/personal2-hd.webp" type="image/webp" media="(min-width: 768px) and (max-width: 1279px)">
+    <link rel="preload" as="image" href="img/bg/personal2-fullhd.webp" type="image/webp" media="(min-width: 1280px)">
   </head>
 <body>
   
@@ -187,7 +193,7 @@
     </nav>
 
     <!-- Masthead -->  
-    <main id="home" class="masthead jarallax" style="background-image:url('img/bg/personal2.jpg?v=portrait');" role="main">
+    <main id="home" class="masthead jarallax" role="main">
       <div class="opener">
         <div class="container">
           <div class="row">

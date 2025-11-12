@@ -668,31 +668,56 @@ section#services.bg-gray .text-primary {
 }
 
 /* Адаптивная загрузка главного фото */
-/* Мобильные устройства (до 768px) */
+/* Базовый fallback для всех браузеров */
+.masthead.jarallax {
+  background-image: url('../img/bg/personal2-hd.jpg?v=6');
+}
+
+.webp .masthead.jarallax {
+  background-image: url('../img/bg/personal2-hd.webp?v=6');
+}
+
+/* Мобильные устройства (до 768px) - WebP с fallback */
 @media only screen and (max-width: 767px) {
   .masthead.jarallax {
     background-image: url('../img/bg/personal2-mobile.jpg?v=final8') !important;
   }
+  
+  .webp .masthead.jarallax {
+    background-image: url('../img/bg/personal2-mobile.webp?v=final8') !important;
+  }
 }
 
-/* Планшеты (768px - 1279px) */
+/* Планшеты (768px - 1279px) - WebP с fallback */
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .masthead.jarallax {
     background-image: url('../img/bg/personal2-hd.jpg?v=6') !important;
   }
+  
+  .webp .masthead.jarallax {
+    background-image: url('../img/bg/personal2-hd.webp?v=6') !important;
+  }
 }
 
-/* Десктопы (1280px - 1919px) */
+/* Десктопы (1280px - 1919px) - WebP с fallback */
 @media only screen and (min-width: 1280px) and (max-width: 1919px) {
   .masthead.jarallax {
     background-image: url('../img/bg/personal2-fullhd.jpg?v=6') !important;
   }
+  
+  .webp .masthead.jarallax {
+    background-image: url('../img/bg/personal2-fullhd.webp?v=6') !important;
+  }
 }
 
-/* Большие экраны (1920px+) - 4K версия */
+/* Большие экраны (1920px+) - WebP с fallback */
 @media only screen and (min-width: 1920px) {
   .masthead.jarallax {
     background-image: url('../img/bg/personal2.jpg?v=6') !important;
+  }
+  
+  .webp .masthead.jarallax {
+    background-image: url('../img/bg/personal2.webp?v=6') !important;
   }
 }
 

@@ -1233,4 +1233,54 @@ section#services.bg-gray .text-primary {
   }
 }
 
+/* Оптимизация модальных окон для мобильных устройств */
+@media (max-width: 767px) {
+  /* Убираем лишние отступы в модалке */
+  .zoom-anim-dialog {
+    padding: 1.5rem;
+    margin: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+  }
+  
+  /* Оптимизация скролла внутри модалки */
+  .mfp-wrap {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Предотвращаем двойной скролл */
+  .mfp-container {
+    padding: 0;
+  }
+  
+  /* Улучшаем кнопку закрытия на мобильных */
+  .mfp-close {
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 32px;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+    color: white !important;
+    border-radius: 0 12px 0 12px;
+  }
+  
+  /* Делаем контент модалки более responsive */
+  .modal-characteristics > div {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Ускорение анимации модалки для лучшего отклика */
+.my-mfp-zoom-in .zoom-anim-dialog {
+  transition: all 0.2s ease-out !important;
+  transform: translate3d(0, 0, 0); /* GPU ускорение */
+  backface-visibility: hidden;
+}
+
+.my-mfp-zoom-in.mfp-ready .zoom-anim-dialog {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
 

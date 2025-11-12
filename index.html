@@ -1692,6 +1692,110 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/interface.js"></script>
 <script src="js/custom.js"></script>
+
+<!-- Оптимизация модальных окон новостей для мобильных -->
+<script>
+$(document).ready(function() {
+  let modalOpening = false; // Флаг для предотвращения множественных открытий
+  
+  // Переинициализируем Magnific Popup с оптимизацией для мобильных
+  $('.popup-with-zoom-anim').magnificPopup({
+    type: 'inline',
+    fixedContentPos: false, // false для лучшей работы на мобильных!
+    fixedBgPos: false,      // false для избежания конфликтов со скроллом
+    overflowY: 'auto',
+    closeBtnInside: true,
+    preloader: false,
+    midClick: true,
+    removalDelay: 300,
+    mainClass: 'my-mfp-zoom-in',
+    closeOnBgClick: true,
+    enableEscapeKey: true,
+    
+    callbacks: {
+      // Перед открытием модалки
+      beforeOpen: function() {
+        // Предотвращаем множественные открытия
+        if (modalOpening) {
+          return false;
+        }
+        modalOpening = true;
+        
+        // Останавливаем все видео в карточках новостей
+        document.querySelectorAll('.news-card video').forEach(function(video) {
+          if (!video.paused) {
+            video.pause();
+          }
+        });
+        
+        // Добавляем класс для отключения scroll-snap на время открытия модалки
+        const carousel = document.querySelector('.news-carousel');
+        if (carousel) {
+          carousel.style.scrollSnapType = 'none';
+        }
+        
+        // Небольшая задержка для синхронизации
+        return new Promise(function(resolve) {
+          setTimeout(resolve, 50);
+        });
+      },
+      
+      // После открытия
+      open: function() {
+        // Фиксируем body для избежания двойного скролла на мобильных
+        if (window.innerWidth <= 767) {
+          const scrollY = window.scrollY;
+          document.body.style.position = 'fixed';
+          document.body.style.top = '-' + scrollY + 'px';
+          document.body.style.width = '100%';
+          document.body.style.overflow = 'hidden';
+        }
+        
+        // Разрешаем новые открытия после небольшой задержки
+        setTimeout(function() {
+          modalOpening = false;
+        }, 500);
+      },
+      
+      // Перед закрытием
+      beforeClose: function() {
+        // Возвращаем scroll-snap
+        const carousel = document.querySelector('.news-carousel');
+        if (carousel) {
+          carousel.style.scrollSnapType = 'x mandatory';
+        }
+      },
+      
+      // После закрытия
+      close: function() {
+        // Возвращаем нормальный скролл на мобильных
+        if (window.innerWidth <= 767) {
+          const scrollY = document.body.style.top;
+          document.body.style.position = '';
+          document.body.style.top = '';
+          document.body.style.width = '';
+          document.body.style.overflow = '';
+          window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
+        
+        // Сбрасываем флаг
+        modalOpening = false;
+      }
+    }
+  });
+  
+  // Дополнительная оптимизация: предзагрузка модальных окон
+  if (window.innerWidth <= 767) {
+    // На мобильных предзагружаем контент модалок для быстрого открытия
+    setTimeout(function() {
+      $('.mfp-hide').each(function() {
+        // Принудительно рендерим контент в DOM
+        $(this).css('display', 'none');
+      });
+    }, 2000);
+  }
+});
+</script>
 <script src="js/contact-form.js?v=workersfix1"></script>
 <script src="js/yandex-goals.js"></script>
 <script src="js/tint-simulator.js?v=pcmobile111"></script>

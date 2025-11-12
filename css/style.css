@@ -1218,6 +1218,7 @@ ion-icon{
   background: #fff;
   padding: 2.2rem;
   margin: 2rem auto;
+  border-radius: 12px;
 }
 
 .project-features {

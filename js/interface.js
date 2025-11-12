@@ -105,7 +105,7 @@
     /* Pop up*/
     $('.popup-with-zoom-anim').magnificPopup({
       type: 'inline',
-      fixedContentPos: false,
+      fixedContentPos: true,
       fixedBgPos: true,
       overflowY: 'auto',
       closeBtnInside: true,

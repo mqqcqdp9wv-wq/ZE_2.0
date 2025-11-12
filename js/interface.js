@@ -111,7 +111,7 @@
       fixedContentPos: false, // false для лучшей работы на мобильных
       fixedBgPos: false,      // false для избежания конфликтов со скроллом
       overflowY: 'auto',
-      closeBtnInside: false,  // false чтобы крестик был на сером фоне снаружи!
+      closeBtnInside: true,   // true - крестик ВНУТРИ белой карточки!
       preloader: false,
       midClick: true,
       removalDelay: 300,

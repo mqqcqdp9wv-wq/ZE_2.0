@@ -602,46 +602,42 @@ ion-icon[name="logo-vk"] {
   }
 }
 
-/* Крестик закрытия модальных окон - на сером фоне слева как в симуляторе */
+/* Крестик закрытия модальных окон - ВНУТРИ карточки слева вверху */
 .mfp-close {
   position: absolute !important;
   right: auto !important;
-  left: 20px !important;
-  top: 50px !important;
-  z-index: 10001 !important;
-  background: rgba(240, 240, 240, 0.95) !important;
+  left: 15px !important;
+  top: 15px !important;
+  z-index: 1 !important;
+  background: rgba(240, 240, 240, 0.9) !important;
   color: #666 !important;
-  width: 50px !important;
-  height: 50px !important;
-  line-height: 50px !important;
-  font-size: 32px !important;
+  width: 44px !important;
+  height: 44px !important;
+  line-height: 44px !important;
+  font-size: 28px !important;
   font-weight: 300 !important;
   border-radius: 50% !important;
   opacity: 1 !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 .mfp-close:hover,
 .mfp-close:focus,
 .mfp-close:active {
   background: rgba(224, 224, 224, 1) !important;
-  transform: rotate(90deg) scale(1.05) translate3d(0, 0, 0) !important;
-  -webkit-transform: rotate(90deg) scale(1.05) translate3d(0, 0, 0) !important;
+  transform: rotate(90deg) !important;
+  -webkit-transform: rotate(90deg) !important;
   color: #333 !important;
 }
 
-/* На мобильных крестик ещё больше, заметнее и выше от края */
+/* На мобильных крестик немного больше */
 @media (max-width: 767px) {
   .mfp-close {
-    width: 55px !important;
-    height: 55px !important;
-    line-height: 55px !important;
-    font-size: 36px !important;
-    left: 15px !important;
-    top: 40px !important;
+    width: 46px !important;
+    height: 46px !important;
+    line-height: 46px !important;
+    font-size: 30px !important;
   }
 }
 
@@ -1262,14 +1258,15 @@ section#services.bg-gray .text-primary {
 }
 
 .mfp-container {
-  padding: 40px !important;
+  padding: 20px !important;
   box-sizing: border-box !important;
 }
 
 .zoom-anim-dialog {
-  padding: 2rem !important;
+  padding: 2.5rem 2rem 2rem 2rem !important;
   margin: 0 auto !important;
-  max-width: 800px !important;
+  max-width: 700px !important;
+  width: 90% !important;
   max-height: 85vh !important;
   overflow-y: auto !important;
   -webkit-overflow-scrolling: touch !important;
@@ -1283,17 +1280,14 @@ section#services.bg-gray .text-primary {
 
 /* Оптимизация для мобильных устройств */
 @media (max-width: 767px) {
-  /* Белая карточка по центру с отступами по бокам - Safari fix */
   .mfp-container {
-    padding: 30px 25px !important;
+    padding: 15px !important;
   }
   
-  /* Контент модалки - белая карточка уже на мобильных */
   .zoom-anim-dialog {
-    padding: 1.5rem !important;
-    max-width: 90% !important;
-    width: calc(100% - 50px) !important;
-    max-height: 75vh !important;
+    padding: 2rem 1.5rem 1.5rem 1.5rem !important;
+    width: calc(100% - 30px) !important;
+    max-height: 80vh !important;
   }
   
   /* Делаем контент модалки более responsive */

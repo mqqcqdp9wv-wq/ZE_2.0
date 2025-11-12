@@ -103,10 +103,13 @@
     });
 
     /* Pop up*/
+    // Magnific Popup с оптимизацией для мобильных
+    let modalOpening = false;
+    
     $('.popup-with-zoom-anim').magnificPopup({
       type: 'inline',
-      fixedContentPos: true,
-      fixedBgPos: true,
+      fixedContentPos: false, // false для лучшей работы на мобильных
+      fixedBgPos: false,      // false для избежания конфликтов со скроллом
       overflowY: 'auto',
       closeBtnInside: true,
       preloader: false,
@@ -114,7 +117,53 @@
       removalDelay: 300,
       mainClass: 'my-mfp-zoom-in',
       closeOnBgClick: true,
-      enableEscapeKey: true
+      enableEscapeKey: true,
+      
+      callbacks: {
+        beforeOpen: function() {
+          if (modalOpening) return false;
+          modalOpening = true;
+          
+          // Останавливаем все видео
+          document.querySelectorAll('.news-card video').forEach(function(video) {
+            if (!video.paused) video.pause();
+          });
+          
+          // Отключаем scroll-snap
+          const carousel = document.querySelector('.news-carousel');
+          if (carousel) carousel.style.scrollSnapType = 'none';
+        },
+        
+        open: function() {
+          // Фиксируем body на мобильных
+          if (window.innerWidth <= 767) {
+            const scrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = '-' + scrollY + 'px';
+            document.body.style.width = '100%';
+            document.body.style.overflow = 'hidden';
+          }
+          
+          setTimeout(function() { modalOpening = false; }, 500);
+        },
+        
+        beforeClose: function() {
+          const carousel = document.querySelector('.news-carousel');
+          if (carousel) carousel.style.scrollSnapType = 'x mandatory';
+        },
+        
+        close: function() {
+          if (window.innerWidth <= 767) {
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            document.body.style.overflow = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+          }
+          modalOpening = false;
+        }
+      }
     });
     /* Pop up Youtube*/
     $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({

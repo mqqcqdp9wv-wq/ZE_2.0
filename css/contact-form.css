@@ -40,12 +40,12 @@
 
 .goal-card:hover {
   background: #fff;
-  border-color: #007bff;
+  border-color: #23a592;
   -webkit-transform: translateY(-3px);
   -moz-transform: translateY(-3px);
   -ms-transform: translateY(-3px);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,123,255,0.2);
+  box-shadow: 0 5px 15px rgba(35, 165, 146, 0.2);
 }
 
 .goal-card-wide {

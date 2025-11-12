@@ -607,7 +607,7 @@ ion-icon[name="logo-vk"] {
   position: absolute !important;
   right: auto !important;
   left: 20px !important;
-  top: 20px !important;
+  top: 50px !important;
   z-index: 10001 !important;
   background: rgba(240, 240, 240, 0.95) !important;
   color: #666 !important;
@@ -633,7 +633,7 @@ ion-icon[name="logo-vk"] {
   color: #333 !important;
 }
 
-/* На мобильных крестик ещё больше и заметнее */
+/* На мобильных крестик ещё больше, заметнее и выше от края */
 @media (max-width: 767px) {
   .mfp-close {
     width: 55px !important;
@@ -641,7 +641,7 @@ ion-icon[name="logo-vk"] {
     line-height: 55px !important;
     font-size: 36px !important;
     left: 15px !important;
-    top: 15px !important;
+    top: 40px !important;
   }
 }
 
@@ -1254,41 +1254,46 @@ section#services.bg-gray .text-primary {
   }
 }
 
-/* Оптимизация модальных окон для мобильных устройств - стиль как в симуляторе */
+/* Модальные окна в стиле симулятора - для ВСЕХ устройств */
+.mfp-bg {
+  background: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+}
+
+.mfp-container {
+  padding: 40px !important;
+  box-sizing: border-box !important;
+}
+
+.zoom-anim-dialog {
+  padding: 2rem !important;
+  margin: 0 auto !important;
+  max-width: 800px !important;
+  max-height: 85vh !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  background: white !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+  position: relative !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+}
+
+/* Оптимизация для мобильных устройств */
 @media (max-width: 767px) {
-  /* Серый затемнённый фон вокруг (как в симуляторе) */
-  .mfp-bg {
-    background: rgba(0, 0, 0, 0.7) !important;
-    backdrop-filter: blur(5px) !important;
-    -webkit-backdrop-filter: blur(5px) !important;
-  }
-  
   /* Белая карточка по центру с отступами по бокам - Safari fix */
   .mfp-container {
     padding: 30px 25px !important;
-    box-sizing: border-box !important;
   }
   
-  /* Контент модалки - белая карточка */
+  /* Контент модалки - белая карточка уже на мобильных */
   .zoom-anim-dialog {
     padding: 1.5rem !important;
-    margin: 0 auto !important;
     max-width: 90% !important;
     width: calc(100% - 50px) !important;
     max-height: 75vh !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    background: white !important;
-    border-radius: 20px !important;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
-    position: relative !important;
-    transform: translate3d(0, 0, 0) !important;
-    -webkit-transform: translate3d(0, 0, 0) !important;
-  }
-  
-  /* Оптимизация скролла внутри модалки */
-  .mfp-wrap {
-    -webkit-overflow-scrolling: touch !important;
   }
   
   /* Делаем контент модалки более responsive */

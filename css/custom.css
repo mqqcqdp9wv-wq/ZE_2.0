@@ -910,6 +910,7 @@ section#services.bg-gray .text-primary {
   scrollbar-width: none;
   -ms-overflow-style: none;
   justify-content: center;
+  scroll-snap-type: x mandatory;
 }
 
 .news-carousel::-webkit-scrollbar {
@@ -962,6 +963,7 @@ section#services.bg-gray .text-primary {
   position: relative;
   transition: all 0.4s ease;
   cursor: pointer;
+  scroll-snap-align: start;
 }
 
 /* Карточки "дышат" - поднимаются при hover */
@@ -984,7 +986,6 @@ section#services.bg-gray .text-primary {
 
 .news-card:hover figure {
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2), 0 0 30px rgba(35, 165, 146, 0.3);
-  border-color: #23a592;
 }
 
 /* Закладка в ПРАВОМ ВЕРХНЕМ УГЛУ */

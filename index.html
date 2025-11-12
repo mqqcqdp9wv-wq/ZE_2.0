@@ -1735,21 +1735,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Инициализируем состояние стрелок
     updateArrows();
-    
-    // На мобильных устройствах прокручиваем к первой карточке (самая свежая новость)
-    if (window.innerWidth <= 767) {
-      // Небольшая задержка, чтобы дождаться полной загрузки
-      setTimeout(function() {
-        const firstCard = carousel.querySelector('.news-card');
-        if (firstCard) {
-          firstCard.scrollIntoView({ 
-            behavior: 'auto', 
-            block: 'nearest', 
-            inline: 'start' 
-          });
-        }
-      }, 100);
-    }
   }
 });
 </script>

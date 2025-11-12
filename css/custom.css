@@ -1002,7 +1002,8 @@ section#services.bg-gray .text-primary {
 }
 
 /* Изображение новости */
-.news-image img {
+.news-image img,
+.news-image video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1011,8 +1012,9 @@ section#services.bg-gray .text-primary {
   filter: saturate(0.8);
 }
 
-/* Зум изображения при hover */
-.news-card:hover .news-image img {
+/* Зум изображения/видео при hover */
+.news-card:hover .news-image img,
+.news-card:hover .news-image video {
   transform: scale(1.05);
 }
 

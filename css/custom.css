@@ -1072,6 +1072,10 @@ section#services.bg-gray .text-primary {
   transition: transform 0.5s ease;
   opacity: 0.85;
   filter: saturate(0.8);
+  pointer-events: none; /* Видео не блокирует клики на карточке */
+  will-change: transform; /* Оптимизация для GPU */
+  backface-visibility: hidden; /* Сглаживание на мобильных */
+  -webkit-backface-visibility: hidden;
 }
 
 /* Зум изображения/видео при hover */

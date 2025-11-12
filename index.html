@@ -734,9 +734,9 @@
                 <figure>
                   <!-- Видео новости -->
                   <div class="news-image">
-                    <video autoplay loop muted playsinline preload="auto" poster="img/bg/personal3.jpg">
+                    <video autoplay loop muted playsinline preload="none" poster="img/bg/personal3.jpg" loading="lazy">
                       <source src="rayno-centum.mp4" type="video/mp4">
-                      <img src="img/bg/personal3.jpg" alt="RAYNO CENTUM">
+                      <img src="img/bg/personal3.jpg" alt="RAYNO CENTUM" loading="lazy">
                     </video>
                   </div>
                   
@@ -758,9 +758,9 @@
                 
                 <figure>
                   <div class="news-image">
-                    <video autoplay loop muted playsinline preload="auto" poster="img/bg/personal2-hd.jpg">
+                    <video autoplay loop muted playsinline preload="none" poster="img/bg/personal2-hd.jpg" loading="lazy">
                       <source src="rayno-monocarbon.mp4" type="video/mp4">
-                      <img src="img/bg/personal2-hd.jpg" alt="RAYNO MONOCARBON">
+                      <img src="img/bg/personal2-hd.jpg" alt="RAYNO MONOCARBON" loading="lazy">
                     </video>
                   </div>
                   
@@ -781,9 +781,9 @@
                 
                 <figure>
                   <div class="news-image">
-                    <video autoplay loop muted playsinline preload="auto" poster="img/bg/personal2-hd.jpg">
+                    <video autoplay loop muted playsinline preload="none" poster="img/bg/personal2-hd.jpg" loading="lazy">
                       <source src="llumar-atr05.mp4" type="video/mp4">
-                      <img src="img/bg/personal2-hd.jpg" alt="LLUMAR ATR 05">
+                      <img src="img/bg/personal2-hd.jpg" alt="LLUMAR ATR 05" loading="lazy">
                     </video>
                   </div>
                   
@@ -1971,57 +1971,47 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Скрипт для принудительной загрузки и воспроизведения видео на мобильных -->
+<!-- Оптимизированный скрипт для управления видео в карточках новостей -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Находим все видео в карточках новостей
   const videos = document.querySelectorAll('.news-card video');
   
-  videos.forEach(function(video) {
-    // Добавляем атрибуты для мобильных устройств
-    video.setAttribute('webkit-playsinline', '');
-    video.setAttribute('x-webkit-airplay', 'allow');
-    
-    // Принудительная загрузка видео
-    video.load();
-    
-    // Пытаемся запустить видео
-    const playPromise = video.play();
-    
-    if (playPromise !== undefined) {
-      playPromise.then(function() {
-        // Видео успешно запущено
-        console.log('Video playing:', video.src);
-      }).catch(function(error) {
-        // Видео не запустилось - показываем poster или fallback
-        console.log('Video autoplay prevented:', error);
-        
-        // Пробуем запустить при первом взаимодействии пользователя
-        const startVideo = function() {
-          video.play().catch(function(e) {
-            console.log('Could not play video:', e);
-          });
-          document.removeEventListener('touchstart', startVideo);
-          document.removeEventListener('click', startVideo);
-        };
-        
-        document.addEventListener('touchstart', startVideo, { once: true });
-        document.addEventListener('click', startVideo, { once: true });
-      });
-    }
-  });
-  
-  // Наблюдатель за видимостью видео (оптимизация для мобильных)
+  // Intersection Observer для ленивой загрузки и воспроизведения видео
   if ('IntersectionObserver' in window) {
     const videoObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         const video = entry.target;
+        
         if (entry.isIntersecting) {
-          // Видео появилось на экране - запускаем
+          // Видео появилось в зоне видимости
+          
+          // Если видео ещё не загружено - загружаем
+          if (video.readyState === 0) {
+            video.load();
+          }
+          
+          // Добавляем атрибуты для мобильных
+          video.setAttribute('webkit-playsinline', '');
+          video.setAttribute('x-webkit-airplay', 'allow');
+          
+          // Запускаем воспроизведение
           if (video.paused) {
-            video.play().catch(function(e) {
-              console.log('Could not play video on scroll:', e);
-            });
+            const playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+              playPromise.catch(function(error) {
+                // Если автовоспроизведение заблокировано - пробуем при клике
+                const startVideo = function() {
+                  video.play().catch(function(e) {
+                    console.log('Could not play video:', e);
+                  });
+                };
+                
+                document.addEventListener('touchstart', startVideo, { once: true });
+                document.addEventListener('click', startVideo, { once: true });
+              });
+            }
           }
         } else {
           // Видео ушло с экрана - останавливаем для экономии ресурсов
@@ -2030,10 +2020,23 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
       });
-    }, { threshold: 0.5 }); // Запускаем когда видео на 50% видимо
+    }, { 
+      threshold: 0.3, // Запускаем когда видео на 30% видимо
+      rootMargin: '50px' // Начинаем загрузку чуть раньше появления на экране
+    });
     
+    // Наблюдаем за всеми видео
     videos.forEach(function(video) {
       videoObserver.observe(video);
+    });
+  } else {
+    // Fallback для старых браузеров без Intersection Observer
+    videos.forEach(function(video) {
+      video.setAttribute('webkit-playsinline', '');
+      video.load();
+      video.play().catch(function(e) {
+        console.log('Could not autoplay:', e);
+      });
     });
   }
 });

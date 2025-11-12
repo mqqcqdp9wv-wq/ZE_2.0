@@ -46,7 +46,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=rayno666">
-    <link rel="stylesheet" href="css/custom.css?v=menufromleft7">
+    <link rel="stylesheet" href="css/custom.css?v=newscarousel100">
     <link rel="stylesheet" href="css/contact-form.css">
     <link rel="stylesheet" href="css/tint-simulator.css?v=mobilegap666">
 
@@ -692,42 +692,89 @@
       </div>
     </section>
 
+    <!-- =================================
+         СЕКЦИЯ НОВОСТЕЙ - КАРУСЕЛЬ
+         ================================= -->
     <section id="news" class="section bg-light">
-     <div class="container">
+      <div class="container">
         <div class="text-center col-md-8 col-lg-6 offset-md-2 offset-lg-3" data-aos="fade-up">
-         <h2>Последние <span class="mark"><span>новости.</span></span></h2>
-       </div>
-        <div class="mt-5 pt-5">
-          <div class="row-news row">
-            <div class="col-news col-md-6 col-lg-4" data-aos="fade-in" data-aos-delay="0">
-              <figure class="position-relative">
-                <div class="position-relative">
-                  <mark class="date">14.10.2024</mark>
+          <h2>Последние <span class="mark"><span>новости.</span></span></h2>
+        </div>
+      </div>
+      
+      <!-- Карусель новостей (вне контейнера для full-width) -->
+      <div class="mt-5 pt-5">
+        <div class="news-carousel-wrapper">
+          
+          <!-- Стрелки навигации -->
+          <button class="news-carousel-arrow news-carousel-arrow-left" aria-label="Previous">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </button>
+          <button class="news-carousel-arrow news-carousel-arrow-right" aria-label="Next">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </button>
+          
+          <!-- Карусель с карточками -->
+          <div class="news-carousel">
+            
+            <!-- Карточка новости 1 -->
+            <div class="news-card" data-aos="fade-in" data-aos-delay="0">
+              <!-- Закладка с датой (ПРАВЫЙ ВЕРХНИЙ УГОЛ) -->
+              <div class="news-tab">
+                <mark class="date">14.10.2024</mark>
+              </div>
+              
+              <figure>
+                <!-- Изображение новости -->
+                <div class="news-image">
+                  <img src="img/bg/personal2-hd.jpg" alt="RAYNO CENTUM">
                 </div>
-                <figcaption><h5><a href="">Luxury атермальная плёнка RAYNO CENTUM</a></h5>В студии появилась премиальная атермальная плёнка RAYNO CENTUM — максимальная защита от жары и UV при высокой светопропускаемости. Комфорт и стиль!
+                
+                <!-- Текст новости -->
+                <figcaption>
+                  <h5><a href="">Luxury атермальная плёнка RAYNO CENTUM</a></h5>
+                  <p>В студии появилась премиальная атермальная плёнка RAYNO CENTUM. Керамическая технология без красителей и металлов обеспечивает 80% светопропускания при мощной защите от солнца.</p>
                 </figcaption>
               </figure>
             </div>
-            <div class="col-news col-md-6 col-lg-4" data-aos="fade-in" data-aos-delay="100">
-              <figure class="position-relative">
-                <div class="position-relative">
-                  <mark class="date">22.08.2024</mark>
+            
+            <!-- Карточка новости 2 -->
+            <div class="news-card" data-aos="fade-in" data-aos-delay="100">
+              <div class="news-tab">
+                <mark class="date">01.09.2024</mark>
+              </div>
+              
+              <figure>
+                <div class="news-image">
+                  <img src="img/bg/workshop-hd.jpg" alt="Новая студия">
                 </div>
-                <figcaption><h5><a href="">Новая плёнка RAYNO MONOCARBON</a></h5>
-                В наличии премиальная карбоновая плёнка RAYNO MONOCARBON — без красителей и металлов, выцветание менее 1% за 10 лет.
+                
+                <figcaption>
+                  <h5><a href="">Обновление студии ZE-STUDIO</a></h5>
+                  <p>Мы расширили студию и обновили оборудование! Теперь можем принимать больше клиентов и гарантировать ещё более высокое качество работ по тонированию и бронированию.</p>
                 </figcaption>
               </figure>
             </div>
-            <div class="col-news col-md-6 col-lg-4" data-aos="fade-in" data-aos-delay="200">
-              <figure class="position-relative">
-                <div class="position-relative">
-                  <mark class="date">05.07.2024</mark>
+            
+            <!-- Карточка новости 3 -->
+            <div class="news-card" data-aos="fade-in" data-aos-delay="200">
+              <div class="news-tab">
+                <mark class="date">15.07.2024</mark>
+              </div>
+              
+              <figure>
+                <div class="news-image">
+                  <img src="img/bg/rayno-film.jpg" alt="RAYNO плёнка">
                 </div>
-                <figcaption><h5><a href="">Последний рулон LLUMAR ATR 05</a></h5>Последний рулон плёнки LLUMAR ATR 05 CH SR HPR. Студия переходит на новые премиальные материалы RAYNO.
+                
+                <figcaption>
+                  <h5><a href="">Официальный дилер RAYNO в Липецке</a></h5>
+                  <p>ZE-STUDIO стала официальным дилером премиальных плёнок RAYNO в Липецкой области. Гарантия качества и оригинальности продукции напрямую от производителя.</p>
                 </figcaption>
               </figure>
             </div>
-         </div>
+            
+          </div>
         </div>
       </div>
     </section>
@@ -1481,6 +1528,56 @@
 <script src="js/contact-form.js?v=workersfix1"></script>
 <script src="js/yandex-goals.js"></script>
 <script src="js/tint-simulator.js?v=pcmobile111"></script>
+
+<script>
+// News Carousel Navigation
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.news-carousel');
+  const leftArrow = document.querySelector('.news-carousel-arrow-left');
+  const rightArrow = document.querySelector('.news-carousel-arrow-right');
+  
+  if (carousel && leftArrow && rightArrow) {
+    const scrollAmount = 450; // Прокрутка на ~1 карточку
+    
+    // Левая стрелка
+    leftArrow.addEventListener('click', function() {
+      carousel.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Правая стрелка
+    rightArrow.addEventListener('click', function() {
+      carousel.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Обновление состояния стрелок
+    function updateArrows() {
+      const scrollLeft = carousel.scrollLeft;
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      
+      // Левая стрелка
+      leftArrow.style.opacity = scrollLeft > 0 ? '1' : '0.3';
+      leftArrow.style.pointerEvents = scrollLeft > 0 ? 'auto' : 'none';
+      
+      // Правая стрелка
+      rightArrow.style.opacity = scrollLeft < maxScroll - 10 ? '1' : '0.3';
+      rightArrow.style.pointerEvents = scrollLeft < maxScroll - 10 ? 'auto' : 'none';
+    }
+    
+    // Слушаем скролл
+    carousel.addEventListener('scroll', updateArrows);
+    
+    // Инициализируем состояние стрелок
+    updateArrows();
+  }
+});
+</script>
+
 </body>
 </html><!-- Auto-deploy test Mon Oct 20 08:41:37 UTC 2025 -->
 >

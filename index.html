@@ -1747,13 +1747,18 @@ document.addEventListener('DOMContentLoaded', function() {
               // Прокручиваем карусель к первой карточке
               setTimeout(function() {
                 if (carousel) {
-                  carousel.scrollLeft = 0;
+                  // Находим первую карточку
+                  const firstCard = carousel.querySelector('.news-card');
+                  if (firstCard) {
+                    // Прокручиваем к началу первой карточки
+                    firstCard.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+                  }
                 }
-              }, 200);
+              }, 300);
             }
           });
         }, {
-          threshold: 0.2 // Срабатывает когда 20% блока видно
+          threshold: 0.3 // Срабатывает когда 30% блока видно
         });
         
         observer.observe(newsSection);

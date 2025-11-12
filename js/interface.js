@@ -142,6 +142,14 @@
             document.body.style.top = '-' + scrollY + 'px';
             document.body.style.width = '100%';
             document.body.style.overflow = 'hidden';
+            
+            // На мобильных: добавляем возможность закрыть двойным тапом на контент
+            $('.mfp-content').off('dblclick').on('dblclick', function(e) {
+              // Не закрываем если кликнули на ссылку или кнопку
+              if (!$(e.target).is('a, button, input, select, textarea')) {
+                $.magnificPopup.close();
+              }
+            });
           }
           
           setTimeout(function() { modalOpening = false; }, 500);

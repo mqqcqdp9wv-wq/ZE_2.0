@@ -622,6 +622,26 @@ ion-icon[name="logo-vk"] {
 .mfp-close {
   right: auto !important;
   left: 0 !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  background: rgba(35, 165, 146, 0.9) !important;
+  color: white !important;
+  width: 50px !important;
+  height: 50px !important;
+  line-height: 50px !important;
+  font-size: 28px !important;
+  font-weight: 300 !important;
+  border-radius: 0 0 12px 0 !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+}
+
+.mfp-close:hover,
+.mfp-close:focus,
+.mfp-close:active {
+  background: rgba(35, 165, 146, 1) !important;
+  opacity: 1 !important;
+  transform: scale(1.1) !important;
 }
 
 /* Make phone icon same size as other icons */

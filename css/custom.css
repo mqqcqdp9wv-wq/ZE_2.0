@@ -895,6 +895,7 @@ section#services.bg-gray .text-primary {
   padding: 0 20px 40px 20px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  justify-content: center;
 }
 
 .news-carousel::-webkit-scrollbar {

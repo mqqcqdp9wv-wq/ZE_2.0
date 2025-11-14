@@ -734,10 +734,16 @@
                 <figure>
                   <!-- Видео новости -->
                   <div class="news-image">
-                    <video muted playsinline preload="none" poster="img/bg/personal3.jpg">
+                    <!-- Placeholder изображение -->
+                    <img src="img/bg/personal3.jpg" alt="RAYNO CENTUM" loading="eager">
+                    <!-- Видео -->
+                    <video muted playsinline preload="none">
                       <source data-src="rayno-centum.mp4" type="video/mp4">
-                      <img src="img/bg/personal3.jpg" alt="RAYNO CENTUM" loading="lazy">
                     </video>
+                    <!-- Индикатор загрузки -->
+                    <div class="loading-spinner"></div>
+                    <!-- Тёмный оверлей -->
+                    <div class="overlay-dark"></div>
                   </div>
                   
                   <!-- Текст новости -->
@@ -758,10 +764,16 @@
                 
                 <figure>
                   <div class="news-image">
-                    <video muted playsinline preload="none" poster="img/bg/personal2-hd.jpg">
+                    <!-- Placeholder изображение -->
+                    <img src="img/bg/personal2-hd.jpg" alt="RAYNO MONOCARBON" loading="lazy">
+                    <!-- Видео -->
+                    <video muted playsinline preload="none">
                       <source data-src="rayno-monocarbon.mp4" type="video/mp4">
-                      <img src="img/bg/personal2-hd.jpg" alt="RAYNO MONOCARBON" loading="lazy">
                     </video>
+                    <!-- Индикатор загрузки -->
+                    <div class="loading-spinner"></div>
+                    <!-- Тёмный оверлей -->
+                    <div class="overlay-dark"></div>
                   </div>
                   
                   <figcaption>
@@ -781,10 +793,16 @@
                 
                 <figure>
                   <div class="news-image">
-                    <video muted playsinline preload="none" poster="img/bg/personal2-hd.jpg">
+                    <!-- Placeholder изображение -->
+                    <img src="img/bg/personal2-hd.jpg" alt="LLUMAR ATR 05" loading="lazy">
+                    <!-- Видео -->
+                    <video muted playsinline preload="none">
                       <source data-src="llumar-atr05.mp4" type="video/mp4">
-                      <img src="img/bg/personal2-hd.jpg" alt="LLUMAR ATR 05" loading="lazy">
                     </video>
+                    <!-- Индикатор загрузки -->
+                    <div class="loading-spinner"></div>
+                    <!-- Тёмный оверлей -->
+                    <div class="overlay-dark"></div>
                   </div>
                   
                   <figcaption>
@@ -1754,11 +1772,27 @@ document.addEventListener('DOMContentLoaded', function() {
           const visibility = overlap / Math.max(1, card.clientWidth);
           if (visibility > 0.25) {
             const v = card.querySelector('video');
-            if (v) {
+            const container = card.querySelector('.news-image');
+            if (v && container) {
               const pending = v.querySelectorAll('source[data-src]:not([src])');
               if (pending.length) {
                 pending.forEach(s => s.setAttribute('src', s.getAttribute('data-src')));
-                if (v.readyState === 0) { v.load(); }
+                if (v.readyState === 0) { 
+                  v.load();
+                  
+                  // Когда видео загрузилось и готово к показу
+                  v.addEventListener('loadeddata', function() {
+                    container.classList.add('video-loaded');
+                  }, { once: true });
+                  
+                  // Обработка ошибок загрузки
+                  v.addEventListener('error', function() {
+                    console.warn('Ошибка загрузки видео:', s.getAttribute('data-src'));
+                    // Оставляем placeholder изображение
+                    const spinner = container.querySelector('.loading-spinner');
+                    if (spinner) spinner.style.display = 'none';
+                  }, { once: true });
+                }
               }
             }
           }
@@ -1766,6 +1800,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 150);
     }
     carousel.addEventListener('scroll', schedulePreload, { passive: true });
+    
+    // Предзагружаем первую видимую карточку сразу
+    schedulePreload();
     
     // Инициализируем состояние стрелок
     updateArrows();

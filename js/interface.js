@@ -8,9 +8,9 @@
 	});
 
 
-	/* Parallax - отключен на мобильных устройствах */
+	/* Parallax - отключен для главного экрана (masthead), работает для остальных */
 	if ($(window).width() > 767) {
-		$('.jarallax').jarallax({
+		$('.jarallax:not(.masthead)').jarallax({
 		    speed: 0.75
 		});
 	}

@@ -751,6 +751,20 @@ section#services.bg-gray .text-primary {
 /* Адаптивная загрузка главного фото */
 /* Базовый fallback для всех браузеров */
 .masthead.jarallax {
+  /* ФИКСИРОВАННЫЙ ФОН без parallax для максимальной производительности */
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Placeholder цвет пока грузится изображение (тёмно-серый) */
+  background-color: #2c3e50;
+  /* Отключаем jarallax трансформации */
+  transform: none !important;
+  will-change: auto !important;
+}
+
+/* Основное изображение - загружается с приоритетом через preload */
+.masthead.jarallax {
   background-image: url('../img/bg/personal2-hd.jpg?v=6');
 }
 
@@ -758,14 +772,15 @@ section#services.bg-gray .text-primary {
   background-image: url('../img/bg/personal2-hd.webp?v=6');
 }
 
-/* Мобильные устройства (до 768px) - WebP с fallback */
+/* Мобильные устройства (до 768px) - используем HD версию (легче чем mobile) */
 @media only screen and (max-width: 767px) {
   .masthead.jarallax {
-    background-image: url('../img/bg/personal2-mobile.jpg?v=final8') !important;
+    background-image: url('../img/bg/personal2-hd.jpg?v=6') !important;
+    background-position: center center !important;
   }
   
   .webp .masthead.jarallax {
-    background-image: url('../img/bg/personal2-mobile.webp?v=final8') !important;
+    background-image: url('../img/bg/personal2-hd.webp?v=6') !important;
   }
 }
 

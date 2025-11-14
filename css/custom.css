@@ -886,8 +886,8 @@ section#services.bg-gray .text-primary {
     left: 0;
     right: 0;
     width: 100%;
-    height: 30%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.2) 70%, transparent 100%);
     z-index: 0;
     pointer-events: none;
   }

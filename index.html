@@ -86,10 +86,12 @@
     </script>
     
     <!-- Preload критичных изображений для ускорения загрузки -->
-    <link rel="preload" as="image" href="img/bg/personal2-mobile.webp" type="image/webp" media="(max-width: 767px)">
-    <link rel="preload" as="image" href="img/bg/personal2-mobile.jpg" type="image/jpeg" media="(max-width: 767px)">
-    <link rel="preload" as="image" href="img/bg/personal2-hd.webp" type="image/webp" media="(min-width: 768px) and (max-width: 1279px)">
-    <link rel="preload" as="image" href="img/bg/personal2-fullhd.webp" type="image/webp" media="(min-width: 1280px)">
+    <!-- Используем HD версию для всех устройств - легче и быстрее -->
+    <link rel="preload" as="image" href="img/bg/personal2-hd.webp?v=6" type="image/webp" media="(max-width: 767px)" imagesrcset="img/bg/personal2-hd.webp?v=6 1x" imagesizes="100vw">
+    <link rel="preload" as="image" href="img/bg/personal2-hd.jpg?v=6" type="image/jpeg" media="(max-width: 767px)" imagesrcset="img/bg/personal2-hd.jpg?v=6 1x" imagesizes="100vw">
+    <link rel="preload" as="image" href="img/bg/personal2-hd.webp?v=6" type="image/webp" media="(min-width: 768px) and (max-width: 1279px)" fetchpriority="high">
+    <link rel="preload" as="image" href="img/bg/personal2-fullhd.webp?v=6" type="image/webp" media="(min-width: 1280px) and (max-width: 1919px)" fetchpriority="high">
+    <link rel="preload" as="image" href="img/bg/personal2.webp?v=6" type="image/webp" media="(min-width: 1920px)" fetchpriority="high">
   </head>
 <body>
   
@@ -123,7 +125,7 @@
     },
     "sameAs": [
       "https://vk.com/tonirowka48",
-      "https://instagram.com/ze.studio48"
+      "https://instagram.com/ze_studio48"
     ]
   }
   </script>
@@ -162,7 +164,7 @@
            <li><a href="tel:+79158582115" title="Позвонить"><ion-icon name="call"></ion-icon></a></li>
            <li><a href="https://vk.com/tonirowka48" target="_blank" title="ВКонтакте"><ion-icon name="logo-vk"></ion-icon></a></li>
            <li><a href="https://wa.me/79158582115" target="_blank" title="WhatsApp"><svg class="whatsapp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></li>
-           <li><a href="#"> <ion-icon name="logo-instagram"></ion-icon></a></li>
+           <li><a href="https://instagram.com/ze_studio48" target="_blank" title="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
         </ul>
 
       </div>
@@ -178,7 +180,7 @@
          <li><a href="tel:+79158582115" title="Позвонить"><ion-icon name="call"></ion-icon></a></li>
          <li><a href="https://vk.com/tonirowka48" target="_blank" title="ВКонтакте"><ion-icon name="logo-vk"></ion-icon></a></li>
          <li><a href="https://wa.me/79158582115" target="_blank" title="WhatsApp"><svg class="whatsapp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></li>
-         <li><a href="https://instagram.com/ze.studio48" target="_blank" title="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+         <li><a href="https://instagram.com/ze_studio48" target="_blank" title="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
       </ul>
 
       <ul class="navbar-nav navbar-nav-mobile">
@@ -725,19 +727,22 @@
             
             <!-- Карточка новости 1 -->
             <div class="news-card" data-aos="fade-in" data-aos-delay="0">
-              <a href="#news-modal-1" class="popup-with-zoom-anim" style="text-decoration: none; color: inherit; display: block;">
-                <!-- Закладка с датой (ПРАВЫЙ ВЕРХНИЙ УГОЛ) -->
-                <div class="news-tab">
-                  <mark class="date">14.10.2024</mark>
-                </div>
-                
+              <!-- Закладка с датой (ПРАВЫЙ ВЕРХНИЙ УГОЛ) -->
+              <div class="news-tab">
+                <mark class="date">14.10.2024</mark>
+              </div>
+              
+              <a href="#news-modal-1" class="popup-with-zoom-anim">
                 <figure>
                   <!-- Видео новости -->
                   <div class="news-image">
-                    <video autoplay loop muted playsinline preload="none" poster="img/bg/personal3.jpg" loading="lazy">
-                      <source src="rayno-centum.mp4" type="video/mp4">
-                      <img src="img/bg/personal3.jpg" alt="RAYNO CENTUM" loading="lazy">
+                    <!-- Placeholder изображение -->
+                    <img src="img/bg/personal3.jpg" alt="RAYNO CENTUM" loading="eager">
+                    <!-- Видео (НЕ загружается автоматически) -->
+                    <video muted loop playsinline preload="none" style="display: none;" data-video-src="rayno-centum.mp4">
                     </video>
+                    <!-- Тёмный оверлей -->
+                    <div class="overlay-dark"></div>
                   </div>
                   
                   <!-- Текст новости -->
@@ -747,21 +752,35 @@
                   </figcaption>
                 </figure>
               </a>
+              
+              <!-- Кнопка Play ВНЕ ссылки popup -->
+              <button class="video-play-button" aria-label="Воспроизвести видео">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="38" fill="rgba(255, 255, 255, 0.95)" stroke="rgba(35, 165, 146, 0.8)" stroke-width="3"/>
+                  <path d="M32 25L55 40L32 55V25Z" fill="#23a592"/>
+                </svg>
+              </button>
+              <!-- Индикатор загрузки (скрыт по умолчанию) -->
+              <div class="loading-spinner" style="display: none;"></div>
             </div>
             
             <!-- Карточка новости 2 -->
             <div class="news-card" data-aos="fade-in" data-aos-delay="100">
-              <a href="#news-modal-2" class="popup-with-zoom-anim" style="text-decoration: none; color: inherit; display: block;">
-                <div class="news-tab">
-                  <mark class="date">22.08.2024</mark>
-                </div>
-                
+              <!-- Закладка с датой -->
+              <div class="news-tab">
+                <mark class="date">22.08.2024</mark>
+              </div>
+              
+              <a href="#news-modal-2" class="popup-with-zoom-anim">
                 <figure>
                   <div class="news-image">
-                    <video autoplay loop muted playsinline preload="none" poster="img/bg/personal2-hd.jpg" loading="lazy">
-                      <source src="rayno-monocarbon.mp4" type="video/mp4">
-                      <img src="img/bg/personal2-hd.jpg" alt="RAYNO MONOCARBON" loading="lazy">
+                    <!-- Placeholder изображение -->
+                    <img src="img/bg/personal2-hd.jpg" alt="RAYNO MONOCARBON" loading="lazy">
+                    <!-- Видео (НЕ загружается автоматически) -->
+                    <video muted loop playsinline preload="none" style="display: none;" data-video-src="rayno-monocarbon.mp4">
                     </video>
+                    <!-- Тёмный оверлей -->
+                    <div class="overlay-dark"></div>
                   </div>
                   
                   <figcaption>
@@ -770,21 +789,35 @@
                   </figcaption>
                 </figure>
               </a>
+              
+              <!-- Кнопка Play ВНЕ ссылки popup -->
+              <button class="video-play-button" aria-label="Воспроизвести видео">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="38" fill="rgba(255, 255, 255, 0.95)" stroke="rgba(35, 165, 146, 0.8)" stroke-width="3"/>
+                  <path d="M32 25L55 40L32 55V25Z" fill="#23a592"/>
+                </svg>
+              </button>
+              <!-- Индикатор загрузки (скрыт по умолчанию) -->
+              <div class="loading-spinner" style="display: none;"></div>
             </div>
             
             <!-- Карточка новости 3 -->
             <div class="news-card" data-aos="fade-in" data-aos-delay="200">
-              <a href="#news-modal-3" class="popup-with-zoom-anim" style="text-decoration: none; color: inherit; display: block;">
-                <div class="news-tab">
-                  <mark class="date">05.07.2024</mark>
-                </div>
-                
+              <!-- Закладка с датой -->
+              <div class="news-tab">
+                <mark class="date">05.07.2024</mark>
+              </div>
+              
+              <a href="#news-modal-3" class="popup-with-zoom-anim">
                 <figure>
                   <div class="news-image">
-                    <video autoplay loop muted playsinline preload="none" poster="img/bg/personal2-hd.jpg" loading="lazy">
-                      <source src="llumar-atr05.mp4" type="video/mp4">
-                      <img src="img/bg/personal2-hd.jpg" alt="LLUMAR ATR 05" loading="lazy">
+                    <!-- Placeholder изображение -->
+                    <img src="img/bg/personal2-hd.jpg" alt="LLUMAR ATR 05" loading="lazy">
+                    <!-- Видео (НЕ загружается автоматически) -->
+                    <video muted loop playsinline preload="none" style="display: none;" data-video-src="llumar-atr05.mp4">
                     </video>
+                    <!-- Тёмный оверлей -->
+                    <div class="overlay-dark"></div>
                   </div>
                   
                   <figcaption>
@@ -793,6 +826,16 @@
                   </figcaption>
                 </figure>
               </a>
+              
+              <!-- Кнопка Play ВНЕ ссылки popup -->
+              <button class="video-play-button" aria-label="Воспроизвести видео">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="38" fill="rgba(255, 255, 255, 0.95)" stroke="rgba(35, 165, 146, 0.8)" stroke-width="3"/>
+                  <path d="M32 25L55 40L32 55V25Z" fill="#23a592"/>
+                </svg>
+              </button>
+              <!-- Индикатор загрузки (скрыт по умолчанию) -->
+              <div class="loading-spinner" style="display: none;"></div>
             </div>
             
           </div>
@@ -1304,7 +1347,7 @@
               <ul class="social-icons">
                <li><a href="https://vk.com/tonirowka48" target="_blank" title="ВКонтакте"><ion-icon name="logo-vk"></ion-icon></a></li>
                <li><a href="https://wa.me/79158582115" target="_blank" title="WhatsApp"><svg class="whatsapp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></li>
-               <li><a href="https://instagram.com/ze.studio48" target="_blank" title="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+               <li><a href="https://instagram.com/ze_studio48" target="_blank" title="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
             </ul>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -1738,38 +1781,85 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Слушаем скролл
     carousel.addEventListener('scroll', updateArrows);
+
+    // Обработка кликов на кнопки Play для загрузки и воспроизведения видео
+    document.querySelectorAll('.video-play-button').forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const card = this.closest('.news-card');
+        const videoContainer = card.querySelector('.news-image');
+        const video = videoContainer.querySelector('video');
+        const spinner = card.querySelector('.loading-spinner');
+        const videoSrc = video.getAttribute('data-video-src');
+        
+        if (!video || !videoSrc) return;
+        
+        // Скрываем кнопку Play, показываем спиннер
+        this.style.display = 'none';
+        if (spinner) spinner.style.display = 'block';
+        
+        // Если видео еще не загружено, загружаем
+        if (!video.src) {
+          video.src = videoSrc;
+          
+          // Когда видео загружено и готово
+          video.addEventListener('loadeddata', function() {
+            if (spinner) spinner.style.display = 'none';
+            videoContainer.classList.add('video-loaded');
+            card.classList.add('video-loaded');
+            card.classList.add('video-playing');
+            video.style.display = 'block';
+            video.play().catch(function(err) {
+              console.warn('Ошибка воспроизведения:', err);
+            });
+          }, { once: true });
+          
+          // Обработка ошибок
+          video.addEventListener('error', function() {
+            console.warn('Ошибка загрузки видео:', videoSrc);
+            if (spinner) spinner.style.display = 'none';
+            button.style.display = 'block';
+            alert('Не удалось загрузить видео. Попробуйте позже.');
+          }, { once: true });
+          
+          video.load();
+        } else {
+          // Видео уже загружено, просто играем
+          if (spinner) spinner.style.display = 'none';
+          card.classList.add('video-playing');
+          video.style.display = 'block';
+          video.play().catch(function(err) {
+            console.warn('Ошибка воспроизведения:', err);
+          });
+        }
+      });
+    });
+    
+    // При паузе видео показываем кнопку Play снова
+    document.querySelectorAll('.news-card video').forEach(function(video) {
+      video.addEventListener('pause', function() {
+        const card = this.closest('.news-card');
+        const button = card.querySelector('.video-play-button');
+        if (card && button && !this.ended) {
+          card.classList.remove('video-playing');
+          button.style.display = 'block';
+        }
+      });
+      
+      video.addEventListener('ended', function() {
+        const card = this.closest('.news-card');
+        const button = card.querySelector('.video-play-button');
+        if (card && button) {
+          card.classList.remove('video-playing');
+          button.style.display = 'block';
+        }
+      });
+    });
     
     // Инициализируем состояние стрелок
     updateArrows();
-    
-    // Intersection Observer - прокручиваем к первой карточке когда блок появляется на экране
-    if (window.innerWidth <= 767 && 'IntersectionObserver' in window) {
-      const newsSection = document.getElementById('news');
-      if (newsSection) {
-        const observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            // Когда блок новостей появляется на экране
-            if (entry.isIntersecting) {
-              // Прокручиваем карусель к первой карточке
-              setTimeout(function() {
-                if (carousel) {
-                  // Находим первую карточку
-                  const firstCard = carousel.querySelector('.news-card');
-                  if (firstCard) {
-                    // Прокручиваем к началу первой карточки
-                    firstCard.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
-                  }
-                }
-              }, 300);
-            }
-          });
-        }, {
-          threshold: 0.3 // Срабатывает когда 30% блока видно
-        });
-        
-        observer.observe(newsSection);
-      }
-    }
   }
 });
 </script>
@@ -1976,9 +2066,49 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   // Находим все видео в карточках новостей
   const videos = document.querySelectorAll('.news-card video');
+  // Подготовка: переносим src в data-src, выключаем авто-плей
+  videos.forEach(function(video) {
+    const srcEl = video.querySelector('source[src]');
+    if (srcEl && !srcEl.hasAttribute('data-src')) {
+      srcEl.setAttribute('data-src', srcEl.getAttribute('src'));
+      srcEl.removeAttribute('src');
+    }
+    video.removeAttribute('autoplay');
+    video.removeAttribute('loop');
+    video.setAttribute('preload', 'none');
+    video.setAttribute('playsinline', '');
+    video.muted = true;
+
+    // Воспроизведение по требованию (ховер/клик)
+    const demandPlay = function() {
+      const pendingSources = video.querySelectorAll('source[data-src]:not([src])');
+      if (pendingSources.length) {
+        pendingSources.forEach(function(s) { s.setAttribute('src', s.getAttribute('data-src')); });
+      }
+      if (video.readyState === 0) { video.load(); }
+      video.loop = true;
+      video.play().catch(function(){});
+    };
+    video.addEventListener('mouseenter', demandPlay, { passive: true });
+    video.addEventListener('click', demandPlay, { passive: true });
+  });
   
-  // Intersection Observer для ленивой загрузки и воспроизведения видео
-  if ('IntersectionObserver' in window) {
+  // На ДЕСКТОПЕ (>767px) - сразу загружаем и проигрываем все видео
+  if (window.innerWidth > 767) {
+    videos.forEach(function(video) {
+      video.setAttribute('preload', 'auto');
+      video.load();
+      
+      // Даем браузеру время загрузить метаданные
+      setTimeout(function() {
+        video.play().catch(function(e) {
+          console.log('Desktop autoplay blocked:', e);
+        });
+      }, 100);
+    });
+  } 
+  // На МОБИЛЬНЫХ (<=767px) - используем Intersection Observer для экономии трафика
+  else if ('IntersectionObserver' in window) {
     const videoObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         const video = entry.target;
@@ -1986,7 +2116,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (entry.isIntersecting) {
           // Видео появилось в зоне видимости
           
-          // Если видео ещё не загружено - загружаем
+          // Подмешиваем data-src в src только при необходимости и только когда видно
+          const pendingSources = video.querySelectorAll('source[data-src]:not([src])');
+          if (pendingSources.length) {
+            pendingSources.forEach(s => s.setAttribute('src', s.getAttribute('data-src')));
+          }
           if (video.readyState === 0) {
             video.load();
           }

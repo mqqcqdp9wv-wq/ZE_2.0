@@ -1068,8 +1068,15 @@ section#services.bg-gray .text-primary {
   padding-top: 30px;
   position: relative;
   transition: all 0.4s ease;
-  cursor: pointer;
   scroll-snap-align: start;
+}
+
+/* Ссылка внутри карточки - cursor pointer только на ней */
+.news-card > a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 /* Карточки "дышат" - поднимаются при hover */
@@ -1125,8 +1132,8 @@ section#services.bg-gray .text-primary {
   overflow: hidden;
 }
 
-/* Кнопка Play для запуска видео */
-.video-play-button {
+/* Кнопка Play для запуска видео - теперь относительно .news-card */
+.news-card > .video-play-button {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1140,19 +1147,20 @@ section#services.bg-gray .text-primary {
   transition: all 0.3s ease;
   padding: 0;
   opacity: 0.9;
+  margin-top: 15px; /* Компенсация padding-top карточки */
 }
 
-.video-play-button:hover {
+.news-card > .video-play-button:hover {
   transform: translate(-50%, -50%) scale(1.15);
   opacity: 1;
 }
 
-.video-play-button:active {
+.news-card > .video-play-button:active {
   transform: translate(-50%, -50%) scale(0.95);
 }
 
 /* Скрываем кнопку когда видео играет */
-.news-image.video-playing .video-play-button {
+.news-card.video-playing > .video-play-button {
   opacity: 0;
   pointer-events: none;
 }
@@ -1161,8 +1169,8 @@ section#services.bg-gray .text-primary {
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
-/* Индикатор загрузки в центре карточки */
-.news-image .loading-spinner {
+/* Индикатор загрузки в центре карточки - теперь относительно .news-card */
+.news-card > .loading-spinner {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1176,10 +1184,11 @@ section#services.bg-gray .text-primary {
   z-index: 5;
   opacity: 1;
   transition: opacity 0.3s ease;
+  margin-top: 15px; /* Компенсация padding-top карточки */
 }
 
 /* Скрываем спиннер когда видео загружено */
-.news-image.video-loaded .loading-spinner {
+.news-card.video-loaded > .loading-spinner {
   opacity: 0;
   pointer-events: none;
 }

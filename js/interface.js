@@ -103,17 +103,16 @@
     });
 
     /* Pop up*/
-    // Magnific Popup с оптимизацией для мобильных
+    // Magnific Popup с блокировкой прокрутки фона
     let modalOpening = false;
-    // Хэндлеры блокировки скролла фона
-    let lockWheelHandler = null, lockTouchHandler = null, lockKeyHandler = null;
+    let scrollPosition = 0;
     
     $('.popup-with-zoom-anim').magnificPopup({
       type: 'inline',
-      fixedContentPos: false, // false для лучшей работы на мобильных
-      fixedBgPos: false,      // false для избежания конфликтов со скроллом
+      fixedContentPos: false,
+      fixedBgPos: false,
       overflowY: 'auto',
-      closeBtnInside: true,   // true - крестик ВНУТРИ белой карточки!
+      closeBtnInside: true,
       preloader: false,
       midClick: true,
       removalDelay: 300,
@@ -137,29 +136,21 @@
         },
         
         open: function() {
-          // Фиксируем body для ВСЕХ устройств (десктоп + мобильные)
-          const scrollY = window.scrollY;
-          document.body.style.position = 'fixed';
-          document.body.style.top = '-' + scrollY + 'px';
-          document.body.style.width = '100%';
+          // Сохраняем текущую позицию скролла
+          scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+          
+          // Блокируем прокрутку фона
+          document.documentElement.style.overflow = 'hidden';
           document.body.style.overflow = 'hidden';
-          // Дополнительно блокируем фоновые события прокрутки (wheel/touch/keys)
-          document.documentElement.classList.add('scroll-lock');
-          document.body.classList.add('scroll-lock');
-          lockWheelHandler = function(e){ if (!(e.target && e.target.closest && e.target.closest('.mfp-content'))) { e.preventDefault(); } };
-          lockTouchHandler = function(e){ if (!(e.target && e.target.closest && e.target.closest('.mfp-content'))) { e.preventDefault(); } };
-          lockKeyHandler = function(e){
-            const keys = [32,33,34,35,36,37,38,39,40]; // space, pgup, pgdn, end, home, arrows
-            if (keys.indexOf(e.keyCode || e.which) !== -1) {
-              const content = document.querySelector('.mfp-content');
-              if (!content || !content.contains(e.target)) {
-                e.preventDefault();
-              }
-            }
-          };
-          document.addEventListener('wheel', lockWheelHandler, { passive: false, capture: true });
-          document.addEventListener('touchmove', lockTouchHandler, { passive: false, capture: true });
-          document.addEventListener('keydown', lockKeyHandler, true);
+          document.body.style.position = 'fixed';
+          document.body.style.top = '-' + scrollPosition + 'px';
+          document.body.style.width = '100%';
+          document.body.style.left = '0';
+          document.body.style.right = '0';
+          
+          // Добавляем класс для дополнительной блокировки
+          document.documentElement.classList.add('mfp-no-scroll');
+          document.body.classList.add('mfp-no-scroll');
           
           // На мобильных: добавляем возможность закрыть двойным тапом на контент
           if (window.innerWidth <= 767) {
@@ -180,19 +171,20 @@
         },
         
         close: function() {
-          // Восстанавливаем прокрутку body для ВСЕХ устройств
-          const scrollY = document.body.style.top;
-          // Снимаем блокировки
-          document.removeEventListener('wheel', lockWheelHandler, true);
-          document.removeEventListener('touchmove', lockTouchHandler, true);
-          document.removeEventListener('keydown', lockKeyHandler, true);
-          document.documentElement.classList.remove('scroll-lock');
-          document.body.classList.remove('scroll-lock');
+          // Снимаем блокировку прокрутки
+          document.documentElement.classList.remove('mfp-no-scroll');
+          document.body.classList.remove('mfp-no-scroll');
+          
+          document.documentElement.style.overflow = '';
+          document.body.style.overflow = '';
           document.body.style.position = '';
           document.body.style.top = '';
           document.body.style.width = '';
-          document.body.style.overflow = '';
-          window.scrollTo(0, parseInt(scrollY || '0') * -1);
+          document.body.style.left = '';
+          document.body.style.right = '';
+          
+          // Восстанавливаем позицию скролла
+          window.scrollTo(0, scrollPosition);
           
           modalOpening = false;
         }

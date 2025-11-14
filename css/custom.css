@@ -16,6 +16,26 @@ img, video, svg { display: block; max-width: 100%; height: auto; }
 html, body { overflow-x: hidden; }
 /* Блокировка прокрутки фона, когда открыта модалка */
 .scroll-lock { position: fixed; width: 100%; overflow: hidden; }
+/* Улучшенная блокировка прокрутки для модальных окон */
+html.mfp-no-scroll,
+body.mfp-no-scroll {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none !important;
+  -webkit-overflow-scrolling: auto !important;
+}
+/* Предотвращаем прокрутку на мобильных устройствах */
+.mfp-wrap {
+  overflow: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+/* Блокируем прокрутку карусели новостей при открытом модальном окне */
+html.mfp-no-scroll .news-carousel {
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
 
 /* Make VK icon lighter (outline style) */
 ion-icon[name="logo-vk"] {

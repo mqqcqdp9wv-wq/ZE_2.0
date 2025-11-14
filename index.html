@@ -736,12 +736,18 @@
                   <div class="news-image">
                     <!-- Placeholder изображение -->
                     <img src="img/bg/personal3.jpg" alt="RAYNO CENTUM" loading="eager">
-                    <!-- Видео -->
-                    <video muted playsinline preload="none">
-                      <source data-src="rayno-centum.mp4" type="video/mp4">
+                    <!-- Видео (НЕ загружается автоматически) -->
+                    <video muted loop playsinline preload="none" style="display: none;" data-video-src="rayno-centum.mp4">
                     </video>
-                    <!-- Индикатор загрузки -->
-                    <div class="loading-spinner"></div>
+                    <!-- Кнопка Play для запуска видео -->
+                    <button class="video-play-button" aria-label="Воспроизвести видео">
+                      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="38" fill="rgba(255, 255, 255, 0.95)" stroke="rgba(35, 165, 146, 0.8)" stroke-width="3"/>
+                        <path d="M32 25L55 40L32 55V25Z" fill="#23a592"/>
+                      </svg>
+                    </button>
+                    <!-- Индикатор загрузки (скрыт по умолчанию) -->
+                    <div class="loading-spinner" style="display: none;"></div>
                     <!-- Тёмный оверлей -->
                     <div class="overlay-dark"></div>
                   </div>
@@ -766,12 +772,18 @@
                   <div class="news-image">
                     <!-- Placeholder изображение -->
                     <img src="img/bg/personal2-hd.jpg" alt="RAYNO MONOCARBON" loading="lazy">
-                    <!-- Видео -->
-                    <video muted playsinline preload="none">
-                      <source data-src="rayno-monocarbon.mp4" type="video/mp4">
+                    <!-- Видео (НЕ загружается автоматически) -->
+                    <video muted loop playsinline preload="none" style="display: none;" data-video-src="rayno-monocarbon.mp4">
                     </video>
-                    <!-- Индикатор загрузки -->
-                    <div class="loading-spinner"></div>
+                    <!-- Кнопка Play для запуска видео -->
+                    <button class="video-play-button" aria-label="Воспроизвести видео">
+                      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="38" fill="rgba(255, 255, 255, 0.95)" stroke="rgba(35, 165, 146, 0.8)" stroke-width="3"/>
+                        <path d="M32 25L55 40L32 55V25Z" fill="#23a592"/>
+                      </svg>
+                    </button>
+                    <!-- Индикатор загрузки (скрыт по умолчанию) -->
+                    <div class="loading-spinner" style="display: none;"></div>
                     <!-- Тёмный оверлей -->
                     <div class="overlay-dark"></div>
                   </div>
@@ -795,12 +807,18 @@
                   <div class="news-image">
                     <!-- Placeholder изображение -->
                     <img src="img/bg/personal2-hd.jpg" alt="LLUMAR ATR 05" loading="lazy">
-                    <!-- Видео -->
-                    <video muted playsinline preload="none">
-                      <source data-src="llumar-atr05.mp4" type="video/mp4">
+                    <!-- Видео (НЕ загружается автоматически) -->
+                    <video muted loop playsinline preload="none" style="display: none;" data-video-src="llumar-atr05.mp4">
                     </video>
-                    <!-- Индикатор загрузки -->
-                    <div class="loading-spinner"></div>
+                    <!-- Кнопка Play для запуска видео -->
+                    <button class="video-play-button" aria-label="Воспроизвести видео">
+                      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="38" fill="rgba(255, 255, 255, 0.95)" stroke="rgba(35, 165, 146, 0.8)" stroke-width="3"/>
+                        <path d="M32 25L55 40L32 55V25Z" fill="#23a592"/>
+                      </svg>
+                    </button>
+                    <!-- Индикатор загрузки (скрыт по умолчанию) -->
+                    <div class="loading-spinner" style="display: none;"></div>
                     <!-- Тёмный оверлей -->
                     <div class="overlay-dark"></div>
                   </div>
@@ -1757,52 +1775,79 @@ document.addEventListener('DOMContentLoaded', function() {
     // Слушаем скролл
     carousel.addEventListener('scroll', updateArrows);
 
-    // Ленивая подготовка источников видео в видимых карточках при скролле
-    let preloadTimeout;
-    function schedulePreload() {
-      clearTimeout(preloadTimeout);
-      preloadTimeout = setTimeout(() => {
-        const cards = Array.from(document.querySelectorAll('.news-card'));
-        const viewportLeft = carousel.scrollLeft;
-        const viewportRight = viewportLeft + carousel.clientWidth;
-        cards.forEach(card => {
-          const rectLeft = card.offsetLeft;
-          const rectRight = rectLeft + card.clientWidth;
-          const overlap = Math.max(0, Math.min(viewportRight, rectRight) - Math.max(viewportLeft, rectLeft));
-          const visibility = overlap / Math.max(1, card.clientWidth);
-          if (visibility > 0.25) {
-            const v = card.querySelector('video');
-            const container = card.querySelector('.news-image');
-            if (v && container) {
-              const pending = v.querySelectorAll('source[data-src]:not([src])');
-              if (pending.length) {
-                pending.forEach(s => s.setAttribute('src', s.getAttribute('data-src')));
-                if (v.readyState === 0) { 
-                  v.load();
-                  
-                  // Когда видео загрузилось и готово к показу
-                  v.addEventListener('loadeddata', function() {
-                    container.classList.add('video-loaded');
-                  }, { once: true });
-                  
-                  // Обработка ошибок загрузки
-                  v.addEventListener('error', function() {
-                    console.warn('Ошибка загрузки видео:', s.getAttribute('data-src'));
-                    // Оставляем placeholder изображение
-                    const spinner = container.querySelector('.loading-spinner');
-                    if (spinner) spinner.style.display = 'none';
-                  }, { once: true });
-                }
-              }
-            }
-          }
-        });
-      }, 150);
-    }
-    carousel.addEventListener('scroll', schedulePreload, { passive: true });
+    // Обработка кликов на кнопки Play для загрузки и воспроизведения видео
+    document.querySelectorAll('.video-play-button').forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const container = this.closest('.news-image');
+        const video = container.querySelector('video');
+        const spinner = container.querySelector('.loading-spinner');
+        const videoSrc = video.getAttribute('data-video-src');
+        
+        if (!video || !videoSrc) return;
+        
+        // Скрываем кнопку Play, показываем спиннер
+        this.style.display = 'none';
+        if (spinner) spinner.style.display = 'block';
+        
+        // Если видео еще не загружено, загружаем
+        if (!video.src) {
+          video.src = videoSrc;
+          
+          // Когда видео загружено и готово
+          video.addEventListener('loadeddata', function() {
+            spinner.style.display = 'none';
+            container.classList.add('video-loaded');
+            container.classList.add('video-playing');
+            video.style.display = 'block';
+            video.play().catch(function(err) {
+              console.warn('Ошибка воспроизведения:', err);
+            });
+          }, { once: true });
+          
+          // Обработка ошибок
+          video.addEventListener('error', function() {
+            console.warn('Ошибка загрузки видео:', videoSrc);
+            spinner.style.display = 'none';
+            button.style.display = 'block';
+            alert('Не удалось загрузить видео. Попробуйте позже.');
+          }, { once: true });
+          
+          video.load();
+        } else {
+          // Видео уже загружено, просто играем
+          spinner.style.display = 'none';
+          container.classList.add('video-playing');
+          video.style.display = 'block';
+          video.play().catch(function(err) {
+            console.warn('Ошибка воспроизведения:', err);
+          });
+        }
+      });
+    });
     
-    // Предзагружаем первую видимую карточку сразу
-    schedulePreload();
+    // При паузе видео показываем кнопку Play снова
+    document.querySelectorAll('.news-card video').forEach(function(video) {
+      video.addEventListener('pause', function() {
+        const container = this.closest('.news-image');
+        const button = container.querySelector('.video-play-button');
+        if (container && button && !this.ended) {
+          container.classList.remove('video-playing');
+          button.style.display = 'block';
+        }
+      });
+      
+      video.addEventListener('ended', function() {
+        const container = this.closest('.news-image');
+        const button = container.querySelector('.video-play-button');
+        if (container && button) {
+          container.classList.remove('video-playing');
+          button.style.display = 'block';
+        }
+      });
+    });
     
     // Инициализируем состояние стрелок
     updateArrows();

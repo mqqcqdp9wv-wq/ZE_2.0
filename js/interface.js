@@ -137,20 +137,26 @@
         
         open: function() {
           // Сохраняем текущую позицию скролла
-          scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+          scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
           
-          // Блокируем прокрутку фона
+          // Добавляем класс для блокировки скролла
+          document.documentElement.classList.add('mfp-no-scroll');
+          document.body.classList.add('mfp-no-scroll');
+          
+          // Блокируем прокрутку фона - ЖЕСТКАЯ блокировка
           document.documentElement.style.overflow = 'hidden';
+          document.documentElement.style.height = '100%';
           document.body.style.overflow = 'hidden';
+          document.body.style.height = '100%';
           document.body.style.position = 'fixed';
           document.body.style.top = '-' + scrollPosition + 'px';
           document.body.style.width = '100%';
           document.body.style.left = '0';
           document.body.style.right = '0';
           
-          // Добавляем класс для дополнительной блокировки
-          document.documentElement.classList.add('mfp-no-scroll');
-          document.body.classList.add('mfp-no-scroll');
+          // Блокируем touch события на фоне
+          document.body.style.touchAction = 'none';
+          document.documentElement.style.touchAction = 'none';
           
           // На мобильных: добавляем возможность закрыть двойным тапом на контент
           if (window.innerWidth <= 767) {
@@ -175,13 +181,18 @@
           document.documentElement.classList.remove('mfp-no-scroll');
           document.body.classList.remove('mfp-no-scroll');
           
+          // Восстанавливаем стили
           document.documentElement.style.overflow = '';
+          document.documentElement.style.height = '';
+          document.documentElement.style.touchAction = '';
           document.body.style.overflow = '';
+          document.body.style.height = '';
           document.body.style.position = '';
           document.body.style.top = '';
           document.body.style.width = '';
           document.body.style.left = '';
           document.body.style.right = '';
+          document.body.style.touchAction = '';
           
           // Восстанавливаем позицию скролла
           window.scrollTo(0, scrollPosition);

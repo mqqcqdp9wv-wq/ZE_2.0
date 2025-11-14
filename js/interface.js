@@ -105,6 +105,8 @@
     /* Pop up*/
     // Magnific Popup с оптимизацией для мобильных
     let modalOpening = false;
+    // Хэндлеры блокировки скролла фона
+    let lockWheelHandler = null, lockTouchHandler = null, lockKeyHandler = null;
     
     $('.popup-with-zoom-anim').magnificPopup({
       type: 'inline',
@@ -135,15 +137,32 @@
         },
         
         open: function() {
-          // Фиксируем body на мобильных
+          // Фиксируем body для ВСЕХ устройств (десктоп + мобильные)
+          const scrollY = window.scrollY;
+          document.body.style.position = 'fixed';
+          document.body.style.top = '-' + scrollY + 'px';
+          document.body.style.width = '100%';
+          document.body.style.overflow = 'hidden';
+          // Дополнительно блокируем фоновые события прокрутки (wheel/touch/keys)
+          document.documentElement.classList.add('scroll-lock');
+          document.body.classList.add('scroll-lock');
+          lockWheelHandler = function(e){ if (!(e.target && e.target.closest && e.target.closest('.mfp-content'))) { e.preventDefault(); } };
+          lockTouchHandler = function(e){ if (!(e.target && e.target.closest && e.target.closest('.mfp-content'))) { e.preventDefault(); } };
+          lockKeyHandler = function(e){
+            const keys = [32,33,34,35,36,37,38,39,40]; // space, pgup, pgdn, end, home, arrows
+            if (keys.indexOf(e.keyCode || e.which) !== -1) {
+              const content = document.querySelector('.mfp-content');
+              if (!content || !content.contains(e.target)) {
+                e.preventDefault();
+              }
+            }
+          };
+          document.addEventListener('wheel', lockWheelHandler, { passive: false, capture: true });
+          document.addEventListener('touchmove', lockTouchHandler, { passive: false, capture: true });
+          document.addEventListener('keydown', lockKeyHandler, true);
+          
+          // На мобильных: добавляем возможность закрыть двойным тапом на контент
           if (window.innerWidth <= 767) {
-            const scrollY = window.scrollY;
-            document.body.style.position = 'fixed';
-            document.body.style.top = '-' + scrollY + 'px';
-            document.body.style.width = '100%';
-            document.body.style.overflow = 'hidden';
-            
-            // На мобильных: добавляем возможность закрыть двойным тапом на контент
             $('.mfp-content').off('dblclick').on('dblclick', function(e) {
               // Не закрываем если кликнули на ссылку или кнопку
               if (!$(e.target).is('a, button, input, select, textarea')) {
@@ -161,14 +180,20 @@
         },
         
         close: function() {
-          if (window.innerWidth <= 767) {
-            const scrollY = document.body.style.top;
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            document.body.style.overflow = '';
-            window.scrollTo(0, parseInt(scrollY || '0') * -1);
-          }
+          // Восстанавливаем прокрутку body для ВСЕХ устройств
+          const scrollY = document.body.style.top;
+          // Снимаем блокировки
+          document.removeEventListener('wheel', lockWheelHandler, true);
+          document.removeEventListener('touchmove', lockTouchHandler, true);
+          document.removeEventListener('keydown', lockKeyHandler, true);
+          document.documentElement.classList.remove('scroll-lock');
+          document.body.classList.remove('scroll-lock');
+          document.body.style.position = '';
+          document.body.style.top = '';
+          document.body.style.width = '';
+          document.body.style.overflow = '';
+          window.scrollTo(0, parseInt(scrollY || '0') * -1);
+          
           modalOpening = false;
         }
       }

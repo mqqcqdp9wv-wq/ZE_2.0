@@ -1,5 +1,22 @@
 /* Custom styles for ZE-Studio */
 
+/* Global layout stability and media defaults */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+/* Prevent media from overflowing containers and causing layout shift */
+img, video, svg { display: block; max-width: 100%; height: auto; }
+/* Avoid flex children forcing horizontal overflow */
+.row > * { min-width: 0; }
+/* Keep header above media layers */
+.navbar { z-index: 1000; background: rgba(255,255,255,0.98); -webkit-backdrop-filter: saturate(140%) blur(6px); backdrop-filter: saturate(140%) blur(6px); }
+@supports (position: sticky) {
+  .navbar { position: sticky; top: 0; }
+}
+/* Safer default to avoid accidental horizontal scrollbars */
+html, body { overflow-x: hidden; }
+/* Блокировка прокрутки фона, когда открыта модалка */
+.scroll-lock { position: fixed; width: 100%; overflow: hidden; }
+
 /* Make VK icon lighter (outline style) */
 ion-icon[name="logo-vk"] {
   -webkit-text-stroke: 1px currentColor;

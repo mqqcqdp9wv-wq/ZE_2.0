@@ -734,8 +734,8 @@
                 <figure>
                   <!-- Видео новости -->
                   <div class="news-image">
-                    <video autoplay loop muted playsinline preload="none" poster="img/bg/personal3.jpg" loading="lazy">
-                      <source src="rayno-centum.mp4" type="video/mp4">
+                    <video muted playsinline preload="none" poster="img/bg/personal3.jpg">
+                      <source data-src="rayno-centum.mp4" type="video/mp4">
                       <img src="img/bg/personal3.jpg" alt="RAYNO CENTUM" loading="lazy">
                     </video>
                   </div>
@@ -758,8 +758,8 @@
                 
                 <figure>
                   <div class="news-image">
-                    <video autoplay loop muted playsinline preload="none" poster="img/bg/personal2-hd.jpg" loading="lazy">
-                      <source src="rayno-monocarbon.mp4" type="video/mp4">
+                    <video muted playsinline preload="none" poster="img/bg/personal2-hd.jpg">
+                      <source data-src="rayno-monocarbon.mp4" type="video/mp4">
                       <img src="img/bg/personal2-hd.jpg" alt="RAYNO MONOCARBON" loading="lazy">
                     </video>
                   </div>
@@ -781,8 +781,8 @@
                 
                 <figure>
                   <div class="news-image">
-                    <video autoplay loop muted playsinline preload="none" poster="img/bg/personal2-hd.jpg" loading="lazy">
-                      <source src="llumar-atr05.mp4" type="video/mp4">
+                    <video muted playsinline preload="none" poster="img/bg/personal2-hd.jpg">
+                      <source data-src="llumar-atr05.mp4" type="video/mp4">
                       <img src="img/bg/personal2-hd.jpg" alt="LLUMAR ATR 05" loading="lazy">
                     </video>
                   </div>
@@ -1738,38 +1738,37 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Слушаем скролл
     carousel.addEventListener('scroll', updateArrows);
+
+    // Ленивая подготовка источников видео в видимых карточках при скролле
+    let preloadTimeout;
+    function schedulePreload() {
+      clearTimeout(preloadTimeout);
+      preloadTimeout = setTimeout(() => {
+        const cards = Array.from(document.querySelectorAll('.news-card'));
+        const viewportLeft = carousel.scrollLeft;
+        const viewportRight = viewportLeft + carousel.clientWidth;
+        cards.forEach(card => {
+          const rectLeft = card.offsetLeft;
+          const rectRight = rectLeft + card.clientWidth;
+          const overlap = Math.max(0, Math.min(viewportRight, rectRight) - Math.max(viewportLeft, rectLeft));
+          const visibility = overlap / Math.max(1, card.clientWidth);
+          if (visibility > 0.25) {
+            const v = card.querySelector('video');
+            if (v) {
+              const pending = v.querySelectorAll('source[data-src]:not([src])');
+              if (pending.length) {
+                pending.forEach(s => s.setAttribute('src', s.getAttribute('data-src')));
+                if (v.readyState === 0) { v.load(); }
+              }
+            }
+          }
+        });
+      }, 150);
+    }
+    carousel.addEventListener('scroll', schedulePreload, { passive: true });
     
     // Инициализируем состояние стрелок
     updateArrows();
-    
-    // Intersection Observer - прокручиваем к первой карточке когда блок появляется на экране
-    if (window.innerWidth <= 767 && 'IntersectionObserver' in window) {
-      const newsSection = document.getElementById('news');
-      if (newsSection) {
-        const observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            // Когда блок новостей появляется на экране
-            if (entry.isIntersecting) {
-              // Прокручиваем карусель к первой карточке
-              setTimeout(function() {
-                if (carousel) {
-                  // Находим первую карточку
-                  const firstCard = carousel.querySelector('.news-card');
-                  if (firstCard) {
-                    // Прокручиваем к началу первой карточки
-                    firstCard.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
-                  }
-                }
-              }, 300);
-            }
-          });
-        }, {
-          threshold: 0.3 // Срабатывает когда 30% блока видно
-        });
-        
-        observer.observe(newsSection);
-      }
-    }
   }
 });
 </script>
@@ -1976,9 +1975,49 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   // Находим все видео в карточках новостей
   const videos = document.querySelectorAll('.news-card video');
+  // Подготовка: переносим src в data-src, выключаем авто-плей
+  videos.forEach(function(video) {
+    const srcEl = video.querySelector('source[src]');
+    if (srcEl && !srcEl.hasAttribute('data-src')) {
+      srcEl.setAttribute('data-src', srcEl.getAttribute('src'));
+      srcEl.removeAttribute('src');
+    }
+    video.removeAttribute('autoplay');
+    video.removeAttribute('loop');
+    video.setAttribute('preload', 'none');
+    video.setAttribute('playsinline', '');
+    video.muted = true;
+
+    // Воспроизведение по требованию (ховер/клик)
+    const demandPlay = function() {
+      const pendingSources = video.querySelectorAll('source[data-src]:not([src])');
+      if (pendingSources.length) {
+        pendingSources.forEach(function(s) { s.setAttribute('src', s.getAttribute('data-src')); });
+      }
+      if (video.readyState === 0) { video.load(); }
+      video.loop = true;
+      video.play().catch(function(){});
+    };
+    video.addEventListener('mouseenter', demandPlay, { passive: true });
+    video.addEventListener('click', demandPlay, { passive: true });
+  });
   
-  // Intersection Observer для ленивой загрузки и воспроизведения видео
-  if ('IntersectionObserver' in window) {
+  // На ДЕСКТОПЕ (>767px) - сразу загружаем и проигрываем все видео
+  if (window.innerWidth > 767) {
+    videos.forEach(function(video) {
+      video.setAttribute('preload', 'auto');
+      video.load();
+      
+      // Даем браузеру время загрузить метаданные
+      setTimeout(function() {
+        video.play().catch(function(e) {
+          console.log('Desktop autoplay blocked:', e);
+        });
+      }, 100);
+    });
+  } 
+  // На МОБИЛЬНЫХ (<=767px) - используем Intersection Observer для экономии трафика
+  else if ('IntersectionObserver' in window) {
     const videoObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         const video = entry.target;
@@ -1986,7 +2025,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (entry.isIntersecting) {
           // Видео появилось в зоне видимости
           
-          // Если видео ещё не загружено - загружаем
+          // Подмешиваем data-src в src только при необходимости и только когда видно
+          const pendingSources = video.querySelectorAll('source[data-src]:not([src])');
+          if (pendingSources.length) {
+            pendingSources.forEach(s => s.setAttribute('src', s.getAttribute('data-src')));
+          }
           if (video.readyState === 0) {
             video.load();
           }

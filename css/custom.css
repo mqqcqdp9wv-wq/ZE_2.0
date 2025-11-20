@@ -697,11 +697,11 @@ section#services.bg-gray .text-primary {
 /* Мобильные устройства (до 768px) - WebP с fallback */
 @media only screen and (max-width: 767px) {
   .masthead.jarallax {
-    background-image: url('../img/bg/personal2-mobile.jpg?v=final8') !important;
+    background-image: url('../img/bg/personal2-mobile.jpg?v=new2024') !important;
   }
   
   .webp .masthead.jarallax {
-    background-image: url('../img/bg/personal2-mobile.webp?v=final8') !important;
+    background-image: url('../img/bg/personal2-mobile.webp?v=new2024') !important;
   }
 }
 

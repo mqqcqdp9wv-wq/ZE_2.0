@@ -1,13 +1,16 @@
 User-agent: *
 Allow: /
 
-# Разрешить CSS и JS для правильного рендеринга
+# Разрешить ресурсы для правильного рендеринга
 Allow: /css/
 Allow: /js/
 Allow: /img/
+Allow: /fonts/
 
 # Не индексировать служебные файлы
 Disallow: /vendor/
+Disallow: /*.php$
+Disallow: /send-telegram.php
 
 # Sitemap
 Sitemap: https://ze-studio48.ru/sitemap.xml
@@ -16,6 +19,7 @@ Sitemap: https://ze-studio48.ru/sitemap.xml
 User-agent: Yandex
 Allow: /
 Crawl-delay: 0.5
+Host: ze-studio48.ru
 
 # Google
 User-agent: Googlebot

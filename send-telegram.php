@@ -30,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // ============================================
 // CONFIGURATION
 // ============================================
-define('TELEGRAM_BOT_TOKEN', '8223297194:AAGrxlYqx67E4FqjMCd_3m_BWNAD-Lxd59A');
-define('TELEGRAM_CHAT_ID', '8141249044'); // Владислав (@I9006)
+define('TELEGRAM_BOT_TOKEN', 'YOUR_BOT_TOKEN_HERE');
+define('TELEGRAM_CHAT_ID', 'YOUR_CHAT_ID_HERE'); // Владислав (@I9006)
 
 // ============================================
 // GET INPUT DATA

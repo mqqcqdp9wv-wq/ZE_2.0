@@ -687,54 +687,54 @@ section#services.bg-gray .text-primary {
 /* Адаптивная загрузка главного фото */
 /* Базовый fallback для всех браузеров */
 .masthead.jarallax {
-  background-image: url('../img/bg/personal2-hd.jpg?v=6');
+  background-image: url('../img/bg/personal2-hd.jpg?v=7');
 }
 
 .webp .masthead.jarallax {
-  background-image: url('../img/bg/personal2-hd.webp?v=6');
+  background-image: url('../img/bg/personal2-hd.webp?v=7');
 }
 
 /* Мобильные устройства (до 768px) - WebP с fallback */
 @media only screen and (max-width: 767px) {
   .masthead.jarallax {
-    background-image: url('../img/bg/personal2-mobile.jpg?v=final8') !important;
+    background-image: url('../img/bg/personal2-mobile.jpg?v=final9') !important;
   }
   
   .webp .masthead.jarallax {
-    background-image: url('../img/bg/personal2-mobile.webp?v=final8') !important;
+    background-image: url('../img/bg/personal2-mobile.webp?v=final9') !important;
   }
 }
 
 /* Планшеты (768px - 1279px) - WebP с fallback */
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .masthead.jarallax {
-    background-image: url('../img/bg/personal2-hd.jpg?v=6') !important;
+    background-image: url('../img/bg/personal2-hd.jpg?v=7') !important;
   }
   
   .webp .masthead.jarallax {
-    background-image: url('../img/bg/personal2-hd.webp?v=6') !important;
+    background-image: url('../img/bg/personal2-hd.webp?v=7') !important;
   }
 }
 
 /* Десктопы (1280px - 1919px) - WebP с fallback */
 @media only screen and (min-width: 1280px) and (max-width: 1919px) {
   .masthead.jarallax {
-    background-image: url('../img/bg/personal2-fullhd.jpg?v=6') !important;
+    background-image: url('../img/bg/personal2-fullhd.jpg?v=7') !important;
   }
   
   .webp .masthead.jarallax {
-    background-image: url('../img/bg/personal2-fullhd.webp?v=6') !important;
+    background-image: url('../img/bg/personal2-fullhd.webp?v=7') !important;
   }
 }
 
 /* Большие экраны (1920px+) - WebP с fallback */
 @media only screen and (min-width: 1920px) {
   .masthead.jarallax {
-    background-image: url('../img/bg/personal2.jpg?v=6') !important;
+    background-image: url('../img/bg/personal2.jpg?v=7') !important;
   }
   
   .webp .masthead.jarallax {
-    background-image: url('../img/bg/personal2.webp?v=6') !important;
+    background-image: url('../img/bg/personal2.webp?v=7') !important;
   }
 }
 
@@ -1193,12 +1193,14 @@ section#services.bg-gray .text-primary {
   .news-carousel {
     gap: 20px;
     padding: 0 7.5vw 40px 7.5vw;
+    scroll-snap-type: none; /* Отключаем автоматическое примагничивание на мобильных */
   }
   
   .news-card {
     flex: 0 0 85vw;
     min-width: 85vw;
     padding-top: 28px;
+    scroll-snap-align: none; /* Отключаем выравнивание элемента */
   }
   
   .news-card figure {

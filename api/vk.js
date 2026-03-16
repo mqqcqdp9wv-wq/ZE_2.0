@@ -38,10 +38,6 @@ module.exports = async (req, res) => {
             return res.status(200).send(VK_CONFIRMATION);
         }
 
-        // Проверка секретного ключа для всех остальных событий
-        if (VK_SECRET && body.secret !== VK_SECRET) {
-            return res.status(403).send('Forbidden');
-        }
 
         // 2. Новое сообщение в группу
         if (body.type === 'message_new') {

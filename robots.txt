@@ -19,7 +19,7 @@ Sitemap: https://www.ze-studio48.ru/sitemap.xml
 User-agent: Yandex
 Allow: /
 Crawl-delay: 0.5
-Host: ze-studio48.ru
+Host: www.ze-studio48.ru
 
 # Google
 User-agent: Googlebot

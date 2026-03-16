@@ -26,9 +26,18 @@ const WELCOME_MESSAGE = `Здравствуйте! 👋
 // Это функция, которую будет вызывать Vercel при каждом новом сообщении
 module.exports = async (req, res) => {
     try {
-        // Проверяем, что это POST запрос от Telegram
+        // Проверяем, что это POST запрос
         if (req.method === 'POST') {
             const update = req.body;
+
+            // 0. ЕСЛИ ЭТО ЗАЯВКА С ВЕБ-САЙТА (из формы)
+            if (update && update.is_web_form) {
+                const msg = `⚡️ <b>Новая заявка с сайта!</b>\n\n👤 Имя: ${update.name}\n📱 Телефон: ${update.phone}\n💬 Удобно: Написать в ${update.contact_method}\n❓ Вопрос/Авто: ${update.car}`;
+                await bot.sendMessage(ADMIN_ID, msg, { parse_mode: 'HTML' });
+                return res.status(200).json({ success: true });
+            }
+
+            // ИНАЧЕ ЭТО СТАНДАРТНОЕ СООБЩЕНИЕ ИЗ ТЕЛЕГРАМА
             const message = update.message;
 
             if (!message || !message.text) {

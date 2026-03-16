@@ -1590,358 +1590,71 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body p-4">
 
-          <!-- Шаг 1: Выбор цели -->
-          <div id="step-selection" class="step-content">
-            <p class="text-center mb-4 form-intro-text">Заполните информацию максимально подробно — это ускорит нашу
-              работу и сэкономит ваше время</p>
-
-            <div class="goal-cards">
-              <div class="goal-card" data-goal="booking">
-                <div class="goal-text">Записаться<br>на тонировку</div>
-              </div>
-
-              <div class="goal-card" data-goal="pricing">
-                <div class="goal-text">Узнать цены</div>
-              </div>
-
-              <div class="goal-card goal-card-wide" data-goal="question">
-                <div class="goal-text">Задать вопрос или написать<br>свободное сообщение</div>
-              </div>
-            </div>
+          <!-- Path A -->
+          <div class="text-center mb-4 pb-4 border-bottom">
+            <h5 class="mb-3">Самый быстрый способ:</h5>
+            <a href="https://t.me/ze_studio48bid_bot" target="_blank" class="btn btn-primary" style="display: 100%; border-radius: 8px; font-weight: bold;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="margin-right: 8px;"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              НАПИСАТЬ В TELEGRAM
+            </a>
+            <p class="text-muted mt-2 mb-0" style="font-size: 14px;">Мастер ответит здесь в течение пары минут</p>
           </div>
 
-          <!-- Шаг 2А: Форма "Записаться на тонировку" -->
-          <div id="step-booking" class="step-content" style="display:none;">
-            <form id="form-booking" class="contact-form">
-
+          <!-- Path B -->
+          <div id="quick-form-wrapper">
+            <h5 class="mb-3 text-center">Или оставьте заявку здесь:</h5>
+            <form id="form-quick" class="contact-form">
+              
               <!-- Honeypot -->
               <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
-
-              <h5 class="mb-3">ЧТО НУЖНО СДЕЛАТЬ?</h5>
-
-              <div class="form-section">
-                <p class="section-label">Тонировка:</p>
-                <div class="checkbox-group">
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Задняя часть">
-                    <span>Задняя часть (заднее + боковые задние стекла)</span>
-                  </label>
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Передние стекла">
-                    <span>Передние боковые стекла</span>
-                  </label>
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Лобовое (обычная)">
-                    <span>Лобовое стекло (обычная тонировка)</span>
-                  </label>
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Лобовое (атермальная)">
-                    <span>Лобовое стекло (атермальная пленка)</span>
-                  </label>
-                </div>
-
-                <p class="section-label mt-3">Дополнительно:</p>
-                <div class="checkbox-group">
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Растонировка">
-                    <span>Снять старую пленку (без новой тонировки)</span>
-                  </label>
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Одно стекло">
-                    <span>Одно стекло (укажите в комментарии)</span>
-                  </label>
-                </div>
+              
+              <div class="form-group">
+                <input type="text" id="quick-name" name="name" class="form-control" placeholder="Как к вам обращаться? (Имя) *" required>
               </div>
 
               <div class="form-group">
-                <label>Есть старая пленка на машине? *</label>
+                <input type="tel" id="quick-phone" name="phone" class="form-control phone-mask" placeholder="+7 (___) ___-__-__ *" required>
+              </div>
+
+              <div class="form-group">
+                <input type="text" id="quick-car" name="car" class="form-control" placeholder="Марка авто / Ваш вопрос *" required>
+              </div>
+
+              <div class="form-group">
+                <label style="font-size: 14px; margin-bottom: 5px;">Где вам удобнее получить ответ? *</label>
                 <div class="radio-group">
                   <label class="custom-radio">
-                    <input type="radio" name="old_film" value="Да" required>
-                    <span>Да, нужно снять перед тонировкой</span>
-                  </label>
-                  <label class="custom-radio">
-                    <input type="radio" name="old_film" value="Нет" required>
-                    <span>Нет, машина чистая</span>
-                  </label>
-                  <label class="custom-radio">
-                    <input type="radio" name="old_film" value="Не знаю" required>
-                    <span>Не знаю / Помогите определить</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="booking-when">Когда планируете? *</label>
-                <select id="booking-when" name="when" class="form-control" required>
-                  <option value="">Выберите вариант</option>
-                  <option value="Как можно скорее">Как можно скорее (сегодня-завтра)</option>
-                  <option value="2-3 дня">В ближайшие 2-3 дня</option>
-                  <option value="На этой неделе">На этой неделе</option>
-                  <option value="В течение месяца">В течение месяца</option>
-                  <option value="Узнаю информацию">Пока просто узнаю информацию</option>
-                </select>
-              </div>
-
-              <hr class="my-4">
-              <h5 class="mb-3">ВАШИ КОНТАКТЫ</h5>
-
-              <div class="form-group">
-                <label for="booking-name">Ваше имя *</label>
-                <input type="text" id="booking-name" name="name" class="form-control" placeholder="Например: Иван"
-                  required>
-              </div>
-
-              <div class="form-group">
-                <label for="booking-phone">Телефон *</label>
-                <input type="tel" id="booking-phone" name="phone" class="form-control phone-mask"
-                  placeholder="+7 (___) ___-__-__" required>
-              </div>
-
-              <div class="form-group">
-                <label for="booking-car">Марка и год авто *</label>
-                <input type="text" id="booking-car" name="car" class="form-control" placeholder="Например: BMW 2020"
-                  required>
-              </div>
-
-              <div class="form-group">
-                <label for="booking-comment">Комментарий (необязательно)</label>
-                <textarea id="booking-comment" name="comment" class="form-control" rows="3"
-                  placeholder="Например: 'Царапина на заднем стекле' или 'Интересует пленка RAYNO Centum 80'"></textarea>
-              </div>
-
-              <hr class="my-4">
-              <h6 class="mb-3">ДОПОЛНИТЕЛЬНО (необязательно)</h6>
-
-              <div class="form-group">
-                <label for="booking-source">Откуда узнали о нас?</label>
-                <select id="booking-source" name="source" class="form-control">
-                  <option value="">Не выбрано</option>
-                  <option value="Поиск в Яндексе/Google">Поиск в Яндексе/Google</option>
-                  <option value="Рекомендация">Рекомендация друзей/знакомых</option>
-                  <option value="ВКонтакте">Реклама ВКонтакте</option>
-                  <option value="Instagram">Реклама в Instagram</option>
-                  <option value="Проезжал мимо">Проезжал мимо</option>
-                  <option value="Другое">Другое</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="custom-checkbox">
-                  <input type="checkbox" name="has_photo" value="Да">
-                  <span>Есть фото для иллюстрации? Отправлю в мессенджере после заявки</span>
-                </label>
-              </div>
-
-              <div class="form-group">
-                <label>Как с вами связаться? *</label>
-                <div class="radio-group">
-                  <label class="custom-radio">
-                    <input type="radio" name="contact_method" value="WhatsApp" required>
+                    <input type="radio" name="contact_method" value="WhatsApp" checked required>
                     <span>WhatsApp</span>
                   </label>
                   <label class="custom-radio">
-                    <input type="radio" name="contact_method" value="Telegram" required>
+                    <input type="radio" name="contact_method" value="Telegram">
                     <span>Telegram</span>
                   </label>
                 </div>
               </div>
 
-              <div class="form-group">
-                <label class="custom-checkbox">
-                  <input type="checkbox" name="consent" required>
-                  <span>Я согласен на обработку персональных данных согласно <a href="privacy.html"
-                      target="_blank">Политике конфиденциальности</a></span>
-                </label>
+              <div class="form-group mb-0 text-center">
+                <button type="submit" class="btn btn-outline-primary" style="width: 100%;">Отправить заявку</button>
               </div>
-
-              <div class="form-group mb-0 text-right">
-                <button type="submit" class="btn btn-primary">Отправить заявку</button>
-              </div>
-
             </form>
           </div>
 
-          <!-- Шаг 2Б: Форма "Узнать цены" -->
-          <div id="step-pricing" class="step-content" style="display:none;">
-            <form id="form-pricing" class="contact-form">
-
-              <!-- Honeypot -->
-              <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
-
-              <p class="mb-4">Чтобы назвать точную цену, нужно знать несколько деталей:</p>
-
-              <div class="form-group">
-                <input type="text" name="car" class="form-control" placeholder="Марка и год авто (например: BMW 2020) *"
-                  required>
-              </div>
-
-              <div class="form-group">
-                <label>Что планируете? (можно несколько)</label>
-                <div class="checkbox-group">
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Задняя часть">
-                    <span>Задняя часть</span>
-                  </label>
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Передние стекла">
-                    <span>Передние стекла</span>
-                  </label>
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Лобовое (обычная)">
-                    <span>Лобовое (обычная)</span>
-                  </label>
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Лобовое (атермальная)">
-                    <span>Лобовое (атермальная)</span>
-                  </label>
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Растонировка">
-                    <span>Растонировка</span>
-                  </label>
-                  <label class="custom-checkbox">
-                    <input type="checkbox" name="service[]" value="Растонировка + тонировка">
-                    <span>Растонировка + тонировка</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="pricing-notes">Уточнения (необязательно)</label>
-                <textarea id="pricing-notes" name="notes" class="form-control" rows="2"
-                  placeholder="Например: только левое заднее стекло"></textarea>
-              </div>
-
-              <hr class="my-4">
-              <h5 class="mb-3">Ваши контакты:</h5>
-
-              <div class="form-group">
-                <label for="pricing-name">Ваше имя *</label>
-                <input type="text" id="pricing-name" name="name" class="form-control" placeholder="Например: Иван"
-                  required>
-              </div>
-
-              <div class="form-group">
-                <label for="pricing-phone">Телефон *</label>
-                <input type="tel" id="pricing-phone" name="phone" class="form-control phone-mask"
-                  placeholder="+7 (___) ___-__-__" required>
-              </div>
-
-              <div class="form-group">
-                <label>Как с вами связаться? *</label>
-                <div class="radio-group">
-                  <label class="custom-radio">
-                    <input type="radio" name="contact_method" value="WhatsApp" required>
-                    <span>WhatsApp</span>
-                  </label>
-                  <label class="custom-radio">
-                    <input type="radio" name="contact_method" value="Telegram" required>
-                    <span>Telegram</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="alert alert-info">
-                <small>💡 Мы изучим ваш запрос и свяжемся с вами в удобном мессенджере.</small>
-              </div>
-
-              <div class="form-group">
-                <label class="custom-checkbox">
-                  <input type="checkbox" name="consent" required>
-                  <span>Я согласен на обработку персональных данных согласно <a href="privacy.html"
-                      target="_blank">Политике конфиденциальности</a></span>
-                </label>
-              </div>
-
-              <div class="form-group mb-0 text-right">
-                <button type="submit" class="btn btn-primary">Узнать цену</button>
-              </div>
-
-            </form>
+          <!-- Success message -->
+          <div id="step-success" class="text-center" style="display:none; padding: 20px 0;">
+            <div class="mb-3" style="font-size: 48px;">✅</div>
+            <h4 class="mb-3">Заявка отправлена!</h4>
+            <p>Мы получили ваши данные и скоро свяжемся с вами в выбранном мессенджере.</p>
+            <button type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Отлично</button>
           </div>
 
-          <!-- Шаг 2В: Форма "Задать вопрос" -->
-          <div id="step-question" class="step-content" style="display:none;">
-            <form id="form-question" class="contact-form">
-
-              <!-- Honeypot -->
-              <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
-
-              <div class="form-group">
-                <label for="question-message">Опишите, чем мы можем помочь: *</label>
-                <textarea id="question-message" name="message" class="form-control" rows="5"
-                  placeholder="Например:&#10;• Какая пленка лучше для Lexus?&#10;• Даете ли гарантию?&#10;• Где находится мастерская?&#10;• Сколько времени занимает работа?"
-                  required></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="question-name">Ваше имя *</label>
-                <input type="text" id="question-name" name="name" class="form-control" placeholder="Например: Иван"
-                  required>
-              </div>
-
-              <div class="form-group">
-                <label for="question-phone">Телефон *</label>
-                <input type="tel" id="question-phone" name="phone" class="form-control phone-mask"
-                  placeholder="+7 (___) ___-__-__" required>
-              </div>
-
-              <div class="form-group">
-                <label for="question-car">Марка авто (если важно для вопроса)</label>
-                <input type="text" id="question-car" name="car" class="form-control"
-                  placeholder="Например: Lexus RX350">
-              </div>
-
-              <div class="form-group">
-                <label>Как с вами связаться? *</label>
-                <div class="radio-group">
-                  <label class="custom-radio">
-                    <input type="radio" name="contact_method" value="WhatsApp" required>
-                    <span>WhatsApp</span>
-                  </label>
-                  <label class="custom-radio">
-                    <input type="radio" name="contact_method" value="Telegram" required>
-                    <span>Telegram</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="alert alert-info">
-                <small>💡 Мы изучим ваш запрос и свяжемся с вами в удобном мессенджере.</small>
-              </div>
-
-              <div class="form-group">
-                <label class="custom-checkbox">
-                  <input type="checkbox" name="consent" required>
-                  <span>Я согласен на обработку персональных данных согласно <a href="privacy.html"
-                      target="_blank">Политике конфиденциальности</a></span>
-                </label>
-              </div>
-
-              <div class="form-group mb-0 text-right">
-                <button type="submit" class="btn btn-primary">Отправить вопрос</button>
-              </div>
-
-            </form>
-          </div>
-
-          <!-- Сообщение об успехе -->
-          <div id="step-success" class="step-content text-center" style="display:none;">
-            <h4 class="mb-4">Ваша заявка успешно отправлена!</h4>
-            <p>Мы изучим информацию и свяжемся с вами в WhatsApp или Telegram в ближайшее время.</p>
-            <p class="mb-4">Ожидайте нашего сообщения 😊</p>
-            <button type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Закрыть</button>
-          </div>
-
-          <!-- Сообщение об ошибке -->
-          <div id="step-error" class="step-content text-center" style="display:none;">
-            <div class="error-icon">⚠️</div>
-            <h4 class="mb-3">Что-то пошло не так...</h4>
-            <p>Пожалуйста, попробуйте ещё раз или напишите нам напрямую:</p>
-            <p class="mb-2">📱 WhatsApp: +7 (915) 858-21-15</p>
-            <p>💬 Telegram: @ваш_телеграм</p>
+          <!-- Error message -->
+          <div id="step-error" class="text-center" style="display:none; padding: 20px 0;">
+            <div class="mb-3" style="font-size: 48px;">⚠️</div>
+            <h4 class="mb-3">Ошибка отправки</h4>
+            <p>Не удалось отправить заявку. Пожалуйста, напишите нам в Telegram напрямую по кнопке выше.</p>
             <button type="button" class="btn btn-primary mt-3" id="btn-retry">Попробовать снова</button>
           </div>
 

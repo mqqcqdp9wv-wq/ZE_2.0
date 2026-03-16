@@ -2,13 +2,7 @@
   'use strict';
   	
 
-  	/* Window Load */
-	$(window).on('load',function(){
-		$('.loader').fadeOut(200);
-	});
-
-
-	/* Parallax - отключен на мобильных устройствах */
+  	/* Parallax - отключен на мобильных устройствах */
 	if ($(window).width() > 767) {
 		$('.jarallax').jarallax({
 		    speed: 0.75

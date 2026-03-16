@@ -58,8 +58,6 @@
   <link rel="stylesheet" href="css/tint-simulator.css?v=mobilegap666">
 
   <!-- Preload critical images for faster loading -->
-  <link rel="preload" as="image" href="img/bg/personal2-mobile.webp" type="image/webp" media="(max-width: 767px)"
-    fetchpriority="high">
   <link rel="preload" as="image" href="img/bg/personal2-hd.webp" type="image/webp"
     media="(min-width: 768px) and (max-width: 1279px)" fetchpriority="high">
   <link rel="preload" as="image" href="img/bg/personal2-fullhd.webp" type="image/webp"
@@ -213,7 +211,7 @@
 
   <!-- Masthead -->
   <main id="home" class="masthead jarallax" role="main">
-    <video class="masthead-mobile-video" autoplay loop muted playsinline>
+    <video class="masthead-mobile-video" autoplay loop muted playsinline preload="none">
       <source src="rayno-centum.mp4" type="video/mp4">
     </video>
     <div class="opener">

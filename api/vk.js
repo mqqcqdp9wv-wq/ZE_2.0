@@ -1,10 +1,20 @@
-// VK Callback API → Telegram
-// Получает сообщения из группы ВКонтакте и пересылает в Telegram
+// VK Callback API → автоответ + уведомление в Telegram
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
 const ADMIN_ID = process.env.ADMIN_ID;
-const VK_CONFIRMATION = process.env.VK_CONFIRMATION; // строка подтверждения из настроек ВК
-const VK_SECRET = process.env.VK_SECRET;             // секретный ключ из настроек ВК
+const VK_CONFIRMATION = process.env.VK_CONFIRMATION;
+const VK_TOKEN = process.env.VK_TOKEN;
+
+// Текст автоответа клиенту в ВК
+const AUTO_REPLY = `Здравствуйте! 👋
+
+Ваше сообщение получено. Мастер ответит вам в ближайшее время.
+
+Пока вы ждёте, можете посмотреть наши работы и цены:
+🎬 vk.com/tonirowka48
+🗺 Адрес и отзывы: https://yandex.ru/maps/-/CDu~mGzX
+
+📞 Для срочной связи: +7 (915) 858-21-15`;
 
 async function sendTelegramMessage(text) {
     const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
@@ -18,10 +28,13 @@ async function sendTelegramMessage(text) {
             disable_web_page_preview: true
         })
     });
-    if (!res.ok) {
-        const err = await res.text();
-        throw new Error(`Telegram API error: ${res.status} ${err}`);
-    }
+    return res.json();
+}
+
+async function sendVkMessage(userId, message) {
+    const randomId = Math.floor(Math.random() * 1000000);
+    const url = `https://api.vk.com/method/messages.send?user_id=${userId}&message=${encodeURIComponent(message)}&random_id=${randomId}&access_token=${VK_TOKEN}&v=5.199`;
+    const res = await fetch(url);
     return res.json();
 }
 
@@ -33,46 +46,40 @@ module.exports = async (req, res) => {
     try {
         const body = req.body;
 
-        // 1. Подтверждение адреса — отвечаем без проверки секрета
+        // 1. Подтверждение адреса
         if (body.type === 'confirmation') {
             return res.status(200).send(VK_CONFIRMATION);
         }
-
 
         // 2. Новое сообщение в группу
         if (body.type === 'message_new') {
             const msg = body.object?.message || body.object;
             const text = msg?.text || '';
-            const fromId = msg?.from_id || msg?.user_id || '?';
-            const attachments = msg?.attachments || [];
+            const fromId = msg?.from_id || msg?.user_id;
 
-            // Ссылка на профиль ВК
-            const vkLink = fromId > 0
-                ? `https://vk.com/id${fromId}`
-                : `https://vk.com/club${Math.abs(fromId)}`;
-
-            // Формируем сообщение
-            let telegramText = `💬 <b>[ВКонтакте] Новое сообщение</b>\n\n`;
-            telegramText += `👤 Профиль: <a href="${vkLink}">vk.com/id${fromId}</a>\n`;
-
-            if (text) {
-                telegramText += `\n📝 Текст:\n${text}`;
+            // Автоответ клиенту в ВК
+            if (fromId && fromId > 0) {
+                await sendVkMessage(fromId, AUTO_REPLY);
             }
 
+            // Уведомление тебе в Telegram
+            const vkLink = `https://vk.com/id${fromId}`;
+            let telegramText = `💬 <b>[ВК] Новое сообщение</b>\n\n`;
+            telegramText += `👤 <a href="${vkLink}">Профиль клиента</a>\n`;
+            if (text) telegramText += `\n📝 ${text}`;
+
+            const attachments = msg?.attachments || [];
             if (attachments.length > 0) {
-                const types = attachments.map(a => a.type).join(', ');
-                telegramText += `\n📎 Вложения: ${types}`;
+                telegramText += `\n📎 Вложения: ${attachments.map(a => a.type).join(', ')}`;
             }
 
             await sendTelegramMessage(telegramText);
         }
 
-        // ВК ожидает ответ "ok"
         return res.status(200).send('ok');
 
     } catch (error) {
         console.error('VK webhook error:', error);
-        // Всё равно отвечаем "ok" чтобы ВК не ретраил
         return res.status(200).send('ok');
     }
 };

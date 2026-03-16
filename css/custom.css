@@ -684,6 +684,18 @@ section#services.bg-gray .text-primary {
   color: #23a592 !important;
 }
 
+/* Mobile video background */
+.masthead-mobile-video {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
 /* Адаптивная загрузка главного фото */
 /* Базовый fallback для всех браузеров */
 .masthead.jarallax {
@@ -694,14 +706,15 @@ section#services.bg-gray .text-primary {
   background-image: url('../img/bg/personal2-hd.webp?v=7');
 }
 
-/* Мобильные устройства (до 768px) - WebP с fallback */
+/* Мобильные устройства (до 768px) — видео вместо фото */
 @media only screen and (max-width: 767px) {
-  .masthead.jarallax {
-    background-image: url('../img/bg/personal2-mobile.jpg?v=final9') !important;
+  .masthead-mobile-video {
+    display: block;
   }
-  
+
+  .masthead.jarallax,
   .webp .masthead.jarallax {
-    background-image: url('../img/bg/personal2-mobile.webp?v=final9') !important;
+    background-image: none !important;
   }
 }
 

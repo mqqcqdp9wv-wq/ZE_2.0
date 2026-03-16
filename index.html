@@ -1740,17 +1740,7 @@
               entries.forEach(function (entry) {
                 // Когда блок новостей появляется на экране
                 if (entry.isIntersecting) {
-                  // Прокручиваем карусель к первой карточке
-                  setTimeout(function () {
-                    if (carousel) {
-                      // Находим первую карточку
-                      const firstCard = carousel.querySelector('.news-card');
-                      if (firstCard) {
-                        // Прокручиваем к началу первой карточки
-                        firstCard.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
-                      }
-                    }
-                  }, 300);
+                  // scroll-to-first-card disabled
                 }
               });
             }, {

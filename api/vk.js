@@ -40,6 +40,13 @@ async function sendVkMessage(userId, message) {
     return res.json();
 }
 
+async function isFirstMessage(userId) {
+    const url = `https://api.vk.com/method/messages.getHistory?user_id=${userId}&count=2&access_token=${VK_TOKEN}&v=5.199`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.response && data.response.count <= 1;
+}
+
 module.exports = async (req, res) => {
     if (req.method !== 'POST') {
         return res.status(405).send('Method Not Allowed');
@@ -59,8 +66,8 @@ module.exports = async (req, res) => {
             const text = msg?.text || '';
             const fromId = msg?.from_id || msg?.user_id;
 
-            // Автоответ клиенту в ВК
-            if (fromId && fromId > 0) {
+            // Автоответ клиенту в ВК — только на первое сообщение
+            if (fromId && fromId > 0 && await isFirstMessage(fromId)) {
                 await sendVkMessage(fromId, AUTO_REPLY);
             }
 

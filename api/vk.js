@@ -33,14 +33,14 @@ module.exports = async (req, res) => {
     try {
         const body = req.body;
 
-        // Проверка секретного ключа
-        if (VK_SECRET && body.secret !== VK_SECRET) {
-            return res.status(403).send('Forbidden');
-        }
-
-        // 1. Подтверждение адреса (первичная настройка)
+        // 1. Подтверждение адреса — отвечаем без проверки секрета
         if (body.type === 'confirmation') {
             return res.status(200).send(VK_CONFIRMATION);
+        }
+
+        // Проверка секретного ключа для всех остальных событий
+        if (VK_SECRET && body.secret !== VK_SECRET) {
+            return res.status(403).send('Forbidden');
         }
 
         // 2. Новое сообщение в группу

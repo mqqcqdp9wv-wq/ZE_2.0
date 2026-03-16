@@ -42,7 +42,7 @@ module.exports = async (req, res) => {
 
             // 0. ЕСЛИ ЭТО ЗАЯВКА С ВЕБ-САЙТА (из формы)
             if (update && update.is_web_form) {
-                const msg = `⚡️ <b>Новая заявка с сайта!</b>\n\n👤 Имя: ${update.name}\n📱 Телефон: ${update.phone}\n💬 Удобно: Написать в ${update.contact_method}\n❓ Вопрос/Авто: ${update.car}`;
+                const msg = `📩 <b>[САЙТ] Новая заявка</b>\n\n👤 Имя: ${update.name}\n📱 Телефон: ${update.phone}\n💬 Удобно: Написать в ${update.contact_method}\n🚗 Авто: ${update.car}`;
                 await sendTelegramMessage(ADMIN_ID, msg, { parse_mode: 'HTML' });
                 return res.status(200).json({ success: true });
             }

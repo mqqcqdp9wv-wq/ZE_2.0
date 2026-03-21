@@ -51,28 +51,8 @@
     text-align: center;
   }
 
-  /* Скрываем кнопку "Подробнее" на десктопе - как на мобильной */
-  .vlt-indicator {
-    display: none !important;
-  }
-
-  /* Анимация дыхания для активной кнопки на десктопе */
-  .vlt-btn.active {
-    animation: breathe-btn-desktop 2.5s ease-in-out infinite;
-  }
 }
 
-/* Анимация дыхания для десктопа */
-@keyframes breathe-btn-desktop {
-  0%, 100% {
-    transform: translateY(-3px) scale(1);
-    box-shadow: 0 8px 25px rgba(35, 165, 146, 0.35);
-  }
-  50% {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(35, 165, 146, 0.5);
-  }
-}
 
 /* Область превью машины */
 .car-preview-wrapper {
@@ -196,22 +176,52 @@
   backface-visibility: hidden;
 }
 
-/* Кнопка "Подробнее" - теперь рядом с характеристиками */
-.vlt-indicator {
-  background: rgba(35, 165, 146, 0.95);
-  color: white;
-  padding: 18px 32px;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(35, 165, 146, 0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
-  flex-shrink: 0;
+/* Обёртка кнопки — нужна для позиционирования стикера снаружи кнопки */
+.vlt-btn-wrapper {
+  flex: 1;
   min-width: 140px;
-  animation: breathe 2.5s ease-in-out infinite;
+  max-width: 180px;
+  position: relative;
+  margin-bottom: 28px;
+}
+
+/* Стикер «Подробнее» — вкладочка, выезжает из-под кнопки */
+.vlt-more-tag {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  background: #fff;
+  color: #23a592;
+  border: 1.5px solid #23a592;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 16px 5px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.vlt-btn.active + .vlt-more-tag {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(88%);
+}
+
+.vlt-more-tag:hover {
+  background: #23a592;
+  color: #fff;
+}
+
+/* Старая кнопка "Подробнее" — скрыта, заменена стикером */
+.vlt-indicator {
+  display: none !important;
 }
 
 /* Анимация дыхания для кнопки */
@@ -248,19 +258,18 @@
 }
 
 .vlt-btn {
-  flex: 1;
-  min-width: 140px;
-  max-width: 180px;
+  width: 100%;
   padding: 20px 15px;
   background: #ffffff;
-  border: none;
+  border: 1.5px solid #e8e8e8;
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   text-align: center;
   position: relative;
   overflow: hidden;
   outline: none;
+  z-index: 2;
 }
 
 .vlt-btn:focus {
@@ -281,13 +290,23 @@
   z-index: 0;
 }
 
-.vlt-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(35, 165, 146, 0.2);
+/* Hover только на устройствах с мышью — не на тачскринах */
+@media (hover: hover) {
+  .vlt-btn:not(.active):hover {
+    border-color: #23a592;
+    background: rgba(35, 165, 146, 0.04);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(35, 165, 146, 0.15);
+  }
+
+  .vlt-btn:not(.active):hover .vlt-value {
+    color: #23a592;
+  }
 }
 
 .vlt-btn.active {
   background: linear-gradient(135deg, #23a592 0%, #1a8577 100%);
+  border-color: transparent;
   box-shadow: 0 8px 25px rgba(35, 165, 146, 0.35);
   transform: translateY(-3px);
 }
@@ -628,9 +647,12 @@
     gap: 10px;
   }
 
-  .vlt-btn {
+  .vlt-btn-wrapper {
     min-width: 110px;
     max-width: 140px;
+  }
+
+  .vlt-btn {
     padding: 15px 10px;
   }
 
@@ -700,7 +722,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   /* Секция симулятора на мобильных */
   #tint-simulator {
     padding: 30px 0;
@@ -743,9 +765,9 @@
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     gap: 12px;
-    padding: 15px 20px;
+    padding: 15px 20px 35px;
     margin: 0 -20px 20px;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
@@ -759,39 +781,31 @@
     display: none;
   }
 
-  /* Кнопки в карусели */
-  .vlt-btn {
+  /* Обёртка кнопки в карусели */
+  .vlt-btn-wrapper {
     flex: 0 0 120px;
     min-width: 120px;
     max-width: 120px;
-    padding: 18px 12px;
     scroll-snap-align: center;
     scroll-snap-stop: always;
+    margin-bottom: 0;
+  }
+
+  /* Кнопки в карусели */
+  .vlt-btn {
+    padding: 18px 12px;
     opacity: 0.4;
     filter: blur(1px) brightness(0.7);
     transform: scale(0.85);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
-  /* Центральная (активная) кнопка - яркая, чёткая и ДЫШИТ */
+
+  /* Центральная (активная) кнопка - яркая, чёткая */
   .vlt-btn.active {
     opacity: 1;
     filter: blur(0) brightness(1);
     transform: scale(1);
     z-index: 2;
-    animation: breathe-btn 2.5s ease-in-out infinite;
-  }
-  
-  /* Анимация дыхания для активной кнопки */
-  @keyframes breathe-btn {
-    0%, 100% {
-      transform: scale(1);
-      box-shadow: 0 4px 15px rgba(36, 186, 158, 0.3);
-    }
-    50% {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(36, 186, 158, 0.5);
-    }
   }
 
   /* Паддинг для центрирования первого и последнего элемента */

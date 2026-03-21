@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>RAYNO Centum — атермальная керамическая плёнка | ze.studio</title>
+  <meta name="description"
+    content="RAYNO Centum — атермальная нанокерамическая плёнка. 80% светопропускание, 99% UV-блок, 80% отражение ИК. Соответствует ГОСТу. Установка в Липецке — ze.studio">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #343434;
+      background: #fff;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV --- */
+    .page-nav {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .page-nav a {
+      color: #999;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    .page-nav a:hover {
+      color: #23a592;
+    }
+
+    .page-nav .brand {
+      color: #343434;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 40px 40px;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-image {
+      flex: 0 0 340px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      object-fit: cover;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #23a592;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .hero h1 span {
+      color: #23a592;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: #767676;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* --- CONTENT --- */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section-block {
+      padding: 50px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .section-block:first-child {
+      border-top: none;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 24px;
+    }
+
+    .section-block h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+
+    .section-block p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    /* --- KEY FEATURES --- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 28px 16px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+
+    .feature-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #23a592;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .feature-label {
+      font-size: 12px;
+      color: #999;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- SECTION IMAGE --- */
+    .section-image {
+      margin: 30px 0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .section-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .section-image.rounded img {
+      border-radius: 12px;
+    }
+
+    /* --- COMPARE --- */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .compare-card {
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .compare-card.ours {
+      background: #f0faf8;
+      border: 2px solid #23a592;
+    }
+
+    .compare-card.theirs {
+      background: #f8f8f8;
+      border: 2px solid #e0e0e0;
+    }
+
+    .compare-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .compare-card.ours .compare-card-title { color: #23a592; }
+    .compare-card.theirs .compare-card-title { color: #999; }
+
+    .compare-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .compare-card li {
+      position: relative;
+      padding: 8px 0 8px 24px;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .compare-card.ours li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: #23a592;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .compare-card.theirs li::before {
+      content: '−';
+      position: absolute;
+      left: 0;
+      color: #cc4444;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    /* --- ADVANTAGES --- */
+    .advantages-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .advantages-list li {
+      position: relative;
+      padding: 12px 0 12px 32px;
+      font-size: 16px;
+      color: #555;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .advantages-list li:last-child { border-bottom: none; }
+
+    .advantages-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: #23a592;
+      border-radius: 50%;
+    }
+
+    /* --- HOW IT WORKS --- */
+    .steps-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 24px;
+      counter-reset: steps;
+    }
+
+    .steps-list li {
+      position: relative;
+      padding: 16px 0 16px 56px;
+      font-size: 16px;
+      color: #555;
+      border-bottom: 1px solid #f0f0f0;
+      counter-increment: steps;
+    }
+
+    .steps-list li:last-child { border-bottom: none; }
+
+    .steps-list li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background: #23a592;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* --- SPECS TABLE --- */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 15px;
+    }
+
+    .specs-table thead th {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 14px 16px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .specs-table thead th:first-child {
+      text-align: left;
+      border-radius: 8px 0 0 0;
+    }
+
+    .specs-table thead th:last-child { border-radius: 0 8px 0 0; }
+
+    .specs-table tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      color: #555;
+    }
+
+    .specs-table tbody td:first-child {
+      text-align: left;
+      font-weight: 500;
+      color: #343434;
+    }
+
+    .specs-table tbody tr:hover { background: #f8f9fa; }
+    .specs-table .highlight { color: #23a592; font-weight: 600; }
+
+    /* --- CTA --- */
+    .cta-block {
+      margin: 60px 0;
+      padding: 40px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cta-block h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .cta-block p {
+      font-size: 16px;
+      color: #767676;
+      margin-bottom: 24px;
+    }
+
+    .cta-phone {
+      display: inline-block;
+      padding: 14px 36px;
+      background: #23a592;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .cta-phone:hover {
+      background: #1d8a7a;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* --- GOST BADGE --- */
+    .gost-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: #f0faf8;
+      border: 2px solid #23a592;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #23a592;
+      margin-top: 16px;
+    }
+
+    /* --- FOOTER --- */
+    .page-footer {
+      padding: 30px 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #bbb;
+      border-top: 1px solid #eee;
+    }
+
+    .page-footer a {
+      color: #23a592;
+      text-decoration: none;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 30px 20px 20px;
+        flex-direction: column-reverse;
+        gap: 24px;
+      }
+
+      .hero-image {
+        flex: none;
+        width: 200px;
+        margin: 0 auto;
+      }
+
+      .hero h1 { font-size: 28px; }
+      .hero-subtitle { font-size: 16px; }
+
+      .content { padding: 0 20px; }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .compare-grid { grid-template-columns: 1fr; }
+
+      .feature-item { padding: 20px 12px; }
+      .feature-value { font-size: 26px; }
+
+      .specs-table { font-size: 13px; }
+
+      .specs-table thead th,
+      .specs-table tbody td { padding: 10px 8px; }
+
+      .cta-block {
+        padding: 30px 20px;
+        margin: 40px 0;
+      }
+
+      .page-nav { padding: 16px 20px; }
+      .section-block { padding: 36px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .feature-value { font-size: 22px; }
+      .feature-label { font-size: 10px; }
+      .feature-item { padding: 16px 10px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Навигация -->
+  <nav class="page-nav">
+    <a href="index.html" class="brand">ze.studio</a>
+    <a href="index.html">&larr; На главную</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-text">
+      <div class="hero-label">Rayno Window Film</div>
+      <h1>RAYNO <span>Centum</span></h1>
+      <p class="hero-subtitle">
+        Атермальная нанокерамическая плёнка. Блокирует тепло и ультрафиолет,
+        пропускает свет. Прозрачная защита от жары — соответствует ГОСТу для лобового стекла.
+      </p>
+    </div>
+    <div class="hero-image">
+      <img src="img/centum-image-14.jpeg" alt="RAYNO Centum — нанокерамическая структура" onerror="this.style.display='none'">
+    </div>
+  </header>
+
+  <!-- Контент -->
+  <div class="content">
+
+    <!-- Ключевые цифры -->
+    <div class="section-block">
+      <div class="section-label">Ключевые показатели</div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-value">80%</div>
+          <div class="feature-label">Светопропускание</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">99%</div>
+          <div class="feature-label">Защита от UV</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">80%</div>
+          <div class="feature-label">Отражение ИК</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">39%</div>
+          <div class="feature-label">Отражение солнца</div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <span class="gost-badge">Соответствует ГОСТ 32565-2013</span>
+      </div>
+    </div>
+
+    <!-- О плёнке -->
+    <div class="section-block">
+      <div class="section-label">О технологии</div>
+      <h2>Керамика, которая не видна</h2>
+
+      <p>
+        RAYNO Centum — атермальная плёнка на основе нанокерамики, созданная
+        с использованием передовой технологии Rayno. Без красителей и металлов —
+        только керамические наночастицы размером 30–50 нм.
+      </p>
+      <p>
+        Керамика позволяет достичь уникального сочетания: высокое светопропускание 80%
+        при мощном отражении инфракрасного излучения до 80%. Салон не нагревается,
+        кондиционер работает меньше, а видимость остаётся идеальной.
+      </p>
+      <p>
+        В отличие от обычных карбоновых плёнок, нанокерамика не создаёт бликов и помутнений.
+        А в отличие от чистой керамики — не выгорает и не теряет цвет со временем.
+        Centum объединяет лучшее из обоих технологий.
+      </p>
+    </div>
+
+    <!-- Технология -->
+    <div class="section-block">
+      <div class="section-label">Nano Carbon Ceramic</div>
+      <h2>Как это работает</h2>
+
+      <div class="section-image rounded">
+        <img src="img/centum-nano-diagram.png" alt="Диаграмма технологии Nano Carbon Ceramic — RAYNO">
+      </div>
+
+      <p>
+        Обычные карбоновые плёнки содержат крупные частицы (100–500 нм), которые отражают свет
+        внутри плёнки и создают блики. Обычная керамика не бликует, но быстро окисляется
+        и теряет цвет.
+      </p>
+      <p>
+        RAYNO решили эту проблему, объединив усовершенствованные карбоновые частицы (50–80 нм)
+        с керамическими (30–50 нм). Результат — плёнка без бликов, без помутнения,
+        с максимальной теплозащитой и стабильностью цвета на годы.
+      </p>
+    </div>
+
+    <!-- Что даёт -->
+    <div class="section-block">
+      <div class="section-label">Преимущества</div>
+      <h2>Что вы получаете</h2>
+      <ul class="advantages-list">
+        <li><strong>Прохлада в салоне</strong> — блокирует до 80% инфракрасного излучения, салон не перегревается на солнце</li>
+        <li><strong>Экономия на кондиционере</strong> — снижение температуры в салоне до 4°C, меньше нагрузка на климат</li>
+        <li><strong>99% защита от UV</strong> — ультрафиолет не проходит, защита кожи и салона от выгорания</li>
+        <li><strong>Чистая видимость</strong> — 80% светопропускание, без бликов, без искажений цвета</li>
+        <li><strong>Соответствие ГОСТу</strong> — можно ставить на лобовое стекло, замер люксметром при выдаче</li>
+        <li><strong>Стабильность цвета</strong> — не выгорает, не мутнеет, сохраняет свойства на весь срок службы</li>
+      </ul>
+    </div>
+
+    <!-- Сравнение: с плёнкой vs без -->
+    <div class="section-block">
+      <div class="section-label">Разница</div>
+      <h2>С Centum vs без</h2>
+      <p>Что меняется после установки атермальной плёнки.</p>
+
+      <div class="compare-grid">
+        <div class="compare-card ours">
+          <div class="compare-card-title">С Centum</div>
+          <ul>
+            <li>Салон не нагревается на солнце — комфортно с первой минуты</li>
+            <li>Кондиционер работает реже и быстрее охлаждает</li>
+            <li>Руль и панель не обжигают руки</li>
+            <li>99% UV — кожа и салон не выгорают</li>
+            <li>Плёнка прозрачная — с улицы не заметна</li>
+          </ul>
+        </div>
+        <div class="compare-card theirs">
+          <div class="compare-card-title">Без атермальной плёнки</div>
+          <ul>
+            <li>Салон раскаляется за 10 минут на солнце</li>
+            <li>Кондиционер на максимуме, расход топлива выше</li>
+            <li>Пластик и кожа салона стареют от UV</li>
+            <li>Ультрафиолет воздействует на кожу рук и лица</li>
+            <li>Блики от солнца мешают обзору</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Где ставят -->
+    <div class="section-block">
+      <div class="section-label">Применение</div>
+      <h2>Куда ставится Centum</h2>
+      <p>Плёнка универсальна — подходит для любого стекла автомобиля.</p>
+
+      <table class="specs-table">
+        <tbody>
+          <tr>
+            <td>Лобовое стекло — основная зона, соответствует ГОСТу (~80% VLT)</td>
+          </tr>
+          <tr>
+            <td>Передние боковые стёкла — допуск по ГОСТу для прозрачных плёнок</td>
+          </tr>
+          <tr>
+            <td>Панорамная крыша — защита от нагрева сверху</td>
+          </tr>
+          <tr>
+            <td>Комбинация с тонировкой — Centum на лобовое + MonoCarbon на остальные</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Как устанавливается -->
+    <div class="section-block">
+      <div class="section-label">Процесс</div>
+      <h2>Как устанавливается</h2>
+      <p>Установка занимает около часа и не требует разбора автомобиля.</p>
+
+      <ol class="steps-list">
+        <li>Тщательная очистка стекла от пыли, масла и загрязнений</li>
+        <li>Точная резка плёнки по форме вашего стекла</li>
+        <li>Формовка плёнки с помощью термофена по изгибу стекла</li>
+        <li>Наклейка на внутреннюю поверхность с выравниванием по краям</li>
+        <li>Удаление пузырей и влаги — финальная проверка</li>
+      </ol>
+    </div>
+
+    <!-- Полная таблица спецификаций -->
+    <div class="section-block">
+      <div class="section-label">Спецификации</div>
+      <h2>Технические характеристики</h2>
+      <p>Официальные данные RAYNO Centum.</p>
+
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th style="text-align: left;">Параметр</th>
+            <th>Значение</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Светопропускание (VLT)</td>
+            <td class="highlight">80%</td>
+          </tr>
+          <tr>
+            <td>Защита от ультрафиолета</td>
+            <td class="highlight">99%</td>
+          </tr>
+          <tr>
+            <td>Отражение ИК-излучения</td>
+            <td class="highlight">80%</td>
+          </tr>
+          <tr>
+            <td>Полное отражение солнечной энергии (TSER)</td>
+            <td class="highlight">39%</td>
+          </tr>
+          <tr>
+            <td>Тип</td>
+            <td>Нанокерамика</td>
+          </tr>
+          <tr>
+            <td>Красители / металлы</td>
+            <td>Нет</td>
+          </tr>
+          <tr>
+            <td>Способ нанесения</td>
+            <td>Изнутри стекла</td>
+          </tr>
+          <tr>
+            <td>Цвет</td>
+            <td>Прозрачный (лёгкий голубой оттенок)</td>
+          </tr>
+          <tr>
+            <td>Соответствие ГОСТу</td>
+            <td class="highlight">Да (ГОСТ 32565-2013)</td>
+          </tr>
+          <tr>
+            <td>Производитель</td>
+            <td>Rayno Window Film (США)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <h3>Записаться на установку</h3>
+      <p>Установка в Липецке. Мастер Елена Захарова. 18 лет опыта с плёнками RAYNO.</p>
+      <a href="tel:+79158582115" class="cta-phone">+7 (915) 858-21-15</a>
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <a href="index.html">ze.studio</a> &nbsp;&middot;&nbsp; Тонировка авто в Липецке &nbsp;&middot;&nbsp; <a href="https://www.raynofilm.com" target="_blank">raynofilm.com</a>
+  </footer>
+
+</body>
+</html>

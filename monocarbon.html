@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>RAYNO MonoCarbon — карбоновая тонировочная плёнка | ze.studio</title>
+  <meta name="description"
+    content="RAYNO MonoCarbon — углеродная тонировочная плёнка без красителей. 99.9% защита от UV, выцветание менее 1% за 10 лет. Установка в Липецке — ze.studio">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #343434;
+      background: #fff;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV --- */
+    .page-nav {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .page-nav a {
+      color: #999;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    .page-nav a:hover {
+      color: #23a592;
+    }
+
+    .page-nav .brand {
+      color: #343434;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    /* --- HERO (с картинкой) --- */
+    .hero {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 40px 40px;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-image {
+      flex: 0 0 320px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #23a592;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .hero h1 span {
+      color: #23a592;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: #767676;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* --- VIDEO --- */
+    .video-section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 40px;
+    }
+
+    .video-wrapper {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      display: block;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      border: none;
+    }
+
+    /* --- COMPARISON --- */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .compare-card {
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .compare-card.ours {
+      background: #f0faf8;
+      border: 2px solid #23a592;
+    }
+
+    .compare-card.theirs {
+      background: #f8f8f8;
+      border: 2px solid #e0e0e0;
+    }
+
+    .compare-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .compare-card.ours .compare-card-title {
+      color: #23a592;
+    }
+
+    .compare-card.theirs .compare-card-title {
+      color: #999;
+    }
+
+    .compare-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .compare-card li {
+      position: relative;
+      padding: 8px 0 8px 24px;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .compare-card.ours li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: #23a592;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .compare-card.theirs li::before {
+      content: '−';
+      position: absolute;
+      left: 0;
+      color: #cc4444;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    /* --- DURABILITY HIGHLIGHT --- */
+    .durability-highlight {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+      align-items: center;
+    }
+
+    .durability-bar {
+      flex: 1;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .bar-track {
+      height: 12px;
+      background: #eee;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width 0.8s ease;
+    }
+
+    .bar-fill.ours {
+      background: #23a592;
+    }
+
+    .bar-fill.theirs {
+      background: #cc4444;
+    }
+
+    /* --- CONTENT --- */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section-block {
+      padding: 50px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .section-block:first-child {
+      border-top: none;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 24px;
+    }
+
+    .section-block h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+
+    .section-block p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    /* --- KEY FEATURES (3 columns) --- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 30px 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+
+    .feature-value {
+      font-size: 36px;
+      font-weight: 700;
+      color: #23a592;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .feature-label {
+      font-size: 13px;
+      color: #999;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- SPECS TABLE --- */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 15px;
+    }
+
+    .specs-table thead th {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 14px 16px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .specs-table thead th:first-child {
+      text-align: left;
+      border-radius: 8px 0 0 0;
+    }
+
+    .specs-table thead th:last-child {
+      border-radius: 0 8px 0 0;
+    }
+
+    .specs-table tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      color: #555;
+    }
+
+    .specs-table tbody td:first-child {
+      text-align: left;
+      font-weight: 500;
+      color: #343434;
+    }
+
+    .specs-table tbody tr:hover {
+      background: #f8f9fa;
+    }
+
+    .specs-table .highlight {
+      color: #23a592;
+      font-weight: 600;
+    }
+
+    /* --- ADVANTAGES --- */
+    .advantages-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .advantages-list li {
+      position: relative;
+      padding: 12px 0 12px 32px;
+      font-size: 16px;
+      color: #555;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .advantages-list li:last-child {
+      border-bottom: none;
+    }
+
+    .advantages-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: #23a592;
+      border-radius: 50%;
+    }
+
+    /* --- CTA --- */
+    .cta-block {
+      margin: 60px 0;
+      padding: 40px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cta-block h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .cta-block p {
+      font-size: 16px;
+      color: #767676;
+      margin-bottom: 24px;
+    }
+
+    .cta-phone {
+      display: inline-block;
+      padding: 14px 36px;
+      background: #23a592;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .cta-phone:hover {
+      background: #1d8a7a;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* --- FOOTER --- */
+    .page-footer {
+      padding: 30px 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #bbb;
+      border-top: 1px solid #eee;
+    }
+
+    .page-footer a {
+      color: #23a592;
+      text-decoration: none;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 30px 20px 20px;
+        flex-direction: column-reverse;
+        gap: 24px;
+      }
+
+      .hero-image {
+        flex: none;
+        width: 200px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .video-section {
+        padding: 0 20px;
+      }
+
+      .content {
+        padding: 0 20px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .durability-highlight {
+        flex-direction: column;
+      }
+
+      .feature-item {
+        padding: 20px;
+      }
+
+      .specs-table {
+        font-size: 13px;
+      }
+
+      .specs-table thead th,
+      .specs-table tbody td {
+        padding: 10px 8px;
+      }
+
+      .cta-block {
+        padding: 30px 20px;
+        margin: 40px 0;
+      }
+
+      .page-nav {
+        padding: 16px 20px;
+      }
+
+      .section-block {
+        padding: 36px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Навигация -->
+  <nav class="page-nav">
+    <a href="index.html" class="brand">ze.studio</a>
+    <a href="index.html">&larr; На главную</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-text">
+      <div class="hero-label">Rayno Window Film</div>
+      <h1>RAYNO <span>MonoCarbon</span></h1>
+      <p class="hero-subtitle">
+        Карбоновая тонировочная плёнка на основе стабильных наночастиц углерода.
+        Без красителей. Без металлов. Насыщенный чёрный цвет на десятилетия.
+      </p>
+    </div>
+    <div class="hero-image">
+      <img src="img/monocarbon-hero.jpg" alt="RAYNO MonoCarbon — рулон плёнки">
+    </div>
+  </header>
+
+  <!-- Контент -->
+  <div class="content">
+
+    <!-- Ключевые цифры -->
+    <div class="section-block">
+      <div class="section-label">Ключевые показатели</div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-value">99.9%</div>
+          <div class="feature-label">Защита от UV</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">&lt; 1%</div>
+          <div class="feature-label">Выцветание за 10 лет</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">72%</div>
+          <div class="feature-label">Отклонение ИК-излучения</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- О плёнке -->
+    <div class="section-block">
+      <div class="section-label">О технологии</div>
+      <h2>Настоящий углерод</h2>
+      <p>
+        RAYNO MonoCarbon — это двухслойная тонировочная плёнка, в основе которой лежат стабильные наночастицы углерода (карбона).
+        В отличие от обычных плёнок с красителями, которые со временем выгорают и приобретают фиолетовый оттенок,
+        MonoCarbon сохраняет насыщенный угольно-чёрный цвет десятилетиями.
+      </p>
+      <p>
+        После 1000 часов в камере ускоренного старения Xenon XE-3 (эквивалент ~10 лет под открытым солнцем)
+        плёнка показала выцветание менее 1%. Это подтверждённый результат лабораторных испытаний.
+      </p>
+      <p>
+        Плёнка не содержит металлов — не создаёт помех для мобильной связи, GPS,
+        радаров и других электронных устройств автомобиля.
+      </p>
+    </div>
+
+    <!-- Сравнение с конкурентами -->
+    <div class="section-block">
+      <div class="section-label">Сравнение</div>
+      <h2>MonoCarbon vs конкуренты</h2>
+      <p>Почему настоящий нано-карбон лучше обычных крашеных плёнок.</p>
+
+      <div class="compare-grid">
+        <div class="compare-card ours">
+          <div class="compare-card-title">RAYNO MonoCarbon</div>
+          <ul>
+            <li>Настоящий нано-карбон без красителей и металлов</li>
+            <li>Высокая концентрация покрытия — максимальная долговечность</li>
+            <li>Нано-частицы — чистая прозрачность без мутности</li>
+          </ul>
+        </div>
+        <div class="compare-card theirs">
+          <div class="compare-card-title">Обычные плёнки</div>
+          <ul>
+            <li>Красители в основе — выцветают со временем</li>
+            <li>Тонкие слои низкой концентрации — быстрый износ</li>
+            <li>Крупные частицы — возможна мутность и потеря прозрачности</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Стойкость цвета -->
+    <div class="section-block">
+      <div class="section-label">Стойкость цвета</div>
+      <h2>1000 часов в камере Xenon XE-3</h2>
+      <p>
+        Стойкость цвета — важнейший показатель, от которого зависит не только внешний вид,
+        но и способность плёнки сохранять защитные свойства со временем.
+      </p>
+      <p>
+        Инженеры RAYNO провели тест в камере ускоренного старения Xenon XE-3 —
+        1000 часов непрерывного воздействия, что эквивалентно 10 годам под открытым солнцем.
+      </p>
+
+      <div class="durability-highlight">
+        <div class="durability-bar" style="flex: 1;">
+          <div class="bar-label">
+            <span>MonoCarbon</span>
+            <span style="color: #23a592;">&lt; 1% выцветания</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill ours" style="width: 99%;"></div>
+          </div>
+        </div>
+        <div class="durability-bar" style="flex: 1;">
+          <div class="bar-label">
+            <span>Крашеные плёнки</span>
+            <span style="color: #cc4444;">до 8.6% выцветания</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill theirs" style="width: 91.4%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Тест производительности (YouTube) -->
+    <div class="section-block">
+      <div class="section-label">Тест</div>
+      <h2>BTU-тест: отклонение тепла</h2>
+      <p>
+        Тест MonoCarbon 20% с помощью BTU-метра показал снижение солнечной энергии,
+        проходящей через стекло, практически вдвое. Это ощутимо меньше жара в салоне в летний день.
+      </p>
+    </div>
+
+    <div class="video-section" style="padding: 0; margin-bottom: 50px;">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/HkVahvmCZAU"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Спецификации -->
+    <div class="section-block">
+      <div class="section-label">Спецификации</div>
+      <h2>Характеристики по вариантам</h2>
+      <p>Четыре варианта затемнения — от лёгкой тонировки до максимальной приватности.</p>
+
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Параметр</th>
+            <th>VLT 5%</th>
+            <th>VLT 20%</th>
+            <th>VLT 35%</th>
+            <th>VLT 50%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Светопропускание</td>
+            <td>5%</td>
+            <td>20%</td>
+            <td>35%</td>
+            <td>50%</td>
+          </tr>
+          <tr>
+            <td>Отклонение солнечной энергии (TSER)</td>
+            <td class="highlight">54%</td>
+            <td class="highlight">42%</td>
+            <td class="highlight">35%</td>
+            <td class="highlight">28%</td>
+          </tr>
+          <tr>
+            <td>Защита от ультрафиолета</td>
+            <td>99.9%</td>
+            <td>99.9%</td>
+            <td>99.9%</td>
+            <td>99.9%</td>
+          </tr>
+          <tr>
+            <td>Отклонение ИК-излучения</td>
+            <td class="highlight">72%</td>
+            <td class="highlight">50%</td>
+            <td class="highlight">41%</td>
+            <td class="highlight">34%</td>
+          </tr>
+          <tr>
+            <td>Снижение бликов</td>
+            <td>95%</td>
+            <td>75%</td>
+            <td>59%</td>
+            <td>42%</td>
+          </tr>
+          <tr>
+            <td>Отражение света (изнутри)</td>
+            <td>5.0%</td>
+            <td>5.3%</td>
+            <td>5.7%</td>
+            <td>6.4%</td>
+          </tr>
+          <tr>
+            <td>Отражение света (снаружи)</td>
+            <td>5.2%</td>
+            <td>5.4%</td>
+            <td>5.8%</td>
+            <td>6.2%</td>
+          </tr>
+          <tr>
+            <td>Выцветание</td>
+            <td>&lt; 1%</td>
+            <td>&lt; 1%</td>
+            <td>&lt; 1%</td>
+            <td>&lt; 1%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Преимущества -->
+    <div class="section-block">
+      <div class="section-label">Преимущества</div>
+      <h2>Почему MonoCarbon</h2>
+      <ul class="advantages-list">
+        <li>Настоящие наночастицы углерода — не красители, не металлы</li>
+        <li>Стабильный угольно-чёрный цвет без фиолетового оттенка со временем</li>
+        <li>99.9% защита от ультрафиолетового излучения для кожи и салона</li>
+        <li>Не глушит сигналы: телефон, GPS, навигатор, радар-детектор</li>
+        <li>До 72% отклонения инфракрасного (теплового) излучения</li>
+        <li>Подтверждённая долговечность — испытания Xenon XE-3 (1000 часов)</li>
+        <li>Гарантия 5 лет</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <h3>Записаться на установку</h3>
+      <p>Консультация, подбор затемнения и установка в студии ze.studio, Липецк</p>
+      <a href="tel:+79158582115" class="cta-phone">+7 (915) 858-21-15</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <a href="index.html">ze.studio</a> &nbsp;&middot;&nbsp; Тонировка авто в Липецке
+  </footer>
+
+</body>
+
+</html>

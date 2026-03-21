@@ -119,7 +119,7 @@
     }
 
     // На мобильных - активируем среднюю кнопку (35%) по умолчанию
-    if (window.innerWidth <= 480) {
+    if (window.innerWidth <= 576) {
       const defaultButton = document.querySelector('.vlt-btn[data-vlt="35"]');
       if (defaultButton) {
         defaultButton.classList.add('active');
@@ -127,8 +127,9 @@
         
         // Центрируем кнопку в карусели
         setTimeout(() => {
-          const container = defaultButton.parentElement;
-          const scrollLeft = defaultButton.offsetLeft - (container.offsetWidth / 2) + (defaultButton.offsetWidth / 2);
+          const container = defaultButton.closest('.vlt-controls');
+          const wrapper = defaultButton.parentElement;
+          const scrollLeft = wrapper.offsetLeft - (container.offsetWidth / 2) + (wrapper.offsetWidth / 2);
           container.scrollTo({
             left: scrollLeft,
             behavior: 'smooth'
@@ -147,7 +148,7 @@
 
     // Функция автофокуса на мобильных при скролле карусели
     function updateButtonFocus() {
-      if (window.innerWidth > 480) return; // Только на мобильных
+      if (window.innerWidth > 576) return; // Только на мобильных
       
       const container = document.querySelector('.vlt-controls');
       if (!container) return;
@@ -157,7 +158,8 @@
       let minDistance = Infinity;
       
       buttons.forEach(button => {
-        const buttonCenter = button.offsetLeft + button.offsetWidth / 2;
+        const wrapper = button.parentElement;
+        const buttonCenter = wrapper.offsetLeft + wrapper.offsetWidth / 2;
         const distance = Math.abs(containerCenter - buttonCenter);
         
         if (distance < minDistance) {
@@ -183,7 +185,7 @@
     }
     
     // Слушаем скролл на мобильных для обновления фокуса
-    if (window.innerWidth <= 480) {
+    if (window.innerWidth <= 576) {
       const container = document.querySelector('.vlt-controls');
       if (container) {
         let scrollTimeout;
@@ -196,28 +198,44 @@
       }
     }
 
+    // Определяем тачскрин-устройство
+    const isTouchDevice = window.matchMedia('(hover: none)').matches;
+
+    // Клик по стикеру «Подробнее» → открывает модалку
+    document.querySelectorAll('.vlt-more-tag').forEach(tag => {
+      tag.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const modal = document.getElementById('filmModal');
+        if (modal) {
+          modal.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
     // Обработчики кликов на кнопки
     buttons.forEach(button => {
       button.addEventListener('click', function(event) {
         const vlt = parseInt(this.dataset.vlt);
         const wasActive = this.classList.contains('active');
-        
+
         // Убираем активный класс со всех кнопок
         buttons.forEach(btn => btn.classList.remove('active'));
-        
+
         // Добавляем активный класс к текущей кнопке
         this.classList.add('active');
-        
+
         // На мобильных - прокрутка карусели
-        if (window.innerWidth <= 480) {
-          const container = this.parentElement;
-          const scrollLeft = this.offsetLeft - (container.offsetWidth / 2) + (this.offsetWidth / 2);
+        if (window.innerWidth <= 576) {
+          const container = this.closest('.vlt-controls');
+          const wrapper = this.parentElement;
+          const scrollLeft = wrapper.offsetLeft - (container.offsetWidth / 2) + (wrapper.offsetWidth / 2);
           container.scrollTo({
             left: scrollLeft,
             behavior: 'smooth'
           });
         }
-        
+
         // Показываем характеристики (для всех устройств)
         const specsWrapper = document.querySelector('.specs-wrapper');
         if (specsWrapper) {
@@ -225,16 +243,9 @@
             specsWrapper.classList.add('show');
           }, 300);
         }
-        
-        // Открываем модальное окно ТОЛЬКО при повторном клике (для всех устройств)
-        if (wasActive) {
-          const modal = document.getElementById('filmModal');
-          if (modal) {
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-          }
-        }
-        
+
+        // Модалка открывается только через кнопку «Подробнее» (vlt-indicator)
+
         // Обновляем симулятор
         updateSimulator(vlt);
 

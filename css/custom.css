@@ -1,5 +1,229 @@
 /* Custom styles for ZE-Studio */
 
+
+/* --- FAQ ACCORDION --- */
+.faq-grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #eee;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid #eee;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  cursor: pointer;
+  user-select: none;
+  gap: 20px;
+}
+
+.faq-question h5 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.faq-question .faq-toggle {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 300;
+  color: #bbb;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+  color: #23a592;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+.faq-answer p {
+  font-size: 15px;
+  color: #8a8a8a;
+  line-height: 1.7;
+  margin: 0;
+  padding-bottom: 24px;
+  max-width: 640px;
+}
+
+
+/* --- MATERIAL ROW STYLES --- */
+.mat-type-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-bottom: 14px;
+}
+
+.mat-stat-inline {
+  font-size: 40px;
+  font-weight: 700;
+  color: #23a592;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-top: 0;
+}
+
+.mat-stat-inline span {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #bbb;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+.mat-detail-link {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #23a592;
+  text-decoration: none;
+  margin-top: 16px;
+  padding: 8px 20px;
+  border: 1.5px solid #23a592;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+}
+
+.mat-detail-link:hover {
+  background: #23a592;
+  color: #fff;
+  text-decoration: none;
+}
+
+.mat-detail-soon {
+  border-color: #ddd;
+  color: #bbb;
+  cursor: default;
+}
+
+.mat-detail-soon:hover {
+  background: transparent;
+  color: #bbb;
+}
+
+.mat-detail-soon:hover {
+  color: #bbb;
+}
+
+/* --- HERO TEXT STYLING --- */
+.hero-brand-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #23a592;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 16px;
+  max-width: 500px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.hero-cta-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  align-items: center;
+}
+
+.hero-btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #23a592;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.hero-btn-primary:hover {
+  background: #1d8a7a;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.hero-btn-secondary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: transparent;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.hero-btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+  .hero-brand-label {
+    font-size: 11px;
+    margin-bottom: 14px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+  }
+
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    font-size: 15px;
+    padding: 12px 28px;
+  }
+}
+
 /* Make VK icon lighter (outline style) */
 ion-icon[name="logo-vk"] {
   -webkit-text-stroke: 1px currentColor;
@@ -816,12 +1040,8 @@ section#services.bg-gray .text-primary {
   .masthead::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 30%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 50%, transparent 100%);
     z-index: 0;
     pointer-events: none;
   }
@@ -840,38 +1060,48 @@ section#services.bg-gray .text-primary {
     position: relative;
     z-index: 1;
     margin-top: 0 !important;
-    padding-top: 8rem;
+    padding-top: 2rem;
     padding-bottom: 4rem;
   }
-  
-  /* Заголовок на мобильной - оба имени белые */
+
+  /* Заголовок на мобильной - белый, меньше размер */
   .masthead h1,
   .masthead .masthead-title {
     color: #ffffff !important;
-    text-shadow: none !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5) !important;
+    font-size: 2.8rem !important;
+    line-height: 1.15 !important;
   }
-  
-  /* ЗАХАРОВА тоже белая */
+
+  /* Убрать чёрную подложку у .mark на мобилке */
   .masthead h1 .mark,
   .masthead .masthead-title .mark {
     color: #ffffff !important;
     text-shadow: none !important;
+    background: none !important;
+    background-color: transparent !important;
+    transform: none !important;
   }
-  
+
+  .masthead h1 .mark:before,
+  .masthead .masthead-title .mark:before {
+    display: none !important;
+  }
+
   /* Описание серое */
   .masthead .lead,
   .masthead .masthead-description {
     color: #d0d0d0 !important;
   }
-  
+
   /* Скрыть описание на мобильных */
   .masthead .desktop-only-description {
     display: none !important;
   }
-  
-  /* Опустить заголовок ниже на мобильных */
+
+  /* Заголовок на мобильных — ближе к верху */
   .masthead h1 {
-    margin-top: 8rem !important;
+    margin-top: 1rem !important;
   }
   
   /* Выравнивание текста в секции services по левому краю на мобильных */

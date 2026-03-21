@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>RAYNO Crystal Shield — защитная бронеплёнка для лобового стекла | ze.studio</title>
+  <meta name="description"
+    content="RAYNO Crystal Shield — защитная бронеплёнка на лобовое стекло. 120 мкм защиты, 91.1% светопропускание, 99%+ UV-блок. Установка в Липецке — ze.studio">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/contact-form.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #343434;
+      background: #fff;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV --- */
+    .page-nav {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .page-nav a {
+      color: #999;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    .page-nav a:hover {
+      color: #23a592;
+    }
+
+    .page-nav .brand {
+      color: #343434;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 40px 40px;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-image {
+      flex: 0 0 320px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #23a592;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .hero h1 span {
+      color: #23a592;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: #767676;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* --- CONTENT --- */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section-block {
+      padding: 50px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .section-block:first-child {
+      border-top: none;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 24px;
+    }
+
+    .section-block h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+
+    .section-block p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    /* --- KEY FEATURES (6 cards) --- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 28px 16px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+
+    .feature-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #23a592;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .feature-label {
+      font-size: 12px;
+      color: #999;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- COMPARE --- */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .compare-card {
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .compare-card.ours {
+      background: #f0faf8;
+      border: 2px solid #23a592;
+    }
+
+    .compare-card.theirs {
+      background: #f8f8f8;
+      border: 2px solid #e0e0e0;
+    }
+
+    .compare-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .compare-card.ours .compare-card-title { color: #23a592; }
+    .compare-card.theirs .compare-card-title { color: #999; }
+
+    .compare-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .compare-card li {
+      position: relative;
+      padding: 8px 0 8px 24px;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .compare-card.ours li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: #23a592;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .compare-card.theirs li::before {
+      content: '−';
+      position: absolute;
+      left: 0;
+      color: #cc4444;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    /* --- DURABILITY BARS --- */
+    .durability-highlight {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .durability-bar {
+      flex: 1;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .bar-track {
+      height: 12px;
+      background: #eee;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width 0.8s ease;
+    }
+
+    .bar-fill.ours { background: #23a592; }
+    .bar-fill.theirs { background: #cc4444; }
+    .bar-fill.neutral { background: #f0ad4e; }
+
+    /* --- HOW IT WORKS --- */
+    .steps-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 24px;
+      counter-reset: steps;
+    }
+
+    .steps-list li {
+      position: relative;
+      padding: 16px 0 16px 56px;
+      font-size: 16px;
+      color: #555;
+      border-bottom: 1px solid #f0f0f0;
+      counter-increment: steps;
+    }
+
+    .steps-list li:last-child { border-bottom: none; }
+
+    .steps-list li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background: #23a592;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* --- SPECS TABLE --- */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 15px;
+    }
+
+    .specs-table thead th {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 14px 16px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .specs-table thead th:first-child {
+      text-align: left;
+      border-radius: 8px 0 0 0;
+    }
+
+    .specs-table thead th:last-child { border-radius: 0 8px 0 0; }
+
+    .specs-table tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      color: #555;
+    }
+
+    .specs-table tbody td:first-child {
+      text-align: left;
+      font-weight: 500;
+      color: #343434;
+    }
+
+    .specs-table tbody tr:hover { background: #f8f9fa; }
+    .specs-table .highlight { color: #23a592; font-weight: 600; }
+    .specs-table .best { color: #23a592; font-weight: 700; }
+    .specs-table .worst { color: #cc4444; }
+
+    /* --- ADVANTAGES --- */
+    .advantages-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .advantages-list li {
+      position: relative;
+      padding: 12px 0 12px 32px;
+      font-size: 16px;
+      color: #555;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .advantages-list li:last-child { border-bottom: none; }
+
+    .advantages-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: #23a592;
+      border-radius: 50%;
+    }
+
+    /* --- CTA --- */
+    .cta-block {
+      margin: 60px 0;
+      padding: 40px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cta-block h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .cta-block p {
+      font-size: 16px;
+      color: #767676;
+      margin-bottom: 24px;
+    }
+
+    .cta-phone {
+      display: inline-block;
+      padding: 14px 36px;
+      background: #23a592;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .cta-phone:hover {
+      background: #1d8a7a;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* --- FOOTER --- */
+    .page-footer {
+      padding: 30px 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #bbb;
+      border-top: 1px solid #eee;
+    }
+
+    .page-footer a {
+      color: #23a592;
+      text-decoration: none;
+    }
+
+    /* --- SECTION IMAGE --- */
+    .section-image {
+      margin: 30px 0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .section-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .section-image.rounded img {
+      border-radius: 12px;
+    }
+
+    .section-image-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 30px 0;
+    }
+
+    .section-image-row img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .contact-angle-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .contact-angle-item {
+      text-align: center;
+    }
+
+    .contact-angle-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 6px;
+    }
+
+    .contact-angle-item .ca-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #999;
+    }
+
+    .contact-angle-item.best .ca-label {
+      color: #23a592;
+    }
+
+    /* --- HERO IMAGE SIZE --- */
+    .hero-image {
+      flex: 0 0 340px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      object-fit: cover;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 30px 20px 20px;
+        flex-direction: column-reverse;
+        gap: 24px;
+      }
+
+      .hero-image {
+        flex: none;
+        width: 200px;
+        margin: 0 auto;
+      }
+
+      .hero h1 { font-size: 28px; }
+      .hero-subtitle { font-size: 16px; }
+
+      .content { padding: 0 20px; }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .compare-grid { grid-template-columns: 1fr; }
+
+      .feature-item { padding: 20px 12px; }
+      .feature-value { font-size: 26px; }
+
+      .section-image-row { grid-template-columns: 1fr; }
+
+      .contact-angle-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .specs-table { font-size: 13px; }
+
+      .specs-table thead th,
+      .specs-table tbody td { padding: 10px 8px; }
+
+      .cta-block {
+        padding: 30px 20px;
+        margin: 40px 0;
+      }
+
+      .page-nav { padding: 16px 20px; }
+      .section-block { padding: 36px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .feature-value { font-size: 22px; }
+      .feature-label { font-size: 10px; }
+      .feature-item { padding: 16px 10px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Навигация -->
+  <nav class="page-nav">
+    <a href="index.html" class="brand">ze.studio</a>
+    <a href="index.html">&larr; На главную</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-text">
+      <div class="hero-label">Rayno Window Film</div>
+      <h1>RAYNO <span>Crystal Shield</span></h1>
+      <p class="hero-subtitle">
+        Защитная бронеплёнка на лобовое стекло. 120 мкм прозрачной защиты —
+        поглощает удары камней, отталкивает воду и грязь, блокирует 99% ультрафиолета.
+        Стекло остаётся целым.
+      </p>
+    </div>
+    <div class="hero-image">
+      <img src="img/crystal-shield-hero.jpg" alt="RAYNO Crystal Shield — защитная бронеплёнка на лобовое стекло" onerror="this.style.display='none'">
+    </div>
+  </header>
+
+  <!-- Контент -->
+  <div class="content">
+
+    <!-- Ключевые цифры -->
+    <div class="section-block">
+      <div class="section-label">Ключевые показатели</div>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-value">120 мкм</div>
+          <div class="feature-label">Толщина защиты</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">91.1%</div>
+          <div class="feature-label">Светопропускание</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">99%+</div>
+          <div class="feature-label">Защита от UV</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">0.6%</div>
+          <div class="feature-label">Мутность (Haze)</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">110°</div>
+          <div class="feature-label">Угол смачивания</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">139 Н</div>
+          <div class="feature-label">Прочность на разрыв</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- О плёнке -->
+    <div class="section-block">
+      <div class="section-label">О технологии</div>
+      <h2>Невидимый щит на стекле</h2>
+
+      <p>
+        RAYNO Crystal Shield — это защитная плёнка толщиной 120 мкм, которая наклеивается на внешнюю поверхность
+        лобового стекла. По принципу работы похожа на PPF для кузова, только разработана специально для стекла —
+        с максимальной оптической прозрачностью.
+      </p>
+      <p>
+        Плёнка поглощает удары мелких камней, гравия и дорожного мусора. В официальных тестах
+        Crystal Shield выдержала удар стального шарика на скорости ~70 км/ч — лучший результат среди всех аналогов.
+        Стекло под ней остаётся целым.
+      </p>
+      <p>
+        Светопропускание 91.1% при мутности всего 0.6% — практически незаметна на стекле.
+        Никаких искажений, никакого цвета. Гидрофобное покрытие с углом смачивания 110° отталкивает
+        воду и грязь — видимость в дождь значительно лучше.
+      </p>
+    </div>
+
+    <!-- 6 свойств -->
+    <div class="section-block">
+      <div class="section-label">6 уровней защиты</div>
+      <h2>Что умеет Crystal Shield</h2>
+
+      <ul class="advantages-list">
+        <li><strong>Поглощение ударов</strong> — принимает на себя удары камней и гравия, стекло остаётся целым</li>
+        <li><strong>Удержание осколков</strong> — при повреждении стекла удерживает осколки, не даёт разлететься</li>
+        <li><strong>Защита от царапин</strong> — устойчива к микроцарапинам от дворников, песка и грязи</li>
+        <li><strong>Гидрофобное покрытие</strong> — угол смачивания 110°, вода скатывается, видимость в дождь лучше</li>
+        <li><strong>Антигрязевой эффект</strong> — грязь и насекомые отмываются легче, поверхность остаётся чистой</li>
+        <li><strong>Блокировка UV</strong> — более 99% ультрафиолета не проходит, защита салона и кожи</li>
+      </ul>
+    </div>
+
+    <!-- Ударный тест -->
+    <div class="section-block">
+      <div class="section-label">Тест на удар</div>
+      <h2>Тест стальным шариком</h2>
+      <p>
+        Официальный тест RAYNO: стальной шарик сбрасывается на стекло с плёнкой.
+        Crystal Shield выдерживает удар на скорости ~70 км/ч — лучший результат среди четырёх
+        протестированных конкурентов. Без плёнки стекло трескается уже при 40 км/ч.
+      </p>
+
+
+      <div class="durability-highlight">
+        <div class="durability-bar">
+          <div class="bar-label">
+            <span>Crystal Shield</span>
+            <span style="color: #23a592;">~70 км/ч</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill ours" style="width: 100%;"></div>
+          </div>
+        </div>
+        <div class="durability-bar">
+          <div class="bar-label">
+            <span>Конкурент A</span>
+            <span style="color: #555;">~60 км/ч</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill neutral" style="width: 86%;"></div>
+          </div>
+        </div>
+        <div class="durability-bar">
+          <div class="bar-label">
+            <span>Конкурент B</span>
+            <span style="color: #555;">~50 км/ч</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill neutral" style="width: 71%;"></div>
+          </div>
+        </div>
+        <div class="durability-bar">
+          <div class="bar-label">
+            <span>Без плёнки</span>
+            <span style="color: #cc4444;">~40 км/ч</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill theirs" style="width: 57%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Сравнение с конкурентами — таблица -->
+    <div class="section-block">
+      <div class="section-label">Сравнение</div>
+      <h2>Crystal Shield vs конкуренты</h2>
+      <p>Сравнение по данным лабораторных испытаний RAYNO. Чем ниже мутность и дельта, тем лучше.</p>
+
+
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Параметр</th>
+            <th>Crystal Shield</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Мутность (Haze)</td>
+            <td class="best">0.60%</td>
+            <td class="worst">1.3%</td>
+            <td>0.7%</td>
+            <td>1.0%</td>
+            <td>0.8%</td>
+          </tr>
+          <tr>
+            <td>Царапины (Δ Haze)</td>
+            <td class="best">0.1%</td>
+            <td>0.2%</td>
+            <td class="best">0.1%</td>
+            <td class="worst">0.2%</td>
+            <td class="worst">0.1%</td>
+          </tr>
+          <tr>
+            <td>Угол смачивания</td>
+            <td class="best">110°</td>
+            <td>90.4°</td>
+            <td>90.4°</td>
+            <td>90.4°</td>
+            <td>105.9°</td>
+          </tr>
+          <tr>
+            <td>Прочность на разрыв</td>
+            <td class="best">139 Н/10мм</td>
+            <td>78 Н/10мм</td>
+            <td>121 Н/10мм</td>
+            <td class="worst">74 Н/10мм</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Удлинение при разрыве</td>
+            <td class="highlight">110%</td>
+            <td>103%</td>
+            <td>100%</td>
+            <td>80%</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Гидрофоб и царапины — бары -->
+    <div class="section-block">
+      <div class="section-label">Оптика и гидрофобность</div>
+      <h2>Прозрачность и водоотталкивание</h2>
+
+      <div class="section-image rounded">
+        <img src="img/cs-mark-doda.jpg" alt="Гидрофобный эффект Crystal Shield — капли воды на поверхности">
+      </div>
+
+      <p>
+        Мутность (haze) — ключевой показатель для лобового стекла: чем ниже, тем лучше видимость.
+        Угол смачивания показывает, насколько хорошо плёнка отталкивает воду.
+      </p>
+
+      <div class="durability-highlight">
+        <div class="durability-bar">
+          <div class="bar-label">
+            <span>Crystal Shield — мутность</span>
+            <span style="color: #23a592;">0.60% (лучший)</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill ours" style="width: 95%;"></div>
+          </div>
+        </div>
+        <div class="durability-bar">
+          <div class="bar-label">
+            <span>Конкуренты — мутность</span>
+            <span style="color: #cc4444;">0.73% – 1.40%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill theirs" style="width: 60%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="durability-highlight" style="margin-top: 30px;">
+        <div class="durability-bar">
+          <div class="bar-label">
+            <span>Crystal Shield — водоотталкивание</span>
+            <span style="color: #23a592;">110° (лучший)</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill ours" style="width: 100%;"></div>
+          </div>
+        </div>
+        <div class="durability-bar">
+          <div class="bar-label">
+            <span>Конкуренты — водоотталкивание</span>
+            <span style="color: #cc4444;">93° – 103°</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill theirs" style="width: 88%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Сравнение: с плёнкой vs без -->
+    <div class="section-block">
+      <div class="section-label">До и после</div>
+      <h2>Crystal Shield vs ничего</h2>
+
+      <p>Что происходит со стеклом за первый год на трассе.</p>
+
+      <div class="compare-grid">
+        <div class="compare-card ours">
+          <div class="compare-card-title">С Crystal Shield</div>
+          <ul>
+            <li>Камень бьёт в плёнку — стекло целое</li>
+            <li>Плёнку можно заменить, стекло — нет</li>
+            <li>Гидрофоб — дождь скатывается, дворники нужны реже</li>
+            <li>99%+ UV-блок — защита салона от выгорания</li>
+            <li>Осколки не разлетаются при повреждении</li>
+          </ul>
+        </div>
+        <div class="compare-card theirs">
+          <div class="compare-card-title">Без защиты</div>
+          <ul>
+            <li>Первый скол — вопрос времени, не случая</li>
+            <li>Трещина может пойти от перепада температур</li>
+            <li>Замена лобового — от 15 000 ₽ и выше</li>
+            <li>UV постепенно разрушает герметик и пластик салона</li>
+            <li>Микроцарапины от дворников копятся год за годом</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Как устанавливается -->
+    <div class="section-block">
+      <div class="section-label">Процесс</div>
+      <h2>Как устанавливается</h2>
+      <p>Установка занимает около часа и не требует разбора автомобиля.</p>
+
+      <ol class="steps-list">
+        <li>Тщательная очистка лобового стекла от пыли, масла и мелкого мусора</li>
+        <li>Точная резка плёнки по форме вашего стекла</li>
+        <li>Наклейка на внешнюю поверхность с выравниванием по краям</li>
+        <li>Удаление пузырей и влаги специальным скребком</li>
+        <li>Финальная проверка оптики — никаких радуг и искажений</li>
+      </ol>
+    </div>
+
+    <!-- Полная таблица спецификаций -->
+    <div class="section-block">
+      <div class="section-label">Спецификации</div>
+      <h2>Технические характеристики</h2>
+      <p>Официальные данные RAYNO Crystal Shield.</p>
+
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th style="text-align: left;">Параметр</th>
+            <th>Значение</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Общая толщина</td>
+            <td class="highlight">120 мкм</td>
+          </tr>
+          <tr>
+            <td>Светопропускание (VLT)</td>
+            <td class="highlight">91.1%</td>
+          </tr>
+          <tr>
+            <td>Мутность (Haze)</td>
+            <td class="highlight">0.60%</td>
+          </tr>
+          <tr>
+            <td>Защита от ультрафиолета</td>
+            <td class="highlight">99%+</td>
+          </tr>
+          <tr>
+            <td>Угол смачивания (гидрофоб)</td>
+            <td class="highlight">110°</td>
+          </tr>
+          <tr>
+            <td>Прочность на разрыв</td>
+            <td>139 Н / 10 мм</td>
+          </tr>
+          <tr>
+            <td>Удлинение при разрыве</td>
+            <td>110%</td>
+          </tr>
+          <tr>
+            <td>Устойчивость к царапинам (Δ Haze)</td>
+            <td class="highlight">0.1%</td>
+          </tr>
+          <tr>
+            <td>Тест стальным шариком</td>
+            <td>Выдерживает удар ~70 км/ч</td>
+          </tr>
+          <tr>
+            <td>Способ нанесения</td>
+            <td>Снаружи стекла</td>
+          </tr>
+          <tr>
+            <td>Цвет</td>
+            <td>Прозрачный</td>
+          </tr>
+          <tr>
+            <td>Гарантия</td>
+            <td>Ограниченная пожизненная</td>
+          </tr>
+          <tr>
+            <td>Производитель</td>
+            <td>Rayno Window Film (США)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Кому подойдёт -->
+    <div class="section-block">
+      <div class="section-label">Применение</div>
+      <h2>Кому нужна Crystal Shield</h2>
+      <p>Плёнка особенно актуальна если вы:</p>
+      <table class="specs-table">
+        <tbody>
+          <tr>
+            <td>Часто ездите по трассе М4, М7 или другим федеральным дорогам</td>
+          </tr>
+          <tr>
+            <td>Уже меняли лобовое стекло или имеете сколы</td>
+          </tr>
+          <tr>
+            <td>Купили новый автомобиль и хотите сохранить оригинальное стекло</td>
+          </tr>
+          <tr>
+            <td>Ездите за грузовиками — основной источник «снарядов» на дороге</td>
+          </tr>
+          <tr>
+            <td>Хотите лучшую видимость в дождь без дополнительной обработки</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CTA: Сбор заявок -->
+    <div class="cta-block" style="text-align: left;">
+      <h3 style="text-align: center;">Собираем заявки на Crystal Shield</h3>
+      <p style="text-align: center; max-width: 500px; margin: 0 auto 24px;">
+        Если вам актуальна бронеплёнка на лобовое — оставьте контакт.
+        Мы свяжемся с вами, как только запустим установку.
+      </p>
+
+      <div id="cs-form-wrapper" style="max-width: 420px; margin: 0 auto;">
+        <form id="form-cs">
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div style="margin-bottom: 14px;">
+            <input type="text" name="name" class="form-control"
+              placeholder="Ваше имя *" required
+              style="width: 100%; padding: 12px 16px; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 15px; font-family: inherit; outline: none;">
+          </div>
+
+          <div style="margin-bottom: 14px;">
+            <input type="tel" name="phone" class="phone-mask"
+              placeholder="+7 (___) ___-__-__ *" required
+              style="width: 100%; padding: 12px 16px; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 15px; font-family: inherit; outline: none;">
+          </div>
+
+          <div style="margin-bottom: 14px;">
+            <input type="text" name="car"
+              placeholder="Марка авто (необязательно)"
+              style="width: 100%; padding: 12px 16px; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 15px; font-family: inherit; outline: none;">
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label style="font-size: 14px; margin-bottom: 8px; display: block; color: #767676;">Где удобнее ответить?</label>
+            <div style="display: flex; gap: 16px;">
+              <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 14px; color: #555;">
+                <input type="radio" name="contact_method" value="WhatsApp" checked>
+                WhatsApp
+              </label>
+              <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 14px; color: #555;">
+                <input type="radio" name="contact_method" value="Telegram">
+                Telegram
+              </label>
+            </div>
+          </div>
+
+          <button type="submit"
+            style="width: 100%; padding: 14px; background: #23a592; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.3s;">
+            Оставить заявку
+          </button>
+        </form>
+      </div>
+
+      <div id="cs-success" style="display: none; text-align: center; padding: 20px 0;">
+        <div style="font-size: 40px; margin-bottom: 12px;">&#10003;</div>
+        <h3 style="margin-bottom: 8px;">Заявка принята!</h3>
+        <p style="color: #767676;">Мы свяжемся с вами, как только Crystal Shield будет доступен для установки.</p>
+      </div>
+
+      <div id="cs-error" style="display: none; text-align: center; padding: 20px 0;">
+        <h3 style="margin-bottom: 8px;">Не удалось отправить</h3>
+        <p style="color: #767676;">Напишите нам напрямую:</p>
+        <a href="https://t.me/ze_studio48bid_bot" target="_blank" style="color: #23a592; font-weight: 600;">Telegram-бот</a>
+        &nbsp;или&nbsp;
+        <a href="tel:+79158582115" style="color: #23a592; font-weight: 600;">+7 (915) 858-21-15</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script>
+    (function($) {
+      'use strict';
+
+      $('.phone-mask').on('input', function() {
+        var value = this.value.replace(/\D/g, '');
+        if (value.length > 0 && value[0] !== '7') value = '7' + value;
+        if (value.length > 11) value = value.slice(0, 11);
+        var f = '+7';
+        if (value.length > 1) f += ' (' + value.slice(1, 4);
+        if (value.length >= 5) f += ') ' + value.slice(4, 7);
+        if (value.length >= 8) f += '-' + value.slice(7, 9);
+        if (value.length >= 10) f += '-' + value.slice(9, 11);
+        this.value = f;
+      });
+
+      $('#form-cs').on('submit', function(e) {
+        e.preventDefault();
+        if ($('#form-cs input[name="website"]').val() !== '') return false;
+
+        var phone = $('#form-cs input[name="phone"]').val();
+        if (!phone || phone.replace(/\D/g, '').length < 11) {
+          alert('Укажите корректный номер телефона');
+          $('#form-cs input[name="phone"]').focus();
+          return false;
+        }
+
+        var data = {
+          is_web_form: true,
+          name: $('#form-cs input[name="name"]').val(),
+          phone: phone,
+          car: $('#form-cs input[name="car"]').val() || 'Не указана',
+          contact_method: $('#form-cs input[name="contact_method"]:checked').val(),
+          source: 'Crystal Shield — сбор заявок'
+        };
+
+        var $btn = $('#form-cs button[type="submit"]');
+        $btn.prop('disabled', true).text('Отправляем...');
+
+        // Отправка в Telegram
+        var tgRequest = $.ajax({
+          url: '/api/bot',
+          method: 'POST',
+          data: JSON.stringify(data),
+          contentType: 'application/json',
+          timeout: 10000
+        });
+
+        // Отправка в Google Sheets
+        $.ajax({
+          url: 'https://script.google.com/macros/s/AKfycbxV6fFY-MmQTPnfKIPK2sy2x9RteOZWeKPxCZXeHQU6H7DIT6Uzj-EJj2WUFBNuSBaK/exec',
+          method: 'POST',
+          data: JSON.stringify(data),
+          contentType: 'text/plain',
+          timeout: 10000
+        });
+
+        // Показываем результат по ответу Telegram-бота
+        tgRequest.done(function() {
+          $('#cs-form-wrapper').hide();
+          $('#cs-success').show();
+        }).fail(function() {
+          $('#cs-form-wrapper').hide();
+          $('#cs-error').show();
+        }).always(function() {
+          $btn.prop('disabled', false).text('Оставить заявку');
+        });
+      });
+    })(jQuery);
+  </script>
+
+  <footer class="page-footer">
+    <a href="index.html">ze.studio</a> &nbsp;&middot;&nbsp; Тонировка авто в Липецке &nbsp;&middot;&nbsp; <a href="https://www.raynofilm.com" target="_blank">raynofilm.com</a>
+  </footer>
+
+</body>
+</html>

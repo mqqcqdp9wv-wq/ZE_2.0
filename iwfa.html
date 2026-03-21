@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Стандарт качества IWFA — критерии оценки установки тонировочных плёнок | ze.studio</title>
+  <meta name="description"
+    content="Международный стандарт IWFA — объективные критерии качества установки тонировочных плёнок. Правила осмотра, допустимые дефекты, время высыхания. ze.studio, Липецк.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #343434;
+      background: #fff;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV --- */
+    .page-nav {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .page-nav a {
+      color: #999;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    .page-nav a:hover {
+      color: #23a592;
+    }
+
+    .page-nav .brand {
+      color: #343434;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 40px 40px;
+    }
+
+    .hero-text {
+      max-width: 700px;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #23a592;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .hero h1 span {
+      color: #23a592;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: #767676;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* --- CONTENT --- */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section-block {
+      padding: 50px 0;
+      border-top: 1px solid #eee;
+    }
+
+    .section-block:first-child {
+      border-top: none;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 24px;
+    }
+
+    .section-block h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+
+    .section-block p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    /* --- KEY FEATURES (3 cards) --- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 28px 16px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+
+    .feature-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #23a592;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .feature-label {
+      font-size: 12px;
+      color: #999;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* --- CALLOUT / INSIGHT --- */
+    .callout {
+      margin: 24px 0;
+      padding: 24px 28px;
+      background: #f0faf8;
+      border-left: 4px solid #23a592;
+      border-radius: 0 12px 12px 0;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .callout strong {
+      color: #1a1a1a;
+    }
+
+    .callout.warning {
+      background: #fff8f0;
+      border-left-color: #f0ad4e;
+    }
+
+    /* --- TWO COLUMN LIST --- */
+    .two-col-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 40px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .two-col-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .two-col-list li {
+      position: relative;
+      padding: 8px 0 8px 24px;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.5;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .two-col-list li:last-child {
+      border-bottom: none;
+    }
+
+    .two-col-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: #23a592;
+      border-radius: 50%;
+    }
+
+    /* --- SPECS TABLE --- */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 15px;
+    }
+
+    .specs-table thead th {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 14px 16px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .specs-table thead th:first-child {
+      text-align: left;
+      border-radius: 8px 0 0 0;
+    }
+
+    .specs-table thead th:last-child { border-radius: 0 8px 0 0; }
+
+    .specs-table tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      color: #555;
+    }
+
+    .specs-table tbody td:first-child {
+      text-align: left;
+      font-weight: 500;
+      color: #343434;
+    }
+
+    .specs-table tbody tr:hover { background: #f8f9fa; }
+    .specs-table .highlight { color: #23a592; font-weight: 600; }
+
+    /* --- CTA --- */
+    .cta-block {
+      margin: 60px 0;
+      padding: 40px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cta-block h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .cta-block p {
+      font-size: 16px;
+      color: #767676;
+      margin-bottom: 24px;
+    }
+
+    .cta-phone {
+      display: inline-block;
+      padding: 14px 36px;
+      background: #23a592;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .cta-phone:hover {
+      background: #1d8a7a;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* --- FOOTER --- */
+    .page-footer {
+      padding: 30px 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #bbb;
+      border-top: 1px solid #eee;
+    }
+
+    .page-footer a {
+      color: #23a592;
+      text-decoration: none;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 30px 20px 20px;
+      }
+
+      .hero h1 { font-size: 28px; }
+      .hero-subtitle { font-size: 16px; }
+
+      .content { padding: 0 20px; }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .feature-item { padding: 20px 12px; }
+      .feature-value { font-size: 26px; }
+
+      .two-col-list { grid-template-columns: 1fr; }
+
+      .specs-table { font-size: 13px; }
+
+      .specs-table thead th,
+      .specs-table tbody td { padding: 10px 8px; }
+
+      .cta-block {
+        padding: 30px 20px;
+        margin: 40px 0;
+      }
+
+      .page-nav { padding: 16px 20px; }
+      .section-block { padding: 36px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .feature-value { font-size: 22px; }
+      .feature-label { font-size: 10px; }
+      .feature-item { padding: 16px 10px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Навигация -->
+  <nav class="page-nav">
+    <a href="index.html" class="brand">ze.studio</a>
+    <a href="index.html">&larr; Назад на сайт</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-text">
+      <div class="hero-label">Международный стандарт</div>
+      <h1>Стандарт качества <span>IWFA</span></h1>
+      <p class="hero-subtitle">
+        Объективные критерии оценки установки тонировочных плёнок. Мы работаем строго по этим стандартам.
+      </p>
+    </div>
+  </header>
+
+  <!-- Контент -->
+  <div class="content">
+
+    <!-- Секция 1: Проблема -->
+    <div class="section-block">
+      <div class="section-label">Проблема</div>
+      <h2>Почему возникают споры о качестве</h2>
+      <p>
+        Клиенты часто ожидают от установленной плёнки свойств идеального заводского стекла. Осмотр «носом к стеклу» или с фонариком — типичная ситуация, которая ведёт к необоснованным претензиям. Субъективная оценка создаёт конфликты.
+      </p>
+      <div class="callout">
+        Установленная плёнка — не заводское стекло. Это продукт, который наносится вручную. Ожидать абсолютной оптической чистоты на микроуровне технически неверно.
+      </div>
+    </div>
+
+    <!-- Секция 2: Решение — IWFA -->
+    <div class="section-block">
+      <div class="section-label">Решение</div>
+      <h2>Международный стандарт IWFA</h2>
+      <p>
+        International Window Film Association (IWFA) — главный мировой регламент, определяющий объективные критерии качества установки плёнок. Этот стандарт защищает как клиента, так и мастера, предоставляя чёткую и повторяемую методику оценки работы.
+      </p>
+    </div>
+
+    <!-- Секция 3: 3 правила осмотра -->
+    <div class="section-block">
+      <div class="section-label">Правила осмотра</div>
+      <h2>Как правильно принимать работу</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-value">1 метр</div>
+          <div class="feature-label">Расстояние</div>
+          <div class="feature-desc">Осмотр производится с расстояния не менее 1 метра от стекла.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">Дневной свет</div>
+          <div class="feature-label">Освещение</div>
+          <div class="feature-desc">Осмотр проводится при естественном дневном свете, не под прямыми солнечными лучами или искусственными прожекторами.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-value">90&deg;</div>
+          <div class="feature-label">Угол</div>
+          <div class="feature-desc">Смотреть на стекло необходимо под прямым углом (90&deg;), а не сбоку.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Секция 4: Что считать дефектом -->
+    <div class="section-block">
+      <div class="section-label">Критерии</div>
+      <h2>Что проверяется при осмотре</h2>
+      <p>
+        Установка считается качественной, если следующие элементы не бросаются в глаза при соблюдении правил осмотра (с 1 метра, при дневном свете):
+      </p>
+      <div class="two-col-list">
+        <ul>
+          <li>Частицы пыли</li>
+          <li>Волоски и волокна</li>
+          <li>Гелиевые вкрапления клея</li>
+          <li>Отпечатки пальцев</li>
+        </ul>
+        <ul>
+          <li>Воздушные пузыри (не водяные!)</li>
+          <li>Царапины и потёртости</li>
+          <li>Искажения плёнки</li>
+          <li>Складки и заломы</li>
+          <li>Отслоение края</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Ключевое правило:</strong> если дефект не виден с расстояния 1 метр — работа выполнена качественно. Осмотр можно проводить уже через 1 день после установки (игнорируя эффекты высыхания).
+      </div>
+    </div>
+
+    <!-- Секция 5: После установки -->
+    <div class="section-block">
+      <div class="section-label">После установки</div>
+      <h2>Процесс высыхания — это нормально</h2>
+      <p>
+        Установка плёнки — это «мокрый метод». Небольшое количество воды неизбежно остаётся между плёнкой и стеклом. Это вызывает временные визуальные эффекты: водяные пузыри, дымку или «водяную рябь».
+      </p>
+      <div class="callout warning">
+        <strong>ЭТО НЕ БРАК.</strong> Это абсолютно нормальный физический процесс. Влага испарится сама через микропоры плёнки. Не нужно ничего трогать или давить.
+      </div>
+
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th style="text-align: left;">Толщина плёнки</th>
+            <th>Минимум (дни)</th>
+            <th>Обычно (дни)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>До 50&mu; (до 2 mil)</td>
+            <td class="highlight">7</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>50–100&mu; (2–4 mil)</td>
+            <td class="highlight">20</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <td>100–175&mu; (4–7 mil)</td>
+            <td class="highlight">40</td>
+            <td>60</td>
+          </tr>
+          <tr>
+            <td>Более 175&mu; (от 7 mil)</td>
+            <td class="highlight">60</td>
+            <td>90</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top: 16px; font-size: 14px; color: #999;">
+        Сроки могут увеличиваться в холодное время года или для плёнок со специальными покрытиями.
+      </p>
+    </div>
+
+    <!-- Секция 6: Микрозазоры -->
+    <div class="section-block">
+      <div class="section-label">Технология</div>
+      <h2>Микрозазоры по краям — технологическая необходимость</h2>
+      <p>
+        Небольшой зазор по краю стекла необходим для того, чтобы выгнать воду во время установки. Он предотвращает контакт плёнки с уплотнителем или рамой, который может привести к задиранию и отслаиванию края со временем.
+      </p>
+      <div class="callout">
+        <strong>Автомобильные плёнки</strong> — допустимый зазор до 2–3 мм по верхнему краю.
+      </div>
+    </div>
+
+    <!-- Секция 7: Стыковка плёнки -->
+    <div class="section-block">
+      <div class="section-label">Стыковка</div>
+      <h2>Работа с большими стёклами</h2>
+      <p>
+        Стыковка необходима, когда размеры стекла превышают максимальную ширину рулона плёнки. Линия стыка не является дефектом. Она должна быть прямой и параллельной краю рамы. По стандарту IWFA максимальный зазор в линии стыка не должен превышать 1 мм.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <h3>Записаться на установку</h3>
+      <p>Консультация, подбор затемнения и установка в студии ze.studio, Липецк</p>
+      <a href="tel:+79158582115" class="cta-phone">+7 (915) 858-21-15</a>
+    </div>
+
+  </div>
+
+  <footer class="page-footer">
+    <a href="index.html">ze.studio</a> &nbsp;&middot;&nbsp; Тонировка авто в Липецке
+  </footer>
+
+</body>
+</html>

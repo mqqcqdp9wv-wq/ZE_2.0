@@ -468,23 +468,31 @@ ion-icon[name="logo-vk"] {
   display: block !important;
 }
 
-/* Hover effects */
-.btn-icon-circle:hover {
-  background-color: #ffffff !important;
-  border-color: #23a592 !important;
-  transform: scale(1.15) rotate(5deg);
-  animation: none;
-  box-shadow: 0 5px 20px rgba(35, 165, 146, 0.4);
-}
+/* Hover effects — only for mouse devices */
+@media (hover: hover) {
+  .btn-icon-circle:hover {
+    background-color: #23a592 !important;
+    border-color: #23a592 !important;
+    transform: scale(1.15) rotate(5deg);
+    animation: none;
+    box-shadow: 0 5px 20px rgba(35, 165, 146, 0.4);
+  }
 
-.btn-icon-circle:hover ion-icon {
-  color: #23a592 !important;
-  transform: scale(1.1) rotate(-5deg);
+  .btn-icon-circle:hover ion-icon {
+    color: #ffffff !important;
+    transform: scale(1.1) rotate(-5deg);
+  }
 }
 
 /* Active/Click state */
 .btn-icon-circle:active {
   transform: scale(0.95);
+  background-color: #23a592 !important;
+  border-color: #23a592 !important;
+}
+
+.btn-icon-circle:active ion-icon {
+  color: #ffffff !important;
 }
 
 /* Focus state */
@@ -492,6 +500,7 @@ ion-icon[name="logo-vk"] {
   outline: none;
   box-shadow: 0 0 0 3px rgba(35, 165, 146, 0.3);
   animation: none;
+  background-color: transparent !important;
 }
 
 /* Ripple effect on click */

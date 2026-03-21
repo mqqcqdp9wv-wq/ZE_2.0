@@ -1,5 +1,32 @@
 /* Custom styles for ZE-Studio */
 
+/* --- GLOBAL: Prevent horizontal scroll on mobile --- */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}
+
+/* Tables scroll horizontally inside their container */
+.table-responsive,
+.specs-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  min-width: auto;
+}
+
+/* On mobile, make specs tables scrollable */
+@media (max-width: 576px) {
+  .specs-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+}
+
 
 /* --- FAQ ACCORDION --- */
 .faq-grid {

@@ -1182,29 +1182,29 @@ section#services.bg-gray .text-primary {
     display: block;
   }
 
-  /* Градиент для читаемости текста поверх видео */
+  /* Градиент для читаемости текста поверх видео — сверху */
   .masthead::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
-    height: 60%;
-    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%);
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
     z-index: 0;
     pointer-events: none;
   }
 
   .masthead .opener {
     position: absolute !important;
-    top: auto !important;
-    bottom: 0 !important;
+    top: 0 !important;
+    bottom: auto !important;
     left: 0;
     right: 0;
     z-index: 1;
     min-height: auto !important;
     display: block !important;
-    padding: 0 0 30px 0 !important;
+    padding: 30px 0 0 0 !important;
   }
 
   .masthead .opener .container {
@@ -1212,7 +1212,7 @@ section#services.bg-gray .text-primary {
     margin-top: 0 !important;
   }
 
-  /* Текст — в левом нижнем углу, не через Bootstrap grid */
+  /* Текст — в левом верхнем углу, выровнен с логотипом в шапке */
   .masthead .opener .row {
     margin: 0;
   }
@@ -1221,7 +1221,7 @@ section#services.bg-gray .text-primary {
   .masthead .opener .col-lg-5 {
     max-width: 500px;
     flex: none;
-    padding-left: 40px;
+    padding-left: 24px;
   }
 
   .masthead .opener h1 {
@@ -1232,11 +1232,15 @@ section#services.bg-gray .text-primary {
   .masthead .opener h1 .mark,
   .masthead .opener h1 .mark span {
     background: none !important;
+    background-color: transparent !important;
     padding: 0 !important;
     margin: 0 !important;
     box-shadow: none !important;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
+    transform: none !important;
+  }
+
+  .masthead .opener h1 .mark:before {
+    display: none !important;
   }
 
   .masthead .opener .hero-subtitle {

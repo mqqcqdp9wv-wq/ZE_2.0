@@ -256,6 +256,53 @@
   color: #fff;
 }
 
+/* Modal quick buttons — Telegram + VK side by side */
+.modal-quick-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.modal-btn-filled,
+.modal-btn-outline {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.modal-btn-filled {
+  background: #23a592;
+  color: #fff !important;
+  border: 2px solid #23a592;
+}
+
+.modal-btn-filled:hover {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff !important;
+}
+
+.modal-btn-outline {
+  background: transparent;
+  color: #1a1a1a !important;
+  border: 2px solid #1a1a1a;
+}
+
+.modal-btn-outline:hover {
+  background: #1a1a1a;
+  color: #fff !important;
+}
+
 /* Step Content Animation */
 .step-content {
   animation: fadeIn 0.3s ease-in;

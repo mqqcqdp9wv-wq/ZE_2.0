@@ -1149,7 +1149,10 @@ section#services.bg-gray .text-primary {
 /* === ДЕСКТОП: Lexus-style — белая шапка, видео, кнопки снизу === */
 @media only screen and (min-width: 768px) {
   .navbar-desctop {
-    position: relative !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
     background: #ffffff !important;
     z-index: 100;
     border-bottom: 1px solid #f0f0f0 !important;
@@ -1169,6 +1172,7 @@ section#services.bg-gray .text-primary {
   }
 
   .masthead {
+    margin-top: 70px;
     position: relative !important;
     height: auto !important;
     min-height: auto !important;
@@ -1293,9 +1297,17 @@ section#services.bg-gray .text-primary {
 /* Мобильная версия - шапка белая, отдельно от видео */
 @media only screen and (max-width: 767px) {
   .navbar-desctop {
-    position: relative !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
     background: #ffffff !important;
     z-index: 100;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .masthead {
+    margin-top: 60px;
   }
 
   .navbar-brand {

@@ -1111,46 +1111,69 @@ section#services.bg-gray .text-primary {
   }
 }
 
-/* Мобильная версия - градиент снизу до текста */
+/* Мобильная версия - Lexus style: видео 4:3, кнопки снизу */
 @media only screen and (max-width: 767px) {
   .masthead {
     background-size: cover !important;
     background-position: center center !important;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    min-height: auto !important;
+    height: auto !important;
   }
-  
+
+  .masthead-mobile-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
   .masthead::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 50%, transparent 100%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70%;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
     z-index: 0;
     pointer-events: none;
   }
-  
+
   .masthead::before {
     display: none !important;
   }
-  
+
   .masthead .opener {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
     min-height: auto !important;
+    display: block;
+    padding-top: 0;
   }
-  
+
   .masthead .opener .container {
     position: relative;
     z-index: 1;
     margin-top: 0 !important;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
+    padding-top: 0;
+    padding-bottom: 20px;
   }
 
-  /* Заголовок на мобильной - белый, меньше размер */
+  /* Заголовок на мобильной */
   .masthead h1,
   .masthead .masthead-title {
     color: #ffffff !important;
     text-shadow: 0 2px 12px rgba(0,0,0,0.5) !important;
-    font-size: 2.8rem !important;
+    font-size: 2.2rem !important;
     line-height: 1.15 !important;
   }
 
@@ -1169,10 +1192,15 @@ section#services.bg-gray .text-primary {
     display: none !important;
   }
 
-  /* Описание серое */
+  /* Описание */
   .masthead .lead,
   .masthead .masthead-description {
     color: #d0d0d0 !important;
+  }
+
+  .masthead .hero-subtitle {
+    color: rgba(255,255,255,0.8) !important;
+    font-size: 13px !important;
   }
 
   /* Скрыть описание на мобильных */
@@ -1180,14 +1208,70 @@ section#services.bg-gray .text-primary {
     display: none !important;
   }
 
-  /* Заголовок на мобильных — ближе к верху */
-  .masthead h1 {
-    margin-top: 1rem !important;
+  /* Скрыть лейбл бренда на мобилке — мало места */
+  .masthead .hero-brand-label {
+    display: none;
   }
-  
+
+  /* Заголовок на мобильных */
+  .masthead h1 {
+    margin-top: 0 !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Кнопки — вынести под видео на белый фон */
+  .hero-cta-row {
+    position: relative;
+  }
+
   /* Выравнивание текста в секции services по левому краю на мобильных */
   section#services .text-center {
     text-align: left !important;
+  }
+}
+
+/* Кнопки под видео на мобилке */
+.hero-cta-below-video {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  /* Скрыть кнопки внутри видео на мобилке */
+  .masthead .hero-cta-row {
+    display: none !important;
+  }
+
+  /* Показать кнопки под видео */
+  .hero-cta-below-video {
+    display: flex;
+    gap: 12px;
+    padding: 20px;
+    justify-content: center;
+    background: #fff;
+  }
+
+  .hero-cta-below-video a {
+    padding: 14px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    max-width: 200px;
+  }
+
+  .hero-cta-below-video .btn-below-primary {
+    background: #1a1a1a;
+    color: #fff;
+    border: 2px solid #1a1a1a;
+  }
+
+  .hero-cta-below-video .btn-below-secondary {
+    background: transparent;
+    color: #1a1a1a;
+    border: 2px solid #1a1a1a;
   }
 }
 

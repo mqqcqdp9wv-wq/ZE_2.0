@@ -1137,7 +1137,7 @@ section#services.bg-gray .text-primary {
     background-position: center center !important;
     position: relative;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 5 / 6;
     min-height: auto !important;
     height: auto !important;
   }

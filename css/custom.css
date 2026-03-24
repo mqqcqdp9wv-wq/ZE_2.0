@@ -1137,10 +1137,9 @@ section#services.bg-gray .text-primary {
     background-position: center center !important;
     position: relative;
     overflow: hidden;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 3;
     min-height: auto !important;
     height: auto !important;
-    max-height: 75vh;
   }
 
   .masthead-mobile-video {

@@ -1111,6 +1111,42 @@ section#services.bg-gray .text-primary {
   }
 }
 
+/* === ДЕСКТОП: Lexus-style — белая шапка, hero с воздухом === */
+@media only screen and (min-width: 768px) {
+  .navbar-desctop {
+    position: relative !important;
+    background: #ffffff !important;
+    z-index: 100;
+    border-bottom: 1px solid #f0f0f0 !important;
+  }
+
+  .navbar-brand {
+    color: #1a1a1a !important;
+  }
+
+  .navbar-brand:hover,
+  .navbar-brand:focus {
+    color: #1a1a1a !important;
+  }
+
+  .navbar-nav-desctop li a.nav-link {
+    color: #343434 !important;
+  }
+
+  .masthead {
+    position: relative !important;
+    height: 80vh !important;
+    min-height: 500px !important;
+    max-height: 700px !important;
+  }
+
+  /* Кнопки hero — под картинкой на белом фоне */
+  .hero-cta-row {
+    position: relative;
+    z-index: 10;
+  }
+}
+
 /* Мобильная версия - шапка белая, отдельно от видео */
 @media only screen and (max-width: 767px) {
   .navbar-desctop {

@@ -52,8 +52,20 @@
   <!-- CSS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Критичный стиль — шапка всегда приклеена */
+    #scrollspy.navbar-desctop,
+    .navbar-desctop,
+    .navbar {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
+    }
+  </style>
   <link rel="stylesheet" href="css/style.css?v=rayno666">
-  <link rel="stylesheet" href="css/custom.css?v=unified-800">
+  <link rel="stylesheet" href="css/custom.css?v=fixed-nav-900">
   <link rel="stylesheet" href="css/contact-form.css">
   <link rel="stylesheet" href="css/tint-simulator.css?v=wrapper-800">
 

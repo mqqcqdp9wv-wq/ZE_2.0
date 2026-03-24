@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Demo — Hero Lexus Style</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV --- */
+    .nav {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      color: #999;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* --- HERO VIDEO --- */
+    .hero-video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #000;
+    }
+
+    @media (min-width: 769px) {
+      .hero-video-wrapper {
+        aspect-ratio: 16 / 7;
+        max-height: 70vh;
+      }
+    }
+
+    .hero-video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Gradient overlay for text readability */
+    .hero-video-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Text over video */
+    .hero-text-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px 20px;
+      z-index: 2;
+      color: #fff;
+    }
+
+    .hero-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    @media (min-width: 769px) {
+      .hero-title {
+        font-size: 48px;
+      }
+      .hero-text-overlay {
+        padding: 40px 60px;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+    }
+
+    @media (min-width: 769px) {
+      .hero-subtitle {
+        font-size: 16px;
+      }
+    }
+
+    /* --- BUTTONS (under video, like Lexus) --- */
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    @media (min-width: 769px) {
+      .hero-buttons {
+        padding: 30px 60px;
+        justify-content: flex-start;
+      }
+    }
+
+    .btn-hero {
+      padding: 14px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      border-radius: 0;
+      text-align: center;
+      flex: 1;
+      max-width: 200px;
+      transition: all 0.3s;
+    }
+
+    .btn-hero-primary {
+      background: #1a1a1a;
+      color: #fff;
+      border: 2px solid #1a1a1a;
+    }
+
+    .btn-hero-primary:hover {
+      background: #23a592;
+      border-color: #23a592;
+    }
+
+    .btn-hero-secondary {
+      background: transparent;
+      color: #1a1a1a;
+      border: 2px solid #1a1a1a;
+    }
+
+    .btn-hero-secondary:hover {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    /* --- Demo content below --- */
+    .demo-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      text-align: center;
+      color: #999;
+    }
+
+    .demo-content h2 {
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    /* --- Pause button --- */
+    .video-pause {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 10;
+      width: 36px;
+      height: 36px;
+      background: rgba(0,0,0,0.3);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">ze.studio</a>
+    <a href="index.html" class="nav-link">← На сайт</a>
+  </nav>
+
+  <!-- Hero Video (Lexus style) -->
+  <div class="hero-video-wrapper">
+    <video autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <button class="video-pause" onclick="toggleVideo(this)">❚❚</button>
+    <div class="hero-text-overlay">
+      <div class="hero-label">ZE.STUDIO · ЛИПЕЦК</div>
+      <h1 class="hero-title">Тонировка<br>в Липецке</h1>
+      <p class="hero-subtitle">Мастер Елена Захарова. Углеродные и керамические плёнки RAYNO. 18 лет опыта.</p>
+    </div>
+  </div>
+
+  <!-- Buttons under video -->
+  <div class="hero-buttons">
+    <a href="tel:+79158582115" class="btn-hero btn-hero-primary">ПОЗВОНИТЬ</a>
+    <a href="https://vk.com/tonirowka48" target="_blank" class="btn-hero btn-hero-secondary">ВКОНТАКТЕ</a>
+  </div>
+
+  <!-- Demo content -->
+  <div class="demo-content">
+    <h2>Это тестовая страница</h2>
+    <p>Hero-блок в стиле Lexus — видео 4:3 на мобиле, текст поверх, кнопки снизу на белом фоне.<br>Посмотри на телефоне и скажи, нравится или нет.</p>
+  </div>
+
+  <script>
+    function toggleVideo(btn) {
+      var video = document.querySelector('video');
+      if (video.paused) {
+        video.play();
+        btn.textContent = '❚❚';
+      } else {
+        video.pause();
+        btn.textContent = '▶';
+      }
+    }
+  </script>
+
+</body>
+</html>

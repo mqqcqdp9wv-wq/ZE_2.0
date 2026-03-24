@@ -230,18 +230,25 @@ table {
 .hero-cta-row {
   display: flex;
   gap: 16px;
-  margin-top: 32px;
+  justify-content: center;
   align-items: center;
+  padding: 24px 0;
+  background: #ffffff;
+  position: relative;
+  z-index: 5;
 }
 
 .hero-btn-primary {
   display: inline-block;
-  padding: 14px 32px;
-  background: #23a592;
+  padding: 14px 40px;
+  background: #1a1a1a;
   color: #fff !important;
   text-decoration: none !important;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #1a1a1a;
   border-radius: 8px;
   transition: background 0.3s;
 }
@@ -254,14 +261,16 @@ table {
 
 .hero-btn-secondary {
   display: inline-block;
-  padding: 14px 32px;
+  padding: 14px 40px;
   background: transparent;
-  color: #fff !important;
+  color: #1a1a1a !important;
   text-decoration: none !important;
-  font-size: 16px;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #1a1a1a;
+  border-radius: 0;
   transition: all 0.3s;
 }
 
@@ -990,7 +999,7 @@ section#services.bg-gray .text-primary {
 }
 
 /* Mobile video background */
-.masthead-mobile-video {
+.masthead-video {
   display: none;
   position: absolute;
   top: 0;
@@ -1013,7 +1022,7 @@ section#services.bg-gray .text-primary {
 
 /* Мобильные устройства (до 768px) — видео вместо фото */
 @media only screen and (max-width: 767px) {
-  .masthead-mobile-video {
+  .masthead-video {
     display: block;
   }
 
@@ -1023,37 +1032,13 @@ section#services.bg-gray .text-primary {
   }
 }
 
-/* Планшеты (768px - 1279px) - WebP с fallback */
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
-  .masthead.jarallax {
-    background-image: url('../img/bg/personal2-hd.jpg?v=7') !important;
-  }
-  
-  .webp .masthead.jarallax {
-    background-image: url('../img/bg/personal2-hd.webp?v=7') !important;
-  }
+/* Фоновые картинки отключены — используем видео на всех экранах */
+/* Планшеты, десктопы, большие экраны — видео вместо фото */
+.masthead.jarallax {
+  background-image: none !important;
 }
-
-/* Десктопы (1280px - 1919px) - WebP с fallback */
-@media only screen and (min-width: 1280px) and (max-width: 1919px) {
-  .masthead.jarallax {
-    background-image: url('../img/bg/personal2-fullhd.jpg?v=7') !important;
-  }
-  
-  .webp .masthead.jarallax {
-    background-image: url('../img/bg/personal2-fullhd.webp?v=7') !important;
-  }
-}
-
-/* Большие экраны (1920px+) - WebP с fallback */
-@media only screen and (min-width: 1920px) {
-  .masthead.jarallax {
-    background-image: url('../img/bg/personal2.jpg?v=7') !important;
-  }
-  
-  .webp .masthead.jarallax {
-    background-image: url('../img/bg/personal2.webp?v=7') !important;
-  }
+.webp .masthead.jarallax {
+  background-image: none !important;
 }
 
 /* Поднять текст на главном экране вверх для центрирования по перчатке */
@@ -1111,7 +1096,7 @@ section#services.bg-gray .text-primary {
   }
 }
 
-/* === ДЕСКТОП: Lexus-style — белая шапка, hero с воздухом === */
+/* === ДЕСКТОП: Lexus-style — белая шапка, видео, кнопки снизу === */
 @media only screen and (min-width: 768px) {
   .navbar-desctop {
     position: relative !important;
@@ -1135,15 +1120,56 @@ section#services.bg-gray .text-primary {
 
   .masthead {
     position: relative !important;
-    height: 80vh !important;
-    min-height: 500px !important;
-    max-height: 700px !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    background-image: none !important;
+    background: #000 !important;
+    display: block !important;
+    overflow: visible;
   }
 
-  /* Кнопки hero — под картинкой на белом фоне */
-  .hero-cta-row {
-    position: relative;
-    z-index: 10;
+  .masthead-video {
+    width: 100%;
+    height: 75vh;
+    max-height: 650px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .masthead .opener {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    z-index: 1;
+    padding-top: 80px;
+    min-height: auto !important;
+  }
+
+  /* Кнопки стилизуются вне этого блока (они теперь за пределами .masthead) */
+
+  .hero-btn-primary {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 2px solid #1a1a1a !important;
+    padding: 14px 40px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 13px !important;
+  }
+
+  .hero-btn-secondary {
+    background: transparent !important;
+    color: #1a1a1a !important;
+    border: 2px solid #1a1a1a !important;
+    padding: 14px 40px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-size: 13px !important;
   }
 }
 
@@ -1178,7 +1204,7 @@ section#services.bg-gray .text-primary {
     height: auto !important;
   }
 
-  .masthead-mobile-video {
+  .masthead-video {
     position: absolute;
     top: 0;
     left: 0;

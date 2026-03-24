@@ -256,14 +256,19 @@ table {
   }
 
   .hero-desktop-btn.filled {
-    background: #1a1a1a;
+    background: #23a592;
     color: #fff !important;
-    border: 2px solid #1a1a1a;
+    border: 2px solid #23a592;
   }
 
   .hero-desktop-btn.filled:hover {
-    background: #23a592;
-    border-color: #23a592;
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+  }
+
+  .hero-desktop-btn.filled:active {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
   }
 
   .hero-desktop-btn.outline {
@@ -1457,9 +1462,14 @@ section#services.bg-gray .text-primary {
   }
 
   .hero-cta-below-video .btn-below-primary {
-    background: #1a1a1a;
+    background: #23a592;
     color: #fff;
-    border: 2px solid #1a1a1a;
+    border: 2px solid #23a592;
+  }
+
+  .hero-cta-below-video .btn-below-primary:active {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
   }
 
   .hero-cta-below-video .btn-below-secondary {

@@ -454,6 +454,42 @@
       text-decoration: none;
     }
 
+    /* --- SVG CHARTS --- */
+    .chart-container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    .chart-container svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    .chart-legend span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #555;
+    }
+
+    .chart-legend .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
       .hero {
@@ -521,6 +557,15 @@
 
       .section-block {
         padding: 36px 0;
+      }
+
+      .chart-container {
+        padding: 12px;
+      }
+
+      .chart-legend {
+        gap: 12px;
+        font-size: 12px;
       }
     }
 
@@ -607,87 +652,272 @@
       </div>
     </div>
 
-    <!-- О плёнке -->
+    <!-- Что такое MonoCarbon -->
     <div class="section-block">
       <div class="section-label">О технологии</div>
-      <h2>Настоящий углерод</h2>
+      <h2>Что такое MonoCarbon</h2>
       <p>
-        RAYNO MonoCarbon — это двухслойная тонировочная плёнка, в основе которой лежат стабильные наночастицы углерода (карбона).
-        В отличие от обычных плёнок с красителями, которые со временем выгорают и приобретают фиолетовый оттенок,
-        MonoCarbon сохраняет насыщенный угольно-чёрный цвет десятилетиями.
+        MonoCarbon — двухслойная плёнка, где за затемнение отвечают наночастицы углерода (карбона), а не красители и не металлы. Это принципиально другой подход к тонировке.
       </p>
       <p>
-        После 1000 часов в камере ускоренного старения Xenon XE-3 (эквивалент ~10 лет под открытым солнцем)
-        плёнка показала выцветание менее 1%. Это подтверждённый результат лабораторных испытаний.
+        Обычные крашеные плёнки теряют цвет под воздействием солнца: органический краситель разрушается, и плёнка приобретает характерный фиолетовый оттенок. Углеродные частицы химически стабильны — они не выгорают и не меняют цвет.
       </p>
       <p>
-        Плёнка не содержит металлов — не создаёт помех для мобильной связи, GPS,
-        радаров и других электронных устройств автомобиля.
+        Отсутствие металлических слоёв означает, что плёнка не создаёт помех для мобильной связи, GPS-навигации, радар-детекторов и других электронных систем автомобиля.
       </p>
     </div>
 
-    <!-- Сравнение с конкурентами -->
+    <!-- Стойкость цвета: график -->
+    <div class="section-block">
+      <div class="section-label">Лабораторные данные</div>
+      <h2>Стойкость цвета: лабораторный тест</h2>
+      <p>
+        Плёнки были испытаны в камере ускоренного старения Xenon XE-3. 1000 часов непрерывного воздействия эквивалентны примерно 10 годам под открытым солнцем. Результат MonoCarbon — менее 1% изменения цвета (dE*). У конкурентов деградация достигает 8.6%.
+      </p>
+
+      <div class="chart-container">
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect x="0" y="0" width="800" height="400" fill="#fff"/>
+
+          <!-- Grid lines horizontal -->
+          <line x1="80" y1="50" x2="760" y2="50" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="90" x2="760" y2="90" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="130" x2="760" y2="130" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="170" x2="760" y2="170" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="210" x2="760" y2="210" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="250" x2="760" y2="250" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="290" x2="760" y2="290" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="330" x2="760" y2="330" stroke="#eee" stroke-width="1"/>
+
+          <!-- Grid lines vertical -->
+          <line x1="155" y1="50" x2="155" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="230" y1="50" x2="230" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="305" y1="50" x2="305" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="380" y1="50" x2="380" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="455" y1="50" x2="455" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="530" y1="50" x2="530" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="605" y1="50" x2="605" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="680" y1="50" x2="680" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="755" y1="50" x2="755" y2="340" stroke="#eee" stroke-width="1"/>
+
+          <!-- Axes -->
+          <line x1="80" y1="340" x2="760" y2="340" stroke="#ccc" stroke-width="1"/>
+          <line x1="80" y1="50" x2="80" y2="340" stroke="#ccc" stroke-width="1"/>
+
+          <!-- Y axis labels (dE* 0-10) -->
+          <text x="70" y="344" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">0</text>
+          <text x="70" y="315" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">1</text>
+          <text x="70" y="286" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">2</text>
+          <text x="70" y="257" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">3</text>
+          <text x="70" y="228" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">4</text>
+          <text x="70" y="199" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">5</text>
+          <text x="70" y="170" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">6</text>
+          <text x="70" y="141" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">7</text>
+          <text x="70" y="112" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">8</text>
+          <text x="70" y="83" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">9</text>
+          <text x="70" y="54" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">10</text>
+
+          <!-- Y axis title -->
+          <text x="20" y="195" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="12" fill="#999" transform="rotate(-90 20 195)">dE* (изменение цвета)</text>
+
+          <!-- X axis labels (100hr - 1000hr) -->
+          <text x="80" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">100</text>
+          <text x="155" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">200</text>
+          <text x="230" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">300</text>
+          <text x="305" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">400</text>
+          <text x="380" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">500</text>
+          <text x="455" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">600</text>
+          <text x="530" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">700</text>
+          <text x="605" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">800</text>
+          <text x="680" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">900</text>
+          <text x="755" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">1000</text>
+
+          <!-- X axis title -->
+          <text x="420" y="390" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="12" fill="#999">Часы в камере Xenon XE-3</text>
+
+          <!-- Competitor C (gray #999): 1.7 → 8.8 -->
+          <polyline fill="none" stroke="#999" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            points="80,291 155,280 230,268 305,254 380,238 455,218 530,195 605,168 680,140 755,85"/>
+          <circle cx="80" cy="291" r="3" fill="#999"/>
+          <circle cx="155" cy="280" r="3" fill="#999"/>
+          <circle cx="230" cy="268" r="3" fill="#999"/>
+          <circle cx="305" cy="254" r="3" fill="#999"/>
+          <circle cx="380" cy="238" r="3" fill="#999"/>
+          <circle cx="455" cy="218" r="3" fill="#999"/>
+          <circle cx="530" cy="195" r="3" fill="#999"/>
+          <circle cx="605" cy="168" r="3" fill="#999"/>
+          <circle cx="680" cy="140" r="3" fill="#999"/>
+          <circle cx="755" cy="85" r="3" fill="#999"/>
+
+          <!-- Competitor B (orange #e8a838): 1.0 → 7.8 -->
+          <polyline fill="none" stroke="#e8a838" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            points="80,311 155,303 230,293 305,280 380,265 455,247 530,225 605,200 680,172 755,114"/>
+          <circle cx="80" cy="311" r="3" fill="#e8a838"/>
+          <circle cx="155" cy="303" r="3" fill="#e8a838"/>
+          <circle cx="230" cy="293" r="3" fill="#e8a838"/>
+          <circle cx="305" cy="280" r="3" fill="#e8a838"/>
+          <circle cx="380" cy="265" r="3" fill="#e8a838"/>
+          <circle cx="455" cy="247" r="3" fill="#e8a838"/>
+          <circle cx="530" cy="225" r="3" fill="#e8a838"/>
+          <circle cx="605" cy="200" r="3" fill="#e8a838"/>
+          <circle cx="680" cy="172" r="3" fill="#e8a838"/>
+          <circle cx="755" cy="114" r="3" fill="#e8a838"/>
+
+          <!-- Competitor A (blue #4a90d9): 1.0 → 3.2 -->
+          <polyline fill="none" stroke="#4a90d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            points="80,311 155,307 230,302 305,296 380,289 455,282 530,274 605,265 680,255 755,247"/>
+          <circle cx="80" cy="311" r="3" fill="#4a90d9"/>
+          <circle cx="155" cy="307" r="3" fill="#4a90d9"/>
+          <circle cx="230" cy="302" r="3" fill="#4a90d9"/>
+          <circle cx="305" cy="296" r="3" fill="#4a90d9"/>
+          <circle cx="380" cy="289" r="3" fill="#4a90d9"/>
+          <circle cx="455" cy="282" r="3" fill="#4a90d9"/>
+          <circle cx="530" cy="274" r="3" fill="#4a90d9"/>
+          <circle cx="605" cy="265" r="3" fill="#4a90d9"/>
+          <circle cx="680" cy="255" r="3" fill="#4a90d9"/>
+          <circle cx="755" cy="247" r="3" fill="#4a90d9"/>
+
+          <!-- MonoCarbon (green #23a592): 0.1 → 0.8 -->
+          <polyline fill="none" stroke="#23a592" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            points="80,337 155,336 230,335 305,334 380,333 455,332 530,331 605,330 680,328 755,317"/>
+          <circle cx="80" cy="337" r="3" fill="#23a592"/>
+          <circle cx="155" cy="336" r="3" fill="#23a592"/>
+          <circle cx="230" cy="335" r="3" fill="#23a592"/>
+          <circle cx="305" cy="334" r="3" fill="#23a592"/>
+          <circle cx="380" cy="333" r="3" fill="#23a592"/>
+          <circle cx="455" cy="332" r="3" fill="#23a592"/>
+          <circle cx="530" cy="331" r="3" fill="#23a592"/>
+          <circle cx="605" cy="330" r="3" fill="#23a592"/>
+          <circle cx="680" cy="328" r="3" fill="#23a592"/>
+          <circle cx="755" cy="317" r="3" fill="#23a592"/>
+        </svg>
+
+        <div class="chart-legend">
+          <span><span class="dot" style="background: #23a592;"></span> MonoCarbon</span>
+          <span><span class="dot" style="background: #4a90d9;"></span> Конкурент A</span>
+          <span><span class="dot" style="background: #e8a838;"></span> Конкурент B</span>
+          <span><span class="dot" style="background: #999;"></span> Конкурент C</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Пропускание ИК-излучения: график -->
+    <div class="section-block">
+      <div class="section-label">Тепловая защита</div>
+      <h2>Пропускание инфракрасного излучения</h2>
+      <p>
+        Инфракрасное (ИК) излучение — это то, что нагревает салон автомобиля. MonoCarbon блокирует большую часть ИК-спектра: в зоне 700–2500 нм пропускание составляет всего 10–15%. Обычные крашеные плёнки пропускают 65–90% теплового излучения — салон нагревается значительно сильнее.
+      </p>
+
+      <div class="chart-container">
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect x="0" y="0" width="800" height="400" fill="#fff"/>
+
+          <!-- Grid lines horizontal -->
+          <line x1="80" y1="50" x2="760" y2="50" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="108" x2="760" y2="108" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="166" x2="760" y2="166" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="224" x2="760" y2="224" stroke="#eee" stroke-width="1"/>
+          <line x1="80" y1="282" x2="760" y2="282" stroke="#eee" stroke-width="1"/>
+
+          <!-- Grid lines vertical -->
+          <line x1="216" y1="50" x2="216" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="352" y1="50" x2="352" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="488" y1="50" x2="488" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="624" y1="50" x2="624" y2="340" stroke="#eee" stroke-width="1"/>
+          <line x1="760" y1="50" x2="760" y2="340" stroke="#eee" stroke-width="1"/>
+
+          <!-- IR zone shading -->
+          <rect x="352" y="50" width="408" height="290" fill="#fff5f5" opacity="0.5"/>
+          <text x="556" y="68" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#cc8888">ИК-зона</text>
+
+          <!-- Visible zone label -->
+          <text x="216" y="68" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#8888cc">Видимый свет</text>
+
+          <!-- Axes -->
+          <line x1="80" y1="340" x2="760" y2="340" stroke="#ccc" stroke-width="1"/>
+          <line x1="80" y1="50" x2="80" y2="340" stroke="#ccc" stroke-width="1"/>
+
+          <!-- Y axis labels (0-100%) -->
+          <text x="70" y="344" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">0%</text>
+          <text x="70" y="286" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">20%</text>
+          <text x="70" y="228" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">40%</text>
+          <text x="70" y="170" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">60%</text>
+          <text x="70" y="112" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">80%</text>
+          <text x="70" y="54" text-anchor="end" font-family="Montserrat, sans-serif" font-size="11" fill="#999">100%</text>
+
+          <!-- Y axis title -->
+          <text x="20" y="195" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="12" fill="#999" transform="rotate(-90 20 195)">Пропускание, %</text>
+
+          <!-- X axis labels (wavelength nm) -->
+          <text x="80" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">200</text>
+          <text x="216" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">700</text>
+          <text x="352" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">1200</text>
+          <text x="488" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">1700</text>
+          <text x="624" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">2200</text>
+          <text x="760" y="362" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#999">2700</text>
+
+          <!-- X axis title -->
+          <text x="420" y="390" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="12" fill="#999">Длина волны, нм</text>
+
+          <!-- Competitor line (gray dashed): high IR transmittance -->
+          <polyline fill="none" stroke="#999" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8,4"
+            points="80,320 120,282 160,224 200,137 216,120 240,108 270,100 310,95 352,92 400,88 450,82 488,78 530,75 570,72 624,68 680,65 720,63 760,60"/>
+          <circle cx="80" cy="320" r="3" fill="#999"/>
+          <circle cx="216" cy="120" r="3" fill="#999"/>
+          <circle cx="352" cy="92" r="3" fill="#999"/>
+          <circle cx="488" cy="78" r="3" fill="#999"/>
+          <circle cx="624" cy="68" r="3" fill="#999"/>
+          <circle cx="760" cy="60" r="3" fill="#999"/>
+
+          <!-- MonoCarbon line (green): low IR transmittance -->
+          <polyline fill="none" stroke="#23a592" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            points="80,335 120,311 160,270 200,240 216,237 240,250 270,260 310,270 352,282 400,290 450,293 488,295 530,296 570,297 624,298 680,300 720,301 760,302"/>
+          <circle cx="80" cy="335" r="3" fill="#23a592"/>
+          <circle cx="216" cy="237" r="3" fill="#23a592"/>
+          <circle cx="352" cy="282" r="3" fill="#23a592"/>
+          <circle cx="488" cy="295" r="3" fill="#23a592"/>
+          <circle cx="624" cy="298" r="3" fill="#23a592"/>
+          <circle cx="760" cy="302" r="3" fill="#23a592"/>
+        </svg>
+
+        <div class="chart-legend">
+          <span><span class="dot" style="background: #23a592;"></span> MonoCarbon</span>
+          <span><span class="dot" style="background: #999;"></span> Обычная крашеная плёнка</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Сравнение -->
     <div class="section-block">
       <div class="section-label">Сравнение</div>
-      <h2>MonoCarbon vs конкуренты</h2>
-      <p>Почему настоящий нано-карбон лучше обычных крашеных плёнок.</p>
+      <h2>MonoCarbon vs Обычные плёнки</h2>
 
       <div class="compare-grid">
         <div class="compare-card ours">
           <div class="compare-card-title">RAYNO MonoCarbon</div>
           <ul>
-            <li>Настоящий нано-карбон без красителей и металлов</li>
-            <li>Высокая концентрация покрытия — максимальная долговечность</li>
-            <li>Нано-частицы — чистая прозрачность без мутности</li>
+            <li>Наночастицы углерода — цвет не выгорает</li>
+            <li>Блокирует до 72% ИК-излучения</li>
+            <li>Не глушит связь, GPS и радар</li>
+            <li>99.9% защита от ультрафиолета</li>
           </ul>
         </div>
         <div class="compare-card theirs">
           <div class="compare-card-title">Обычные плёнки</div>
           <ul>
-            <li>Красители в основе — выцветают со временем</li>
-            <li>Тонкие слои низкой концентрации — быстрый износ</li>
-            <li>Крупные частицы — возможна мутность и потеря прозрачности</li>
+            <li>Красители выгорают — фиолетовый оттенок</li>
+            <li>Пропускают 65–90% теплового излучения</li>
+            <li>Металлические слои создают помехи</li>
+            <li>UV-защита ниже или нестабильна</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- Стойкость цвета -->
-    <div class="section-block">
-      <div class="section-label">Стойкость цвета</div>
-      <h2>1000 часов в камере Xenon XE-3</h2>
-      <p>
-        Стойкость цвета — важнейший показатель, от которого зависит не только внешний вид,
-        но и способность плёнки сохранять защитные свойства со временем.
-      </p>
-      <p>
-        Инженеры RAYNO провели тест в камере ускоренного старения Xenon XE-3 —
-        1000 часов непрерывного воздействия, что эквивалентно 10 годам под открытым солнцем.
-      </p>
-
-      <div class="durability-highlight">
-        <div class="durability-bar" style="flex: 1;">
-          <div class="bar-label">
-            <span>MonoCarbon</span>
-            <span style="color: #23a592;">&lt; 1% выцветания</span>
-          </div>
-          <div class="bar-track">
-            <div class="bar-fill ours" style="width: 99%;"></div>
-          </div>
-        </div>
-        <div class="durability-bar" style="flex: 1;">
-          <div class="bar-label">
-            <span>Крашеные плёнки</span>
-            <span style="color: #cc4444;">до 8.6% выцветания</span>
-          </div>
-          <div class="bar-track">
-            <div class="bar-fill theirs" style="width: 91.4%;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Тест производительности (YouTube) -->
+    <!-- BTU-тест (YouTube) -->
     <div class="section-block">
       <div class="section-label">Тест</div>
       <h2>BTU-тест: отклонение тепла</h2>
@@ -780,21 +1010,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
-
-    <!-- Преимущества -->
-    <div class="section-block">
-      <div class="section-label">Преимущества</div>
-      <h2>Почему MonoCarbon</h2>
-      <ul class="advantages-list">
-        <li>Настоящие наночастицы углерода — не красители, не металлы</li>
-        <li>Стабильный угольно-чёрный цвет без фиолетового оттенка со временем</li>
-        <li>99.9% защита от ультрафиолетового излучения для кожи и салона</li>
-        <li>Не глушит сигналы: телефон, GPS, навигатор, радар-детектор</li>
-        <li>До 72% отклонения инфракрасного (теплового) излучения</li>
-        <li>Подтверждённая долговечность — испытания Xenon XE-3 (1000 часов)</li>
-        <li>Гарантия 10 лет</li>
-      </ul>
     </div>
 
     <!-- CTA -->

@@ -227,15 +227,60 @@ table {
   font-weight: 400;
 }
 
-.hero-cta-row {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 0;
-  background: #ffffff;
-  position: relative;
-  z-index: 5;
+/* Desktop CTA — скрыт на мобилке */
+.hero-cta-desktop {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero-cta-desktop {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 28px 0;
+    background: #ffffff;
+    position: relative;
+    z-index: 5;
+  }
+
+  .hero-desktop-btn {
+    display: inline-block;
+    padding: 14px 44px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none !important;
+    transition: all 0.3s;
+  }
+
+  .hero-desktop-btn.filled {
+    background: #1a1a1a;
+    color: #fff !important;
+    border: 2px solid #1a1a1a;
+  }
+
+  .hero-desktop-btn.filled:hover {
+    background: #333;
+    border-color: #333;
+  }
+
+  .hero-desktop-btn.outline {
+    background: transparent;
+    color: #1a1a1a !important;
+    border: 2px solid #1a1a1a;
+  }
+
+  .hero-desktop-btn.outline:hover {
+    background: #1a1a1a;
+    color: #fff !important;
+  }
+
+  /* Скрыть мобильные кнопки на десктопе */
+  .hero-cta-below-video {
+    display: none !important;
+  }
 }
 
 .hero-btn-primary {
@@ -1131,8 +1176,7 @@ section#services.bg-gray .text-primary {
 
   .masthead-video {
     width: 100%;
-    height: 75vh;
-    max-height: 650px;
+    height: 70vh;
     object-fit: cover;
     display: block;
   }

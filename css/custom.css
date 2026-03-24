@@ -245,12 +245,12 @@ table {
 
   .hero-desktop-btn {
     display: inline-block;
-    padding: 12px 80px;
+    padding: 14px 80px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-decoration: none !important;
     transition: all 0.3s;
   }
@@ -1248,10 +1248,12 @@ section#services.bg-gray .text-primary {
   }
 
   .masthead .opener .hero-subtitle {
-    font-size: 14px !important;
-    color: rgba(255,255,255,0.7) !important;
+    font-size: 16px !important;
+    color: rgba(255,255,255,0.75) !important;
     line-height: 1.8 !important;
-    max-width: 400px;
+    max-width: 450px;
+    font-weight: 400 !important;
+    letter-spacing: 0.2px;
   }
 
   .masthead .opener .hero-brand-label {

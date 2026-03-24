@@ -1111,8 +1111,22 @@ section#services.bg-gray .text-primary {
   }
 }
 
-/* Мобильная версия - Lexus style: видео 4:3, кнопки снизу */
+/* Мобильная версия - шапка белая, отдельно от видео */
 @media only screen and (max-width: 767px) {
+  .navbar-desctop {
+    position: relative !important;
+    background: #ffffff !important;
+    z-index: 10;
+  }
+
+  .navbar-brand {
+    color: #1a1a1a !important;
+  }
+
+  .toggler-icon {
+    background: #1a1a1a !important;
+  }
+
   .masthead {
     background-size: cover !important;
     background-position: center center !important;

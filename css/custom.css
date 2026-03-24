@@ -1293,13 +1293,9 @@ section#services.bg-gray .text-primary {
 /* Мобильная версия - шапка белая, отдельно от видео */
 @media only screen and (max-width: 767px) {
   .navbar-desctop {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: relative !important;
     background: #ffffff !important;
     z-index: 100;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
 
   .navbar-brand {
@@ -1311,7 +1307,7 @@ section#services.bg-gray .text-primary {
   }
 
   .masthead {
-    margin-top: 4.7rem;
+    margin-top: 0;
     background-size: cover !important;
     background-position: center center !important;
     position: relative;

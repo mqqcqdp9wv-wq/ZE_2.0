@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Обложка поста — ze.studio</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      color: #fff;
+    }
+
+    h1.page-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #666;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* --- Canvas wrapper (масштабирование) --- */
+    .canvas-wrapper {
+      transform-origin: top center;
+    }
+
+    /* --- Post Canvas --- */
+    .post-canvas {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    /* Форматы */
+    .post-canvas.format-vk      { width: 1200px; height: 630px; }
+    .post-canvas.format-vk-tall { width: 1200px; height: 800px; }
+    .post-canvas.format-square  { width: 1080px; height: 1080px; }
+    .post-canvas.format-4x5     { width: 1080px; height: 1350px; }
+
+    /* --- Content --- */
+    .post-content {
+      position: absolute;
+      inset: 0;
+      padding: 70px;
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
+    }
+
+    .post-canvas.format-square .post-content,
+    .post-canvas.format-4x5 .post-content {
+      padding: 50px;
+    }
+
+    /* --- Метка категории --- */
+    .post-label {
+      font-size: 16px;
+      font-weight: 700;
+      color: #23a592;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* --- Подпись-логотип внизу --- */
+    .post-signature {
+      display: flex;
+      align-items: center;
+    }
+
+    .post-signature-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: #aaa;
+      letter-spacing: 1px;
+    }
+
+    /* --- Заголовок --- */
+    .post-title {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+
+    .post-canvas.format-square .post-title,
+    .post-canvas.format-4x5 .post-title {
+      font-size: 52px;
+    }
+
+    .post-title .accent {
+      color: #23a592;
+    }
+
+    /* --- Подзаголовок / описание --- */
+    .post-subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #555;
+      max-width: 50%;
+    }
+
+    .post-canvas.format-square .post-subtitle,
+    .post-canvas.format-4x5 .post-subtitle {
+      font-size: 22px;
+      max-width: 90%;
+    }
+
+    /* --- Список пунктов --- */
+    .post-list {
+      list-style: none;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 55%;
+    }
+
+    .post-list li {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.4;
+      padding-left: 24px;
+      position: relative;
+      color: #333;
+    }
+
+    .post-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      background: #23a592;
+      border-radius: 50%;
+    }
+
+    /* --- Разделитель --- */
+    .post-divider {
+      width: 60px;
+      height: 3px;
+      background: #23a592;
+      margin: 24px 0;
+      border-radius: 2px;
+    }
+
+    /* --- Spacer --- */
+    .post-spacer {
+      flex: 1;
+    }
+
+    /* --- Логотип --- */
+    .post-logo {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ccc;
+      letter-spacing: 0.5px;
+    }
+
+    .post-logo.dark { color: #bbb; }
+
+    /* --- Декоративная линия сбоку --- */
+    .post-accent-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: #23a592;
+      z-index: 20;
+    }
+
+    /* --- Изображение --- */
+    .post-image {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38%;
+      z-index: 5;
+    }
+
+    .post-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    /* ВК tall — картинка крупнее, ниже и левее, с воздухом от краёв */
+    .post-canvas.format-vk-tall .post-image {
+      width: 46%;
+      right: auto;
+      left: 48%;
+      top: auto;
+      bottom: 50px;
+      transform: none;
+    }
+
+    /* Квадрат — картинка в потоке, по центру */
+    .post-canvas.format-square .post-image {
+      position: relative;
+      right: auto;
+      top: auto;
+      transform: none;
+      width: 70%;
+      margin: 10px auto 0;
+    }
+
+    .post-canvas.format-square .post-content {
+      padding: 45px 50px 40px;
+    }
+
+    .post-canvas.format-square .post-subtitle {
+      max-width: 100%;
+    }
+
+    .post-canvas.format-square .post-list {
+      max-width: 100%;
+    }
+
+    /* 4:5 — картинка в потоке, ещё крупнее */
+    .post-canvas.format-4x5 .post-image {
+      position: relative;
+      right: auto;
+      top: auto;
+      transform: none;
+      width: 80%;
+      margin: 20px auto 0;
+    }
+
+    .post-canvas.format-4x5 .post-content {
+      padding: 50px 50px 40px;
+    }
+
+    .post-canvas.format-4x5 .post-subtitle {
+      max-width: 100%;
+    }
+
+    .post-canvas.format-4x5 .post-list {
+      max-width: 100%;
+    }
+
+    /* --- Themes --- */
+    .post-canvas.theme-light {
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+
+    .post-canvas.theme-dark {
+      background: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .post-canvas.theme-dark .post-subtitle { color: #999; }
+    .post-canvas.theme-dark .post-list li { color: #ccc; }
+    .post-canvas.theme-dark .post-signature-text { color: #555; }
+    .post-canvas.theme-dark .post-signature-line { background: #23a592; }
+
+    .post-canvas.theme-green {
+      background: #23a592;
+      color: #ffffff;
+    }
+
+    .post-canvas.theme-green .post-label { color: #fff; opacity: 0.6; }
+    .post-canvas.theme-green .post-subtitle { color: rgba(255,255,255,0.7); }
+    .post-canvas.theme-green .post-list li { color: rgba(255,255,255,0.9); }
+    .post-canvas.theme-green .post-list li::before { background: #fff; }
+    .post-canvas.theme-green .post-divider { background: rgba(255,255,255,0.4); }
+    .post-canvas.theme-green .post-signature-text { color: rgba(255,255,255,0.5); }
+    .post-canvas.theme-green .post-signature-line { background: rgba(255,255,255,0.4); }
+    .post-canvas.theme-green .post-accent-bar { background: rgba(255,255,255,0.3); }
+
+    /* --- Controls --- */
+    .controls {
+      margin-top: 24px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 600px;
+    }
+
+    .controls-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    .controls-group-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #555;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .ctrl-btn {
+      padding: 8px 16px;
+      border: 1px solid #444;
+      background: #2a2a2a;
+      color: #fff;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .ctrl-btn:hover {
+      background: #333;
+      border-color: #23a592;
+    }
+
+    .ctrl-btn.active {
+      background: #23a592;
+      border-color: #23a592;
+    }
+
+    .download-btn {
+      background: #23a592 !important;
+      border-color: #23a592 !important;
+      padding: 12px 32px !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+    }
+
+    .download-btn:hover {
+      background: #1a8a7a !important;
+      border-color: #1a8a7a !important;
+    }
+
+    /* --- Размер в пикселях --- */
+    .info {
+      margin-top: 16px;
+      font-size: 11px;
+      color: #555;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* --- Направляющие --- */
+    .guide-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 99;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+
+    .guide-grid.visible {
+      opacity: 1;
+    }
+
+    .guide-grid::before {
+      content: '';
+      position: absolute;
+      left: 60px;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background: rgba(35, 165, 146, 0.15);
+      box-shadow: calc(100% - 121px) 0 0 0 rgba(35, 165, 146, 0.15);
+    }
+
+    .guide-grid::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      background: rgba(35, 165, 146, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="page-title">Обложка поста</h1>
+
+  <!-- Post Canvas -->
+  <div class="canvas-wrapper" id="wrapper">
+    <div class="post-canvas format-vk theme-light" id="canvas">
+
+      <!-- Декоративная линия слева -->
+      <div class="post-accent-bar"></div>
+
+      <!-- Направляющие -->
+      <div class="guide-grid" id="guides"></div>
+
+      <!-- Контент -->
+      <div class="post-content">
+        <div class="post-label">Международный стандарт</div>
+        <div class="post-title">Стандарт качества <span class="accent">IWFA</span></div>
+        <div class="post-divider"></div>
+        <div class="post-subtitle">
+          Объективные критерии оценки установки тонировочных плёнок. Мы работаем строго по этим стандартам.
+        </div>
+        <ul class="post-list">
+          <li>Правила осмотра при приёмке</li>
+          <li>Критерии допустимых дефектов</li>
+          <li>Процесс кристаллизации и уход</li>
+        </ul>
+        <div class="post-spacer"></div>
+        <div class="post-signature">
+          <span class="post-signature-text">ze.studio</span>
+        </div>
+        <!-- Картинка: в потоке для квадрата/4:5, absolute для горизонтальных -->
+        <div class="post-image">
+          <img src="img/iwfa-preview.jpg" alt="Технический паспорт тонировки">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Управление -->
+  <div class="controls">
+
+    <div class="controls-group">
+      <div class="controls-group-label">Формат</div>
+      <button class="ctrl-btn active" onclick="setFormat('vk', this)">ВК 1200×630</button>
+      <button class="ctrl-btn" onclick="setFormat('vk-tall', this)">ВК 1200×800</button>
+      <button class="ctrl-btn" onclick="setFormat('square', this)">Квадрат 1080</button>
+      <button class="ctrl-btn" onclick="setFormat('4x5', this)">4:5 1080×1350</button>
+    </div>
+
+    <div class="controls-group">
+      <div class="controls-group-label">Тема</div>
+      <button class="ctrl-btn active" onclick="setTheme('light', this)">Светлая</button>
+      <button class="ctrl-btn" onclick="setTheme('dark', this)">Тёмная</button>
+      <button class="ctrl-btn" onclick="setTheme('green', this)">Зелёная</button>
+    </div>
+
+    <div class="controls-group">
+      <div class="controls-group-label">Опции</div>
+      <button class="ctrl-btn" onclick="toggleGuides(this)">Направляющие</button>
+      <button class="ctrl-btn" onclick="toggleBar(this)">Линия слева</button>
+    </div>
+
+    <div class="controls-group">
+      <button class="ctrl-btn download-btn" onclick="downloadImage()">⬇ Скачать PNG</button>
+    </div>
+
+  </div>
+
+  <div class="info" id="info">1200 × 630 · Montserrat · ze.studio</div>
+
+  <script>
+    var canvas = document.getElementById('canvas');
+    var wrapper = document.getElementById('wrapper');
+    var guides = document.getElementById('guides');
+    var info = document.getElementById('info');
+
+    var sizes = {
+      'vk':      { w: 1200, h: 630 },
+      'vk-tall': { w: 1200, h: 800 },
+      'square':  { w: 1080, h: 1080 },
+      '4x5':     { w: 1080, h: 1350 }
+    };
+
+    function fitCanvas() {
+      var maxW = Math.min(window.innerWidth - 40, 900);
+      var fmt = canvas.className.match(/format-([\w-]+)/);
+      if (!fmt) return;
+      var s = sizes[fmt[1]];
+      var scale = Math.min(maxW / s.w, 1);
+      wrapper.style.transform = 'scale(' + scale + ')';
+      wrapper.style.width = s.w + 'px';
+      wrapper.style.height = (s.h * scale) + 'px';
+    }
+
+    function setFormat(fmt, btn) {
+      canvas.className = canvas.className.replace(/format-[\w-]+/g, '');
+      canvas.classList.add('format-' + fmt);
+
+      // Обновить active кнопку в группе
+      var group = btn.parentElement;
+      group.querySelectorAll('.ctrl-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var s = sizes[fmt];
+      info.textContent = s.w + ' × ' + s.h + ' · Montserrat · ze.studio';
+      fitCanvas();
+    }
+
+    function setTheme(theme, btn) {
+      canvas.className = canvas.className.replace(/theme-\w+/g, '');
+      canvas.classList.add('theme-' + theme);
+
+      var group = btn.parentElement;
+      group.querySelectorAll('.ctrl-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+
+    function toggleGuides(btn) {
+      guides.classList.toggle('visible');
+      btn.classList.toggle('active');
+    }
+
+    function toggleBar(btn) {
+      var bar = canvas.querySelector('.post-accent-bar');
+      if (bar.style.display === 'none') {
+        bar.style.display = '';
+        btn.classList.add('active');
+      } else {
+        bar.style.display = 'none';
+        btn.classList.remove('active');
+      }
+    }
+
+    function downloadImage() {
+      // Сбросить масштаб для рендера в полном разрешении
+      wrapper.style.transform = 'none';
+
+      html2canvas(canvas, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: null
+      }).then(function(c) {
+        var link = document.createElement('a');
+        link.download = 'ze-studio-post.png';
+        link.href = c.toDataURL('image/png');
+        link.click();
+        // Вернуть масштаб
+        fitCanvas();
+      });
+    }
+
+    // Инициализация
+    fitCanvas();
+    window.addEventListener('resize', fitCanvas);
+  </script>
+
+</body>
+</html>

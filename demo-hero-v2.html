@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hero V2 — Полноэкранный (copyLinare стиль)</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background: #000; color: #fff; }
+
+    /* --- HERO V2: Полноэкранный, copyLinare стиль --- */
+    .hero-v2 {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-v2 video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Затемнение как в copyLinare */
+    .hero-v2 .overlay-dark {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .hero-v2 .gradient-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 55%;
+      background: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.9) 50%, transparent 100%);
+    }
+
+    .hero-v2 .gradient-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 55%;
+      background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.9) 50%, transparent 100%);
+    }
+
+    .hero-v2 .content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 40px;
+    }
+
+    .hero-v2 .pill {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+      animation: fadeUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-v2 h1 {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      background: linear-gradient(to bottom, #fff 20%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeUp 1s ease 0.2s forwards;
+      opacity: 0;
+    }
+
+    .hero-v2 .subtitle {
+      font-size: 20px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      letter-spacing: 0.5px;
+      animation: fadeUp 1s ease 0.4s forwards;
+      opacity: 0;
+    }
+
+    .hero-v2 .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 36px;
+      padding: 16px 40px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      animation: fadeUp 1s ease 0.6s forwards;
+      opacity: 0;
+    }
+
+    .hero-v2 .cta-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.4);
+      transform: scale(1.02);
+    }
+
+    .hero-v2 .cta-btn svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s;
+    }
+
+    .hero-v2 .cta-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Лейбл версии */
+    .version-label {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 8px 24px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 100;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* Навбар (имитация) */
+    .nav-demo {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-demo .brand {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-demo .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-demo .nav-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-demo .nav-links a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .hero-v2 h1 { font-size: 40px; letter-spacing: -1px; }
+      .hero-v2 .subtitle { font-size: 16px; }
+      .hero-v2 .content { padding: 0 20px; }
+      .nav-demo .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="version-label">Вариант 2 — Полноэкранный (copyLinare)</div>
+
+  <!-- Навбар -->
+  <nav class="nav-demo">
+    <a href="#" class="brand">ze.studio</a>
+    <ul class="nav-links">
+      <li><a href="#">О мастере</a></li>
+      <li><a href="#">Плёнки</a></li>
+      <li><a href="#">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero-v2">
+    <video autoplay loop muted playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-dark"></div>
+    <div class="gradient-top"></div>
+    <div class="gradient-bottom"></div>
+
+    <div class="content">
+      <div class="pill">Rayno MonoCarbon →</div>
+      <h1>Тонировка нового поколения</h1>
+      <p class="subtitle">Стабильная защита от жары. Физика нанокерамики на десятилетие.</p>
+      <a href="https://wa.me/79158582115" class="cta-btn">
+        Записаться
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</body>
+</html>

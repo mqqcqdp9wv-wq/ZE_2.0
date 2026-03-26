@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hero V1 — Минимальное обновление</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background: #fff; color: #343434; }
+
+    /* --- HERO V1: текущий стиль, но с видео-фоном на десктопе --- */
+    .hero-v1 {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-v1 video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-v1 .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .hero-v1 .content {
+      position: relative;
+      z-index: 2;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .hero-v1 .brand-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #23a592;
+      margin-bottom: 20px;
+    }
+
+    .hero-v1 h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 550px;
+    }
+
+    .hero-v1 h1 span {
+      color: #23a592;
+    }
+
+    .hero-v1 .subtitle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 16px;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .hero-v1 .cta-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      align-items: center;
+    }
+
+    .btn-primary-hero {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #23a592;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .btn-primary-hero:hover { background: #1d8a7a; }
+
+    .btn-secondary-hero {
+      display: inline-block;
+      padding: 14px 32px;
+      background: transparent;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary-hero:hover {
+      border-color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* Лейбл версии */
+    .version-label {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #23a592;
+      color: #fff;
+      padding: 8px 24px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 100;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-v1 h1 { font-size: 32px; }
+      .hero-v1 .subtitle { font-size: 16px; }
+      .hero-v1 .content { padding: 0 20px; }
+      .hero-v1 .cta-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="version-label">Вариант 1 — Классический</div>
+
+  <section class="hero-v1">
+    <video autoplay loop muted playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="brand-label">ze.studio</div>
+      <h1>Тонировка авто <span>в Липецке</span></h1>
+      <p class="subtitle">Мастер Елена Захарова. Углеродные и керамические плёнки RAYNO. 18 лет опыта.</p>
+      <div class="cta-row">
+        <a href="tel:+79158582115" class="btn-primary-hero">+7 (915) 858-21-15</a>
+        <a href="https://wa.me/79158582115" class="btn-secondary-hero">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

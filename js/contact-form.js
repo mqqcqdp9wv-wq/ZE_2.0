@@ -83,7 +83,7 @@
 
     // Real AJAX request to Vercel bot
     $.ajax({
-      url: '/api/bot',
+      url: 'https://functions.yandexcloud.net/d4ev49clqkt2jnls751u',
       method: 'POST',
       data: JSON.stringify(data),
       contentType: 'application/json',

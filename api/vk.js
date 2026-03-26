@@ -66,23 +66,22 @@ module.exports = async (req, res) => {
             const text = msg?.text || '';
             const fromId = msg?.from_id || msg?.user_id;
 
-            // Автоответ клиенту в ВК — только на первое сообщение
+            // Только первое сообщение — автоответ в ВК + уведомление в Telegram
             if (fromId && fromId > 0 && await isFirstMessage(fromId)) {
                 await sendVkMessage(fromId, AUTO_REPLY);
+
+                const vkLink = `https://vk.com/id${fromId}`;
+                let telegramText = `💬 <b>[ВК] Новое обращение</b>\n\n`;
+                telegramText += `👤 <a href="${vkLink}">Профиль клиента</a>\n`;
+                if (text) telegramText += `\n📝 ${text}`;
+
+                const attachments = msg?.attachments || [];
+                if (attachments.length > 0) {
+                    telegramText += `\n📎 Вложения: ${attachments.map(a => a.type).join(', ')}`;
+                }
+
+                await sendTelegramMessage(telegramText);
             }
-
-            // Уведомление тебе в Telegram
-            const vkLink = `https://vk.com/id${fromId}`;
-            let telegramText = `💬 <b>[ВК] Новое сообщение</b>\n\n`;
-            telegramText += `👤 <a href="${vkLink}">Профиль клиента</a>\n`;
-            if (text) telegramText += `\n📝 ${text}`;
-
-            const attachments = msg?.attachments || [];
-            if (attachments.length > 0) {
-                telegramText += `\n📎 Вложения: ${attachments.map(a => a.type).join(', ')}`;
-            }
-
-            await sendTelegramMessage(telegramText);
         }
 
         return res.status(200).send('ok');

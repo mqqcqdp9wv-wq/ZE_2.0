@@ -11,6 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Create clean URLs
+        run: |
+          find . -name '*.html' ! -name 'index.html' ! -name '404.html' ! -path './.git/*' | while read f; do
+            target="${f%.html}"
+            cp "$f" "$target"
+          done
+
       - name: Deploy to Yandex Object Storage
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.YC_ACCESS_KEY_ID }}

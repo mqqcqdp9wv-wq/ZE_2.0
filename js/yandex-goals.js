@@ -2,38 +2,40 @@
 // Счётчик: 104717172
 
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // Цель 1: Клик по кнопке "Позвонить" (все ссылки tel:)
-    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-    phoneLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            if (typeof ym !== 'undefined') {
-                ym(104717172, 'reachGoal', 'phone_click');
-                console.log('Яндекс.Метрика: Цель "phone_click" отправлена');
-            }
-        });
-    });
 
-    // Цель 2: Клик по кнопке "Оставить сообщение" (открытие модального окна)
-    const messageButtons = document.querySelectorAll('[data-target="#send-request"]');
-    messageButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            if (typeof ym !== 'undefined') {
-                ym(104717172, 'reachGoal', 'message_open');
-                console.log('Яндекс.Метрика: Цель "message_open" отправлена');
-            }
-        });
-    });
-
-    // Цель 3: Успешная отправка формы
-    // Отслеживается в contact-form.js после успешной отправки
-    // Добавим обработчик на событие успешной отправки
-    window.addEventListener('formSuccess', function() {
+    function goal(name) {
         if (typeof ym !== 'undefined') {
-            ym(104717172, 'reachGoal', 'form_submit');
-            console.log('Яндекс.Метрика: Цель "form_submit" отправлена');
+            ym(104717172, 'reachGoal', name);
+            console.log('Метрика цель:', name);
         }
+    }
+
+    // Цель: Клик по кнопке "Позвонить" (все ссылки tel:)
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+        link.addEventListener('click', function() { goal('phone_click'); });
     });
-    
+
+    // Цель: Открытие модалки "Связаться"
+    document.querySelectorAll('[data-target="#send-request"]').forEach(function(btn) {
+        btn.addEventListener('click', function() { goal('message_open'); });
+    });
+
+    // Цель: Клик по кнопке Telegram в модалке
+    var tgBtn = document.querySelector('.modal-btn-filled[href*="t.me"]');
+    if (tgBtn) {
+        tgBtn.addEventListener('click', function() { goal('telegram_click'); });
+    }
+
+    // Цель: Клик по кнопке ВКонтакте в модалке
+    var vkBtn = document.querySelector('.modal-btn-outline[href*="vk.me"]');
+    if (vkBtn) {
+        vkBtn.addEventListener('click', function() { goal('vk_click'); });
+    }
+
+    // Цель: Клик по WhatsApp (если появится на сайте)
+    document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(link) {
+        link.addEventListener('click', function() { goal('whatsapp_click'); });
+    });
+
     console.log('Яндекс.Метрика цели инициализированы');
 });

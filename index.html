@@ -1109,8 +1109,12 @@
           <div id="step-success" class="text-center" style="display:none; padding: 20px 0;">
             <div class="mb-3" style="font-size: 48px;">✅</div>
             <h4 class="mb-3">Заявка отправлена!</h4>
-            <p>Мы получили ваши данные и скоро свяжемся с вами в выбранном мессенджере.</p>
-            <button type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Отлично</button>
+            <p id="success-text">Мы получили ваши данные и скоро свяжемся с вами в выбранном мессенджере.</p>
+            <div id="success-tg-block" style="display:none;">
+              <p style="margin-bottom: 12px;">Чтобы мы ответили прямо в Telegram — активируйте бота:</p>
+              <a id="success-tg-link" href="#" target="_blank" class="btn btn-primary" style="width: 100%; margin-bottom: 12px;">Открыть Telegram-бот</a>
+            </div>
+            <button type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Закрыть</button>
           </div>
 
           <!-- Error message -->

@@ -63,6 +63,21 @@ module.exports = async (req, res) => {
                 return res.status(200).send('OK');
             }
 
+            // 1b. /start с данными из формы сайта (deeplink: /start form_79XXXXXXXXX)
+            if (text.startsWith('/start form_')) {
+                const phone = text.replace('/start form_', '');
+                const username = message.from.username ? `@${message.from.username}` : message.from.first_name;
+
+                // Отправляем клиенту приветствие
+                await sendTelegramMessage(chatId, WELCOME_MESSAGE, { parse_mode: 'HTML', disable_web_page_preview: true });
+
+                // Уведомляем админа — клиент с формы активировал бота
+                const adminMsg = `🔗 <b>Клиент с сайта подключился в Telegram!</b>\n\nОт: ${username}\nID: ${message.from.id}\nТелефон из формы: +${phone}\n\n💡 Теперь можно ответить через Reply на это сообщение.`;
+                await sendTelegramMessage(ADMIN_ID, adminMsg, { parse_mode: 'HTML' });
+
+                return res.status(200).send('OK');
+            }
+
             // 2. ЕСЛИ ЭТО ОТВЕТ ОТ АДМИНА (тебя) КЛИЕНТУ
             if (chatId.toString() === ADMIN_ID && message.reply_to_message) {
                 const originalText = message.reply_to_message.text || '';

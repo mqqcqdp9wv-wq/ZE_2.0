@@ -1078,23 +1078,7 @@
                   placeholder="Марка авто / Ваш вопрос *" required>
               </div>
 
-              <div class="form-group">
-                <label style="font-size: 14px; margin-bottom: 5px;">Где вам удобнее получить ответ? *</label>
-                <div class="radio-group">
-                  <label class="custom-radio">
-                    <input type="radio" name="contact_method" value="WhatsApp" checked required>
-                    <span>WhatsApp</span>
-                  </label>
-                  <label class="custom-radio">
-                    <input type="radio" name="contact_method" value="Telegram">
-                    <span>Telegram</span>
-                  </label>
-                  <label class="custom-radio">
-                    <input type="radio" name="contact_method" value="ВКонтакте" id="radio-vk">
-                    <span>ВКонтакте</span>
-                  </label>
-                </div>
-              </div>
+              <input type="hidden" name="contact_method" value="WhatsApp">
 
               <div class="form-group mb-0 text-center">
                 <button type="submit" class="btn btn-outline-primary" style="width: 100%;">Отправить заявку</button>
@@ -1106,15 +1090,7 @@
           <div id="step-success" class="text-center" style="display:none; padding: 20px 0;">
             <div class="mb-3" style="font-size: 48px;">✅</div>
             <h4 class="mb-3">Заявка отправлена!</h4>
-            <p id="success-text">Мы получили ваши данные и скоро свяжемся с вами в выбранном мессенджере.</p>
-            <div id="success-tg-block" style="display:none;">
-              <p style="margin-bottom: 12px;">Чтобы мы ответили прямо в Telegram — активируйте бота:</p>
-              <a id="success-tg-link" href="#" target="_blank" class="btn btn-primary" style="width: 100%; margin-bottom: 12px;">Открыть Telegram-бот</a>
-            </div>
-            <div id="success-vk-block" style="display:none;">
-              <p style="margin-bottom: 12px;">Чтобы мы ответили ВКонтакте — напишите нам:</p>
-              <a href="https://vk.me/tonirowka48" target="_blank" class="btn btn-primary" style="width: 100%; margin-bottom: 12px;">Написать ВКонтакте</a>
-            </div>
+            <p>Мы получили ваши данные и скоро свяжемся с вами в WhatsApp.</p>
             <button type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Закрыть</button>
           </div>
 

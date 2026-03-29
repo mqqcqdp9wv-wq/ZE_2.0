@@ -68,7 +68,7 @@
       name: $('#form-quick input[name="name"]').val(),
       phone: $('#form-quick input[name="phone"]').val(),
       car: $('#form-quick input[name="car"]').val(),
-      contact_method: $('#form-quick input[name="contact_method"]:checked').val()
+      contact_method: $('#form-quick input[name="contact_method"]').val()
     };
 
     submitForm(formData, '#form-quick');
@@ -102,26 +102,6 @@
 
   function showSuccess() {
     $('#quick-form-wrapper').hide();
-
-    var contactMethod = $('#form-quick input[name="contact_method"]:checked').val();
-
-    // Сбросить оба блока
-    $('#success-tg-block').hide();
-    $('#success-vk-block').hide();
-
-    if (contactMethod === 'Telegram') {
-      var phone = $('#form-quick input[name="phone"]').val().replace(/\D/g, '');
-      var deeplink = 'https://t.me/ze_studio48bid_bot?start=form_' + phone;
-      $('#success-tg-block').show();
-      $('#success-tg-link').attr('href', deeplink);
-      $('#success-text').text('Мы получили вашу заявку!');
-    } else if (contactMethod === 'ВКонтакте') {
-      $('#success-vk-block').show();
-      $('#success-text').text('Мы получили вашу заявку!');
-    } else {
-      $('#success-text').text('Мы получили ваши данные и скоро свяжемся с вами в выбранном мессенджере.');
-    }
-
     $('#step-success').show();
 
     // Отправка цели в Яндекс.Метрику

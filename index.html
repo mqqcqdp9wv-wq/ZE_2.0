@@ -1094,9 +1094,6 @@
                     <span>ВКонтакте</span>
                   </label>
                 </div>
-                <div id="vk-link-field" style="display: none; margin-top: 8px;">
-                  <input type="text" id="quick-vk-link" name="vk_link" class="form-control" placeholder="Ссылка на ваш профиль ВК">
-                </div>
               </div>
 
               <div class="form-group mb-0 text-center">
@@ -1113,6 +1110,10 @@
             <div id="success-tg-block" style="display:none;">
               <p style="margin-bottom: 12px;">Чтобы мы ответили прямо в Telegram — активируйте бота:</p>
               <a id="success-tg-link" href="#" target="_blank" class="btn btn-primary" style="width: 100%; margin-bottom: 12px;">Открыть Telegram-бот</a>
+            </div>
+            <div id="success-vk-block" style="display:none;">
+              <p style="margin-bottom: 12px;">Чтобы мы ответили ВКонтакте — напишите нам:</p>
+              <a href="https://vk.me/tonirowka48" target="_blank" class="btn btn-primary" style="width: 100%; margin-bottom: 12px;">Написать ВКонтакте</a>
             </div>
             <button type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Закрыть</button>
           </div>
@@ -1499,17 +1500,6 @@
     });
   </script>
 
-  <script>
-    // VK link field toggle
-    document.querySelectorAll('input[name="contact_method"]').forEach(function(radio) {
-      radio.addEventListener('change', function() {
-        var vkField = document.getElementById('vk-link-field');
-        if (vkField) {
-          vkField.style.display = this.value === 'ВКонтакте' ? 'block' : 'none';
-        }
-      });
-    });
-  </script>
 
   <!-- Scroll to top -->
   <button class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>

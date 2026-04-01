@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Блог | ze.studio — тонировка авто в Липецке</title>
+  <meta name="description"
+    content="Статьи о тонировке автомобилей, выборе плёнок, стандартах качества и работе студии ze.studio. Мастер Елена Захарова, Липецк.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Блог ze.studio — тонировка авто в Липецке">
+  <meta property="og:description" content="Статьи о тонировке, выборе плёнок и стандартах качества от мастера с 18-летним стажем.">
+  <meta property="og:url" content="https://ze-studio48.ru/blog.html">
+  <meta property="og:site_name" content="ze.studio">
+
+  <meta name="yandex-verification" content="e3ec649c7b410a6f" />
+
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=104717172', 'ym');
+    ym(104717172, 'init', { ssr: true, webvisor: true, clickmap: true, accurateTrackBounce: true, trackLinks: true });
+  </script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { overflow-x: hidden; max-width: 100vw; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #343434;
+      background: #fff;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .page-nav {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .page-nav a {
+      color: #999;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .page-nav a:hover { color: #23a592; }
+    .page-nav .brand { color: #343434; font-weight: 700; font-size: 16px; }
+
+    /* HEADER */
+    .blog-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 40px 36px;
+      border-bottom: 1px solid #eee;
+    }
+    .blog-header .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #23a592;
+      margin-bottom: 10px;
+    }
+    .blog-header h1 {
+      font-size: 44px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    .blog-header p {
+      font-size: 16px;
+      color: #999;
+    }
+
+    /* POSTS GRID */
+    .posts-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    /* CARD */
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.09);
+      text-decoration: none;
+    }
+
+    /* Card cover — generated visual */
+    .post-cover {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* Card body */
+    .post-body {
+      padding: 24px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .post-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #23a592;
+      background: #f0faf8;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .post-date {
+      font-size: 12px;
+      color: #bbb;
+      font-weight: 500;
+    }
+    .post-card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .post-excerpt {
+      font-size: 14px;
+      color: #767676;
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+    .post-read-more {
+      font-size: 13px;
+      font-weight: 600;
+      color: #23a592;
+    }
+
+    /* FOOTER */
+    .page-footer {
+      padding: 30px 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #bbb;
+      border-top: 1px solid #eee;
+    }
+    .page-footer a { color: #23a592; text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .posts-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media (max-width: 600px) {
+      .page-nav { padding: 16px 20px; }
+      .blog-header { padding: 28px 20px 24px; }
+      .blog-header h1 { font-size: 32px; }
+      .posts-grid { padding: 28px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="page-nav">
+    <a href="/" class="brand">ze.studio</a>
+    <a href="/">&larr; На сайт</a>
+  </nav>
+
+  <div class="blog-header">
+    <div class="label">ze.studio</div>
+    <h1>Блог</h1>
+    <p>Статьи о тонировке, выборе материалов и стандартах качества</p>
+  </div>
+
+  <div class="posts-grid">
+
+    <!-- Карточка 1 -->
+    <a href="blog-kak-my-vybirali-plenku.html" class="post-card">
+      <div class="post-cover">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <source src="img/rayno-process.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="post-tag">Выбор материала</span>
+          <span class="post-date">Март 2026</span>
+        </div>
+        <h2>Как мы выбирали плёнку, когда доверять стало некому</h2>
+        <p class="post-excerpt">
+          Рынок тонировки в России — территория без правил. Как проверить любой бренд
+          по пяти независимым источникам за 15 минут. Метод, который работает.
+        </p>
+        <span class="post-read-more">Читать статью →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <footer class="page-footer">
+    <a href="/">ze.studio</a> &nbsp;&middot;&nbsp; Тонировка авто в Липецке
+  </footer>
+
+</body>
+</html>

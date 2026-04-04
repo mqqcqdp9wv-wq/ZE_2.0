@@ -53,7 +53,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=rayno666">
-  <link rel="stylesheet" href="css/custom.css?v=static-nav-901">
+  <link rel="stylesheet" href="css/custom.css?v=scroll-left-btn">
   <link rel="stylesheet" href="css/contact-form.css?v=vk-btn-2">
   <link rel="stylesheet" href="css/tint-simulator.css?v=wrapper-800">
 
@@ -1480,7 +1480,11 @@
 
 
   <!-- Scroll to top -->
-  <button class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+  <button class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 11.5L9 6.5L14 11.5" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
   <script>
     (function() {
       var btn = document.querySelector('.scroll-top-btn');

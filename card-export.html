@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OG-карточка — ze.studio</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+      color: #fff;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .canvas-wrapper {
+      transform-origin: top center;
+    }
+    #canvas {
+      width: 1200px;
+      height: 630px;
+      background: #fff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 70px 90px;
+      position: relative;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .post-tag {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #23a592;
+      background: #f0faf8;
+      padding: 7px 16px;
+      border-radius: 6px;
+    }
+    .post-date {
+      font-size: 16px;
+      color: #bbb;
+      font-weight: 500;
+    }
+    h2 {
+      font-size: 58px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #1a1a1a;
+      margin-bottom: 28px;
+    }
+    .post-excerpt {
+      font-size: 22px;
+      color: #767676;
+      line-height: 1.6;
+      margin-bottom: 48px;
+      max-width: 900px;
+    }
+    .post-read-more {
+      font-size: 18px;
+      font-weight: 600;
+      color: #23a592;
+    }
+    .post-logo {
+      position: absolute;
+      bottom: 50px;
+      right: 90px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #ddd;
+    }
+    .download-btn {
+      margin-top: 28px;
+      padding: 14px 36px;
+      background: #23a592;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .download-btn:hover { background: #1a8a7a; }
+    .info {
+      margin-top: 14px;
+      font-size: 11px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>OG-карточка поста — ze.studio</h1>
+
+  <div class="canvas-wrapper" id="wrapper">
+    <div id="canvas">
+      <div class="post-meta">
+        <span class="post-tag">Выбор материала</span>
+        <span class="post-date">Март 2026</span>
+      </div>
+      <h2>Как мы выбирали плёнку,<br>когда доверять стало некому</h2>
+      <div class="post-excerpt">
+        Рынок тонировки в России — территория без правил. Как проверить любой бренд по пяти независимым источникам за 15 минут. Метод, который работает.
+      </div>
+      <span class="post-read-more">Читать статью →</span>
+      <span class="post-logo">ze.studio</span>
+    </div>
+  </div>
+
+  <button class="download-btn" onclick="downloadImage()">⬇ Скачать PNG (1200×630)</button>
+  <div class="info">1200 × 630 · Montserrat · ze.studio</div>
+
+  <script>
+    function fitCanvas() {
+      var maxW = Math.min(window.innerWidth - 40, 900);
+      var scale = Math.min(maxW / 1200, 1);
+      var wrapper = document.getElementById('wrapper');
+      wrapper.style.transform = 'scale(' + scale + ')';
+      wrapper.style.width = '1200px';
+      wrapper.style.height = (630 * scale) + 'px';
+    }
+
+    function downloadImage() {
+      var wrapper = document.getElementById('wrapper');
+      wrapper.style.transform = 'none';
+      html2canvas(document.getElementById('canvas'), {
+        scale: 1,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        width: 1200,
+        height: 630
+      }).then(function(c) {
+        var link = document.createElement('a');
+        link.download = 'ze-studio-og-card.png';
+        link.href = c.toDataURL('image/png');
+        link.click();
+        fitCanvas();
+      });
+    }
+
+    fitCanvas();
+    window.addEventListener('resize', fitCanvas);
+  </script>
+</body>
+</html>

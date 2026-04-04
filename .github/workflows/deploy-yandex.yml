@@ -15,7 +15,11 @@ jobs:
         run: |
           find . -name '*.html' ! -name 'index.html' ! -name '404.html' ! -path './.git/*' | while read f; do
             target="${f%.html}"
-            cp "$f" "$target"
+            if [ -d "$target" ]; then
+              echo "Skip $f: directory conflict, will upload separately"
+            else
+              cp "$f" "$target"
+            fi
           done
 
       - name: Deploy to Yandex Object Storage
@@ -34,3 +38,8 @@ jobs:
             --exclude "vercel.json" \
             --exclude "node_modules/*" \
             --exclude "api/*"
+
+          # Загрузить HTML-файлы, которые конфликтуют с подпапками
+          aws s3 cp blog.html s3://ze-studio48.ru/blog \
+            --endpoint-url https://storage.yandexcloud.net \
+            --content-type "text/html; charset=utf-8"

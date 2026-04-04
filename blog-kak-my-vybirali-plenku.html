@@ -20,7 +20,53 @@
   <meta property="og:image:height" content="630">
   <meta property="article:published_time" content="2026-03-31">
 
+  <link rel="canonical" href="https://ze-studio48.ru/blog-kak-my-vybirali-plenku">
+
   <meta name="yandex-verification" content="e3ec649c7b410a6f" />
+
+  <!-- Schema.org Article + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Как мы выбирали плёнку, когда доверять стало некому",
+        "description": "Рынок тонировки без правил: как проверить любой бренд плёнки за 15 минут по пяти независимым источникам. Метод, который работает.",
+        "image": "https://ze-studio48.ru/img/og-blog-plenka-1200x630.jpg",
+        "datePublished": "2026-03-31",
+        "dateModified": "2026-04-01",
+        "author": {
+          "@type": "Person",
+          "name": "Елена Захарова",
+          "jobTitle": "Мастер тонировки",
+          "worksFor": {
+            "@type": "LocalBusiness",
+            "name": "ze.studio",
+            "url": "https://ze-studio48.ru"
+          }
+        },
+        "publisher": {
+          "@type": "LocalBusiness",
+          "name": "ze.studio",
+          "url": "https://ze-studio48.ru"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://ze-studio48.ru/blog-kak-my-vybirali-plenku"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://ze-studio48.ru" },
+          { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://ze-studio48.ru/blog" },
+          { "@type": "ListItem", "position": 3, "name": "Как мы выбирали плёнку" }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -126,7 +172,7 @@
 
     .hero-banner .hero-subtitle {
       font-size: 17px;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.7);
       line-height: 1.75;
       max-width: 600px;
     }
@@ -424,6 +470,122 @@
     .scroll-top-btn.visible { opacity: 1; }
     .scroll-top-btn:hover { background: #1d8a7a; }
 
+    /* --- BREADCRUMBS --- */
+    .breadcrumbs {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 14px 40px 0;
+      font-size: 13px;
+      color: #bbb;
+    }
+    .breadcrumbs a {
+      color: #999;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .breadcrumbs a:hover { color: #23a592; }
+    .breadcrumbs span { color: #ccc; margin: 0 6px; }
+
+    /* --- READING TIME --- */
+    .hero-reading-time {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 500;
+    }
+    .hero-reading-time::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      margin-right: 14px;
+      vertical-align: middle;
+    }
+
+    /* --- TABLE OF CONTENTS --- */
+    .toc {
+      margin: 32px 0 0;
+      padding: 24px 28px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+    .toc-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-list li {
+      margin-bottom: 10px;
+    }
+    .toc-list li:last-child { margin-bottom: 0; }
+    .toc-list a {
+      font-size: 15px;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.3s;
+      line-height: 1.5;
+    }
+    .toc-list a:hover { color: #23a592; }
+
+    /* --- PHOTO CAPTION --- */
+    .author-caption {
+      padding: 12px 0 0;
+      font-size: 13px;
+      color: #bbb;
+      line-height: 1.5;
+    }
+
+    /* --- SHARE BUTTONS --- */
+    .share-block {
+      margin: 48px 0 0;
+      padding: 28px 0 0;
+      border-top: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .share-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #bbb;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.3s;
+      color: #fff;
+    }
+    .share-btn:hover { opacity: 0.85; color: #fff; text-decoration: none; }
+    .share-btn--tg { background: #2AABEE; }
+    .share-btn--vk { background: #0077FF; }
+    .share-btn--wa { background: #25D366; }
+    .share-btn--copy {
+      background: #f0f0f0;
+      color: #555;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+    .share-btn--copy:hover { background: #e4e4e4; color: #333; }
+
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
       .page-nav { padding: 16px 20px; }
@@ -434,6 +596,10 @@
       .cta-block { padding: 28px 20px; }
       .checklist { padding: 24px 20px; }
       .method-card { padding: 20px; }
+      .breadcrumbs { padding: 12px 20px 0; }
+      .toc { padding: 20px; }
+      .share-block { gap: 10px; }
+      .share-btn { padding: 8px 12px; font-size: 12px; }
     }
   </style>
 </head>
@@ -444,6 +610,11 @@
     <a href="/" class="brand">ze.studio</a>
     <a href="/blog">&larr; Блог</a>
   </nav>
+
+  <!-- Хлебные крошки -->
+  <div class="breadcrumbs">
+    <a href="/">Главная</a><span>›</span><a href="/blog">Блог</a><span>›</span>Как мы выбирали плёнку
+  </div>
 
   <!-- Hero Banner -->
   <header class="hero-banner">
@@ -461,6 +632,7 @@
       <div class="hero-meta">
         <span class="hero-label">Выбор материала</span>
         <span class="hero-date">Март 2026</span>
+        <span class="hero-reading-time">7 мин чтения</span>
       </div>
       <h1>Как мы выбирали плёнку,<br>когда доверять стало некому</h1>
       <p class="hero-subtitle">
@@ -483,10 +655,22 @@
       <p>Потом всё изменилось.</p>
     </div>
 
+    <!-- Оглавление -->
+    <div class="toc">
+      <div class="toc-title">Содержание</div>
+      <ul class="toc-list">
+        <li><a href="#rynok">Рынок, которого больше нет</a></li>
+        <li><a href="#vybor">Точка выбора</a></li>
+        <li><a href="#metod">Как проверить плёнку: 5 шагов</a></li>
+        <li><a href="#itog">Что мы поняли</a></li>
+        <li><a href="#cheklist">Чеклист: проверка за 15 минут</a></li>
+      </ul>
+    </div>
+
     <!-- Рынок -->
     <div class="section-block">
       <div class="section-label">Контекст</div>
-      <h2>Рынок, которого больше нет</h2>
+      <h2 id="rynok">Рынок, которого больше нет</h2>
       <p>
         Санкции. Разрыв логистических цепочек. Официальные дистрибьюторы ушли. А спрос остался.
       </p>
@@ -512,7 +696,7 @@
     <!-- Точка выбора -->
     <div class="section-block">
       <div class="section-label">Решение</div>
-      <h2>Точка выбора</h2>
+      <h2 id="vybor">Точка выбора</h2>
       <p>
         Когда привычные поставки стали ненадёжными, нужно было принять решение: с каким материалом
         работать дальше.
@@ -528,13 +712,14 @@
 
     <!-- Фото мастера -->
     <div class="author-photo">
-      <img src="img/og-blog-plenka.jpg" alt="Елена Захарова — мастер тонировки ze.studio">
+      <img src="img/og-blog-plenka.jpg" alt="Елена Захарова — мастер тонировки ze.studio" loading="lazy">
+      <div class="author-caption">Елена Захарова, мастер тонировки ze.studio. Стаж — 18 лет.</div>
     </div>
 
     <!-- Метод -->
     <div class="section-block">
       <div class="section-label">Метод</div>
-      <h2>Как проверить плёнку: работает для любого бренда</h2>
+      <h2 id="metod">Как проверить плёнку: работает для любого бренда</h2>
       <p>
         Первый вопрос, который мы задавали: <strong>это локальный игрок или мировой?</strong>
       </p>
@@ -626,7 +811,7 @@
     <!-- Что мы поняли -->
     <div class="section-block">
       <div class="section-label">Итог</div>
-      <h2>Что мы поняли</h2>
+      <h2 id="itog">Что мы поняли</h2>
       <p>
         Проверка заняла несколько вечеров. Не месяцев — вечеров. Вся информация лежит в открытом
         доступе. Проблема не в том, что её трудно найти. Проблема в том, что большинство мастеров
@@ -651,7 +836,7 @@
     <!-- Чеклист -->
     <div class="section-block">
       <div class="section-label">Чеклист</div>
-      <h2>Как проверить любую тонировочную плёнку за 15 минут</h2>
+      <h2 id="cheklist">Как проверить любую тонировочную плёнку за 15 минут</h2>
       <p>Этот метод работает для любого бренда — не только для того, с которым работаем мы.</p>
 
       <div class="checklist">
@@ -677,6 +862,15 @@
           <div class="checklist-text"><strong>Патенты</strong> — у бренда есть зарегистрированные патенты на технологии?</div>
         </div>
       </div>
+    </div>
+
+    <!-- Шаринг -->
+    <div class="share-block">
+      <span class="share-label">Поделиться</span>
+      <a href="https://t.me/share/url?url=https://ze-studio48.ru/blog-kak-my-vybirali-plenku&text=Как проверить любую тонировочную плёнку за 15 минут" target="_blank" rel="noopener" class="share-btn share-btn--tg">Telegram</a>
+      <a href="https://vk.com/share.php?url=https://ze-studio48.ru/blog-kak-my-vybirali-plenku" target="_blank" rel="noopener" class="share-btn share-btn--vk">VK</a>
+      <a href="https://api.whatsapp.com/send?text=Как проверить любую тонировочную плёнку за 15 минут https://ze-studio48.ru/blog-kak-my-vybirali-plenku" target="_blank" rel="noopener" class="share-btn share-btn--wa">WhatsApp</a>
+      <button class="share-btn share-btn--copy" onclick="navigator.clipboard.writeText('https://ze-studio48.ru/blog-kak-my-vybirali-plenku');this.textContent='Скопировано!'">Копировать ссылку</button>
     </div>
 
     <!-- CTA -->

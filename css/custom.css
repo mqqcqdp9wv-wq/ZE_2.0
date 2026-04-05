@@ -1301,6 +1301,11 @@ section#services.bg-gray .text-primary {
   z-index: 1000 !important;
 }
 
+/* Скрываем навбар когда мобильное меню открыто */
+.menu-is-open #scrollspy.navbar-desctop {
+  visibility: hidden !important;
+}
+
 /* Мобильная версия */
 @media only screen and (max-width: 767px) {
 

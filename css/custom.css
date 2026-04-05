@@ -1520,6 +1520,7 @@ section#services.bg-gray .text-primary {
   
   /* Мобильное меню выезжает СЛЕВА */
   .navbar-mobile {
+    z-index: 1100 !important;
     left: 0 !important;
     right: auto !important;
     -webkit-transform: translateX(-100%) !important;

@@ -1,0 +1,343 @@
+{
+  "version": "2.0",
+  "bot_name": "ZE.Studio Bot Classic",
+  "description": "Перенос нашего классического старого сценария на новую интерактивную структуру",
+  "default_back_target": "welcome",
+
+  "nodes": [
+    {
+      "id": "welcome",
+      "type": "text_with_keyboard",
+      "text": "Здравствуйте!\n\nДобро пожаловать в студию тонирования Елены Захаровой. Воспользуйтесь меню ниже для поиска информации 👇",
+      "image": "photo-236897412_457239021",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "Стоимость", "action": "navigate", "target": "price", "color": "primary"},
+            {"label": "О плёнках", "action": "navigate", "target": "films", "color": "primary"}
+          ],
+          [
+            {"label": "Как работаем", "action": "navigate", "target": "process", "color": "secondary"},
+            {"label": "Частые вопросы", "action": "navigate", "target": "faq", "color": "secondary"}
+          ],
+          [
+            {"label": "Адрес и контакты", "action": "navigate", "target": "contacts", "color": "secondary"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "price",
+      "type": "text_with_keyboard",
+      "text": "Направления работы:\n\n• Тонирование стёкол (затемняющая и атермальная плёнка)\n• Бронирование лобового (защита от сколов)\n\nВыберите нужный раздел:",
+      "image": null,
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "Тонировка", "action": "navigate", "target": "price_tint", "color": "primary"},
+            {"label": "Бронирование лобового", "action": "navigate", "target": "price_shield", "color": "primary"}
+          ],
+          [
+            {"label": "Назад", "action": "navigate", "target": "welcome", "color": "negative"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "price_tint",
+      "type": "text_with_keyboard",
+      "text": "Выберите зону тонирования:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "Задняя полусфера", "action": "navigate", "target": "zone_rear", "color": "primary"},
+            {"label": "Передние боковые", "action": "navigate", "target": "zone_front", "color": "primary"}
+          ],
+          [
+            {"label": "Лобовое стекло", "action": "navigate", "target": "zone_wind", "color": "primary"},
+            {"label": "Полный круг", "action": "navigate", "target": "zone_full", "color": "primary"}
+          ],
+          [
+            {"label": "Назад", "action": "navigate", "target": "price", "color": "negative"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "price_shield",
+      "type": "text_with_keyboard",
+      "text": "Лобовое · Rayno Crystal Shield\n\nБронирование лобового (защита от сколов).\nСвязанные работы и полная стоимость:\nЗависит от класса авто. Оставьте заявку или позвоните мастеру.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "Связаться с мастером", "action": "navigate", "target": "contacts", "color": "primary"}
+          ],
+          [
+            {"label": "Назад", "action": "navigate", "target": "welcome", "color": "negative"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "zone_rear",
+      "type": "text_with_keyboard",
+      "text": "Задняя полусфера. Выберите материал:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "MonoCarbon", "action": "navigate", "target": "mat_mc_rear", "color": "primary"},
+            {"label": "Centum", "action": "navigate", "target": "mat_ct_rear", "color": "primary"}
+          ],
+          [
+            {"label": "Не знаю, подскажите", "action": "navigate", "target": "mat_help", "color": "secondary"}
+          ],
+          [
+            {"label": "Назад", "action": "navigate", "target": "price_tint", "color": "negative"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "zone_front",
+      "type": "text_with_keyboard",
+      "text": "Передние боковые. Выберите материал:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "MonoCarbon", "action": "navigate", "target": "mat_mc_front", "color": "primary"},
+            {"label": "Centum", "action": "navigate", "target": "mat_ct_front", "color": "primary"}
+          ],
+          [
+            {"label": "Не знаю, подскажите", "action": "navigate", "target": "mat_help", "color": "secondary"}
+          ],
+          [
+            {"label": "Назад", "action": "navigate", "target": "price_tint", "color": "negative"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "zone_wind",
+      "type": "text_with_keyboard",
+      "text": "Лобовое стекло. Выберите материал:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "MonoCarbon", "action": "navigate", "target": "mat_mc_wind", "color": "primary"},
+            {"label": "Centum", "action": "navigate", "target": "mat_ct_wind", "color": "primary"}
+          ],
+          [
+            {"label": "Не знаю, подскажите", "action": "navigate", "target": "mat_help", "color": "secondary"}
+          ],
+          [
+            {"label": "Назад", "action": "navigate", "target": "price_tint", "color": "negative"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "zone_full",
+      "type": "text_with_keyboard",
+      "text": "Полный круг. Выберите материал:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "MonoCarbon", "action": "navigate", "target": "mat_mc_full", "color": "primary"},
+            {"label": "Centum", "action": "navigate", "target": "mat_ct_full", "color": "primary"}
+          ],
+          [
+            {"label": "Не знаю, подскажите", "action": "navigate", "target": "mat_help", "color": "secondary"}
+          ],
+          [
+            {"label": "Назад", "action": "navigate", "target": "price_tint", "color": "negative"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "mat_help",
+      "type": "text_with_keyboard",
+      "text": "Коротко о разнице:\n\nMonoCarbon — для затемнения. Чёрный оттенок, не выгорает.\nCentum — для защиты от жары. Прозрачная, спасает от солнца, проходит ГОСТ.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{"label": "Связаться с мастером", "action": "navigate", "target": "contacts", "color": "primary"}],
+          [{"label": "Подробнее о плёнке", "action": "navigate", "target": "films", "color": "secondary"}, {"label": "В начало", "action": "navigate", "target": "welcome", "color": "negative"}]
+        ]
+      }
+    },
+
+    { "id": "mat_mc_rear", "type": "text_with_keyboard", "text": "Задняя полусфера · Rayno MonoCarbon\n\nСтоимость: от 8 000 ₽\nТочная цена зависит от марки автомобиля.\n\nПлёнка не выгорает, не глушит связь. Гарантия 10+ лет.\nУстановка ~1 час, без разбора дверей.", "keyboard": { "inline": true, "buttons": [ [ {"label": "Связаться с мастером", "action": "navigate", "target": "contacts", "color": "primary"} ], [ {"label": "Подробнее о плёнке", "action": "navigate", "target": "films", "color": "secondary"}, {"label": "Назад", "action": "navigate", "target": "zone_rear", "color": "negative"} ] ] } },
+    { "id": "mat_ct_rear", "type": "text_with_keyboard", "text": "Задняя полусфера · Rayno Centum\n\nCentum (прозрачная керамика) устанавливается на переднюю часть. Для задней полусферы рекомендуем MonoCarbon.", "keyboard": { "inline": true, "buttons": [ [ {"label": "Связаться с мастером", "action": "navigate", "target": "contacts", "color": "primary"} ], [ {"label": "Подробнее о плёнке", "action": "navigate", "target": "films", "color": "secondary"}, {"label": "Назад", "action": "navigate", "target": "zone_rear", "color": "negative"} ] ] } },
+    { "id": "mat_mc_front", "type": "text_with_keyboard", "text": "Передние боковые · Rayno MonoCarbon\n\nСтоимость: от 4 000 ₽\n\nЗатемнение без выгорания. Без разбора дверей.", "keyboard": { "inline": true, "buttons": [ [ {"label": "Связаться с мастером", "action": "navigate", "target": "contacts", "color": "primary"} ], [ {"label": "Подробнее о плёнке", "action": "navigate", "target": "films", "color": "secondary"}, {"label": "Назад", "action": "navigate", "target": "zone_front", "color": "negative"} ] ] } },
+    { "id": "mat_ct_front", "type": "text_with_keyboard", "text": "Передние боковые · Rayno Centum\n\nСтоимость: от 5 000 ₽\n\nПрозрачная атермальная плёнка — убирает жару, светопропускание 80% (по ГОСТу).", "keyboard": { "inline": true, "buttons": [ [ {"label": "Связаться с мастером", "action": "navigate", "target": "contacts", "color": "primary"} ], [ {"label": "Подробнее о плёнке", "action": "navigate", "target": "films", "color": "secondary"}, {"label": "Назад", "action": "navigate", "target": "zone_front", "color": "negative"} ] ] } },
+    { "id": "mat_mc_wind", "type": "text_with_keyboard", "text": "Лобовое · Rayno MonoCarbon\n\nСтоимость: от 10 000 ₽\n\nВнимание: тёмная плёнка на лобовое может не пройти ГОСТ. Рекомендуем Centum.", "keyboard": { "inline": true, "buttons": [ [ {"label": "Связаться с мастером", "action": "navigate", "target": "contacts", "color": "primary"} ], [ {"label": "Подробнее о плёнке", "action": "navigate", "target": "films", "color": "secondary"}, {"label": "Назад", "action": "navigate", "target": "zone_wind", "color": "negative"} ] ] } },
+    { "id": "mat_ct_wind", "type": "text_with_keyboard", "text": "Лобовое · Rayno Centum\n\nСтоимость: от 15 000 ₽\n\nПрозрачная атермальная плёнка. Убирает жару, проходит ГОСТ.", "keyboard": { "inline": true, "buttons": [ [ {"label": "Связаться с мастером", "action": "navigate", "target": "contacts", "color": "primary"} ], [ {"label": "Подробнее о плёнке", "action": "navigate", "target": "films", "color": "secondary"}, {"label": "Назад", "action": "navigate", "target": "zone_wind", "color": "negative"} ] ] } },
+    { "id": "mat_mc_full", "type": "text_with_keyboard", "text": "Полный круг · Rayno MonoCarbon\n\nСтоимость рассчитывается мастером.\nВключает: задняя полусфера + передние боковые.\nБез разбора дверей.", "keyboard": { "inline": true, "buttons": [ [ {"label": "Связаться с мастером", "action": "navigate", "target": "contacts", "color": "primary"} ], [ {"label": "Подробнее о плёнке", "action": "navigate", "target": "films", "color": "secondary"}, {"label": "Назад", "action": "navigate", "target": "zone_full", "color": "negative"} ] ] } },
+    { "id": "mat_ct_full", "type": "text_with_keyboard", "text": "Полный круг · Rayno Centum\n\nСтоимость рассчитывается индивидуально мастером.", "keyboard": { "inline": true, "buttons": [ [ {"label": "Связаться с мастером", "action": "navigate", "target": "contacts", "color": "primary"} ], [ {"label": "Подробнее о плёнке", "action": "navigate", "target": "films", "color": "secondary"}, {"label": "Назад", "action": "navigate", "target": "zone_full", "color": "negative"} ] ] } },
+
+
+    {
+      "id": "films",
+      "type": "text_with_keyboard",
+      "text": "Выберите материал:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "MonoCarbon", "action": "navigate", "target": "film_mc", "color": "primary"},
+            {"label": "Centum", "action": "navigate", "target": "film_ct", "color": "primary"}
+          ],
+          [
+            {"label": "Crystal Shield", "action": "navigate", "target": "film_cs", "color": "primary"},
+            {"label": "Что выбрать?", "action": "navigate", "target": "film_help", "color": "secondary"}
+          ],
+          [
+            {"label": "Назад", "action": "navigate", "target": "welcome", "color": "negative"}
+          ]
+        ]
+      }
+    },
+    
+    { "id": "film_mc", "type": "text_with_keyboard", "text": "Rayno MonoCarbon — нанокарбоновая тонировка.\nЗатемнение за счёт наночастиц углерода. Не выгорает, не уходит в фиолетовый. Гарантия 10 лет.", "keyboard": { "inline": true, "buttons": [ [{"label": "Назад", "action": "navigate", "target": "films", "color": "negative"}] ] } },
+    { "id": "film_ct", "type": "text_with_keyboard", "text": "Rayno Centum — атермальная керамика.\nПрозрачная плёнка. Блокирует до 80% жары и 99% ультрафиолета. Проходит ГОСТ.", "keyboard": { "inline": true, "buttons": [ [{"label": "Назад", "action": "navigate", "target": "films", "color": "negative"}] ] } },
+    { "id": "film_cs", "type": "text_with_keyboard", "text": "Rayno Crystal Shield — защита лобового стекла.\nПлёнка толщиной 120 мкм клеится снаружи. Защищает от камней и гравия.", "keyboard": { "inline": true, "buttons": [ [ {"label": "Оставить заявку", "action": "navigate", "target": "contacts", "color": "primary"} ], [{"label": "Назад", "action": "navigate", "target": "films", "color": "negative"}] ] } },
+    { "id": "film_help", "type": "text_with_keyboard", "text": "Популярная комбинация:\nMonoCarbon на заднюю полусферу (приватность) + Centum на передние стекла (защита от жары по ГОСТу).", "keyboard": { "inline": true, "buttons": [ [{"label": "Назад", "action": "navigate", "target": "films", "color": "negative"}], [{"label": "В меню", "action": "navigate", "target": "welcome", "color": "secondary"}] ] } },
+
+
+    {
+      "id": "process",
+      "type": "text_with_keyboard",
+      "text": "Длительность работ:\n\n• Задняя полусфера — ~1 час\n• Полная тонировка — 2–3 часа\n• Бронирование лобового — ~2 часа",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "Сколько по времени", "action": "navigate", "target": "proc_time", "color": "primary"},
+            {"label": "Подготовка авто", "action": "navigate", "target": "proc_prep", "color": "primary"}
+          ],
+          [
+            {"label": "Разбор обшивки", "action": "navigate", "target": "proc_disasm", "color": "secondary"},
+            {"label": "Уход после работы", "action": "navigate", "target": "proc_wash", "color": "secondary"}
+          ],
+          [
+            {"label": "Гарантия", "action": "navigate", "target": "proc_warranty", "color": "secondary"},
+            {"label": "Назад", "action": "navigate", "target": "welcome", "color": "negative"}
+          ]
+        ]
+      }
+    },
+
+    { "id": "proc_time", "type": "text_node", "back_target": "process", "text": "Длительность работ:\n\n• Задняя полусфера — ~1 час\n• Полная тонировка — 2–3 часа\n• Бронирование лобового — ~2 часа" },
+    { "id": "proc_prep", "type": "text_node", "back_target": "process", "text": "Особая подготовка не требуется. Если машина сильно грязная — желательно ополоснуть её перед визитом." },
+    { "id": "proc_disasm", "type": "text_node", "back_target": "process", "text": "Мы работаем БЕЗ разбора дверных карт. Заводская сборка вашего автомобиля остаётся нетронутой." },
+    { "id": "proc_wash", "type": "text_node", "back_target": "process", "text": "Мыть авто снаружи можно сразу. Изнутри стёкла не протирать 3 дня." },
+    { "id": "proc_warranty", "type": "text_node", "back_target": "process", "text": "Гарантия на плёнки Rayno от производителя — от 10 лет. Она не выцветает и не отслаивается." },
+
+    {
+      "id": "faq",
+      "type": "text_with_keyboard",
+      "text": "# Частые вопросы\nВыберите категорию, которая вас интересует:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [ {"label": "⚖️ Закон и связь", "action": "navigate", "target": "faq_law", "color": "primary"} ],
+          [ {"label": "🛠️ Процесс и уход", "action": "navigate", "target": "faq_process", "color": "primary"} ],
+          [ {"label": "⭐️ Качество и гарантия", "action": "navigate", "target": "faq_quality", "color": "primary"} ],
+          [ {"label": "Назад", "action": "navigate", "target": "welcome", "color": "negative"} ]
+        ]
+      }
+    },
+    {
+      "id": "faq_law",
+      "type": "text_with_keyboard",
+      "text": "⚖️ **Закон и связь**\n\nТонировка и электроника автомобиля:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [ {"label": "Проходит по ГОСТу?", "action": "navigate", "target": "faq_law_gost"} ],
+          [ {"label": "Мешает GPS/Связи?", "action": "navigate", "target": "faq_law_gps"} ],
+          [ {"label": "Влияет на датчики/камеры?", "action": "navigate", "target": "faq_law_adas"} ],
+          [ {"label": "Назад", "action": "navigate", "target": "faq", "color": "negative"} ]
+        ]
+      }
+    },
+    {
+      "id": "faq_process",
+      "type": "text_with_keyboard",
+      "text": "🛠️ **Процесс и уход**\n\nКак мы работаем и как следить за плёнкой:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [ {"label": "Снаружи или изнутри?", "action": "navigate", "target": "faq_process_inside"} ],
+          [ {"label": "Когда можно мыть?", "action": "navigate", "target": "faq_process_wash"} ],
+          [ {"label": "Сколько по времени?", "action": "navigate", "target": "faq_process_time"} ],
+          [ {"label": "Назад", "action": "navigate", "target": "faq", "color": "negative"} ]
+        ]
+      }
+    },
+    {
+       "id": "faq_quality",
+       "type": "text_with_keyboard",
+       "text": "⭐️ **Качество и гарантия**\n\nВсё о плёнках Rayno и стандартах работы:",
+       "keyboard": {
+         "inline": true,
+         "buttons": [
+           [ {"label": "Почему выбрать Rayno?", "action": "navigate", "target": "faq_quality_why"} ],
+           [ {"label": "Выгорит ли цвет?", "action": "navigate", "target": "faq_quality_color"} ],
+           [ {"label": "Как принимать работу?", "action": "navigate", "target": "faq_quality_iwfa"} ],
+           [ {"label": "Назад", "action": "navigate", "target": "faq", "color": "negative"} ]
+         ]
+       }
+    },
+
+    { "id": "faq_law_gost", "type": "text_node", "back_target": "faq_law", "text": "Да, соответствует.\nСветопропускание лобового стекла с атермальной плёнкой Rayno Centum — ~80%, что полностью соответствует ГОСТ 32565-2013." },
+    { "id": "faq_law_gps", "type": "text_node", "back_target": "faq_law", "text": "Нет, не мешает.\nВ плёнках RAYNO нет металлического слоя. GPS, Bluetooth и сотовая связь работают без помех." },
+    { "id": "faq_law_adas", "type": "text_node", "back_target": "faq_law", "text": "Нет, не влияет.\nОптическая мутность плёнки — 0.6%. Она не мешает работе камер ADAS, датчиков света и проекции на лобовое (HUD)." },
+
+    { "id": "faq_process_inside", "type": "text_node", "back_target": "faq_process", "text": "Тонировка клеится **ИЗНУТРИ**.\nТак она защищена от осадков и мытья. Исключение — бронеплёнка Crystal Shield, она клеится снаружи." },
+    { "id": "faq_process_wash", "type": "text_node", "back_target": "faq_process", "text": "Снаружи можно мыть сразу.\nИзнутри: первые 3–5 дней не опускайте стёкла и не протирайте плёнку — ей нужно время для полной полимеризации." },
+    { "id": "faq_process_time", "type": "text_node", "back_target": "faq_process", "text": "Среднее время установки:\n• Задняя полусфера — ~1 час\n• Полный круг — 2–3 часа\n• Бронирование лобового — ~2 часа.\nРаботаем строго по записи." },
+
+    { "id": "faq_quality_why", "type": "text_node", "back_target": "faq_quality", "text": "Rayno — это разовая инвестиция на весь срок владения авто.\nПлёнка не выгорает и не меняет свойств через 2–3 года, в отличие от бюджетных аналогов." },
+    { "id": "faq_quality_color", "type": "text_node", "back_target": "faq_quality", "text": "Цвет максимально стабилен.\nОснова плёнки — наноуглерод, а не краситель. Выцветание спустя 10 лет эксплуатации — менее 1%." },
+    { "id": "faq_quality_iwfa", "type": "text_node", "back_target": "faq_quality", "text": "Мы работаем по стандарту IWFA:\nОсмотр проводится с расстояния 1 метр, при дневном свете, под углом 90°. Если с этого расстояния дефектов не видно — работа считается выполненной безупречно." },
+
+    {
+      "id": "contacts",
+      "type": "text_with_keyboard",
+      "text": "Липецк, ул. Катукова, вл51, этаж -1\nЕжедневно по записи\nМастер Елена: +7 (915) 858-21-15\n\nРейтинг 5.0 на Яндекс.Картах.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "Позвонить мастеру", "action": "open_link", "target": "tel:+79158582115", "color": "positive"}
+          ],
+          [
+            {"label": "Отзывы на Яндекс.Картах", "action": "open_link", "target": "https://yandex.ru/maps/-/your-link", "color": "secondary"}
+          ],
+          [
+            {"label": "В начало", "action": "navigate", "target": "welcome", "color": "negative"}
+          ]
+        ]
+      }
+    }
+
+  ]
+}

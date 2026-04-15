@@ -1,0 +1,391 @@
+{
+  "version": "1.0",
+  "bot_name": "ZE.Studio Bot",
+  "description": "Интерактивное меню VK-бота ze.studio — тонирование и защита авто",
+  "default_back_target": "main_menu",
+
+  "nodes": [
+    {
+      "id": "welcome",
+      "type": "text_with_keyboard",
+      "text": "Здравствуйте! 👋\n\nВы обратились в центр автотонирования ZE.Studio — работаем с премиальными плёнками RAYNO (USA).\n\nВыберите интересующий раздел:",
+      "image": null,
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "🎞 Плёнки RAYNO", "action": "navigate", "target": "films", "color": "primary"},
+            {"label": "🔧 Услуги", "action": "navigate", "target": "services", "color": "primary"}
+          ],
+          [
+            {"label": "ℹ️ О студии", "action": "navigate", "target": "about", "color": "secondary"},
+            {"label": "❓ Частые вопросы", "action": "navigate", "target": "faq", "color": "secondary"}
+          ],
+          [
+            {"label": "📞 Связаться", "action": "navigate", "target": "contact", "color": "positive"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "main_menu",
+      "type": "text_with_keyboard",
+      "text": "Главное меню ZE.Studio\nВыберите раздел:",
+      "image": null,
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "🎞 Плёнки RAYNO", "action": "navigate", "target": "films", "color": "primary"},
+            {"label": "🔧 Услуги", "action": "navigate", "target": "services", "color": "primary"}
+          ],
+          [
+            {"label": "ℹ️ О студии", "action": "navigate", "target": "about", "color": "secondary"},
+            {"label": "❓ Частые вопросы", "action": "navigate", "target": "faq", "color": "secondary"}
+          ],
+          [
+            {"label": "📞 Связаться", "action": "navigate", "target": "contact", "color": "positive"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "films",
+      "type": "carousel",
+      "elements": [
+        {
+          "title": "RAYNO Centum",
+          "description": "Керамика • 95% защита от ИК-излучения • VLT 80%",
+          "image": "UPLOAD: фото Centum на авто, тёплые тона, 650x400px (13:8)",
+          "buttons": [
+            {"label": "Подробнее", "action": "navigate", "target": "film_centum"},
+            {"label": "Узнать цену", "action": "navigate", "target": "contact"}
+          ]
+        },
+        {
+          "title": "RAYNO Monocarbon 50",
+          "description": "Карбон • VLT 50% • Лёгкое затемнение",
+          "image": "UPLOAD: фото Monocarbon 50% на боковом стекле, 650x400px (13:8)",
+          "buttons": [
+            {"label": "Подробнее", "action": "navigate", "target": "film_monocarbon"},
+            {"label": "Узнать цену", "action": "navigate", "target": "contact"}
+          ]
+        },
+        {
+          "title": "RAYNO Monocarbon 35",
+          "description": "Карбон • VLT 35% • Оптимальный баланс",
+          "image": "UPLOAD: фото Monocarbon 35% на авто, 650x400px (13:8)",
+          "buttons": [
+            {"label": "Подробнее", "action": "navigate", "target": "film_monocarbon"},
+            {"label": "Узнать цену", "action": "navigate", "target": "contact"}
+          ]
+        },
+        {
+          "title": "RAYNO Monocarbon 15",
+          "description": "Карбон • VLT 15% • Заметное затемнение",
+          "image": "UPLOAD: фото Monocarbon 15% на авто, 650x400px (13:8)",
+          "buttons": [
+            {"label": "Подробнее", "action": "navigate", "target": "film_monocarbon"},
+            {"label": "Узнать цену", "action": "navigate", "target": "contact"}
+          ]
+        },
+        {
+          "title": "RAYNO Monocarbon 5",
+          "description": "Карбон • VLT 5% • Максимальное затемнение",
+          "image": "UPLOAD: фото Monocarbon 5% на авто, 650x400px (13:8)",
+          "buttons": [
+            {"label": "Подробнее", "action": "navigate", "target": "film_monocarbon"},
+            {"label": "Узнать цену", "action": "navigate", "target": "contact"}
+          ]
+        },
+        {
+          "title": "RAYNO Crystal Shield",
+          "description": "Бронеплёнка для лобового • 0.6% мутность • ADAS-safe",
+          "image": "UPLOAD: фото Crystal Shield на лобовом стекле, 650x400px (13:8)",
+          "buttons": [
+            {"label": "Подробнее", "action": "navigate", "target": "film_crystal"},
+            {"label": "Узнать цену", "action": "navigate", "target": "contact"}
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "film_centum",
+      "type": "text_node",
+      "text": "🔶 RAYNO Centum — керамическая теплозащитная плёнка\n\n☀️ Блокирует до 95% инфракрасного излучения\n🔍 Светопропускание (VLT): 80% — практически прозрачная\n🛡 UV-защита: 99%\n🌡 Значительно снижает нагрев салона\n\nИдеальна для лобового и передних боковых стёкол — максимальная теплозащита без затемнения.\n\nНе влияет на работу камер ADAS, датчиков дождя и проекции HUD.",
+      "image": "UPLOAD: детальное фото Centum, крупный план плёнки на стекле",
+      "back_target": "films",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "📞 Узнать цену", "action": "navigate", "target": "contact", "color": "positive"}
+          ],
+          [
+            {"label": "◀️ К плёнкам", "action": "navigate", "target": "films", "color": "secondary"},
+            {"label": "🏠 Меню", "action": "navigate", "target": "main_menu", "color": "secondary"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "film_monocarbon",
+      "type": "text_node",
+      "text": "⬛ RAYNO Monocarbon — наноуглеродная тонировочная плёнка\n\n🧬 Основа — наноуглерод, а не краситель\n🚫 Не выцветает, не даёт фиолетовый оттенок\n📉 Потеря характеристик: всего 1% за 10 лет\n🛡 UV-защита: 99%\n🔒 Бессрочная гарантия на адгезию\n\nВарианты затемнения:\n• VLT 50% — лёгкое, элегантное\n• VLT 35% — оптимальный баланс\n• VLT 15% — заметное затемнение\n• VLT 5% — максимальная приватность\n\nЭто последняя тонировка на весь срок владения — без переклейки через 2 года.",
+      "image": "UPLOAD: фото Monocarbon, сравнение степеней затемнения 5/15/35/50",
+      "back_target": "films",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "📞 Узнать цену", "action": "navigate", "target": "contact", "color": "positive"}
+          ],
+          [
+            {"label": "◀️ К плёнкам", "action": "navigate", "target": "films", "color": "secondary"},
+            {"label": "🏠 Меню", "action": "navigate", "target": "main_menu", "color": "secondary"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "film_crystal",
+      "type": "text_node",
+      "text": "🛡 RAYNO Crystal Shield — бронеплёнка для лобового стекла\n\n🔍 Оптическая мутность: всего 0.6% — невидима для глаза\n📷 Полностью совместима с ADAS, камерами и HUD\n💎 Защищает от сколов, трещин и гравия\n⏱ Установка: ~2 часа\n\nЗамена лобового на премиум-моделях — от 100 000 ₽ + калибровка камер. Crystal Shield — превентивная защита, которая окупается при первом же попадании камня.\n\nПеред выдачей проверяем работу всех систем вместе с вами.",
+      "image": "UPLOAD: фото Crystal Shield на лобовом, видна прозрачность плёнки",
+      "back_target": "films",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "📞 Узнать цену", "action": "navigate", "target": "contact", "color": "positive"}
+          ],
+          [
+            {"label": "◀️ К плёнкам", "action": "navigate", "target": "films", "color": "secondary"},
+            {"label": "🏠 Меню", "action": "navigate", "target": "main_menu", "color": "secondary"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "services",
+      "type": "text_node",
+      "text": "🔧 Услуги ZE.Studio\n\n🎞 Тонирование автомобилей\n• Задняя полусфера — от 1 часа\n• Полная тонировка — 2–3 часа\n• Только плёнки RAYNO (USA)\n\n🛡 Бронирование лобового стекла\n• Плёнка RAYNO Crystal Shield\n• Установка — 2 часа\n• Проверка ADAS перед выдачей\n\n☀️ Атермальная защита\n• Керамическая плёнка RAYNO Centum\n• Блокирует до 95% ИК-излучения\n• Полностью прозрачная (VLT 80%)\n\n📋 Как мы работаем:\n1. Запись по телефону или в сообщениях\n2. Подбор плёнки под ваши задачи\n3. Установка с фотоотчётом в Telegram\n4. Инструментальные замеры при выдаче\n5. Гарантия на работу и материалы",
+      "image": "UPLOAD: фото процесса работы в студии, мастер за работой",
+      "back_target": "main_menu",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "📞 Записаться", "action": "navigate", "target": "contact", "color": "positive"}
+          ],
+          [
+            {"label": "🎞 Посмотреть плёнки", "action": "navigate", "target": "films", "color": "primary"}
+          ],
+          [
+            {"label": "🏠 Меню", "action": "navigate", "target": "main_menu", "color": "secondary"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "about",
+      "type": "text_node",
+      "text": "ℹ️ О ZE.Studio\n\n📍 Липецк\n🕐 18 лет опыта в тонировании\n🏆 Яндекс «Хорошее место» 2026\n🇺🇸 Официальный представитель RAYNO Window Film (USA)\n\n✅ Что нас отличает:\n• Работаем только с плёнками RAYNO — наноуглерод и керамика\n• Без разбора обшивок дверей\n• Фотоотчёт процесса в Telegram в реальном времени\n• Инструментальные замеры тепловизором и люксметром\n• Гарантия: возмещение стоимости повреждённого крепежа в 10-кратном размере\n• За 18 лет — ноль рекламаций по шумам\n\n⭐ Отзывы на Яндекс Картах:\nhttps://yandex.ru/maps/-/your-link",
+      "image": "UPLOAD: фото студии или логотип, 650x400px",
+      "back_target": "main_menu",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "⭐ Отзывы", "action": "open_link", "target": "https://yandex.ru/maps/-/your-link", "color": "secondary"}
+          ],
+          [
+            {"label": "📞 Связаться", "action": "navigate", "target": "contact", "color": "positive"}
+          ],
+          [
+            {"label": "🏠 Меню", "action": "navigate", "target": "main_menu", "color": "secondary"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "faq",
+      "type": "text_with_keyboard",
+      "text": "❓ Частые вопросы\n\nВыберите тему:",
+      "image": null,
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "💰 Почему дороже?", "action": "navigate", "target": "faq_price", "color": "secondary"}
+          ],
+          [
+            {"label": "⏱ Сколько времени?", "action": "navigate", "target": "faq_timing", "color": "secondary"}
+          ],
+          [
+            {"label": "👮 ГИБДД и техосмотр", "action": "navigate", "target": "faq_legal", "color": "secondary"}
+          ],
+          [
+            {"label": "🛡 Гарантия", "action": "navigate", "target": "faq_warranty", "color": "secondary"}
+          ],
+          [
+            {"label": "🔬 Долговечность", "action": "navigate", "target": "faq_durability", "color": "secondary"},
+            {"label": "📷 ADAS/камеры", "action": "navigate", "target": "faq_adas", "color": "secondary"}
+          ],
+          [
+            {"label": "✅ Контроль качества", "action": "navigate", "target": "faq_quality", "color": "secondary"},
+            {"label": "🇺🇸 Бренд RAYNO", "action": "navigate", "target": "faq_brand", "color": "secondary"}
+          ],
+          [
+            {"label": "👶 Безопасность", "action": "navigate", "target": "faq_safety", "color": "secondary"},
+            {"label": "💧 Вода/электроника", "action": "navigate", "target": "faq_install", "color": "secondary"}
+          ],
+          [
+            {"label": "🪟 Бронь лобового", "action": "navigate", "target": "faq_windshield", "color": "secondary"}
+          ],
+          [
+            {"label": "🏠 Меню", "action": "navigate", "target": "main_menu", "color": "primary"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_price",
+      "type": "faq_node",
+      "question": "Почему у вас дороже, чем в других студиях?",
+      "text": "💰 Почему у нас дороже?\n\nМы дороже рынка на 40–60%. Вы платите за наноуглеродную технологию, которая физически не деградирует, и контролируемый процесс с инструментальными замерами.\n\nЭто последняя тонировка на весь срок владения — без переклейки через два года.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "faq_timing",
+      "type": "faq_node",
+      "question": "Сколько времени займёт работа?",
+      "text": "⏱ Сроки работ\n\n• Задняя полусфера — около 1 часа\n• Полная тонировка — 2–3 часа\n• Бронирование лобового — 2 часа\n\nРабота ведётся строго по записи, без очередей.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "faq_legal",
+      "type": "faq_node",
+      "question": "Не будет ли проблем с ГИБДД и техосмотром?",
+      "text": "👮 ГИБДД и техосмотр\n\nЛобовое — только атермальная плёнка с ~80% светопропускания, строго по ГОСТ 32565-2013. Замер люксметром при вас перед выдачей.\n\nЗадняя полусфера законна в любой степени затемнения.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "faq_warranty",
+      "type": "faq_node",
+      "question": "Что будет, если после работы появятся повреждения?",
+      "text": "🛡 Гарантия\n\nВозмещение стоимости любого повреждённого крепежа в 10-кратном размере.\n\nЗа 18 лет — ноль рекламаций по шумам.\n\nФотоотчёт процесса отправляется в Telegram в реальном времени.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "faq_durability",
+      "type": "faq_node",
+      "question": "Не станет ли плёнка фиолетовой и не отслоится ли?",
+      "text": "🔬 Долговечность\n\nОснова — наноуглерод, а не краситель. Углерод химически инертен: он не может выцвести или дать фиолетовый оттенок.\n\nПотеря характеристик — всего 1% за 10 лет.\n\nНа адгезию действует бессрочная гарантия производителя.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "faq_adas",
+      "type": "faq_node",
+      "question": "Не повлияет ли плёнка на камеры и датчики?",
+      "text": "📷 ADAS и камеры\n\nОптическая мутность бронеплёнки — 0.6%: невидима для глаза, камер ADAS и проекции HUD.\n\nПеред выдачей проверяем работу всех систем вместе с вами. Вы уезжаете после совместной проверки.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "faq_quality",
+      "type": "faq_node",
+      "question": "Как убедиться, что всё сделано правильно?",
+      "text": "✅ Контроль качества\n\nФотоотчёт процесса отправляется в Telegram в реальном времени.\n\nКаждая работа завершается замерами тепловизором и люксметром — вы видите цифры «до/после», а не обещания.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "faq_brand",
+      "type": "faq_node",
+      "question": "Я не знаю бренд RAYNO — стоит ли доверять?",
+      "text": "🇺🇸 Бренд RAYNO\n\nZE Studio — официальный сертифицированный представитель Rayno Window Film (USA) в Липецке.\n\nПлёнки проходят независимые лабораторные тесты и используются студиями премиум-уровня по всей России.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "faq_safety",
+      "type": "faq_node",
+      "question": "Безопасны ли материалы для детей?",
+      "text": "👶 Безопасность для детей\n\nСертифицированная керамика не выделяет токсинов и запаха при нагреве.\n\nUV-защита 99% — как SPF-50, который всегда на окнах вашего авто.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "faq_install",
+      "type": "faq_node",
+      "question": "Не зальёте ли водой электронику?",
+      "text": "💧 Защита электроники\n\nРаботаем по протоколу Safe-Install:\n• Влагозащитные барьеры на модулях\n• Микрофибровые жгуты\n• Метод «Сухой капли»\n\nФотоотчёт подготовки — в Telegram до начала работ.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "faq_windshield",
+      "type": "faq_node",
+      "question": "Стоит ли бронировать лобовое или проще заменить?",
+      "text": "🪟 Бронирование лобового\n\nЗамена лобового на премиум-моделях — 100 000+ ₽ с нарушением герметизации и калибровкой камер.\n\nБронеплёнка Crystal Shield — превентивная инвестиция за 2 часа, которая окупается при первом же камне.",
+      "back_target": "faq"
+    },
+
+    {
+      "id": "contact",
+      "type": "callback_node",
+      "text": "📞 Свяжитесь с нами\n\nВыберите удобный способ:\n\n📱 Телефон: +7 (915) 858-21-15 (Елена)\n💬 Напишите прямо сюда — мы ответим в течение часа\n\nИли оставьте ваш номер — мы перезвоним:",
+      "await_input": "phone",
+      "on_success": "contact_success",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "📱 Позвонить", "action": "open_link", "target": "tel:+79158582115", "color": "positive"}
+          ],
+          [
+            {"label": "💬 WhatsApp", "action": "open_link", "target": "https://wa.me/79158582115", "color": "positive"}
+          ],
+          [
+            {"label": "🏠 Меню", "action": "navigate", "target": "main_menu", "color": "secondary"}
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "contact_success",
+      "type": "text_node",
+      "text": "✅ Спасибо! Ваш номер передан мастеру.\n\nМы свяжемся с вами в ближайшее время.\n\nА пока можете посмотреть наши плёнки или почитать ответы на частые вопросы.",
+      "image": null,
+      "back_target": "main_menu",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            {"label": "🎞 Плёнки", "action": "navigate", "target": "films", "color": "primary"},
+            {"label": "❓ FAQ", "action": "navigate", "target": "faq", "color": "secondary"}
+          ],
+          [
+            {"label": "🏠 Меню", "action": "navigate", "target": "main_menu", "color": "secondary"}
+          ]
+        ]
+      }
+    }
+  ]
+}

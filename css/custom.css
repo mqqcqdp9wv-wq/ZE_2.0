@@ -243,9 +243,9 @@ table {
   }
 
   .hero-desktop-btn.filled {
-    background: #23a592;
+    background: #1a1a1a;
     color: #fff !important;
-    border: 2px solid #23a592;
+    border: 2px solid #1a1a1a;
   }
 
   .hero-desktop-btn.filled:hover {
@@ -1457,9 +1457,9 @@ section#services.bg-gray .text-primary {
   }
 
   .hero-cta-below-video .btn-below-primary {
-    background: #23a592;
+    background: #1a1a1a;
     color: #fff;
-    border: 2px solid #23a592;
+    border: 2px solid #1a1a1a;
   }
 
   .hero-cta-below-video .btn-below-primary:active {

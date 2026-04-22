@@ -1,0 +1,554 @@
+{
+  "version": "3.0",
+  "bot_name": "ZE.Studio Bot",
+  "description": "Синхронизировано с vk-bot-prototype.html 2026-04-22",
+  "default_back_target": "welcome",
+  "nodes": [
+
+    {
+      "id": "welcome",
+      "type": "text_with_keyboard",
+      "text": "Привет! Студия тонирования Елены Захаровой, Липецк 🚗\n18 лет опыта · рейтинг 5.0 · гарантия 10 лет\nЦены и запись — в меню ниже.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [
+            { "label": "Цена под мою машину", "action": "navigate", "target": "quiz_start", "color": "primary" }
+          ],
+          [
+            { "label": "О плёнках", "action": "navigate", "target": "films", "color": "secondary" },
+            { "label": "Записаться", "action": "navigate", "target": "book", "color": "positive" }
+          ],
+          [
+            { "label": "Контакты", "action": "navigate", "target": "contacts", "color": "secondary" }
+          ]
+        ]
+      }
+    },
+
+    {
+      "id": "quiz_start",
+      "type": "text_with_keyboard",
+      "text": "Что вас интересует?",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Тонировка стёкол", "action": "navigate", "target": "quiz_zone", "color": "primary" }],
+          [{ "label": "Защита лобового от сколов", "action": "navigate", "target": "quiz_shield", "color": "primary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "welcome", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "quiz_zone",
+      "type": "text_with_keyboard",
+      "text": "Какие стёкла хотите затонировать?",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Задние (приватность)", "action": "navigate", "target": "quiz_car_rear", "color": "primary" }],
+          [{ "label": "Лобовое (от жары)", "action": "navigate", "target": "quiz_car_front_lob", "color": "primary" }],
+          [{ "label": "Передние боковые (от жары)", "action": "navigate", "target": "quiz_car_front_side", "color": "primary" }],
+          [{ "label": "Всё сразу (приватность + прохлада)", "action": "navigate", "target": "quiz_car_all", "color": "primary" }],
+          [{ "label": "Не знаю, подскажите", "action": "navigate", "target": "quiz_help", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_start", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "quiz_help",
+      "type": "text_with_keyboard",
+      "text": "Коротко:\n\n• Задние стёкла — чтобы не было видно салон снаружи\n• Лобовое / передние — чтобы летом не жарко в салоне\n• Всё сразу — и приватность, и прохлада\n\nБольшинство клиентов берут «Всё сразу».",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Вернуться к выбору", "action": "navigate", "target": "quiz_zone", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "quiz_car_rear",
+      "type": "text_with_keyboard",
+      "text": "Какой у вас автомобиль?",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Отечественный (Lada, УАЗ)", "action": "navigate", "target": "price_rear_ru", "color": "secondary" }],
+          [{ "label": "Иномарка (Toyota, Kia, BMW...)", "action": "navigate", "target": "price_rear_foreign", "color": "secondary" }],
+          [{ "label": "Внедорожник / большой кроссовер", "action": "navigate", "target": "price_rear_suv", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_zone", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "price_rear_ru",
+      "type": "text_with_keyboard",
+      "text": "Задние стёкла · Отечественный\n\nПлёнка: Rayno MonoCarbon\nСтоимость: 6 000 ₽\nВремя: ~1 час\n\nНе выгорает, не глушит связь. Гарантия — весь срок владения.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "✅ Записаться", "action": "navigate", "target": "book", "color": "positive" }],
+          [{ "label": "Подробнее о плёнке", "action": "navigate", "target": "film_mc", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_car_rear", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "price_rear_foreign",
+      "type": "text_with_keyboard",
+      "text": "Задние стёкла · Иномарка\n\nПлёнка: Rayno MonoCarbon\nСтоимость: 8 000 ₽\nВремя: ~1 час\n\nНе выгорает, не глушит связь. Гарантия — весь срок владения.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "✅ Записаться", "action": "navigate", "target": "book", "color": "positive" }],
+          [{ "label": "Подробнее о плёнке", "action": "navigate", "target": "film_mc", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_car_rear", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "price_rear_suv",
+      "type": "text_with_keyboard",
+      "text": "Задние стёкла · Внедорожник\n\nПлёнка: Rayno MonoCarbon\nСтоимость: 10 000 ₽\nВремя: ~1.5 часа\n\nНе выгорает, не глушит связь. Гарантия — весь срок владения.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "✅ Записаться", "action": "navigate", "target": "book", "color": "positive" }],
+          [{ "label": "Подробнее о плёнке", "action": "navigate", "target": "film_mc", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_car_rear", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "quiz_car_front_lob",
+      "type": "text_with_keyboard",
+      "text": "Лобовое · Теплозащита\n\nПлёнка: Rayno Centum (керамика)\nСтоимость: 12 000 ₽\nВремя: ~1.5 часа\n\nПрозрачная, блокирует 95% жары. Проходит ГОСТ.\nНе влияет на камеры ADAS и датчики.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "✅ Записаться", "action": "navigate", "target": "book", "color": "positive" }],
+          [{ "label": "Подробнее о плёнке", "action": "navigate", "target": "film_ct", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_zone", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "quiz_car_front_side",
+      "type": "text_with_keyboard",
+      "text": "Передние боковые · Теплозащита\n\nПлёнка: Rayno Centum (керамика)\nСтоимость: 8 000 ₽\nВремя: ~1 час\n\nПрозрачная, блокирует 95% жары. Проходит ГОСТ.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "✅ Записаться", "action": "navigate", "target": "book", "color": "positive" }],
+          [{ "label": "Подробнее о плёнке", "action": "navigate", "target": "film_ct", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_zone", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "quiz_car_all",
+      "type": "text_with_keyboard",
+      "text": "Какой у вас автомобиль?",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Отечественный (Lada, УАЗ)", "action": "navigate", "target": "price_all_ru", "color": "secondary" }],
+          [{ "label": "Иномарка (Toyota, Kia, BMW...)", "action": "navigate", "target": "price_all_foreign", "color": "secondary" }],
+          [{ "label": "Внедорожник / большой кроссовер", "action": "navigate", "target": "price_all_suv", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_zone", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "price_all_ru",
+      "type": "text_with_keyboard",
+      "text": "Полный круг · Отечественный\n\n• Задние стёкла — MonoCarbon: 6 000 ₽\n• Передние + лобовое — Centum: 8 000 ₽\n\nИтого: от 14 000 ₽\nВремя: 2–3 часа",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "✅ Записаться", "action": "navigate", "target": "book", "color": "positive" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_car_all", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "price_all_foreign",
+      "type": "text_with_keyboard",
+      "text": "Полный круг · Иномарка\n\n• Задние стёкла — MonoCarbon: 8 000 ₽\n• Передние + лобовое — Centum: 8 000 ₽\n\nИтого: от 16 000 ₽\nВремя: 2–3 часа",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "✅ Записаться", "action": "navigate", "target": "book", "color": "positive" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_car_all", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "price_all_suv",
+      "type": "text_with_keyboard",
+      "text": "Полный круг · Внедорожник\n\n• Задние стёкла — MonoCarbon: 10 000 ₽\n• Передние + лобовое — Centum: 8 000 ₽\n\nИтого: от 18 000 ₽\nВремя: 3–4 часа",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "✅ Записаться", "action": "navigate", "target": "book", "color": "positive" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_car_all", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "quiz_shield",
+      "type": "text_with_keyboard",
+      "text": "Бронирование лобового стекла\n\nПлёнка: Rayno Crystal Shield\nСтоимость: 15 000 ₽\nВремя: ~2 часа\n\nЗащита от сколов и камней. Мутность 0.6% — невидима.\nНе влияет на камеры ADAS и датчики.\n\nЗамена лобового на современных авто — от 100 000 ₽.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "✅ Записаться", "action": "navigate", "target": "book", "color": "positive" }],
+          [{ "label": "Подробнее о плёнке", "action": "navigate", "target": "film_cs", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "quiz_start", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "book",
+      "type": "text_with_keyboard",
+      "text": "📞 Запись к мастеру\n\nНапишите сюда марку и модель вашего авто — мы подтвердим цену и предложим удобное время.\n\nИли позвоните напрямую:\n+7 (915) 858-21-15 (Елена)",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "📱 Позвонить", "action": "open_link", "target": "tel:+79158582115", "color": "positive" }],
+          [{ "label": "🏠 В меню", "action": "navigate", "target": "welcome", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "films",
+      "type": "text_with_keyboard",
+      "text": "Мы работаем только с плёнками RAYNO (USA).\nВыберите, чтобы узнать подробнее:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "MonoCarbon (тёмная)", "action": "navigate", "target": "film_mc", "color": "primary" }],
+          [{ "label": "Centum (от жары)", "action": "navigate", "target": "film_ct", "color": "primary" }],
+          [{ "label": "Crystal Shield (бронь)", "action": "navigate", "target": "film_cs", "color": "primary" }],
+          [{ "label": "Что выбрать?", "action": "navigate", "target": "film_help", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "welcome", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "film_mc",
+      "type": "text_with_keyboard",
+      "text": "Rayno MonoCarbon\n\nНанокарбоновая тонировка. Затемнение за счёт частиц углерода — не краситель.\n\n• Не выгорает, не уходит в фиолетовый\n• Не глушит GPS и связь\n• Потеря свойств: 1% за 10 лет\n• Гарантия на адгезию — бессрочная",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Узнать цену", "action": "navigate", "target": "quiz_car_rear", "color": "positive" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "films", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "film_ct",
+      "type": "text_with_keyboard",
+      "text": "Rayno Centum\n\nКерамическая атермальная плёнка. Прозрачная — VLT 80%.\n\n• Блокирует до 95% инфракрасного излучения\n• UV-защита 99%\n• Проходит ГОСТ 32565-2013\n• Не влияет на камеры ADAS, датчики, HUD",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Узнать цену", "action": "navigate", "target": "quiz_car_front_lob", "color": "positive" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "films", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "film_cs",
+      "type": "text_with_keyboard",
+      "text": "Rayno Crystal Shield\n\nБронеплёнка для лобового стекла.\n\n• Мутность 0.6% — невидима\n• Защищает от камней и гравия\n• Совместима с ADAS, камерами, HUD\n• Установка ~2 часа\n\nЗамена лобового — от 100 000 ₽. Бронеплёнка окупается при первом камне.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Узнать цену", "action": "navigate", "target": "quiz_shield", "color": "positive" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "films", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "film_help",
+      "type": "text_with_keyboard",
+      "text": "Популярная комбинация:\n\n• MonoCarbon на задние стёкла — приватность\n• Centum на передние и лобовое — защита от жары по ГОСТу\n\nБольшинство клиентов берут именно так.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Подобрать плёнку", "action": "navigate", "target": "quiz_start", "color": "positive" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "films", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "process",
+      "type": "text_with_keyboard",
+      "text": "Как мы работаем:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "⏱ Сколько по времени", "action": "navigate", "target": "proc_time", "color": "secondary" }],
+          [{ "label": "🚗 Разбор обшивки", "action": "navigate", "target": "proc_disasm", "color": "secondary" }],
+          [{ "label": "🧽 Уход после работы", "action": "navigate", "target": "proc_wash", "color": "secondary" }],
+          [{ "label": "🛡 Гарантия", "action": "navigate", "target": "proc_warranty", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "welcome", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "proc_time",
+      "type": "text_with_keyboard",
+      "text": "Среднее время:\n\n• Задние стёкла — ~1 час\n• Полный круг — 2–3 часа\n• Бронирование лобового — ~2 часа\n\nРаботаем строго по записи.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "✅ Записаться", "action": "navigate", "target": "book", "color": "positive" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "process", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "proc_disasm",
+      "type": "text_with_keyboard",
+      "text": "Работаем БЕЗ разбора дверных карт.\n\nЗаводская сборка вашего автомобиля остаётся нетронутой. За 18 лет — ноль рекламаций по шумам после установки.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "process", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "proc_wash",
+      "type": "text_with_keyboard",
+      "text": "Снаружи мыть можно сразу.\n\nИзнутри: первые 3–5 дней не опускайте стёкла и не протирайте плёнку — ей нужно время для полимеризации.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "process", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "proc_warranty",
+      "type": "text_with_keyboard",
+      "text": "Гарантия RAYNO — от 10 лет.\n\nПлёнка не выцветает и не отслаивается. На адгезию — бессрочная гарантия производителя.\n\nВозмещение стоимости повреждённого крепежа в 10-кратном размере.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "process", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq",
+      "type": "text_with_keyboard",
+      "text": "Частые вопросы\nВыберите тему:",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "⚖️ Закон и связь", "action": "navigate", "target": "faq_law", "color": "secondary" }],
+          [{ "label": "🛠 Процесс и уход", "action": "navigate", "target": "faq_process", "color": "secondary" }],
+          [{ "label": "⭐ Качество и гарантия", "action": "navigate", "target": "faq_quality", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "welcome", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_law",
+      "type": "text_with_keyboard",
+      "text": "⚖️ Закон и связь",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Проходит по ГОСТу?", "action": "navigate", "target": "faq_gost", "color": "secondary" }],
+          [{ "label": "Мешает GPS/связи?", "action": "navigate", "target": "faq_gps", "color": "secondary" }],
+          [{ "label": "Влияет на камеры ADAS?", "action": "navigate", "target": "faq_adas", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_gost",
+      "type": "text_with_keyboard",
+      "text": "Да, соответствует.\n\nСветопропускание лобового с Centum — ~80%, полностью по ГОСТ 32565-2013.\n\nЗамер люксметром при вас перед выдачей.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq_law", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_gps",
+      "type": "text_with_keyboard",
+      "text": "Нет, не мешает.\n\nВ плёнках RAYNO нет металлического слоя. GPS, Bluetooth и сотовая связь работают без помех.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq_law", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_adas",
+      "type": "text_with_keyboard",
+      "text": "Нет, не влияет.\n\nОптическая мутность — 0.6%. Камеры ADAS, датчики света, проекция HUD — всё работает.\n\nПеред выдачей проверяем все системы вместе с вами.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq_law", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_process",
+      "type": "text_with_keyboard",
+      "text": "🛠 Процесс и уход",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Снаружи или изнутри?", "action": "navigate", "target": "faq_inside", "color": "secondary" }],
+          [{ "label": "Когда можно мыть?", "action": "navigate", "target": "faq_wash", "color": "secondary" }],
+          [{ "label": "Сколько по времени?", "action": "navigate", "target": "faq_time", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_inside",
+      "type": "text_with_keyboard",
+      "text": "Тонировка клеится ИЗНУТРИ.\n\nТак она защищена от мытья и осадков.\n\nИсключение — Crystal Shield, она клеится снаружи.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq_process", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_wash",
+      "type": "text_with_keyboard",
+      "text": "Снаружи — мыть сразу.\n\nИзнутри: 3–5 дней не опускать стёкла и не протирать плёнку.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq_process", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_time",
+      "type": "text_with_keyboard",
+      "text": "• Задние стёкла — ~1 час\n• Полный круг — 2–3 часа\n• Бронирование лобового — ~2 часа\n\nРаботаем строго по записи.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq_process", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_quality",
+      "type": "text_with_keyboard",
+      "text": "⭐ Качество и гарантия",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "Почему Rayno?", "action": "navigate", "target": "faq_why", "color": "secondary" }],
+          [{ "label": "Выгорит ли цвет?", "action": "navigate", "target": "faq_color", "color": "secondary" }],
+          [{ "label": "Как принимать работу?", "action": "navigate", "target": "faq_accept", "color": "secondary" }],
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_why",
+      "type": "text_with_keyboard",
+      "text": "Rayno — разовая инвестиция на весь срок владения авто.\n\nНе меняет свойств через 2–3 года, в отличие от бюджетных аналогов. Основа — наноуглерод, не краситель.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq_quality", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_color",
+      "type": "text_with_keyboard",
+      "text": "Не выгорит.\n\nОснова — наноуглерод. Углерод химически инертен — не может выцвести или дать фиолетовый оттенок.\n\nВыцветание за 10 лет — менее 1%.",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq_quality", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "faq_accept",
+      "type": "text_with_keyboard",
+      "text": "Работаем по стандарту IWFA:\n\nОсмотр с расстояния 1 метр, при дневном свете, под углом 90°.\n\nКаждая работа завершается замерами тепловизором и люксметром — цифры «до/после».",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "◀ Назад", "action": "navigate", "target": "faq_quality", "color": "negative" }]
+        ]
+      }
+    },
+
+    {
+      "id": "contacts",
+      "type": "text_with_keyboard",
+      "text": "📍 Липецк, ул. Катукова, вл51, этаж -1\n📅 Ежедневно по записи\n📞 Мастер Елена: +7 (915) 858-21-15\n\n⭐ Рейтинг 5.0 на Яндекс.Картах",
+      "keyboard": {
+        "inline": true,
+        "buttons": [
+          [{ "label": "📱 Позвонить мастеру", "action": "open_link", "target": "tel:+79158582115", "color": "positive" }],
+          [{ "label": "⭐ Отзывы на Картах", "action": "open_link", "target": "https://yandex.ru/maps/-/CDu~mGzX", "color": "link" }],
+          [{ "label": "🏠 В меню", "action": "navigate", "target": "welcome", "color": "negative" }]
+        ]
+      }
+    }
+
+  ]
+}

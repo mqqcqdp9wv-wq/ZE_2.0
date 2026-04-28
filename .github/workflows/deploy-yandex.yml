@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '3d/**'
+      - '.github/workflows/deploy-3d.yml'
 
 jobs:
   deploy:
@@ -37,7 +40,8 @@ jobs:
             --exclude "package-lock.json" \
             --exclude "vercel.json" \
             --exclude "node_modules/*" \
-            --exclude "api/*"
+            --exclude "api/*" \
+            --exclude "3d/*"
 
           # Загрузить HTML-файлы, которые конфликтуют с подпапками
           aws s3 cp blog.html s3://ze-studio48.ru/blog \

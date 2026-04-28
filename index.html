@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="css/style.css?v=rayno666">
   <link rel="stylesheet" href="css/custom.css?v=scroll-btn-white">
   <link rel="stylesheet" href="css/contact-form.css?v=vk-btn-2">
-  <link rel="stylesheet" href="css/tint-simulator.css?v=wrapper-800">
+  <link rel="stylesheet" href="css/tint-simulator.css?v=cta-100">
 
   <!-- Preload critical images for faster loading -->
   <link rel="preload" as="image" href="img/bg/personal2-hd.webp" type="image/webp"
@@ -398,111 +398,55 @@
   </section>
 
 
-  <!-- ИНТЕРАКТИВНЫЙ СИМУЛЯТОР ТОНИРОВКИ -->
-  <section id="tint-simulator" class="section">
+  <!-- 3D-СИМУЛЯТОР ТОНИРОВКИ — CTA -->
+  <section id="tint-simulator" class="section tint-cta">
     <div class="container">
-      <!-- Заголовок -->
-      <div class="simulator-header" data-aos="fade-up">
-        <h2>Подберите свою <span class="mark"><span>тонировку.</span></span></h2>
-        <p>Выберите уровень светопропускания и посмотрите, как будет выглядеть ваш автомобиль</p>
-      </div>
-
-      <!-- Превью машины с тонировкой -->
-      <div class="car-preview-wrapper" data-aos="fade-up" data-aos-delay="100">
-        <div class="car-preview">
-          <img src="img/car-new.png" alt="Автомобиль" class="car-image">
-          <!-- Тонировка стёкол (одна маска) -->
-          <div class="tint-overlay"></div>
+      <div class="tint-cta__card" data-aos="fade-up">
+        <div class="tint-cta__copy">
+          <span class="tint-cta__eyebrow">Интерактивно · 3D</span>
+          <h2 class="tint-cta__title">Подберите тонировку <span class="mark"><span>в&nbsp;3D</span></span></h2>
+          <p class="tint-cta__lead">Выберите материал и процент светопропускания, поверните машину со всех сторон, сравните «до» и «после». Полноценный 3D-симулятор открывается отдельной страницей.</p>
+          <a href="https://3d.ze-studio48.ru" class="tint-cta__btn" target="_blank" rel="noopener">
+            <span>Открыть 3D-симулятор</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <ul class="tint-cta__bullets">
+            <li>3 материала Rayno: MonoCarbon, Centum, Crystal Shield</li>
+            <li>Регулируемый VLT: 5 / 15 / 35 / 50 / 80&nbsp;%</li>
+            <li>Раздельная тонировка передней и задней зоны</li>
+          </ul>
         </div>
-      </div>
-
-      <!-- Компактные характеристики + кнопка Подробнее -->
-      <div class="specs-wrapper" data-aos="fade-up" data-aos-delay="200">
-        <div class="specs-compact">
-          <!-- Заполнится после выбора VLT -->
-        </div>
-        <div class="vlt-indicator" style="display: none;">
-          Подробнее
-        </div>
-      </div>
-
-      <!-- Кнопки выбора VLT -->
-      <div class="vlt-controls" data-aos="fade-up" data-aos-delay="250">
-        <div class="vlt-btn-wrapper">
-          <button class="vlt-btn" data-vlt="80">
-            <div class="vlt-btn-content">
-              <span class="vlt-value">80%</span>
-              <span class="film-name">Centum</span>
+        <div class="tint-cta__visual" aria-hidden="true">
+          <div class="tint-cta__visual-frame">
+            <div class="tint-cta__glow"></div>
+            <div class="tint-cta__device">
+              <div class="tint-cta__device-bar"></div>
+              <div class="tint-cta__device-screen">
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" class="tint-cta__car">
+                  <defs>
+                    <linearGradient id="tcBody" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0" stop-color="#2a2d33"/>
+                      <stop offset="1" stop-color="#0f1014"/>
+                    </linearGradient>
+                    <linearGradient id="tcGlass" x1="0" x2="1" y1="0" y2="0">
+                      <stop offset="0" stop-color="#161a22" stop-opacity="0.95"/>
+                      <stop offset="1" stop-color="#0a0c10" stop-opacity="0.7"/>
+                    </linearGradient>
+                  </defs>
+                  <ellipse cx="160" cy="170" rx="120" ry="10" fill="#000" opacity="0.45"/>
+                  <path d="M40 140 Q60 90 110 80 L210 80 Q260 90 280 140 Z" fill="url(#tcBody)"/>
+                  <path d="M95 95 Q120 70 165 70 L210 70 Q235 75 250 100 Z" fill="url(#tcGlass)"/>
+                  <path d="M155 70 L155 100" stroke="#3a414c" stroke-width="1.5"/>
+                  <circle cx="92" cy="148" r="22" fill="#0a0a0c"/>
+                  <circle cx="92" cy="148" r="11" fill="#1a1d22"/>
+                  <circle cx="228" cy="148" r="22" fill="#0a0a0c"/>
+                  <circle cx="228" cy="148" r="11" fill="#1a1d22"/>
+                </svg>
+              </div>
             </div>
-          </button>
-          <div class="vlt-more-tag">Подробнее</div>
-        </div>
-        <div class="vlt-btn-wrapper">
-          <button class="vlt-btn" data-vlt="50">
-            <div class="vlt-btn-content">
-              <span class="vlt-value">50%</span>
-              <span class="film-name">Monocarbon</span>
-            </div>
-          </button>
-          <div class="vlt-more-tag">Подробнее</div>
-        </div>
-        <div class="vlt-btn-wrapper">
-          <button class="vlt-btn" data-vlt="35">
-            <div class="vlt-btn-content">
-              <span class="vlt-value">35%</span>
-              <span class="film-name">Monocarbon</span>
-            </div>
-          </button>
-          <div class="vlt-more-tag">Подробнее</div>
-        </div>
-        <div class="vlt-btn-wrapper">
-          <button class="vlt-btn" data-vlt="15">
-            <div class="vlt-btn-content">
-              <span class="vlt-value">15%</span>
-              <span class="film-name">Monocarbon</span>
-            </div>
-          </button>
-          <div class="vlt-more-tag">Подробнее</div>
-        </div>
-        <div class="vlt-btn-wrapper">
-          <button class="vlt-btn" data-vlt="5">
-            <div class="vlt-btn-content">
-              <span class="vlt-value">5%</span>
-              <span class="film-name">Monocarbon</span>
-            </div>
-          </button>
-          <div class="vlt-more-tag">Подробнее</div>
-        </div>
-      </div>
-
-      <!-- Название плёнки (скрыто - не нужно) -->
-      <div class="film-name-block" data-aos="fade-up" data-aos-delay="300" style="display: none;">
-        <h3 class="film-name-title"></h3>
-        <div class="film-type-subtitle"></div>
-      </div>
-
-      <!-- Модальное окно с детальной информацией -->
-      <div class="film-modal" id="filmModal">
-        <div class="film-modal-overlay" id="filmModalOverlay"></div>
-        <div class="film-modal-content">
-          <button class="film-modal-close" id="filmModalClose">&times;</button>
-          <div class="film-modal-body" id="filmModalBody">
-            <h4>О плёнке RAYNO Monocarbon 50</h4>
-            <p><strong>RAYNO Monocarbon</strong> — это тонировочная пленка на основе настоящего углерода (карбона),
-              созданная с использованием передовой нанотехнологии Rayno, без красителей и металлов.</p>
-            <p>Углерод (карбон) — это стабильная частица, обеспечивающая длительный срок службы в насыщенном угольном
-              оттенке. Выцветание пленки на вашем автомобиле в течение 10 лет составит не более 1%!</p>
-            <h4>Преимущества:</h4>
-            <ul>
-              <li>Настоящий углерод (карбон) в составе</li>
-              <li>Без красителей — стабильный цвет</li>
-              <li>Выцветание менее 1% за 10 лет</li>
-              <li>Универсальная средняя тонировка</li>
-              <li>Отличная видимость днём и ночью</li>
-            </ul>
-            <h4>Рекомендации:</h4>
-            <p>Универсальный выбор для боковых стёкол. Хороший баланс между приватностью и видимостью. Комфортное
-              вождение в любое время суток.</p>
+            <span class="tint-cta__hint">3D · MonoCarbon · 35&nbsp;%</span>
           </div>
         </div>
       </div>
@@ -1124,7 +1068,6 @@
   <script src="js/custom.js"></script>
   <script src="js/contact-form.js?v=workersfix1"></script>
   <script src="js/yandex-goals.js"></script>
-  <script src="js/tint-simulator.js?v=wrapper-500"></script>
 
   <script>
     // News Carousel Navigation

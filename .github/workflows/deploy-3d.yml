@@ -1,0 +1,43 @@
+name: Deploy 3D Simulator to Yandex Object Storage
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '3d/**'
+      - '.github/workflows/deploy-3d.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 3d
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 3d/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        run: npx next build
+
+      - name: Sync to Yandex Object Storage
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.YC_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 sync ./out s3://3d.ze-studio48.ru \
+            --endpoint-url https://storage.yandexcloud.net \
+            --delete \
+            --no-progress \
+            --cache-control "public, max-age=300"

@@ -1,885 +1,243 @@
 /* ============================================
-   ИНТЕРАКТИВНЫЙ СИМУЛЯТОР ТОНИРОВКИ
-   ZE-STUDIO - Rayno Film Selector
+   3D-СИМУЛЯТОР — CTA-СЕКЦИЯ
+   Заглушка на главной, ведущая на 3d.ze-studio48.ru
    ============================================ */
 
-/* Основной контейнер симулятора */
-#tint-simulator {
+#tint-simulator.tint-cta {
   background: #ffffff;
   padding: 80px 0;
   overflow: hidden;
 }
 
-#tint-simulator .container {
+.tint-cta .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Заголовок секции */
-.simulator-header {
-  text-align: left;
-  margin-bottom: 60px;
-}
-
-.simulator-header h2 {
-  /* Не переопределяем размер - используем базовый из style.css */
-  font-weight: 600;
-  color: #343434;
-  margin-bottom: 15px;
-}
-
-.simulator-header p {
-  font-size: 1.125rem;
-  color: #767676;
-  max-width: 600px;
-  margin: 0;
-}
-
-/* На десктопе можно увеличить */
-@media (min-width: 768px) {
-  .simulator-header {
-    text-align: center;
-  }
-
-  .simulator-header h2 {
-    font-size: 42px;
-  }
-
-  .simulator-header p {
-    margin: 0 auto;
-    text-align: center;
-  }
-
-}
-
-
-/* Область превью машины */
-.car-preview-wrapper {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto 5px;
-  background: transparent;
-  padding: 0;
-}
-
-/* Обертка для характеристик и кнопки */
-.specs-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.tint-cta__card {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto 20px;
-  padding: 20px 40px;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Анимация появления при загрузке */
-.specs-wrapper.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Компактные характеристики */
-.specs-compact {
-  display: flex;
-  justify-content: center;
-  gap: 45px;
-}
-
-.spec-compact-item {
-  text-align: center;
-  min-width: 110px;
-  flex-shrink: 0;
-}
-
-.spec-compact-value {
-  display: block;
-  font-size: 32px;
-  font-weight: 700;
-  color: #23a592;
-  line-height: 1;
-  margin-bottom: 10px;
-  transition: all 0.3s ease;
-}
-
-.spec-compact-label {
-  font-size: 13px;
-  color: #343434;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.spec-compact-desc {
-  font-size: 11px;
-  color: #999;
-  line-height: 1.3;
-}
-
-.car-preview {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.car-image {
-  position: relative;
-  width: 100%;
-  height: auto;
-  display: block;
-  z-index: 1;
-}
-
-/* Слой тонировки (используется PNG маска с альфа-каналом) */
-.tint-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-  background-color: #000000;
-  background: black;
-  
-  /* Webkit browsers (Chrome, Safari, Edge) */
-  -webkit-mask-image: url('../img/windows-mask.png');
-  -webkit-mask-size: 100% 56%;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: 43% 53.5%;
-  -webkit-mask-mode: alpha;
-  -webkit-mask-composite: source-in;
-  
-  /* Standard syntax (Firefox, modern browsers) */
-  mask-image: url('../img/windows-mask.png');
-  mask-size: 100% 56%;
-  mask-repeat: no-repeat;
-  mask-position: 43% 53.5%;
-  mask-mode: alpha;
-  mask-composite: intersect;
-  
-  /* Анимация и оптимизация */
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-  will-change: opacity;
-  
-  /* Аппаратное ускорение */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-/* Обёртка кнопки — нужна для позиционирования стикера снаружи кнопки */
-.vlt-btn-wrapper {
-  flex: 1;
-  min-width: 140px;
-  max-width: 180px;
-  position: relative;
-  margin-bottom: 28px;
-}
-
-/* Стикер «Подробнее» — вкладочка, выезжает из-под кнопки */
-.vlt-more-tag {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(0);
-  background: #fff;
-  color: #23a592;
-  border: 1.5px solid #23a592;
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  padding: 4px 16px 5px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  z-index: 1;
-  cursor: pointer;
-}
-
-.vlt-btn.active + .vlt-more-tag {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(88%);
-}
-
-.vlt-more-tag:hover {
-  background: #23a592;
-  color: #fff;
-}
-
-/* Старая кнопка "Подробнее" — скрыта, заменена стикером */
-.vlt-indicator {
-  display: none !important;
-}
-
-/* Анимация дыхания для кнопки */
-@keyframes breathe {
-  0%, 100% {
-    box-shadow: 0 4px 15px rgba(35, 165, 146, 0.3);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 6px 25px rgba(35, 165, 146, 0.6);
-    transform: scale(1.05);
-  }
-}
-
-.vlt-indicator:hover {
-  background: rgba(35, 165, 146, 1);
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(35, 165, 146, 0.5);
-  animation: none;
-}
-
-.vlt-indicator:active {
-  transform: translateY(0);
-}
-
-/* Панель управления (выбор VLT) */
-.vlt-controls {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-  padding: 0 20px;
-}
-
-.vlt-btn {
-  width: 100%;
-  padding: 20px 15px;
-  background: #ffffff;
-  border: 1.5px solid #e8e8e8;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-align: center;
+  padding: 48px 32px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #0f1014 0%, #1a1d24 50%, #0a0c10 100%);
   position: relative;
   overflow: hidden;
-  outline: none;
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+.tint-cta__card::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(64, 96, 200, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+@media (min-width: 900px) {
+  .tint-cta__card {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 64px 56px;
+  }
+}
+
+/* Левая часть — текст */
+.tint-cta__copy {
+  position: relative;
   z-index: 2;
 }
 
-.vlt-btn:focus {
-  outline: none;
-  box-shadow: none;
+.tint-cta__eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a96b3;
+  padding: 6px 12px;
+  border: 1px solid rgba(138, 150, 179, 0.3);
+  border-radius: 100px;
+  margin-bottom: 24px;
 }
 
-.vlt-btn::before {
-  content: '';
+.tint-cta__title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+
+.tint-cta__title .mark {
+  color: inherit;
+}
+
+.tint-cta__lead {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #b4bcd0;
+  margin: 0 0 28px;
+  max-width: 520px;
+}
+
+.tint-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background: #ffffff;
+  color: #0f1014;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 24px -8px rgba(255, 255, 255, 0.4);
+}
+
+.tint-cta__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -8px rgba(255, 255, 255, 0.5);
+  color: #0f1014;
+}
+
+.tint-cta__btn svg {
+  transition: transform 0.2s ease;
+}
+
+.tint-cta__btn:hover svg {
+  transform: translateX(4px);
+}
+
+.tint-cta__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tint-cta__bullets li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #8a96b3;
+}
+
+.tint-cta__bullets li::before {
+  content: "";
   position: absolute;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #23a592 0%, #1a8577 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 0;
+  top: 8px;
+  width: 14px;
+  height: 1px;
+  background: #5a6680;
 }
 
-/* Hover только на устройствах с мышью — не на тачскринах */
-@media (hover: hover) {
-  .vlt-btn:not(.active):hover {
-    border-color: #23a592;
-    background: rgba(35, 165, 146, 0.04);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(35, 165, 146, 0.15);
-  }
-
-  .vlt-btn:not(.active):hover .vlt-value {
-    color: #23a592;
-  }
-}
-
-.vlt-btn.active {
-  background: linear-gradient(135deg, #23a592 0%, #1a8577 100%);
-  border-color: transparent;
-  box-shadow: 0 8px 25px rgba(35, 165, 146, 0.35);
-  transform: translateY(-3px);
-}
-
-.vlt-btn.active::before {
-  opacity: 1;
-}
-
-.vlt-btn-content {
+/* Правая часть — визуал-макет симулятора */
+.tint-cta__visual {
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.vlt-btn .vlt-value {
-  display: block;
-  font-size: 32px;
-  font-weight: 700;
-  color: #343434;
-  transition: color 0.3s ease;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.vlt-btn.active .vlt-value {
-  color: #ffffff;
-}
-
-.vlt-btn .film-name {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: #767676;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease;
-}
-
-.vlt-btn.active .film-name {
-  color: rgba(255,255,255,0.9);
-}
-
-/* Блок названия плёнки */
-.film-name-block {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.film-name-title {
-  font-size: 28px;
-  font-weight: 600;
-  color: #343434;
-  margin-bottom: 10px;
-}
-
-.film-type-subtitle {
-  font-size: 16px;
-  color: #23a592;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-
-
-/* Кнопка "Подробнее" */
-.film-details-btn {
-  margin-top: 20px;
-  padding: 14px 32px;
-  background: linear-gradient(135deg, #23a592 0%, #1a8577 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(35, 165, 146, 0.3);
-}
-
-.film-details-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(35, 165, 146, 0.4);
-}
-
-/* Модальное окно */
-.film-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
+.tint-cta__visual-frame {
+  position: relative;
   width: 100%;
-  height: 100%;
-  z-index: 10000;
-  animation: fadeIn 0.3s ease;
+  max-width: 480px;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.film-modal.show {
-  display: block;
-}
-
-.film-modal-overlay {
+.tint-cta__glow {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
+  inset: -20%;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(96, 128, 220, 0.22), transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
 }
 
-.film-modal-content {
+.tint-cta__device {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #050608;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6);
+}
+
+.tint-cta__device-bar {
+  height: 22px;
+  background: linear-gradient(180deg, #0f1014 0%, #060708 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.tint-cta__device-bar::before {
+  content: "";
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  border-radius: 20px;
-  max-width: 700px;
-  width: 90%;
-  max-height: 80vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -45%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
-.film-modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  background: #f0f0f0;
-  border: none;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  font-size: 28px;
-  line-height: 1;
-  cursor: pointer;
-  transition: all 0.2s;
-  color: #666;
-  z-index: 1;
+  background: #2a2d33;
+  box-shadow: 14px 0 0 #2a2d33, 28px 0 0 #2a2d33;
 }
 
-.film-modal-close:hover {
-  background: #e0e0e0;
-  transform: rotate(90deg);
-}
-
-.film-modal-body {
-  padding: 40px;
-}
-
-.film-modal-body h4 {
-  font-size: 22px;
-  font-weight: 600;
-  color: #343434;
-  margin-bottom: 15px;
-  margin-top: 25px;
-}
-
-.film-modal-body h4:first-child {
-  margin-top: 0;
-  font-size: 26px;
-  color: #23a592;
-}
-
-.film-modal-body p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-.film-modal-body ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-.film-modal-body li {
-  padding: 12px 0 12px 35px;
+.tint-cta__device-screen {
   position: relative;
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-}
-
-.film-modal-body li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: #23a592;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-/* Раскрывающаяся детальная информация (старый стиль - скрываем) */
-.film-details {
-  display: none;
-}
-  background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.film-details summary {
-  padding: 25px 30px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 600;
-  color: #343434;
-  list-style: none;
+  width: 100%;
+  height: calc(100% - 22px);
+  background: radial-gradient(ellipse at center, #1a1d24 0%, #0a0c10 70%);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: white;
-  transition: background 0.3s ease;
-  user-select: none;
+  justify-content: center;
 }
 
-.film-details summary::-webkit-details-marker {
-  display: none;
+.tint-cta__car {
+  width: 80%;
+  max-width: 320px;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
 }
 
-.film-details summary::after {
-  content: '▼';
-  font-size: 14px;
-  color: #23a592;
-  transition: transform 0.3s ease;
-}
-
-.film-details[open] summary::after {
-  transform: rotate(180deg);
-}
-
-.film-details summary:hover {
-  background: #f8f8f8;
-}
-
-.film-details-content {
-  padding: 30px;
-  border-top: 1px solid #f0f0f0;
-  animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.film-details-content h4 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #343434;
-  margin-bottom: 15px;
-  margin-top: 25px;
-}
-
-.film-details-content h4:first-child {
-  margin-top: 0;
-}
-
-.film-details-content p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-.film-details-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-.film-details-content li {
-  padding: 12px 0 12px 30px;
-  position: relative;
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-}
-
-.film-details-content li::before {
-  content: '✓';
+.tint-cta__hint {
   position: absolute;
-  left: 0;
-  color: #23a592;
-  font-weight: 700;
-  font-size: 18px;
+  bottom: 16px;
+  right: 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-  #tint-simulator {
+@media (max-width: 899px) {
+  #tint-simulator.tint-cta {
     padding: 50px 0;
   }
-
-  .simulator-header h2 {
-    font-size: 32px;
+  .tint-cta__card {
+    padding: 36px 24px;
   }
-
-  .simulator-header p {
-    font-size: 1.125rem;
+  .tint-cta__visual-frame {
+    max-width: 360px;
   }
-
-  .car-preview-wrapper {
-    padding: 20px;
-    margin-bottom: 30px;
-  }
-
-  .vlt-indicator {
-    top: 10px;
-    right: 10px;
-    padding: 8px 14px;
-    font-size: 12px;
-  }
-
-  .vlt-controls {
-    gap: 10px;
-  }
-
-  .vlt-btn-wrapper {
-    min-width: 110px;
-    max-width: 140px;
-  }
-
-  .vlt-btn {
-    padding: 15px 10px;
-  }
-
-  .vlt-btn .vlt-value {
-    font-size: 24px;
-  }
-
-  .vlt-btn .film-name {
-    font-size: 11px;
-  }
-
-  .specs-wrapper {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .specs-compact {
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .spec-compact-item {
-    min-width: 80px;
-  }
-
-  .spec-compact-item {
-    min-width: 85px;
-  }
-
-  .spec-compact-value {
-    font-size: 26px;
-  }
-
-  .spec-compact-label {
-    font-size: 11px;
-  }
-
-  .spec-compact-desc {
-    font-size: 10px;
-  }
-
-  .vlt-indicator {
-    padding: 14px 24px;
-    font-size: 14px;
-  }
-
-  .film-name-title {
-    font-size: 22px;
-  }
-
-  .film-details summary {
-    padding: 20px;
-    font-size: 16px;
-  }
-
-  .film-details-content {
-    padding: 20px;
-  }
-
-  .film-details-content h4 {
-    font-size: 18px;
-  }
-
-  .film-details-content p,
-  .film-details-content li {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 576px) {
-  /* Секция симулятора на мобильных */
-  #tint-simulator {
-    padding: 30px 0;
-  }
-
-  /* Заголовок симулятора на мобильных */
-  .simulator-header {
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 0;
-  }
-  
-  .simulator-header h2 {
-    /* Используем базовый размер h2 из style.css */
-    margin-bottom: 40px;
-  }
-  
-  .simulator-header p {
-    /* Описание по левому краю */
-    text-align: left;
-    font-size: 1.125rem;
-    line-height: 1.5;
-    max-width: 100%;
-    margin-bottom: 30px;
-  }
-
-  /* Машинка на мобильных - увеличиваем */
-  .car-preview-wrapper {
-    padding: 10px 0;
-    margin-bottom: 20px;
-  }
-  
-  .car-preview {
-    transform: scale(1.15);
-  }
-
-  /* КАРУСЕЛЬ В СТИЛЕ APPLE - горизонтальная прокрутка */
-  .vlt-controls {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: visible;
-    gap: 12px;
-    padding: 15px 20px 35px;
-    margin: 0 -20px 20px;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-  }
-
-  /* Скрыть полосу прокрутки */
-  .vlt-controls::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Обёртка кнопки в карусели */
-  .vlt-btn-wrapper {
-    flex: 0 0 120px;
-    min-width: 120px;
-    max-width: 120px;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-    margin-bottom: 0;
-  }
-
-  /* Кнопки в карусели */
-  .vlt-btn {
-    padding: 18px 12px;
-    opacity: 0.4;
-    filter: blur(1px) brightness(0.7);
-    transform: scale(0.85);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* Центральная (активная) кнопка - яркая, чёткая */
-  .vlt-btn.active {
-    opacity: 1;
-    filter: blur(0) brightness(1);
-    transform: scale(1);
-    z-index: 2;
-  }
-
-  /* Паддинг для центрирования первого и последнего элемента */
-  .vlt-controls::before,
-  .vlt-controls::after {
-    content: '';
-    display: block;
-    width: calc(50vw - 60px);
-    flex-shrink: 0;
-    pointer-events: none;
-  }
-
-  .specs-wrapper {
-    padding: 15px;
-    gap: 15px;
-    flex-direction: column;
-  }
-
-  .specs-compact {
-    gap: 15px;
-    justify-content: space-around;
-    width: 100%;
-  }
-
-  .spec-compact-item {
-    min-width: 70px;
-  }
-
-  .spec-compact-value {
-    font-size: 24px;
-  }
-
-  /* Кнопка "Подробнее" полностью скрыта на мобильных */
-  .vlt-indicator {
-    display: none !important;
-  }
-
-  /* Характеристики - скрыты по умолчанию, появляются при клике */
-  .specs-wrapper {
-    display: none;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
-  }
-  
-  /* Характеристики появляются после клика */
-  .specs-wrapper.show {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Анимации загрузки */
-.fade-in {
-  animation: fadeInUp 0.6s ease;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Эффект переключения тонировки */
-.tint-transition {
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-, 0.2, 1);
-}
-.6s cubic-bezier(0.4, 0, 0.2, 1);
 }

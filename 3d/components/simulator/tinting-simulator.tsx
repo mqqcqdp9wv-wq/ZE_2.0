@@ -52,14 +52,14 @@ export default function TintingSimulator() {
     };
 
     return (
-        <div className="relative w-full h-full bg-[#0F0F0F]">
+        <div className="relative w-full h-full bg-white">
             <Canvas
                 frameloop="always"
                 shadows
                 dpr={[1, 2]}
                 camera={{
-                    position: isMobile ? [5.2, 1.8, 5.2] : [3, 1.2, 3],
-                    fov: isMobile ? 50 : 45,
+                    position: isMobile ? [8.5, 3, 8.5] : [4.5, 1.7, 4.5],
+                    fov: isMobile ? 50 : 42,
                 }}
                 style={{ width: "100%", height: "100%" }}
             >
@@ -98,12 +98,9 @@ export default function TintingSimulator() {
             />
 
             {!hasModel && (
-                <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-3 opacity-20">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white">
-                        Placeholder — ожидание модели
-                    </span>
-                    <span className="font-mono text-[9px] text-white/50">
-                        Добавь /public/models/crossover.glb
+                <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-3 opacity-30">
+                    <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#343434]">
+                        Загружаем модель
                     </span>
                 </div>
             )}

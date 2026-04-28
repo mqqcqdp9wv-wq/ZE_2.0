@@ -1,5 +1,13 @@
 import "../styles/globals.css";
 import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+    subsets: ["latin", "cyrillic"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-montserrat",
+    display: "swap",
+});
 
 export const metadata: Metadata = {
     title: "Симулятор тонировки — ZE Studio",
@@ -19,15 +27,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-    themeColor: "#0F0F0F",
+    themeColor: "#ffffff",
     width: "device-width",
     initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="ru">
-            <body>{children}</body>
+        <html lang="ru" className={montserrat.variable}>
+            <body className={montserrat.className}>{children}</body>
         </html>
     );
 }

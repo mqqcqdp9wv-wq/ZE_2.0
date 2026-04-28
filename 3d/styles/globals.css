@@ -4,13 +4,13 @@
 
 @layer base {
   html {
-    @apply bg-background font-sans text-off-white;
     font-size: 62.5%;
-    background-color: #000;
+    background-color: #ffffff;
   }
 
   body {
-    background-color: #000;
+    background-color: #ffffff;
+    color: #343434;
     margin: 0;
     overflow: hidden;
   }

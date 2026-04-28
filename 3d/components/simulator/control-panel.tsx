@@ -50,11 +50,11 @@ export function ControlPanel({
         <>
             {/* ─── Слайдер До/После — сверху по центру ─── */}
             <style>{`
-                .tint-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 2px; background: rgba(255,255,255,0.12); border-radius: 9999px; cursor: ew-resize; outline: none; }
-                .tint-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #ffffff; cursor: grab; box-shadow: 0 0 0 1px rgba(255,255,255,0.15); }
-                .tint-slider::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #ffffff; cursor: grab; border: none; }
+                .tint-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 2px; background: #e0e0e0; border-radius: 9999px; cursor: ew-resize; outline: none; }
+                .tint-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #23a592; cursor: grab; box-shadow: 0 1px 4px rgba(35,165,146,0.35); border: 2px solid #ffffff; }
+                .tint-slider::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #23a592; cursor: grab; border: 2px solid #ffffff; box-shadow: 0 1px 4px rgba(35,165,146,0.35); }
             `}</style>
-            <div className="absolute top-14 sm:top-5 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 w-[200px] sm:w-[220px]">
+            <div className="absolute top-14 sm:top-5 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 w-[220px]">
                 <input
                     type="range"
                     min={0} max={100}
@@ -63,8 +63,8 @@ export function ControlPanel({
                     className="tint-slider"
                 />
                 <div className="flex w-full justify-between">
-                    <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-white/20">Без плёнки</span>
-                    <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-white/20">С плёнкой</span>
+                    <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#343434]/45">Без плёнки</span>
+                    <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#343434]/45">С плёнкой</span>
                 </div>
             </div>
 
@@ -73,76 +73,65 @@ export function ControlPanel({
 
                 {/* ─── Выдвижной инфо-блок ─── */}
                 <div
-                    className="pointer-events-auto w-[calc(100%-40px)] max-w-[480px] overflow-hidden transition-all duration-300 ease-out"
+                    className="pointer-events-auto w-[calc(100%-32px)] max-w-[520px] overflow-hidden transition-all duration-300 ease-out"
                     style={{
-                        maxHeight: infoOpen ? "280px" : "0px",
+                        maxHeight: infoOpen ? "320px" : "0px",
                         opacity:   infoOpen ? 1 : 0,
                         marginBottom: infoOpen ? "12px" : "0px",
                     }}
                 >
-                    <div className="rounded-2xl border border-white/[0.08] bg-black/80 backdrop-blur-2xl px-5 py-4">
+                    <div className="rounded-2xl border border-[#e0e0e0] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)] px-5 py-4">
 
-                        {/* ─── Шапка: название + спеки в одну строку ─── */}
-                        <div className="flex items-center gap-4 mb-3.5">
-                            {/* VLT + название */}
-                            <div className="flex items-baseline gap-2 shrink-0">
-                                <span
-                                    className="font-mono text-[22px] font-bold leading-none"
-                                    style={{ color: config.accentColor }}
-                                >
+                        {/* ─── Шапка: название + спеки ─── */}
+                        <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 mb-3">
+                            <div className="flex items-baseline gap-2">
+                                <span className="text-[22px] font-bold leading-none text-[#23a592]">
                                     {level.vlt}%
                                 </span>
-                                <span className="font-sans text-[12px] text-white/40 font-medium">
+                                <span className="text-[13px] font-medium text-[#343434]">
                                     {level.title}
                                 </span>
                             </div>
 
-                            {/* Разделитель */}
-                            <div className="w-px h-5 bg-white/[0.08] shrink-0" />
+                            <div className="hidden sm:block w-px h-5 bg-[#e0e0e0]" />
 
-                            {/* Спецификации в строку */}
                             <div className="flex items-center gap-4">
                                 <div className="flex items-center gap-1.5">
-                                    <span className="font-mono text-[13px] font-semibold" style={{ color: config.accentColor }}>
+                                    <span className="text-[13px] font-semibold text-[#23a592]">
                                         {level.tser}%
                                     </span>
-                                    <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-white/25">
+                                    <span className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[#8a8a8a]">
                                         Тепло
                                     </span>
                                 </div>
                                 <div className="flex items-center gap-1.5">
-                                    <span className="font-mono text-[13px] font-semibold text-purple-400">
+                                    <span className="text-[13px] font-semibold text-[#343434]">
                                         {level.uvProtection}%
                                     </span>
-                                    <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-white/25">
+                                    <span className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[#8a8a8a]">
                                         УФ
                                     </span>
                                 </div>
                                 <div className="flex items-center gap-1.5">
-                                    <span className={`font-mono text-[13px] font-semibold ${thirdColor}`}>
+                                    <span className="text-[13px] font-semibold text-[#343434]">
                                         {thirdValue}%
                                     </span>
-                                    <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-white/25">
+                                    <span className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[#8a8a8a]">
                                         {thirdLabel}
                                     </span>
                                 </div>
                             </div>
                         </div>
 
-                        {/* ─── Описание ─── */}
-                        <p className="font-sans text-[12px] text-white/35 leading-relaxed mb-3">
+                        <p className="text-[12px] leading-relaxed text-[#555] mb-3">
                             {level.description}
                         </p>
 
-                        {/* ─── Характеристики в столбик ─── */}
                         <div className="flex flex-col gap-1.5">
                             {level.characteristics.map((c, i) => (
                                 <div key={i} className="flex items-center gap-2">
-                                    <div
-                                        className="w-1 h-1 rounded-full shrink-0"
-                                        style={{ background: config.accentColor, opacity: 0.4 }}
-                                    />
-                                    <span className="font-sans text-[11px] text-white/30">
+                                    <div className="w-1 h-1 rounded-full shrink-0 bg-[#23a592]" />
+                                    <span className="text-[11px] text-[#666]">
                                         {c}
                                     </span>
                                 </div>
@@ -151,37 +140,36 @@ export function ControlPanel({
                     </div>
                 </div>
 
-                {/* ─── Основная строка контролов ─── */}
-                <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 px-3 py-2.5 rounded-2xl border border-white/[0.06] bg-black/70 backdrop-blur-2xl max-w-[calc(100vw-16px)]">
+                {/* ─── Основная панель контролов ─── */}
+                <div className="pointer-events-auto flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 px-3 py-2.5 sm:px-4 rounded-2xl border border-[#e0e0e0] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)] max-w-[calc(100vw-16px)]">
 
-                    {/* Zone toggle */}
-                    <div className="flex bg-white/[0.04] rounded-lg p-0.5 mr-1">
-                        {(["front", "rear"] as const).map((z) => {
-                            const active = zone === z;
-                            const label  = z === "front" ? "Перед" : "Зад";
-                            return (
-                                <button
-                                    key={z}
-                                    onClick={() => setZone(z)}
-                                    className="px-3 py-2 sm:py-1.5 rounded-md font-mono text-[11px] sm:text-[10px] uppercase tracking-[0.1em] transition-all duration-200"
-                                    style={{
-                                        background: active ? "rgba(255,255,255,0.08)" : "transparent",
-                                        color:      active ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.25)",
-                                    }}
-                                >
-                                    {label}
-                                </button>
-                            );
-                        })}
-                    </div>
+                    {/* ── Ряд 1: Зона + Материал ── */}
+                    <div className="flex items-center justify-center gap-2">
+                        {/* Zone toggle */}
+                        <div className="flex gap-1 bg-[#f5f5f7] rounded-lg p-0.5">
+                            {(["front", "rear"] as const).map((z) => {
+                                const active = zone === z;
+                                const label  = z === "front" ? "Перед" : "Зад";
+                                return (
+                                    <button
+                                        key={z}
+                                        onClick={() => setZone(z)}
+                                        className="px-3.5 py-2 rounded-md text-[11px] font-semibold uppercase tracking-[0.1em] transition-all duration-200"
+                                        style={{
+                                            background: active ? "#ffffff" : "transparent",
+                                            color:      active ? "#343434" : "#8a8a8a",
+                                            boxShadow:  active ? "0 1px 3px rgba(0,0,0,0.08)" : "none",
+                                        }}
+                                    >
+                                        {label}
+                                    </button>
+                                );
+                            })}
+                        </div>
 
-                    {/* Разделитель */}
-                    <div className="hidden sm:block w-px h-6 bg-white/[0.08]" />
-
-                    {/* Переключатель плёнки */}
-                    {MATERIAL_KEYS.length > 1 && (
-                        <>
-                            <div className="flex bg-white/[0.04] rounded-lg p-0.5">
+                        {/* Material toggle — два равнозначных переключателя */}
+                        {MATERIAL_KEYS.length > 1 && (
+                            <div className="flex gap-1 bg-[#f5f5f7] rounded-lg p-0.5">
                                 {MATERIAL_KEYS.map((key) => {
                                     const mat    = TINT_CONFIG[key];
                                     const active = activeMaterial === key;
@@ -189,11 +177,11 @@ export function ControlPanel({
                                         <button
                                             key={key}
                                             onClick={() => handleMaterialChange(key)}
-                                            className="px-2.5 py-2 sm:py-1.5 rounded-md font-sans text-[11px] sm:text-[10px] font-medium transition-all duration-200"
+                                            className="min-w-[88px] sm:min-w-[100px] px-3 py-2 rounded-md text-[12px] font-semibold transition-all duration-200"
                                             style={{
-                                                background: active ? `${mat.accentColor}15` : "transparent",
-                                                color:      active ? mat.accentColor : "rgba(255,255,255,0.25)",
-                                                border:     active ? `1px solid ${mat.accentColor}30` : "1px solid transparent",
+                                                background: active ? "#ffffff" : "transparent",
+                                                color:      active ? "#23a592" : "#8a8a8a",
+                                                boxShadow:  active ? "0 1px 3px rgba(0,0,0,0.08)" : "none",
                                             }}
                                         >
                                             {mat.name}
@@ -201,58 +189,59 @@ export function ControlPanel({
                                     );
                                 })}
                             </div>
-                            <div className="hidden sm:block w-px h-6 bg-white/[0.08]" />
-                        </>
-                    )}
+                        )}
+                    </div>
 
-                    {/* VLT кнопки */}
-                    {config.levels.map((lvl) => {
-                        const active = activeVlt === lvl.vlt;
-                        return (
-                            <button
-                                key={lvl.vlt}
-                                onClick={() => handleVltChange(lvl.vlt)}
-                                className="relative flex items-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-lg transition-all duration-200"
-                                style={{
-                                    background: active ? `${config.accentColor}15` : "transparent",
-                                    border:     active ? `1px solid ${config.accentColor}40` : "1px solid transparent",
-                                }}
-                            >
-                                {/* Цветовой индикатор */}
-                                <div
-                                    className="w-2.5 h-2.5 rounded-full border border-white/10 shrink-0"
-                                    style={{ background: lvl.color }}
-                                />
-                                <span
-                                    className="font-mono text-[13px] font-semibold transition-colors"
-                                    style={{ color: active ? config.accentColor : "rgba(255,255,255,0.35)" }}
+                    {/* Разделитель — только на десктопе */}
+                    <div className="hidden sm:block w-px h-7 bg-[#e0e0e0]" />
+
+                    {/* ── Ряд 2: VLT кнопки + Info ── */}
+                    <div className="flex items-center justify-center gap-1 sm:gap-1.5 flex-wrap">
+                        {config.levels.map((lvl) => {
+                            const active = activeVlt === lvl.vlt;
+                            return (
+                                <button
+                                    key={lvl.vlt}
+                                    onClick={() => handleVltChange(lvl.vlt)}
+                                    className="relative flex items-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200"
+                                    style={{
+                                        background: active ? "#23a59215" : "transparent",
+                                        border:     active ? "1px solid #23a59250" : "1px solid transparent",
+                                    }}
                                 >
-                                    {lvl.vlt}%
-                                </span>
-                            </button>
-                        );
-                    })}
+                                    <div
+                                        className="w-2.5 h-2.5 rounded-full border border-[#e0e0e0] shrink-0"
+                                        style={{ background: lvl.color }}
+                                    />
+                                    <span
+                                        className="text-[13px] font-bold transition-colors"
+                                        style={{ color: active ? "#23a592" : "#8a8a8a" }}
+                                    >
+                                        {lvl.vlt}%
+                                    </span>
+                                </button>
+                            );
+                        })}
 
-                    {/* Разделитель */}
-                    <div className="hidden sm:block w-px h-6 bg-white/[0.08]" />
-
-                    {/* Info toggle */}
-                    <button
-                        onClick={() => setInfoOpen((o) => !o)}
-                        className="flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-200"
-                        style={{
-                            background: infoOpen ? `${config.accentColor}15` : "rgba(255,255,255,0.03)",
-                            border:     infoOpen ? `1px solid ${config.accentColor}30` : "1px solid transparent",
-                        }}
-                    >
-                        <svg
-                            width="14" height="14" viewBox="0 0 16 16" fill="none"
-                            style={{ color: infoOpen ? config.accentColor : "rgba(255,255,255,0.3)" }}
+                        {/* Info toggle */}
+                        <button
+                            onClick={() => setInfoOpen((o) => !o)}
+                            className="flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-200 ml-1"
+                            style={{
+                                background: infoOpen ? "#23a59215" : "#f5f5f7",
+                                border:     infoOpen ? "1px solid #23a59250" : "1px solid transparent",
+                            }}
+                            aria-label="Информация о плёнке"
                         >
-                            <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1" />
-                            <path d="M8 7v4M8 5.5v0" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                        </svg>
-                    </button>
+                            <svg
+                                width="14" height="14" viewBox="0 0 16 16" fill="none"
+                                style={{ color: infoOpen ? "#23a592" : "#8a8a8a" }}
+                            >
+                                <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
+                                <path d="M8 7v4M8 5.5v0" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
             </div>

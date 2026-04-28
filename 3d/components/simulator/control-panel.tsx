@@ -80,7 +80,7 @@ export function ControlPanel({
                         marginBottom: infoOpen ? "12px" : "0px",
                     }}
                 >
-                    <div className="rounded-2xl border border-[#e0e0e0] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)] px-5 py-4">
+                    <div className="rounded-2xl border border-white/60 bg-white/70 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] px-5 py-4">
 
                         {/* ─── Шапка: название + спеки ─── */}
                         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 mb-3">
@@ -141,12 +141,12 @@ export function ControlPanel({
                 </div>
 
                 {/* ─── Основная панель контролов ─── */}
-                <div className="pointer-events-auto flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 px-3 py-2.5 sm:px-4 rounded-2xl border border-[#e0e0e0] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)] max-w-[calc(100vw-16px)]">
+                <div className="pointer-events-auto flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 px-3 py-2.5 sm:px-4 rounded-2xl border border-white/60 bg-white/70 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] max-w-[calc(100vw-16px)]">
 
                     {/* ── Ряд 1: Зона + Материал ── */}
                     <div className="flex items-center justify-center gap-2">
                         {/* Zone toggle */}
-                        <div className="flex gap-1 bg-[#f5f5f7] rounded-lg p-0.5">
+                        <div className="flex gap-1 bg-white/40 backdrop-blur-md border border-white/50 rounded-lg p-0.5">
                             {(["front", "rear"] as const).map((z) => {
                                 const active = zone === z;
                                 const label  = z === "front" ? "Перед" : "Зад";
@@ -154,9 +154,9 @@ export function ControlPanel({
                                     <button
                                         key={z}
                                         onClick={() => setZone(z)}
-                                        className="px-3.5 py-2 rounded-md text-[11px] font-semibold uppercase tracking-[0.1em] transition-all duration-200"
+                                        className="min-w-[64px] px-3.5 py-2 rounded-md text-[11px] font-semibold uppercase tracking-[0.1em] transition-all duration-200"
                                         style={{
-                                            background: active ? "#ffffff" : "transparent",
+                                            background: active ? "rgba(255,255,255,0.95)" : "transparent",
                                             color:      active ? "#343434" : "#8a8a8a",
                                             boxShadow:  active ? "0 1px 3px rgba(0,0,0,0.08)" : "none",
                                         }}
@@ -169,7 +169,7 @@ export function ControlPanel({
 
                         {/* Material toggle — два равнозначных переключателя */}
                         {MATERIAL_KEYS.length > 1 && (
-                            <div className="flex gap-1 bg-[#f5f5f7] rounded-lg p-0.5">
+                            <div className="flex gap-1 bg-white/40 backdrop-blur-md border border-white/50 rounded-lg p-0.5">
                                 {MATERIAL_KEYS.map((key) => {
                                     const mat    = TINT_CONFIG[key];
                                     const active = activeMaterial === key;
@@ -179,7 +179,7 @@ export function ControlPanel({
                                             onClick={() => handleMaterialChange(key)}
                                             className="min-w-[88px] sm:min-w-[100px] px-3 py-2 rounded-md text-[12px] font-semibold transition-all duration-200"
                                             style={{
-                                                background: active ? "#ffffff" : "transparent",
+                                                background: active ? "rgba(255,255,255,0.95)" : "transparent",
                                                 color:      active ? "#23a592" : "#8a8a8a",
                                                 boxShadow:  active ? "0 1px 3px rgba(0,0,0,0.08)" : "none",
                                             }}
@@ -226,10 +226,10 @@ export function ControlPanel({
                         {/* Info toggle */}
                         <button
                             onClick={() => setInfoOpen((o) => !o)}
-                            className="flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-200 ml-1"
+                            className="flex items-center justify-center w-9 h-9 rounded-lg backdrop-blur-md transition-all duration-200 ml-1"
                             style={{
-                                background: infoOpen ? "#23a59215" : "#f5f5f7",
-                                border:     infoOpen ? "1px solid #23a59250" : "1px solid transparent",
+                                background: infoOpen ? "rgba(35,165,146,0.12)" : "rgba(255,255,255,0.5)",
+                                border:     infoOpen ? "1px solid rgba(35,165,146,0.4)" : "1px solid rgba(255,255,255,0.5)",
                             }}
                             aria-label="Информация о плёнке"
                         >

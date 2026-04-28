@@ -5,6 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { VehicleScene } from "./vehicle-scene";
 import { ControlPanel } from "./control-panel";
+import { SceneLoader } from "./scene-loader";
 import { TINT_CONFIG, type MaterialKey } from "./glass-material";
 
 const MODEL_PATH = "/models/crossover.glb";
@@ -97,10 +98,12 @@ export default function TintingSimulator() {
                 onSplitChange={setSplitX}
             />
 
+            <SceneLoader />
+
             {!hasModel && (
                 <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-3 opacity-30">
                     <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#343434]">
-                        Загружаем модель
+                        Модель недоступна
                     </span>
                 </div>
             )}

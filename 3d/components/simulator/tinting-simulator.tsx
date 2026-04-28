@@ -20,11 +20,19 @@ export default function TintingSimulator() {
 
     const [splitX, setSplitX]               = useState(50);
     const [hasModel, setHasModel]           = useState(false);
+    const [isMobile, setIsMobile]           = useState(false);
 
     useEffect(() => {
         fetch(MODEL_PATH, { method: "HEAD" })
             .then((r) => setHasModel(r.ok))
             .catch(() => setHasModel(false));
+    }, []);
+
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 640);
+        check();
+        window.addEventListener("resize", check);
+        return () => window.removeEventListener("resize", check);
     }, []);
 
     const handleFrontMaterialChange = (key: MaterialKey) => {
@@ -49,7 +57,10 @@ export default function TintingSimulator() {
                 frameloop="always"
                 shadows
                 dpr={[1, 2]}
-                camera={{ position: [3, 1.2, 3], fov: 45 }}
+                camera={{
+                    position: isMobile ? [5.2, 1.8, 5.2] : [3, 1.2, 3],
+                    fov: isMobile ? 50 : 45,
+                }}
                 style={{ width: "100%", height: "100%" }}
             >
                 <Suspense fallback={null}>

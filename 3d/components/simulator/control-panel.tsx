@@ -54,7 +54,7 @@ export function ControlPanel({
                 .tint-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #ffffff; cursor: grab; box-shadow: 0 0 0 1px rgba(255,255,255,0.15); }
                 .tint-slider::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #ffffff; cursor: grab; border: none; }
             `}</style>
-            <div className="absolute top-5 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 w-[220px]">
+            <div className="absolute top-14 sm:top-5 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 w-[200px] sm:w-[220px]">
                 <input
                     type="range"
                     min={0} max={100}
@@ -152,7 +152,7 @@ export function ControlPanel({
                 </div>
 
                 {/* ─── Основная строка контролов ─── */}
-                <div className="pointer-events-auto flex items-center gap-2 px-3 py-2.5 rounded-2xl border border-white/[0.06] bg-black/70 backdrop-blur-2xl">
+                <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 px-3 py-2.5 rounded-2xl border border-white/[0.06] bg-black/70 backdrop-blur-2xl max-w-[calc(100vw-16px)]">
 
                     {/* Zone toggle */}
                     <div className="flex bg-white/[0.04] rounded-lg p-0.5 mr-1">
@@ -163,7 +163,7 @@ export function ControlPanel({
                                 <button
                                     key={z}
                                     onClick={() => setZone(z)}
-                                    className="px-3 py-1.5 rounded-md font-mono text-[10px] uppercase tracking-[0.1em] transition-all duration-200"
+                                    className="px-3 py-2 sm:py-1.5 rounded-md font-mono text-[11px] sm:text-[10px] uppercase tracking-[0.1em] transition-all duration-200"
                                     style={{
                                         background: active ? "rgba(255,255,255,0.08)" : "transparent",
                                         color:      active ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.25)",
@@ -176,7 +176,7 @@ export function ControlPanel({
                     </div>
 
                     {/* Разделитель */}
-                    <div className="w-px h-6 bg-white/[0.08]" />
+                    <div className="hidden sm:block w-px h-6 bg-white/[0.08]" />
 
                     {/* Переключатель плёнки */}
                     {MATERIAL_KEYS.length > 1 && (
@@ -189,7 +189,7 @@ export function ControlPanel({
                                         <button
                                             key={key}
                                             onClick={() => handleMaterialChange(key)}
-                                            className="px-2.5 py-1.5 rounded-md font-sans text-[10px] font-medium transition-all duration-200"
+                                            className="px-2.5 py-2 sm:py-1.5 rounded-md font-sans text-[11px] sm:text-[10px] font-medium transition-all duration-200"
                                             style={{
                                                 background: active ? `${mat.accentColor}15` : "transparent",
                                                 color:      active ? mat.accentColor : "rgba(255,255,255,0.25)",
@@ -201,7 +201,7 @@ export function ControlPanel({
                                     );
                                 })}
                             </div>
-                            <div className="w-px h-6 bg-white/[0.08]" />
+                            <div className="hidden sm:block w-px h-6 bg-white/[0.08]" />
                         </>
                     )}
 
@@ -212,7 +212,7 @@ export function ControlPanel({
                             <button
                                 key={lvl.vlt}
                                 onClick={() => handleVltChange(lvl.vlt)}
-                                className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all duration-200"
+                                className="relative flex items-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-lg transition-all duration-200"
                                 style={{
                                     background: active ? `${config.accentColor}15` : "transparent",
                                     border:     active ? `1px solid ${config.accentColor}40` : "1px solid transparent",
@@ -234,7 +234,7 @@ export function ControlPanel({
                     })}
 
                     {/* Разделитель */}
-                    <div className="w-px h-6 bg-white/[0.08]" />
+                    <div className="hidden sm:block w-px h-6 bg-white/[0.08]" />
 
                     {/* Info toggle */}
                     <button

@@ -34,30 +34,44 @@ export function SceneLoader() {
                 isFinishing ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
         >
-            {/* Силуэт машины — пульсирует */}
-            <svg
-                width="80"
-                height="32"
-                viewBox="0 0 120 48"
-                fill="none"
-                className="mb-6 animate-pulse"
-                aria-hidden="true"
-            >
-                <path
-                    d="M8 36 Q12 22 26 19 L48 18 Q60 14 76 17 L92 21 Q104 23 110 30 L112 34 Q113 38 109 38 L98 38 A6 6 0 0 1 86 38 L34 38 A6 6 0 0 1 22 38 L12 38 Q8 38 8 36 Z"
-                    fill="#343434"
-                    fillOpacity="0.85"
-                />
-                <path
-                    d="M30 19 Q36 14 50 14 L70 14 Q82 14 88 19 L88 22 L30 22 Z"
-                    fill="#23a592"
-                    fillOpacity="0.18"
-                />
-                <circle cx="28" cy="38" r="6" fill="#1a1a1a" />
-                <circle cx="92" cy="38" r="6" fill="#1a1a1a" />
-                <circle cx="28" cy="38" r="2.5" fill="#23a592" />
-                <circle cx="92" cy="38" r="2.5" fill="#23a592" />
-            </svg>
+            {/* Логотип ZE Studio */}
+            <div className="mb-8 flex items-baseline gap-0 select-none animate-pulse">
+                <span
+                    style={{
+                        fontFamily: "'Montserrat', sans-serif",
+                        fontWeight: 700,
+                        fontSize: "28px",
+                        letterSpacing: "-0.01em",
+                        color: "#343434",
+                        lineHeight: 1,
+                    }}
+                >
+                    ze
+                </span>
+                <span
+                    style={{
+                        fontFamily: "'Montserrat', sans-serif",
+                        fontWeight: 700,
+                        fontSize: "28px",
+                        color: "#23a592",
+                        lineHeight: 1,
+                    }}
+                >
+                    .
+                </span>
+                <span
+                    style={{
+                        fontFamily: "'Montserrat', sans-serif",
+                        fontWeight: 700,
+                        fontSize: "28px",
+                        letterSpacing: "-0.01em",
+                        color: "#343434",
+                        lineHeight: 1,
+                    }}
+                >
+                    studio
+                </span>
+            </div>
 
             {/* Прогресс-бар */}
             <div className="w-[220px] h-[3px] rounded-full bg-[#e0e0e0] overflow-hidden">

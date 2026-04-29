@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, Suspense, useEffect } from "react";
+import { useState, Suspense, useEffect, useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useProgress } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { VehicleScene } from "./vehicle-scene";
 import { ControlPanel } from "./control-panel";
 import { SceneLoader } from "./scene-loader";
@@ -22,24 +22,7 @@ export default function TintingSimulator() {
     const [splitX, setSplitX]               = useState(50);
     const [hasModel, setHasModel]           = useState(false);
     const [isMobile, setIsMobile]           = useState(false);
-    const [uiVisible, setUiVisible]         = useState(false);
-
-    // Отслеживаем прогресс загрузки сцены — UI появляется только после полной загрузки
-    const { progress, active } = useProgress();
-    const [hasStarted, setHasStarted] = useState(false);
-
-    useEffect(() => {
-        if (active) setHasStarted(true);
-    }, [active]);
-
-    useEffect(() => {
-        if (!hasStarted) return;
-        if (!active && progress >= 100) {
-            // Появление UI чуть после исчезновения лоадера (он фейдит 500мс)
-            const t = setTimeout(() => setUiVisible(true), 600);
-            return () => clearTimeout(t);
-        }
-    }, [active, progress, hasStarted]);
+    const [ready, setReady]                 = useState(false);
 
     useEffect(() => {
         fetch(MODEL_PATH, { method: "HEAD" })
@@ -53,6 +36,8 @@ export default function TintingSimulator() {
         window.addEventListener("resize", check);
         return () => window.removeEventListener("resize", check);
     }, []);
+
+    const handleReady = useCallback(() => setReady(true), []);
 
     const handleFrontMaterialChange = (key: MaterialKey) => {
         setFrontMaterial(key);
@@ -77,8 +62,8 @@ export default function TintingSimulator() {
                 shadows
                 dpr={[1, 2]}
                 camera={{
-                    position: isMobile ? [10.5, 3.4, 10.5] : [4.5, 1.7, 4.5],
-                    fov: isMobile ? 52 : 42,
+                    position: isMobile ? [13, 4.2, 13] : [4.5, 1.7, 4.5],
+                    fov: isMobile ? 55 : 42,
                 }}
                 style={{ width: "100%", height: "100%" }}
             >
@@ -90,20 +75,23 @@ export default function TintingSimulator() {
                         rearVlt={rearVlt}
                         splitX={splitX}
                         hasModel={hasModel}
+                        onReady={handleReady}
                     />
                 </Suspense>
 
                 <OrbitControls
                     enablePan={false}
                     minDistance={0.8}
-                    maxDistance={12}
+                    maxDistance={20}
                     minPolarAngle={Math.PI / 6}
                     maxPolarAngle={Math.PI / 2.05}
                     makeDefault
                 />
             </Canvas>
 
-            {uiVisible && (
+            <SceneLoader visible={!ready} />
+
+            {ready && (
                 <div className="animate-[fadeIn_0.4s_ease-out_both]">
                     <style>{`@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }`}</style>
                     <ControlPanel
@@ -120,8 +108,6 @@ export default function TintingSimulator() {
                     />
                 </div>
             )}
-
-            <SceneLoader />
 
             {!hasModel && (
                 <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-3 opacity-30">

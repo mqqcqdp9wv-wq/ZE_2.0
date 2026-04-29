@@ -1,37 +1,21 @@
 "use client";
 
 import { useProgress } from "@react-three/drei";
-import { useEffect, useState } from "react";
 
-export function SceneLoader() {
-    const { progress, active, loaded, total } = useProgress();
-    const [hidden, setHidden] = useState(false);
-    const [hasStarted, setHasStarted] = useState(false);
+interface SceneLoaderProps {
+    visible: boolean;
+}
 
-    // Запоминаем что загрузка хоть раз была активной — иначе показывали бы оверлей и при ленивых
-    // догрузках текстур уже после старта.
-    useEffect(() => {
-        if (active) setHasStarted(true);
-    }, [active]);
-
-    // После завершения — фейдим оверлей с задержкой, чтобы не мигало.
-    useEffect(() => {
-        if (!hasStarted) return;
-        if (!active && progress >= 100) {
-            const t = setTimeout(() => setHidden(true), 400);
-            return () => clearTimeout(t);
-        }
-    }, [active, progress, hasStarted]);
-
-    if (hidden) return null;
-
+export function SceneLoader({ visible }: SceneLoaderProps) {
+    // useProgress даёт реальные проценты загрузки. Если вне Canvas он не обновляется
+    // в каких-то браузерах — увидим 0%, не критично: лоадер всё равно скоро уйдёт по visible=false.
+    const { progress, loaded, total } = useProgress();
     const pct = Math.round(progress);
-    const isFinishing = !active && progress >= 100;
 
     return (
         <div
             className={`fixed inset-0 z-[60] flex flex-col items-center justify-center bg-white transition-opacity duration-500 ${
-                isFinishing ? "opacity-0 pointer-events-none" : "opacity-100"
+                visible ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
         >
             {/* Логотип ZE Studio */}

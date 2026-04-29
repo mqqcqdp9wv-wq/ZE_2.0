@@ -6,7 +6,6 @@ import { useGLTF, ContactShadows, Environment } from "@react-three/drei";
 import * as THREE from "three";
 import {
     createGlassMaterial,
-    FACTORY_GLASS_PARAMS,
     TINT_CONFIG,
     type MaterialKey,
 } from "./glass-material";
@@ -23,179 +22,11 @@ interface VehicleSceneProps {
     rearVlt: number;
     splitX: number; // 0–100
     hasModel: boolean;
+    onReady?: () => void;
 }
 
 // ──────────────────────────────────────────────────────
-// Процедурная машина — заглушка пока нет .glb модели
-// ──────────────────────────────────────────────────────
-function ProceduralCar({
-    frontMaterialKey,
-    frontVlt,
-    rearMaterialKey,
-    rearVlt,
-    splitX,
-}: Omit<VehicleSceneProps, "hasModel">) {
-    const { gl } = useThree();
-    gl.localClippingEnabled = true;
-
-    const frontConfig = TINT_CONFIG[frontMaterialKey];
-    const frontLevel  = frontConfig.levels.find((l) => l.vlt === frontVlt) ?? frontConfig.levels[0];
-
-    const rearConfig  = TINT_CONFIG[rearMaterialKey];
-    const rearLevel   = rearConfig.levels.find((l) => l.vlt === rearVlt)  ?? rearConfig.levels[0];
-
-    // Clipping planes для слайдера До/После
-    const { clipFactory, clipTint } = useMemo(() => ({
-        clipFactory: new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0),
-        clipTint:    new THREE.Plane(new THREE.Vector3( 1, 0, 0), 0),
-    }), []);
-
-    // Материалы
-    const matFactory = useMemo(() =>
-        createGlassMaterial({ ...FACTORY_GLASS_PARAMS, clippingPlanes: [clipFactory] }),
-    [clipFactory]);
-
-    const matFront = useMemo(() =>
-        createGlassMaterial({
-            color:        frontLevel.color,
-            transmission: frontLevel.transmission,
-            roughness:    frontLevel.roughness,
-            clippingPlanes: [clipTint],
-        }),
-    [frontLevel, clipTint]);
-
-    const matRear = useMemo(() =>
-        createGlassMaterial({
-            color:        rearLevel.color,
-            transmission: rearLevel.transmission,
-            roughness:    rearLevel.roughness,
-            clippingPlanes: [clipTint],
-        }),
-    [rearLevel, clipTint]);
-
-    // Синхронизируем плоскости с позицией слайдера
-    useFrame(() => {
-        const x = (splitX / 100) * 4 - 2;
-        clipFactory.constant = -x;
-        clipTint.constant    =  x;
-    });
-
-    const bodyMat = useMemo(() =>
-        new THREE.MeshStandardMaterial({ color: "#1a1a1a", roughness: 0.3, metalness: 0.8 }),
-    []);
-
-    const rimMat = useMemo(() =>
-        new THREE.MeshStandardMaterial({ color: "#111", roughness: 0.2, metalness: 0.9 }),
-    []);
-
-    const tireMat = useMemo(() =>
-        new THREE.MeshStandardMaterial({ color: "#080808", roughness: 0.9 }),
-    []);
-
-    return (
-        <group position={[0, 0, 0]}>
-            {/* ─── Кузов ─── */}
-            <mesh castShadow receiveShadow material={bodyMat} position={[0, 0.35, 0]}>
-                <boxGeometry args={[4.2, 0.75, 1.85]} />
-            </mesh>
-            {/* Крыша */}
-            <mesh castShadow material={bodyMat} position={[-0.15, 0.9, 0]}>
-                <boxGeometry args={[2.4, 0.55, 1.65]} />
-            </mesh>
-            {/* Капот скос */}
-            <mesh castShadow material={bodyMat} position={[1.35, 0.62, 0]} rotation={[0, 0, -0.35]}>
-                <boxGeometry args={[0.8, 0.12, 1.65]} />
-            </mesh>
-            {/* Багажник скос */}
-            <mesh castShadow material={bodyMat} position={[-1.3, 0.62, 0]} rotation={[0, 0, 0.28]}>
-                <boxGeometry args={[0.7, 0.12, 1.65]} />
-            </mesh>
-
-            {/* ─── Лобовое стекло — передняя зона ─── */}
-            <mesh position={[0.98, 0.88, 0]} rotation={[0, 0, -0.62]} material={matFront}>
-                <planeGeometry args={[0.78, 1.6]} />
-            </mesh>
-            <mesh position={[0.98, 0.88, 0]} rotation={[0, 0, -0.62]} material={matFactory}>
-                <planeGeometry args={[0.78, 1.6]} />
-            </mesh>
-
-            {/* ─── Заднее стекло — задняя зона ─── */}
-            <mesh position={[-1.28, 0.88, 0]} rotation={[0, 0, 0.5]} material={matRear}>
-                <planeGeometry args={[0.72, 1.6]} />
-            </mesh>
-            <mesh position={[-1.28, 0.88, 0]} rotation={[0, 0, 0.5]} material={matFactory}>
-                <planeGeometry args={[0.72, 1.6]} />
-            </mesh>
-
-            {/* ─── Передние боковые — правая сторона (передняя зона) ─── */}
-            <group>
-                <mesh position={[0.38, 0.91, 0.927]} material={matFront}>
-                    <planeGeometry args={[0.88, 0.5]} />
-                </mesh>
-                <mesh position={[0.38, 0.91, 0.927]} material={matFactory}>
-                    <planeGeometry args={[0.88, 0.5]} />
-                </mesh>
-            </group>
-
-            {/* ─── Задние боковые — правая сторона (задняя зона) ─── */}
-            <group>
-                <mesh position={[-0.5, 0.91, 0.927]} material={matRear}>
-                    <planeGeometry args={[0.88, 0.5]} />
-                </mesh>
-                <mesh position={[-0.5, 0.91, 0.927]} material={matFactory}>
-                    <planeGeometry args={[0.88, 0.5]} />
-                </mesh>
-            </group>
-
-            {/* ─── Передние боковые — левая сторона (передняя зона) ─── */}
-            <group>
-                <mesh position={[0.38, 0.91, -0.927]} rotation={[0, Math.PI, 0]} material={matFront}>
-                    <planeGeometry args={[0.88, 0.5]} />
-                </mesh>
-                <mesh position={[0.38, 0.91, -0.927]} rotation={[0, Math.PI, 0]} material={matFactory}>
-                    <planeGeometry args={[0.88, 0.5]} />
-                </mesh>
-            </group>
-
-            {/* ─── Задние боковые — левая сторона (задняя зона) ─── */}
-            <group>
-                <mesh position={[-0.5, 0.91, -0.927]} rotation={[0, Math.PI, 0]} material={matRear}>
-                    <planeGeometry args={[0.88, 0.5]} />
-                </mesh>
-                <mesh position={[-0.5, 0.91, -0.927]} rotation={[0, Math.PI, 0]} material={matFactory}>
-                    <planeGeometry args={[0.88, 0.5]} />
-                </mesh>
-            </group>
-
-            {/* ─── Колёса ─── */}
-            {([ [-1.3, -0.08,  0.98], [1.3, -0.08,  0.98],
-                [-1.3, -0.08, -0.98], [1.3, -0.08, -0.98],
-            ] as [number, number, number][]).map((pos, i) => (
-                <group key={i} position={pos}>
-                    <mesh rotation={[Math.PI / 2, 0, 0]} material={tireMat}>
-                        <cylinderGeometry args={[0.38, 0.38, 0.26, 32]} />
-                    </mesh>
-                    <mesh rotation={[Math.PI / 2, 0, 0]} material={rimMat}>
-                        <cylinderGeometry args={[0.24, 0.24, 0.28, 16]} />
-                    </mesh>
-                </group>
-            ))}
-
-            {/* Тень */}
-            <ContactShadows
-                position={[0, -0.46, 0]}
-                opacity={0.7}
-                scale={12}
-                blur={2.5}
-                far={1}
-                color="#000"
-            />
-        </group>
-    );
-}
-
-// ──────────────────────────────────────────────────────
-// GLB модель — подключается когда есть файл
+// GLB модель — основной и единственный путь рендера машины
 // ──────────────────────────────────────────────────────
 function GLBCar({
     frontMaterialKey,
@@ -203,6 +34,7 @@ function GLBCar({
     rearMaterialKey,
     rearVlt,
     splitX,
+    onReady,
 }: Omit<VehicleSceneProps, "hasModel">) {
     const { scene } = useGLTF("/models/crossover.glb");
     const { gl } = useThree();
@@ -318,6 +150,13 @@ function GLBCar({
         };
     }, [scene, frontLevel, rearLevel, clipTint]);
 
+    // Сигнал родителю что сцена готова — материалы применены, можно показывать UI
+    useEffect(() => {
+        if (!scene) return;
+        const id = requestAnimationFrame(() => onReady?.());
+        return () => cancelAnimationFrame(id);
+    }, [scene, onReady]);
+
     useFrame(() => {
         const x = (splitX / 100) * 4 - 2;
         clipFactory.constant = -x;
@@ -333,9 +172,9 @@ function GLBCar({
 }
 
 // ──────────────────────────────────────────────────────
-// Главный экспорт — выбирает версию в зависимости от наличия модели
+// Главный экспорт — рендерим машину только когда модель доступна
 // ──────────────────────────────────────────────────────
-export function VehicleScene(props: VehicleSceneProps) {
+export function VehicleScene({ hasModel, onReady, ...props }: VehicleSceneProps) {
     return (
         <>
             <Environment files="/hdr/potsdamer_platz_1k.hdr" />
@@ -343,10 +182,7 @@ export function VehicleScene(props: VehicleSceneProps) {
             <directionalLight position={[5, 8, 5]} intensity={1.2} castShadow />
             <directionalLight position={[-5, 4, -3]} intensity={0.4} />
 
-            {props.hasModel
-                ? <GLBCar {...props} />
-                : <ProceduralCar {...props} />
-            }
+            {hasModel && <GLBCar {...props} onReady={onReady} />}
         </>
     );
 }

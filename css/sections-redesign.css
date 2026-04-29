@@ -379,47 +379,69 @@
 .sim-card.light .sim-meta-val b{color:#0d0e10;text-shadow:0 1px 0 rgba(255,255,255,.5)}
 .sim-card.light .sim-meta-val .sep{color:rgba(0,0,0,.18)}
 
-/* Мобильная адаптация sim-card */
+/* ─── Мобильная адаптация sim-card — Вариант A ───
+   Текст-блок normal flow, видео отдельной полосой 16:9 ниже.
+   Машина видна целиком (видео-контейнер совпадает по пропорции с источником). */
 @media (max-width:780px){
   .sim-card{
-    height:auto;min-height:760px;
+    height:auto;
+    min-height:auto;
     display:block;
   }
-  .sim-stage{
-    position:absolute;top:0;left:0;right:0;bottom:0;
-    width:100%;height:100%;
-  }
-  .sim-card::before{
-    background:linear-gradient(180deg,
-      rgba(13,14,16,.96) 0%,
-      rgba(13,14,16,.88) 35%,
-      rgba(13,14,16,.55) 65%,
-      rgba(13,14,16,.2) 90%,
-      rgba(13,14,16,0) 100%);
-  }
-  .sim-card.light::before{
-    background:linear-gradient(180deg,
-      rgba(255,255,255,1) 0%,
-      rgba(255,255,255,.92) 35%,
-      rgba(255,255,255,.55) 65%,
-      rgba(255,255,255,.2) 90%,
-      rgba(255,255,255,0) 100%);
-  }
-  /* На мобильной: отключаем auto-распределение, ставим обычный вертикальный ритм */
-  .sim-card.light .sim-text{padding:2rem 1.5rem 8rem}
-  .sim-card.light .sim-text > *{margin-top:0 !important;margin-bottom:0 !important}
-  .sim-card.light .sim-text > .sim-eyebrow{margin-bottom:1.4rem !important}
-  .sim-card.light .sim-text > h2{margin-bottom:1rem !important}
-  .sim-card.light .sim-text > .sim-desc{margin-bottom:1.8rem !important}
+
+  /* Текст-блок — обычный flow, НЕ overlay */
   .sim-card .sim-text{
-    position:relative;z-index:3;
-    padding:2rem 1.5rem 8rem;
+    position:relative;
+    z-index:auto;
+    padding:2rem 1.5rem 1rem;
     max-width:100%;
+    height:auto;
+    display:block;
   }
   .sim-card h2{font-size:1.65rem;line-height:1.1;margin-bottom:.8rem}
   .sim-desc{font-size:.9rem;margin-bottom:1.3rem;max-width:100%}
   .sim-cta{padding:.85rem 1.4rem;font-size:.72rem}
   .sim-eyebrow{font-size:.65rem;margin-bottom:1rem}
+
+  /* Светлая версия: обычный вертикальный ритм без auto-распределения */
+  .sim-card.light .sim-text{padding:1.5rem 1.5rem 1rem}
+  .sim-card.light .sim-text > *{margin-top:0 !important;margin-bottom:0 !important}
+  .sim-card.light .sim-text > .sim-eyebrow{margin-bottom:1.4rem !important}
+  .sim-card.light .sim-text > h2{margin-bottom:1rem !important}
+  .sim-card.light .sim-text > .sim-desc{margin-bottom:1.8rem !important}
+
+  /* Видео-полоса 16:9 ниже текста (НЕ absolute overlay) */
+  .sim-stage{
+    position:relative;
+    top:auto;left:auto;right:auto;bottom:auto;
+    width:100%;
+    aspect-ratio:16/9;
+    height:auto;
+    overflow:hidden;
+    margin:1rem 0 0;
+  }
+  .sim-video,
+  .video-placeholder{
+    position:absolute;top:0;left:0;
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+
+  /* Скрываем градиент-overlay (был для overlay-композиции) */
+  .sim-card::before,
+  .sim-card::after,
+  .sim-card.light::before,
+  .sim-card.light::after{display:none}
+
+  /* На светлой версии mask только вертикальный — растворяет верх и низ видео в белый */
+  .sim-card.light .sim-stage{
+    -webkit-mask-image:linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    mask-image:linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-composite:source-over;
+    mask-composite:add;
+  }
+
+  /* sim-meta мелче (если используется на других страницах) */
   .sim-meta{margin-top:1.3rem}
   .sim-meta-row{grid-template-columns:5rem 1fr;gap:.8rem;padding:.55rem 0}
   .sim-meta-key{font-size:.58rem}

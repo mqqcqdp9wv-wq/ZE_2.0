@@ -56,7 +56,7 @@ export default function TintingSimulator() {
     };
 
     return (
-        <div className="relative w-full h-full bg-white">
+        <div className="relative w-full h-full bg-[#0a0a0a]">
             <Canvas
                 frameloop="always"
                 shadows
@@ -108,7 +108,7 @@ export default function TintingSimulator() {
 
             {!hasModel && (
                 <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-3 opacity-30">
-                    <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#343434]">
+                    <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-white">
                         Модель недоступна
                     </span>
                 </div>

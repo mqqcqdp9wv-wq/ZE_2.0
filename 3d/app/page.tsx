@@ -7,10 +7,10 @@ const TintingSimulator = dynamic(
     {
         ssr: false,
         loading: () => (
-            <div className="flex h-screen w-screen items-center justify-center bg-white">
+            <div className="flex h-screen w-screen items-center justify-center bg-[#0a0a0a]">
                 <div className="flex flex-col items-center gap-4">
-                    <div className="h-[1px] w-16 bg-[#23a592]/40 animate-pulse" />
-                    <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#343434]/50">
+                    <div className="h-[1px] w-16 bg-[#23a592]/60 animate-pulse" />
+                    <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-white/55">
                         Загружаем симулятор
                     </span>
                 </div>
@@ -21,10 +21,10 @@ const TintingSimulator = dynamic(
 
 export default function SimulatorPage() {
     return (
-        <div className="fixed inset-0 z-50 bg-white overflow-hidden">
+        <div className="fixed inset-0 z-50 bg-[#0a0a0a] overflow-hidden">
             <a
                 href="https://ze-studio48.ru"
-                className="absolute top-5 left-5 z-50 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#343434] hover:text-[#23a592] transition-colors"
+                className="absolute top-5 left-5 z-50 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-white/85 hover:text-[#23a592] transition-colors"
             >
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                     <path

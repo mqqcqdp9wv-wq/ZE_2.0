@@ -5,12 +5,12 @@
 @layer base {
   html {
     font-size: 62.5%;
-    background-color: #ffffff;
+    background-color: #0a0a0a;
   }
 
   body {
-    background-color: #ffffff;
-    color: #343434;
+    background-color: #0a0a0a;
+    color: #f5f5f5;
     margin: 0;
     overflow: hidden;
   }

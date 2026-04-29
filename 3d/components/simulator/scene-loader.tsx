@@ -30,7 +30,7 @@ export function SceneLoader() {
 
     return (
         <div
-            className={`absolute inset-0 z-20 flex flex-col items-center justify-center bg-white transition-opacity duration-500 ${
+            className={`fixed inset-0 z-[60] flex flex-col items-center justify-center bg-white transition-opacity duration-500 ${
                 isFinishing ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
         >

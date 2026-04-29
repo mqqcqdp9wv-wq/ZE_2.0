@@ -2,7 +2,7 @@
 
 import { useState, Suspense, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useProgress } from "@react-three/drei";
 import { VehicleScene } from "./vehicle-scene";
 import { ControlPanel } from "./control-panel";
 import { SceneLoader } from "./scene-loader";
@@ -22,6 +22,24 @@ export default function TintingSimulator() {
     const [splitX, setSplitX]               = useState(50);
     const [hasModel, setHasModel]           = useState(false);
     const [isMobile, setIsMobile]           = useState(false);
+    const [uiVisible, setUiVisible]         = useState(false);
+
+    // Отслеживаем прогресс загрузки сцены — UI появляется только после полной загрузки
+    const { progress, active } = useProgress();
+    const [hasStarted, setHasStarted] = useState(false);
+
+    useEffect(() => {
+        if (active) setHasStarted(true);
+    }, [active]);
+
+    useEffect(() => {
+        if (!hasStarted) return;
+        if (!active && progress >= 100) {
+            // Появление UI чуть после исчезновения лоадера (он фейдит 500мс)
+            const t = setTimeout(() => setUiVisible(true), 600);
+            return () => clearTimeout(t);
+        }
+    }, [active, progress, hasStarted]);
 
     useEffect(() => {
         fetch(MODEL_PATH, { method: "HEAD" })
@@ -59,8 +77,8 @@ export default function TintingSimulator() {
                 shadows
                 dpr={[1, 2]}
                 camera={{
-                    position: isMobile ? [8.5, 3, 8.5] : [4.5, 1.7, 4.5],
-                    fov: isMobile ? 50 : 42,
+                    position: isMobile ? [10.5, 3.4, 10.5] : [4.5, 1.7, 4.5],
+                    fov: isMobile ? 52 : 42,
                 }}
                 style={{ width: "100%", height: "100%" }}
             >
@@ -85,18 +103,23 @@ export default function TintingSimulator() {
                 />
             </Canvas>
 
-            <ControlPanel
-                frontMaterial={frontMaterial}
-                frontVlt={frontVlt}
-                rearMaterial={rearMaterial}
-                rearVlt={rearVlt}
-                splitX={splitX}
-                onFrontMaterialChange={handleFrontMaterialChange}
-                onFrontVltChange={setFrontVlt}
-                onRearMaterialChange={handleRearMaterialChange}
-                onRearVltChange={setRearVlt}
-                onSplitChange={setSplitX}
-            />
+            {uiVisible && (
+                <div className="animate-[fadeIn_0.4s_ease-out_both]">
+                    <style>{`@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }`}</style>
+                    <ControlPanel
+                        frontMaterial={frontMaterial}
+                        frontVlt={frontVlt}
+                        rearMaterial={rearMaterial}
+                        rearVlt={rearVlt}
+                        splitX={splitX}
+                        onFrontMaterialChange={handleFrontMaterialChange}
+                        onFrontVltChange={setFrontVlt}
+                        onRearMaterialChange={handleRearMaterialChange}
+                        onRearVltChange={setRearVlt}
+                        onSplitChange={setSplitX}
+                    />
+                </div>
+            )}
 
             <SceneLoader />
 

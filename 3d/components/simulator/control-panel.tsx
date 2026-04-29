@@ -50,11 +50,12 @@ export function ControlPanel({
         <>
             {/* ─── Слайдер До/После — сверху по центру ─── */}
             <style>{`
-                .tint-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; background: #e0e0e0; border-radius: 9999px; cursor: ew-resize; outline: none; touch-action: none; padding: 10px 0; box-sizing: content-box; }
-                .tint-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: #23a592; cursor: grab; box-shadow: 0 2px 8px rgba(35,165,146,0.45); border: 3px solid #ffffff; }
-                .tint-slider::-moz-range-thumb { width: 28px; height: 28px; border-radius: 50%; background: #23a592; cursor: grab; border: 3px solid #ffffff; box-shadow: 0 2px 8px rgba(35,165,146,0.45); }
+                .tint-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 28px; background: transparent; cursor: ew-resize; outline: none; touch-action: none; margin: 0; padding: 0; }
                 .tint-slider::-webkit-slider-runnable-track { height: 4px; border-radius: 9999px; background: #e0e0e0; }
-                .tint-slider::-moz-range-track { height: 4px; border-radius: 9999px; background: #e0e0e0; }
+                .tint-slider::-moz-range-track { height: 4px; border-radius: 9999px; background: #e0e0e0; border: none; }
+                .tint-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; margin-top: -12px; border-radius: 50%; background: #23a592; cursor: grab; box-shadow: 0 2px 8px rgba(35,165,146,0.45); border: 3px solid #ffffff; }
+                .tint-slider::-moz-range-thumb { width: 28px; height: 28px; border-radius: 50%; background: #23a592; cursor: grab; border: 3px solid #ffffff; box-shadow: 0 2px 8px rgba(35,165,146,0.45); }
+                .tint-slider:focus { outline: none; }
             `}</style>
             <div className="absolute top-12 sm:top-5 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center w-[220px]">
                 <input

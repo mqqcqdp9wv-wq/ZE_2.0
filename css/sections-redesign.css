@@ -23,7 +23,9 @@
   text-transform:uppercase;margin:0 0 .35rem;letter-spacing:.01em;
 }
 .row-experience .step-text{
-  font-size:.95rem;line-height:1.7;color:#767676;margin:0;
+  font-family:'Work Sans',sans-serif;
+  font-size:1.125rem;line-height:1.625;font-weight:400;
+  letter-spacing:normal;color:#767676;margin:0;
 }
 
 /* живой таймер */
@@ -79,7 +81,9 @@
   letter-spacing:.18em;color:#23a592;margin-bottom:.45rem;
 }
 .row-experience .product-text{
-  font-size:.95rem;line-height:1.7;color:#767676;margin:0 0 1rem;
+  font-family:'Work Sans',sans-serif;
+  font-size:1.125rem;line-height:1.625;font-weight:400;
+  letter-spacing:normal;color:#767676;margin:0 0 1rem;
 }
 
 /* свотчи материала */
@@ -96,8 +100,8 @@
 }
 .row-experience:hover .swatch::after{background-position:-30% 0}
 .swatch.monocarbon{background:linear-gradient(180deg,#0d0e10 0%,#1a1c20 100%)}
-.swatch.centum{background:linear-gradient(180deg,#d4e8e3 0%,#c0dad3 100%)}
-.swatch.crystal{background:linear-gradient(180deg,#e8edf0 0%,#d8e0e6 100%)}
+.swatch.centum{background:linear-gradient(180deg,#e8edf0 0%,#d8e0e6 100%)}
+.swatch.crystal{background:linear-gradient(180deg,#dadcdf 0%,#b8bbc0 100%)}
 .swatch.crystal::before{
   content:'';position:absolute;inset:0;
   background:
@@ -162,7 +166,7 @@
 
   .row-experience .product-name{font-size:1.2rem;line-height:1.2;margin-bottom:.6rem}
   .row-experience .product-name .brand{font-size:.7rem;margin-bottom:.35rem}
-  .row-experience .product-text{font-size:.92rem;line-height:1.55;color:#5a5a5a}
+  .row-experience .product-text{font-size:1.125rem;line-height:1.625;color:#767676}
 }
 @media (min-width:768px){
   .row-experience .step-num::after{
@@ -333,16 +337,17 @@
   mask-composite:intersect;
 }
 
-/* Растворяем водяной знак Veo в правом нижнем углу — белый radial gradient */
+/* Диагональный fader — белое от правого нижнего угла до левого верхнего.
+   Скрывает Veo-знак и плавно растворяет правую/нижнюю часть видео. */
 .sim-card.light .sim-stage::after{
   content:'';
   position:absolute;
-  right:0;bottom:0;
-  width:180px;height:90px;
-  background:radial-gradient(ellipse at bottom right,
+  inset:0;
+  background:radial-gradient(circle at bottom right,
     rgba(255,255,255,1) 0%,
-    rgba(255,255,255,.92) 35%,
-    rgba(255,255,255,.5) 65%,
+    rgba(255,255,255,.7) 25%,
+    rgba(255,255,255,.35) 55%,
+    rgba(255,255,255,.1) 80%,
     transparent 100%);
   pointer-events:none;
   z-index:4;
@@ -403,12 +408,15 @@
     min-height:auto;
     display:flex;
     flex-direction:column;
-    padding:1.5rem 1.5rem 2rem;
+    padding:3rem 0 3rem;
   }
 
   /* sim-text "развёртывается" — его дети становятся прямыми детьми sim-card */
-  .sim-card .sim-text{
+  .sim-card .sim-text,
+  .sim-card.light .sim-text{
     display:contents;
+    padding:0;
+    margin:0;
   }
 
   /* Order: eyebrow → h2 → desc → ВИДЕО → cta */
@@ -418,28 +426,63 @@
   .sim-card .sim-stage{order:4}
   .sim-card .sim-cta{order:5}
 
-  /* Размеры на мобиле */
-  .sim-card h2{font-size:1.65rem;line-height:1.1;margin:0 0 1rem}
-  .sim-desc{font-size:.9rem;line-height:1.55;max-width:100%;margin:0 0 1.6rem}
-  .sim-cta{padding:.85rem 1.4rem;font-size:.72rem;align-self:flex-start;margin:0}
+  /* Типография мобильная — эталон #about (Просто доверьтесь мне) */
+  .sim-card h2{
+    font-family:'Montserrat',sans-serif;
+    font-size:2.1rem;line-height:1.2;font-weight:700;
+    letter-spacing:normal;color:#343434;
+    margin:0 0 1rem;
+  }
+  .sim-desc{
+    font-family:'Work Sans',sans-serif;
+    font-size:1.125rem;line-height:1.625;font-weight:400;
+    letter-spacing:normal;color:#767676;
+    max-width:100%;margin:0 0 1.6rem;
+  }
   .sim-eyebrow{font-size:.65rem;margin:0 0 1.4rem}
 
-  /* Светлая версия: сбрасываем auto-margin и flex-распределение, ставим обычный ритм */
-  .sim-card.light .sim-text > *,
-  .sim-card.light > *{margin-top:0;margin-bottom:0}
-  .sim-card.light .sim-eyebrow{margin-bottom:1.4rem}
-  .sim-card.light h2{margin-bottom:1rem}
-  .sim-card.light .sim-desc{margin-bottom:1.6rem}
+  /* Кнопка — эталон .btn-below-primary (hero «Позвонить»/«ВКонтакте») */
+  .sim-cta{
+    display:inline-flex;
+    width:auto;
+    align-self:flex-start;margin:0;
+    padding:14px 24px;
+    font-family:'Montserrat',sans-serif;
+    font-size:13px;font-weight:600;letter-spacing:.5px;
+  }
 
-  /* Видео-полоса 16:9 — между description и CTA, full-width через отрицательный margin */
+  /* Светлая версия: обычный вертикальный ритм. Selectors ниже имеют specificity > reset */
+  .sim-card.light .sim-text > .sim-eyebrow{margin-top:0;margin-bottom:1.6rem}
+  .sim-card.light .sim-text > h2{margin-top:0;margin-bottom:1.5rem;color:#343434}
+  .sim-card.light .sim-text > .sim-desc{margin-top:0;margin-bottom:3rem;color:#767676}
+  .sim-card.light .sim-stage{margin-top:0;margin-bottom:3rem}
+  .sim-card.light .sim-text > .sim-cta{margin-top:0;margin-bottom:0}
+  .sim-card.light .sim-cta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:161.5px;
+    height:61.25px;
+    align-self:flex-start;
+    background:#1a1a1a;
+    border:1px solid #1a1a1a;
+    border-radius:0;
+    padding:14px 24px;
+    font-size:13px;font-weight:600;letter-spacing:.5px;
+    gap:.5rem;
+    white-space:nowrap;
+  }
+  .sim-card.light .sim-cta .arrow{display:none}
+
+  /* Видео-полоса 16:9 — между description и CTA, по ширине container'а */
   .sim-stage{
     position:relative;
     top:auto;left:auto;right:auto;bottom:auto;
-    width:auto;
+    width:100%;
     aspect-ratio:16/9;
     height:auto;
     overflow:hidden;
-    margin:0 -1.5rem 1.6rem;
+    margin:0 0 2.5rem;
   }
   .sim-video,
   .video-placeholder{
@@ -454,18 +497,15 @@
   .sim-card.light::before,
   .sim-card.light::after{display:none}
 
-  /* На светлой версии mask только вертикальный — растворяет верх и низ видео в белый */
+  /* На светлой версии mask только вертикальный — растворяет верх и низ видео в белый. */
   .sim-card.light .sim-stage{
-    -webkit-mask-image:linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-    mask-image:linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image:linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+    mask-image:linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
     -webkit-mask-composite:source-over;
     mask-composite:add;
   }
 
-  /* Veo-туман на мобиле — чуть меньше т.к. видео меньше */
-  .sim-card.light .sim-stage::after{
-    width:130px;height:70px;
-  }
+  /* На мобиле тоже растянут на всё видео — наследует диагональный fader */
 
   /* sim-meta мелче (если используется на других страницах) */
   .sim-meta{margin-top:1.3rem}

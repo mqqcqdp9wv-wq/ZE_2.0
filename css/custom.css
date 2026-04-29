@@ -121,9 +121,9 @@ table {
 }
 
 .faq-answer p {
-  font-size: 15px;
-  color: #8a8a8a;
-  line-height: 1.7;
+  font-size: 1.125rem;
+  color: #767676;
+  line-height: 1.625;
   margin: 0;
   padding-bottom: 24px;
   max-width: 640px;

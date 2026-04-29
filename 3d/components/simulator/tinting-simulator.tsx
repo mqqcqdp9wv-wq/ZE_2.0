@@ -92,21 +92,18 @@ export default function TintingSimulator() {
             <SceneLoader visible={!ready} />
 
             {ready && (
-                <div className="animate-[fadeIn_0.4s_ease-out_both]">
-                    <style>{`@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }`}</style>
-                    <ControlPanel
-                        frontMaterial={frontMaterial}
-                        frontVlt={frontVlt}
-                        rearMaterial={rearMaterial}
-                        rearVlt={rearVlt}
-                        splitX={splitX}
-                        onFrontMaterialChange={handleFrontMaterialChange}
-                        onFrontVltChange={setFrontVlt}
-                        onRearMaterialChange={handleRearMaterialChange}
-                        onRearVltChange={setRearVlt}
-                        onSplitChange={setSplitX}
-                    />
-                </div>
+                <ControlPanel
+                    frontMaterial={frontMaterial}
+                    frontVlt={frontVlt}
+                    rearMaterial={rearMaterial}
+                    rearVlt={rearVlt}
+                    splitX={splitX}
+                    onFrontMaterialChange={handleFrontMaterialChange}
+                    onFrontVltChange={setFrontVlt}
+                    onRearMaterialChange={handleRearMaterialChange}
+                    onRearVltChange={setRearVlt}
+                    onSplitChange={setSplitX}
+                />
             )}
 
             {!hasModel && (

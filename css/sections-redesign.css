@@ -382,7 +382,7 @@
 /* Мобильная адаптация sim-card */
 @media (max-width:780px){
   .sim-card{
-    height:auto;min-height:480px;
+    height:auto;min-height:760px;
     display:block;
   }
   .sim-stage{

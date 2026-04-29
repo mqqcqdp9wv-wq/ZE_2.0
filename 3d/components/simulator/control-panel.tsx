@@ -18,6 +18,27 @@ interface ControlPanelProps {
 
 const MATERIAL_KEYS: MaterialKey[] = Object.keys(TINT_CONFIG) as MaterialKey[];
 
+/** Подпись над группой контролов: «① Зона», «② Плёнка», «③ Светопропускание» */
+function StepLabel({ num, children }: { num: number; children: React.ReactNode }) {
+    return (
+        <div className="flex items-center gap-1.5 select-none">
+            <span
+                className="flex items-center justify-center w-3.5 h-3.5 rounded-full text-[8px] font-bold leading-none"
+                style={{
+                    background: "rgba(35,165,146,0.18)",
+                    color: "#23a592",
+                    border: "1px solid rgba(35,165,146,0.4)",
+                }}
+            >
+                {num}
+            </span>
+            <span className="text-[8px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                {children}
+            </span>
+        </div>
+    );
+}
+
 export function ControlPanel({
     frontMaterial,
     frontVlt,
@@ -143,106 +164,119 @@ export function ControlPanel({
                 </div>
 
                 {/* ─── Основная панель контролов ─── */}
-                <div className="pointer-events-auto flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 px-3 py-2.5 sm:px-4 rounded-2xl border border-white/12 bg-white/[0.06] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] max-w-[calc(100vw-16px)]">
+                <div className="pointer-events-auto flex flex-col sm:flex-row sm:items-end gap-3 sm:gap-4 px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl border border-white/12 bg-white/[0.06] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] max-w-[calc(100vw-16px)]">
 
                     {/* ── Ряд 1: Зона + Материал ── */}
-                    <div className="flex items-center justify-center gap-2">
-                        {/* Zone toggle */}
-                        <div className="flex gap-1 bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-lg p-0.5">
-                            {(["front", "rear"] as const).map((z) => {
-                                const active = zone === z;
-                                const label  = z === "front" ? "Перед" : "Зад";
-                                return (
-                                    <button
-                                        key={z}
-                                        onClick={() => setZone(z)}
-                                        className="min-w-[64px] px-3.5 py-2 rounded-md text-[11px] font-semibold uppercase tracking-[0.1em] transition-all duration-200"
-                                        style={{
-                                            background: active ? "rgba(255,255,255,0.16)" : "transparent",
-                                            color:      active ? "#ffffff" : "rgba(255,255,255,0.5)",
-                                            boxShadow:  active ? "0 1px 3px rgba(0,0,0,0.3)" : "none",
-                                        }}
-                                    >
-                                        {label}
-                                    </button>
-                                );
-                            })}
-                        </div>
-
-                        {/* Material toggle — два равнозначных переключателя */}
-                        {MATERIAL_KEYS.length > 1 && (
+                    <div className="flex items-end justify-center gap-3 sm:gap-4">
+                        {/* ── 1. ЗОНА ── */}
+                        <div className="flex flex-col items-center gap-1.5">
+                            <StepLabel num={1}>Зона</StepLabel>
                             <div className="flex gap-1 bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-lg p-0.5">
-                                {MATERIAL_KEYS.map((key) => {
-                                    const mat    = TINT_CONFIG[key];
-                                    const active = activeMaterial === key;
+                                {(["front", "rear"] as const).map((z) => {
+                                    const active = zone === z;
+                                    const label  = z === "front" ? "Перед" : "Зад";
                                     return (
                                         <button
-                                            key={key}
-                                            onClick={() => handleMaterialChange(key)}
-                                            className="min-w-[88px] sm:min-w-[100px] px-3 py-2 rounded-md text-[12px] font-semibold transition-all duration-200"
+                                            key={z}
+                                            onClick={() => setZone(z)}
+                                            className="min-w-[64px] px-3.5 py-2 rounded-md text-[11px] font-semibold uppercase tracking-[0.1em] transition-all duration-200"
                                             style={{
-                                                background: active ? "rgba(255,255,255,0.16)" : "transparent",
-                                                color:      active ? "#23a592" : "rgba(255,255,255,0.5)",
-                                                boxShadow:  active ? "0 1px 3px rgba(0,0,0,0.3)" : "none",
+                                                background: active ? "#ffffff" : "transparent",
+                                                color:      active ? "#0a0a0a" : "rgba(255,255,255,0.55)",
+                                                boxShadow:  active ? "0 2px 8px rgba(0,0,0,0.4)" : "none",
                                             }}
                                         >
-                                            {mat.name}
+                                            {label}
                                         </button>
                                     );
                                 })}
+                            </div>
+                        </div>
+
+                        {/* ── 2. ПЛЁНКА ── */}
+                        {MATERIAL_KEYS.length > 1 && (
+                            <div className="flex flex-col items-center gap-1.5">
+                                <StepLabel num={2}>Плёнка</StepLabel>
+                                <div className="flex gap-1 bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-lg p-0.5">
+                                    {MATERIAL_KEYS.map((key) => {
+                                        const mat    = TINT_CONFIG[key];
+                                        const active = activeMaterial === key;
+                                        return (
+                                            <button
+                                                key={key}
+                                                onClick={() => handleMaterialChange(key)}
+                                                className="min-w-[88px] sm:min-w-[100px] px-3 py-2 rounded-md text-[12px] font-semibold transition-all duration-200"
+                                                style={{
+                                                    background: active ? "#23a592" : "transparent",
+                                                    color:      active ? "#ffffff" : "rgba(255,255,255,0.55)",
+                                                    boxShadow:  active ? "0 2px 10px rgba(35,165,146,0.45)" : "none",
+                                                }}
+                                            >
+                                                {mat.name}
+                                            </button>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         )}
                     </div>
 
                     {/* Разделитель — только на десктопе */}
-                    <div className="hidden sm:block w-px h-7 bg-white/15" />
+                    <div className="hidden sm:block w-px h-10 bg-white/12 self-center" />
 
-                    {/* ── Ряд 2: VLT кнопки + Info ── */}
-                    <div className="flex items-center justify-center gap-1 sm:gap-1.5 flex-wrap">
-                        {config.levels.map((lvl) => {
-                            const active = activeVlt === lvl.vlt;
-                            return (
-                                <button
-                                    key={lvl.vlt}
-                                    onClick={() => handleVltChange(lvl.vlt)}
-                                    className="relative flex items-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200"
-                                    style={{
-                                        background: active ? "rgba(35,165,146,0.18)" : "transparent",
-                                        border:     active ? "1px solid rgba(35,165,146,0.55)" : "1px solid transparent",
-                                    }}
-                                >
-                                    <div
-                                        className="w-2.5 h-2.5 rounded-full border border-white/25 shrink-0"
-                                        style={{ background: lvl.color }}
-                                    />
-                                    <span
-                                        className="text-[13px] font-bold transition-colors"
-                                        style={{ color: active ? "#23a592" : "rgba(255,255,255,0.55)" }}
+                    {/* ── 3. СВЕТО% ── */}
+                    <div className="flex flex-col items-center gap-1.5">
+                        <StepLabel num={3}>Светопропускание</StepLabel>
+                        <div className="flex items-center justify-center gap-1 sm:gap-1.5 flex-wrap">
+                            {config.levels.map((lvl) => {
+                                const active = activeVlt === lvl.vlt;
+                                return (
+                                    <button
+                                        key={lvl.vlt}
+                                        onClick={() => handleVltChange(lvl.vlt)}
+                                        className="relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-all duration-200"
+                                        style={{
+                                            background: active ? "rgba(35,165,146,0.22)" : "transparent",
+                                            border:     active ? "1.5px solid rgba(35,165,146,0.85)" : "1.5px solid rgba(255,255,255,0.08)",
+                                        }}
                                     >
-                                        {lvl.vlt}%
-                                    </span>
-                                </button>
-                            );
-                        })}
+                                        <div
+                                            className="w-3 h-3 rounded-full shrink-0"
+                                            style={{
+                                                background: lvl.color,
+                                                border: "1px solid rgba(255,255,255,0.4)",
+                                                boxShadow: active ? "0 0 0 2px rgba(35,165,146,0.35)" : "none",
+                                            }}
+                                        />
+                                        <span
+                                            className="text-[13px] font-bold transition-colors"
+                                            style={{ color: active ? "#23a592" : "rgba(255,255,255,0.65)" }}
+                                        >
+                                            {lvl.vlt}%
+                                        </span>
+                                    </button>
+                                );
+                            })}
 
-                        {/* Info toggle */}
-                        <button
-                            onClick={() => setInfoOpen((o) => !o)}
-                            className="flex items-center justify-center w-9 h-9 rounded-lg backdrop-blur-md transition-all duration-200 ml-1"
-                            style={{
-                                background: infoOpen ? "rgba(35,165,146,0.18)" : "rgba(255,255,255,0.06)",
-                                border:     infoOpen ? "1px solid rgba(35,165,146,0.55)" : "1px solid rgba(255,255,255,0.12)",
-                            }}
-                            aria-label="Информация о плёнке"
-                        >
-                            <svg
-                                width="14" height="14" viewBox="0 0 16 16" fill="none"
-                                style={{ color: infoOpen ? "#23a592" : "rgba(255,255,255,0.6)" }}
+                            {/* Info toggle */}
+                            <button
+                                onClick={() => setInfoOpen((o) => !o)}
+                                className="flex items-center justify-center w-9 h-9 rounded-lg backdrop-blur-md transition-all duration-200 ml-0.5"
+                                style={{
+                                    background: infoOpen ? "rgba(35,165,146,0.22)" : "rgba(255,255,255,0.06)",
+                                    border:     infoOpen ? "1.5px solid rgba(35,165,146,0.85)" : "1.5px solid rgba(255,255,255,0.12)",
+                                }}
+                                aria-label="Информация о плёнке"
                             >
-                                <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
-                                <path d="M8 7v4M8 5.5v0" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                            </svg>
-                        </button>
+                                <svg
+                                    width="14" height="14" viewBox="0 0 16 16" fill="none"
+                                    style={{ color: infoOpen ? "#23a592" : "rgba(255,255,255,0.65)" }}
+                                >
+                                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.4" />
+                                    <path d="M8 7v4M8 5.5v0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 

@@ -340,17 +340,7 @@
 /* Диагональный fader — белое от правого нижнего угла до левого верхнего.
    Скрывает Veo-знак и плавно растворяет правую/нижнюю часть видео. */
 .sim-card.light .sim-stage::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at bottom right,
-    rgba(255,255,255,1) 0%,
-    rgba(255,255,255,.7) 25%,
-    rgba(255,255,255,.35) 55%,
-    rgba(255,255,255,.1) 80%,
-    transparent 100%);
-  pointer-events:none;
-  z-index:4;
+  display:none;
 }
 .sim-card.light::before{
   background:linear-gradient(90deg,

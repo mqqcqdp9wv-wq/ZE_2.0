@@ -192,6 +192,13 @@
   overflow:hidden;
   height:640px;
   box-shadow:0 30px 80px -20px rgba(13,14,16,.35);
+  /* Удерживаем композит-слой даже при выходе из viewport — иначе при возврате
+     mask и видео пересобираются с задержкой и края «дёргаются». */
+  transform:translateZ(0);
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  will-change:transform;
+  contain:layout paint;
 }
 
 .sim-stage{
@@ -208,6 +215,10 @@
   width:100%;height:100%;
   object-fit:cover;display:block;
   border:0;border-radius:0;background:#0a0b0d;
+  /* Видео всегда на отдельном GPU-слое — при возврате в viewport не пересоздаётся */
+  transform:translateZ(0);
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
 }
 
 /* Затемняющий градиент слева — текст читаемый поверх видео */
@@ -335,6 +346,19 @@
     linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
   -webkit-mask-composite:source-in;
   mask-composite:intersect;
+  /* GPU-композитинг — убирает артефакт-полоску по краям маски при AOS-анимации */
+  transform:translateZ(0);
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  will-change:transform;
+}
+
+/* Видео внутри маски — тоже на GPU, чтобы границы маски и видео двигались синхронно */
+.sim-card.light .sim-video,
+.sim-card.light .video-placeholder{
+  transform:translateZ(0);
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
 }
 
 /* Диагональный fader — белое от правого нижнего угла до левого верхнего.

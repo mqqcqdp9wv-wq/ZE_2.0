@@ -1,0 +1,427 @@
+/* ════════════════════════════════════════════════════════════
+   sections-redesign.css
+   Re-hierarchy для секций "Как я работаю" + "Чем работаю"
+   и новый блок 3D-симулятора с видео.
+   Из handoff bundle Claude Design (2026-04-29).
+   ════════════════════════════════════════════════════════════ */
+
+/* Section 1 — Как я работаю */
+.row-experience .step-num{
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:5.5rem;line-height:1;color:#23a592;
+  letter-spacing:-.04em;display:block;margin-bottom:1rem;
+  font-variant-numeric:tabular-nums;
+}
+.row-experience .step-eyebrow{
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#343434;display:block;
+}
+.row-experience .step-anchor{
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:1.55rem;line-height:1.18;color:#343434;
+  text-transform:uppercase;margin:0 0 .35rem;letter-spacing:.01em;
+}
+.row-experience .step-text{
+  font-size:.95rem;line-height:1.7;color:#767676;margin:0;
+}
+
+/* живой таймер */
+.live-timer{
+  display:inline-flex;align-items:baseline;gap:.5rem;
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:1.1rem;color:#23a592;letter-spacing:.08em;
+  font-variant-numeric:tabular-nums;
+  margin-top:.6rem;
+}
+.live-timer .dot{
+  width:8px;height:8px;border-radius:50%;background:#23a592;
+  animation:liveTimerPulse 1.4s ease-in-out infinite;
+  display:inline-block;
+}
+.live-timer .label{
+  font-size:.7rem;font-weight:700;letter-spacing:.14em;
+  color:#767676;text-transform:uppercase;
+}
+@keyframes liveTimerPulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.35;transform:scale(.7)}
+}
+
+/* Section 2 — Чем работаю — hero stats */
+.row-experience .stat-key{
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#767676;display:block;margin-bottom:.5rem;
+}
+.row-experience .stat-hero{
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:6.25rem;line-height:.95;color:#23a592;
+  letter-spacing:-.045em;display:flex;align-items:baseline;
+  gap:.05em;margin:0 0 .5rem;font-variant-numeric:tabular-nums;
+}
+.row-experience .stat-hero .unit{
+  font-size:1.6rem;font-weight:600;color:#23a592;letter-spacing:0;
+  align-self:flex-end;padding-bottom:1.4rem;margin-left:.05em;
+}
+.row-experience .stat-type{
+  font-family:'Montserrat',sans-serif;font-weight:600;
+  font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;
+  color:#343434;display:block;
+}
+.row-experience .product-name{
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:1.55rem;line-height:1.18;color:#343434;
+  text-transform:uppercase;margin:0 0 .35rem;
+}
+.row-experience .product-name .brand{
+  display:block;font-size:.78rem;font-weight:700;
+  letter-spacing:.18em;color:#23a592;margin-bottom:.45rem;
+}
+.row-experience .product-text{
+  font-size:.95rem;line-height:1.7;color:#767676;margin:0 0 1rem;
+}
+
+/* свотчи материала */
+.swatch{
+  position:relative;width:100%;max-width:200px;height:108px;border-radius:3px;
+  overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.1);
+  margin:.4rem 0;
+}
+.swatch::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.22) 48%, transparent 60%);
+  background-size:220% 100%;background-position:100% 0;
+  transition:background-position 1.2s cubic-bezier(.4,0,.2,1);
+}
+.row-experience:hover .swatch::after{background-position:-30% 0}
+.swatch.monocarbon{background:linear-gradient(180deg,#0d0e10 0%,#1a1c20 100%)}
+.swatch.centum{background:linear-gradient(180deg,#d4e8e3 0%,#c0dad3 100%)}
+.swatch.crystal{background:linear-gradient(180deg,#e8edf0 0%,#d8e0e6 100%)}
+.swatch.crystal::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,.4) 0%, transparent 8%),
+    radial-gradient(circle at 70% 65%, rgba(255,255,255,.3) 0%, transparent 6%);
+}
+.swatch .swatch-brand{
+  position:absolute;left:.7rem;top:.6rem;z-index:2;
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+}
+.swatch .swatch-label{
+  position:absolute;left:.7rem;bottom:.6rem;z-index:2;
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.92);
+}
+.swatch.centum .swatch-brand,.swatch.crystal .swatch-brand{color:rgba(52,52,52,.45)}
+.swatch.centum .swatch-label,.swatch.crystal .swatch-label{color:#3a4944}
+
+/* «Подробнее» link */
+.more-link{
+  display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#23a592;border-bottom:1px solid #23a592;padding-bottom:2px;
+  transition:color .2s;
+}
+.more-link:hover{color:#1c8676;border-color:#1c8676}
+.more-link .arrow{margin-left:.4em;display:inline-block;transition:transform .2s}
+.more-link:hover .arrow{transform:translateX(3px)}
+.row-actions{display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center}
+
+/* counter-up readiness — числа стартуют с нуля для visual swap */
+.counter[data-counted=false]{opacity:.5}
+
+/* hover affordance */
+.row-experience{transition:background-color .3s ease}
+.row-experience .stat-hero,
+.row-experience .step-num{transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.row-experience:hover .stat-hero,
+.row-experience:hover .step-num{transform:translateX(4px)}
+
+/* responsive */
+@media (max-width:767.98px){
+  .row-experience .step-num{font-size:4rem;margin-bottom:.5rem}
+
+  #rayno.section{padding:3rem 0}
+  #rayno .section-header h2{font-size:1.6rem;line-height:1.15}
+  #rayno .row-experience{padding:2rem 0}
+  #rayno .row-experience > .col-md-4{margin-bottom:1.4rem}
+  #rayno .row-experience > .col-md-4:last-child{margin-bottom:0}
+
+  .row-experience .stat-hero{font-size:4.4rem;line-height:.95;margin:0 0 .4rem}
+  .row-experience .stat-hero .unit{font-size:1.2rem;padding-bottom:.85rem}
+  .row-experience .stat-key{font-size:.62rem;letter-spacing:.18em;margin-bottom:.5rem}
+  .row-experience .stat-type{font-size:.84rem;color:#767676;margin-top:.4rem}
+
+  .swatch{width:200px;max-width:100%;height:108px;margin:0;border-radius:3px}
+  .swatch .swatch-brand{font-size:.6rem;left:.7rem;top:.6rem;letter-spacing:.18em}
+  .swatch .swatch-label{font-size:.7rem;left:.7rem;bottom:.6rem;letter-spacing:.1em}
+
+  .row-experience .product-name{font-size:1.2rem;line-height:1.2;margin-bottom:.6rem}
+  .row-experience .product-name .brand{font-size:.7rem;margin-bottom:.35rem}
+  .row-experience .product-text{font-size:.92rem;line-height:1.55;color:#5a5a5a}
+}
+@media (min-width:768px){
+  .row-experience .step-num::after{
+    content:'';display:block;width:2.5rem;height:2px;background:#23a592;margin-top:.6rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3D-симулятор — стеклянный блок
+   ═══════════════════════════════════════════════════════════════ */
+.simulator-3d{
+  position:relative;padding:5rem 0 6rem;
+  background:#ffffff;
+  overflow:hidden;
+}
+
+.sim-card{
+  position:relative;z-index:2;
+  max-width:1140px;margin:0 auto;
+  background:#0a0b0d;
+  border-radius:14px;
+  display:block;
+  overflow:hidden;
+  height:640px;
+  box-shadow:0 30px 80px -20px rgba(13,14,16,.35);
+}
+
+.sim-stage{
+  position:absolute;top:0;bottom:0;left:0;right:-8%;
+  z-index:1;
+  display:block;overflow:visible;
+  background:transparent;
+}
+.car-wrap{
+  position:absolute;top:0;bottom:0;left:0;right:0;display:block;
+}
+.sim-video,.video-placeholder{
+  position:absolute;top:0;left:0;
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  border:0;border-radius:0;background:#0a0b0d;
+}
+
+/* Затемняющий градиент слева — текст читаемый поверх видео */
+.sim-card::before{
+  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(90deg,
+    rgba(13,14,16,.96) 0%,
+    rgba(13,14,16,.9) 28%,
+    rgba(13,14,16,.6) 48%,
+    rgba(13,14,16,.15) 68%,
+    transparent 85%);
+}
+.sim-card::after{
+  content:'';position:absolute;left:0;right:0;top:0;height:1px;z-index:3;
+  background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,.4) 50%, transparent 100%);
+  pointer-events:none;
+}
+
+.sim-card .sim-text{
+  position:relative;z-index:3;
+  padding:3rem 3rem;
+  max-width:520px;
+  height:100%;
+  display:flex;flex-direction:column;justify-content:center;
+}
+
+.sim-eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);margin-bottom:1.6rem;
+  padding:0;border:0;
+}
+.sim-eyebrow .dot{
+  width:7px;height:7px;border-radius:50%;background:#23a592;
+  box-shadow:0 0 0 0 rgba(35,165,146,.7);
+  animation:simPulse 2s infinite;
+}
+@keyframes simPulse{
+  0%{box-shadow:0 0 0 0 rgba(35,165,146,.6)}
+  70%{box-shadow:0 0 0 8px rgba(35,165,146,0)}
+  100%{box-shadow:0 0 0 0 rgba(35,165,146,0)}
+}
+
+.sim-card h2{
+  color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;
+  font-size:3rem;line-height:1.02;margin:0 0 1.5rem;letter-spacing:-.02em;
+}
+.sim-card h2 .accent{color:#23a592}
+.sim-desc{
+  color:rgba(255,255,255,.7);font-size:1.05rem;line-height:1.55;
+  margin:0 0 2.4rem;max-width:440px;font-weight:400;
+}
+.sim-cta{
+  align-self:flex-start;
+  display:inline-flex;align-items:center;gap:.8rem;
+  padding:1.15rem 2rem;background:#23a592;color:#fff !important;
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;
+  border-radius:99px;text-decoration:none !important;
+  transition:transform .25s, box-shadow .25s, gap .25s, background .25s;
+  box-shadow:0 8px 24px rgba(35,165,146,.35);
+  border-bottom:0;
+}
+.sim-cta:hover,.sim-cta:focus{
+  transform:translateY(-2px);gap:1.1rem;background:#1d8e7e;
+  color:#fff !important;text-decoration:none !important;border-bottom:0;
+  box-shadow:0 12px 32px rgba(35,165,146,.45);
+}
+.sim-cta .arrow{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;background:#fff;color:#23a592;
+  font-size:.8rem;font-weight:700;
+}
+
+/* мета-блок */
+.sim-meta{
+  margin-top:2.6rem;display:flex;flex-direction:column;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.sim-meta-row{
+  display:grid;grid-template-columns:7.5rem 1fr;gap:1.5rem;
+  padding:1rem 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.sim-meta-key{
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);padding-top:.18rem;
+}
+.sim-meta-val{
+  color:rgba(255,255,255,.92);font-size:.95rem;line-height:1.4;
+  font-weight:500;
+}
+.sim-meta-val b{color:#fff;font-weight:700}
+.sim-meta-val .sep{color:rgba(255,255,255,.25);margin:0 .35rem}
+
+/* плейсхолдер пока нет видео */
+.video-placeholder{
+  position:absolute;inset:0;width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1rem;
+  border:none;border-radius:0;
+  background:#0a0b0d;
+}
+.sim-card.light .video-placeholder{background:#e8e8ec}
+
+/* Светлая версия — без карточечности, сливается с белым фоном */
+.sim-card.light{
+  background:transparent;
+  box-shadow:none;
+  border-radius:0;
+}
+.sim-card.light .sim-stage,
+.sim-card.light .sim-video,
+.sim-card.light .video-placeholder{background:transparent}
+
+/* Растворяем края видео в белый — нет резкого края, нет ощущения карточки */
+.sim-card.light .sim-stage{
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0%, #000 35%, #000 88%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image:
+    linear-gradient(90deg, transparent 0%, #000 35%, #000 88%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-composite:intersect;
+}
+.sim-card.light::before{
+  background:linear-gradient(90deg,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,.95) 28%,
+    rgba(255,255,255,.6) 48%,
+    rgba(255,255,255,.15) 68%,
+    transparent 85%);
+}
+.sim-card.light::after{
+  background:none;
+}
+
+/* Светлая версия: 3 группы — eyebrow / (h2+desc) / cta */
+.sim-card.light .sim-text{
+  justify-content:flex-start;
+  padding-top:3rem;padding-bottom:3rem;
+}
+.sim-card.light .sim-text > *{margin:0}
+.sim-card.light .sim-text > h2{margin-top:auto;margin-bottom:1.25rem}
+.sim-card.light .sim-text > .sim-desc{margin-bottom:0}
+.sim-card.light .sim-text > .sim-cta{margin-top:auto}
+
+.sim-card.light .sim-eyebrow{color:#767676}
+.sim-card.light h2{color:#0d0e10}
+.sim-card.light .sim-desc{color:#5a5a5a}
+.sim-card.light .sim-cta{
+  background:#0d0e10;
+  color:#fff !important;
+  border:1px solid #0d0e10;
+  border-radius:0;
+  box-shadow:none;
+}
+.sim-card.light .sim-cta:hover,.sim-card.light .sim-cta:focus{
+  background:#1d1f24;color:#fff !important;
+  box-shadow:none;
+}
+.sim-card.light .sim-cta .arrow{
+  width:auto;height:auto;border-radius:0;background:transparent;
+  color:inherit;font-size:1rem;font-weight:400;
+}
+.sim-card.light .sim-meta{border-top:0}
+.sim-card.light .sim-meta-row{border-bottom:0}
+.sim-card.light .sim-meta-key{color:#5a5a5a;text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.sim-card.light .sim-meta-val{color:#0d0e10}
+.sim-card.light .sim-meta-val b{color:#0d0e10;text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.sim-card.light .sim-meta-val .sep{color:rgba(0,0,0,.18)}
+
+/* Мобильная адаптация sim-card */
+@media (max-width:780px){
+  .sim-card{
+    height:auto;min-height:480px;
+    display:block;
+  }
+  .sim-stage{
+    position:absolute;top:0;left:0;right:0;bottom:0;
+    width:100%;height:100%;
+  }
+  .sim-card::before{
+    background:linear-gradient(180deg,
+      rgba(13,14,16,.96) 0%,
+      rgba(13,14,16,.88) 35%,
+      rgba(13,14,16,.55) 65%,
+      rgba(13,14,16,.2) 90%,
+      rgba(13,14,16,0) 100%);
+  }
+  .sim-card.light::before{
+    background:linear-gradient(180deg,
+      rgba(255,255,255,1) 0%,
+      rgba(255,255,255,.92) 35%,
+      rgba(255,255,255,.55) 65%,
+      rgba(255,255,255,.2) 90%,
+      rgba(255,255,255,0) 100%);
+  }
+  /* На мобильной: отключаем auto-распределение, ставим обычный вертикальный ритм */
+  .sim-card.light .sim-text{padding:2rem 1.5rem 8rem}
+  .sim-card.light .sim-text > *{margin-top:0 !important;margin-bottom:0 !important}
+  .sim-card.light .sim-text > .sim-eyebrow{margin-bottom:1.4rem !important}
+  .sim-card.light .sim-text > h2{margin-bottom:1rem !important}
+  .sim-card.light .sim-text > .sim-desc{margin-bottom:1.8rem !important}
+  .sim-card .sim-text{
+    position:relative;z-index:3;
+    padding:2rem 1.5rem 8rem;
+    max-width:100%;
+  }
+  .sim-card h2{font-size:1.65rem;line-height:1.1;margin-bottom:.8rem}
+  .sim-desc{font-size:.9rem;margin-bottom:1.3rem;max-width:100%}
+  .sim-cta{padding:.85rem 1.4rem;font-size:.72rem}
+  .sim-eyebrow{font-size:.65rem;margin-bottom:1rem}
+  .sim-meta{margin-top:1.3rem}
+  .sim-meta-row{grid-template-columns:5rem 1fr;gap:.8rem;padding:.55rem 0}
+  .sim-meta-key{font-size:.58rem}
+  .sim-meta-val{font-size:.8rem}
+}

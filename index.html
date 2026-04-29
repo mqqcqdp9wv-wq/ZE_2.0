@@ -56,6 +56,7 @@
   <link rel="stylesheet" href="css/custom.css?v=scroll-btn-white">
   <link rel="stylesheet" href="css/contact-form.css?v=vk-btn-2">
   <link rel="stylesheet" href="css/tint-simulator.css?v=cta-100">
+  <link rel="stylesheet" href="css/sections-redesign.css?v=handoff-2026-04-29">
 
   <!-- Preload critical images for faster loading -->
   <link rel="preload" as="image" href="img/bg/personal2-hd.webp" type="image/webp"
@@ -303,39 +304,54 @@
         </div>
       </div>
       <div class="mt-5 pt-5">
-        <div class="row-experience row justify-content-between" data-aos="fade-up">
+
+        <!-- 01 — Бережная установка -->
+        <div class="row-experience row align-items-center justify-content-between" data-aos="fade-up">
           <div class="col-md-4">
-            <div class="h6 my-0 text-primary text-uppercase">БЕРЕЖНАЯ УСТАНОВКА</div>
+            <span class="step-num counter" data-target="1" data-pad="2" data-counted="false">00</span>
+            <span class="step-eyebrow text-primary">Бережная установка</span>
           </div>
           <div class="col-md-4">
-            <h5 class="mb-3 mt-0 text-uppercase">БЕЗ РАЗБОРА<br>ДВЕРЕЙ</h5>
+            <h5 class="step-anchor mb-3 mt-0">Без разбора<br>дверей</h5>
           </div>
           <div class="col-md-4">
-            <p>Тонирую без разбора дверей и снятия стёкол. Заводская посадка не нарушается, клипсы остаются целыми. Бережно и безопасно.</p>
-          </div>
-        </div>
-        <div class="row-experience row justify-content-between" data-aos="fade-up">
-          <div class="col-md-4">
-            <div class="h6 my-0 text-primary text-uppercase">СКОРОСТЬ И ТОЧНОСТЬ</div>
-          </div>
-          <div class="col-md-4">
-            <h5 class="mb-3 mt-0 text-uppercase">ТОНИРОВКА АВТО<br>ОТ 40 МИНУТ</h5>
-          </div>
-          <div class="col-md-4">
-            <p>Быстро не значит плохо — это значит профессионально. Since 2007, каждое движение отработано.</p>
+            <p class="step-text">Тонирую без разбора дверей и снятия стёкол. Заводская посадка не нарушается, клипсы остаются целыми. Бережно и безопасно.</p>
           </div>
         </div>
-        <div class="row-experience row justify-content-between" data-aos="fade-up">
+
+        <!-- 02 — Скорость и точность с живым таймером -->
+        <div class="row-experience row align-items-center justify-content-between" data-aos="fade-up">
           <div class="col-md-4">
-            <div class="h6 my-0 text-primary text-uppercase">СТРОГО ПО ЗАПИСИ</div>
+            <span class="step-num counter" data-target="2" data-pad="2" data-counted="false">00</span>
+            <span class="step-eyebrow text-primary">Скорость и точность</span>
           </div>
           <div class="col-md-4">
-            <h5 class="mb-3 mt-0 text-uppercase">ОДНА МАШИНА —<br>ОДНО ВНИМАНИЕ</h5>
+            <h5 class="step-anchor mb-3 mt-0">Тонировка авто<br>от 40 минут</h5>
+            <div class="live-timer">
+              <span class="dot"></span>
+              <span class="time" id="liveTimer">00:40:00</span>
+              <span class="label">эталон</span>
+            </div>
           </div>
           <div class="col-md-4">
-            <p>Работаю каждый день. Вы выбираете удобное время, приезжаете без очередей. Потоковый приём исключён.</p>
+            <p class="step-text">Быстро не значит плохо — это значит профессионально. Since 2007, каждое движение отработано.</p>
           </div>
         </div>
+
+        <!-- 03 — Строго по записи -->
+        <div class="row-experience row align-items-center justify-content-between" data-aos="fade-up">
+          <div class="col-md-4">
+            <span class="step-num counter" data-target="3" data-pad="2" data-counted="false">00</span>
+            <span class="step-eyebrow text-primary">Строго по записи</span>
+          </div>
+          <div class="col-md-4">
+            <h5 class="step-anchor mb-3 mt-0">Одна машина —<br>одно внимание</h5>
+          </div>
+          <div class="col-md-4">
+            <p class="step-text">Работаю каждый день. Вы выбираете удобное время, приезжаете без очередей. Потоковый приём исключён.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -350,105 +366,102 @@
           <h6 class="my-0 text-gray"><a href="https://www.raynofilm.com" target="_blank">www.raynofilm.com</a></h6>
         </div>
       </div>
+
       <div class="mt-5 pt-5">
-        <!-- MonoCarbon -->
-        <div class="row-experience row justify-content-between" data-aos="fade-up">
+
+        <!-- Monocarbon -->
+        <div class="row-experience row align-items-center justify-content-between" data-aos="fade-up">
           <div class="col-md-4">
-            <div class="mat-type-label">Карбоновая тонировка</div>
-            <div class="mat-stat-inline">&lt;1% <span>выцветание за 10 лет</span></div>
+            <span class="stat-key">Выцветание за 10 лет</span>
+            <div class="stat-hero">&lt;<span class="counter" data-target="1" data-counted="false">0</span><span class="unit">%</span></div>
+            <span class="stat-type">Карбоновая тонировка</span>
           </div>
           <div class="col-md-4">
-            <h5 class="mb-3 mt-0 text-uppercase">RAYNO<br>MONOCARBON</h5>
+            <div class="swatch monocarbon" aria-label="Образец Monocarbon">
+              <span class="swatch-brand">RAYNO</span>
+              <span class="swatch-label">Monocarbon · 35%</span>
+            </div>
           </div>
           <div class="col-md-4">
-            <p>Наночастицы углерода вместо красителей. Стабильный угольно-чёрный цвет на десятилетия. Без металлов — не глушит сигналы.</p>
-            <a href="/monocarbon" class="mat-detail-link">Подробнее →</a>
+            <p class="product-text">Наночастицы углерода вместо красителей. Стабильный угольно-чёрный цвет на десятилетия. Без металлов — не глушит сигналы.</p>
+            <div class="row-actions">
+              <a href="/monocarbon" class="more-link">Подробнее <span class="arrow">→</span></a>
+            </div>
           </div>
         </div>
+
         <!-- Centum -->
-        <div class="row-experience row justify-content-between" data-aos="fade-up">
+        <div class="row-experience row align-items-center justify-content-between" data-aos="fade-up">
           <div class="col-md-4">
-            <div class="mat-type-label">Атермальная нанокерамика</div>
-            <div class="mat-stat-inline">99% <span>блокировка ИК-излучения</span></div>
+            <span class="stat-key">Блокировка ИК-излучения</span>
+            <div class="stat-hero"><span class="counter" data-target="99" data-counted="false">0</span><span class="unit">%</span></div>
+            <span class="stat-type">Атермальная нанокерамика</span>
           </div>
           <div class="col-md-4">
-            <h5 class="mb-3 mt-0 text-uppercase">RAYNO<br>CENTUM</h5>
+            <div class="swatch centum" aria-label="Образец Centum">
+              <span class="swatch-brand">RAYNO</span>
+              <span class="swatch-label">Centum · 80%</span>
+            </div>
           </div>
           <div class="col-md-4">
-            <p>Блокирует тепло, пропускает свет. Прозрачная защита от жары для лобового стекла. Соответствует ГОСТу.</p>
-            <a href="/centum" class="mat-detail-link">Подробнее →</a>
+            <p class="product-text">Блокирует тепло, пропускает свет. Прозрачная защита от жары для лобового стекла. Соответствует ГОСТу.</p>
+            <div class="row-actions">
+              <a href="/centum" class="more-link">Подробнее <span class="arrow">→</span></a>
+            </div>
           </div>
         </div>
+
         <!-- Crystal Shield -->
-        <div class="row-experience row justify-content-between" data-aos="fade-up">
+        <div class="row-experience row align-items-center justify-content-between" data-aos="fade-up">
           <div class="col-md-4">
-            <div class="mat-type-label">Защитная бронеплёнка</div>
-            <div class="mat-stat-inline">120 мкм <span>толщина защиты</span></div>
+            <span class="stat-key">Толщина защиты</span>
+            <div class="stat-hero"><span class="counter" data-target="120" data-counted="false">0</span><span class="unit">мкм</span></div>
+            <span class="stat-type">Защитная бронеплёнка</span>
           </div>
           <div class="col-md-4">
-            <h5 class="mb-3 mt-0 text-uppercase">RAYNO<br>CRYSTAL SHIELD</h5>
+            <div class="swatch crystal" aria-label="Образец Crystal Shield">
+              <span class="swatch-brand">RAYNO</span>
+              <span class="swatch-label">Crystal Shield</span>
+            </div>
           </div>
           <div class="col-md-4">
-            <p>Защита лобового стекла от сколов и дорожного мусора. Наносится снаружи. Прозрачная — не заметна на стекле.</p>
-            <a href="/crystal-shield" class="mat-detail-link">Подробнее →</a>
+            <p class="product-text">Защита лобового стекла от сколов и дорожного мусора. Наносится снаружи. Прозрачная — не заметна на стекле.</p>
+            <div class="row-actions">
+              <a href="/crystal-shield" class="more-link">Подробнее <span class="arrow">→</span></a>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
 
-  <!-- 3D-СИМУЛЯТОР ТОНИРОВКИ — CTA -->
-  <section id="tint-simulator" class="section tint-cta">
-    <div class="container">
-      <div class="tint-cta__card" data-aos="fade-up">
-        <div class="tint-cta__copy">
-          <span class="tint-cta__eyebrow">Интерактивно · 3D</span>
-          <h2 class="tint-cta__title">Подберите тонировку <span class="mark"><span>в&nbsp;3D</span></span></h2>
-          <p class="tint-cta__lead">Выберите материал и процент светопропускания, поверните машину со всех сторон, сравните «до» и «после». Полноценный 3D-симулятор открывается отдельной страницей.</p>
-          <a href="https://3d.ze-studio48.ru" class="tint-cta__btn" rel="noopener">
-            <span>Открыть 3D-симулятор</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+  <!-- 3D-СИМУЛЯТОР ТОНИРОВКИ — заглушка с видео-loop'ом до запуска отдельного 3D-домена -->
+  <section id="tint-simulator" class="simulator-3d" style="padding-top:0">
+    <div class="container-fluid">
+      <div class="sim-card light" data-aos="fade-up">
+
+        <div class="sim-text">
+          <span class="sim-eyebrow"><span class="dot"></span>Интерактивно · 3D</span>
+          <h2>Подберите<br>тонировку <span class="accent">в&nbsp;3D</span></h2>
+          <p class="sim-desc">Подберите оптимальный VLT и материал плёнки на 3D-модели вашего класса автомобиля. Сразу видно, как меняется салон и видимость снаружи.</p>
+
+          <a href="https://3d.ze-studio48.ru" class="sim-cta" rel="noopener">
+            Открыть 3D-симулятор
+            <span class="arrow">→</span>
           </a>
-          <ul class="tint-cta__bullets">
-            <li>3 материала Rayno: MonoCarbon, Centum, Crystal Shield</li>
-            <li>Регулируемый VLT: 5 / 15 / 35 / 50 / 80&nbsp;%</li>
-            <li>Раздельная тонировка передней и задней зоны</li>
-          </ul>
         </div>
-        <div class="tint-cta__visual" aria-hidden="true">
-          <div class="tint-cta__visual-frame">
-            <div class="tint-cta__glow"></div>
-            <div class="tint-cta__device">
-              <div class="tint-cta__device-bar"></div>
-              <div class="tint-cta__device-screen">
-                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" class="tint-cta__car">
-                  <defs>
-                    <linearGradient id="tcBody" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0" stop-color="#2a2d33"/>
-                      <stop offset="1" stop-color="#0f1014"/>
-                    </linearGradient>
-                    <linearGradient id="tcGlass" x1="0" x2="1" y1="0" y2="0">
-                      <stop offset="0" stop-color="#161a22" stop-opacity="0.95"/>
-                      <stop offset="1" stop-color="#0a0c10" stop-opacity="0.7"/>
-                    </linearGradient>
-                  </defs>
-                  <ellipse cx="160" cy="170" rx="120" ry="10" fill="#000" opacity="0.45"/>
-                  <path d="M40 140 Q60 90 110 80 L210 80 Q260 90 280 140 Z" fill="url(#tcBody)"/>
-                  <path d="M95 95 Q120 70 165 70 L210 70 Q235 75 250 100 Z" fill="url(#tcGlass)"/>
-                  <path d="M155 70 L155 100" stroke="#3a414c" stroke-width="1.5"/>
-                  <circle cx="92" cy="148" r="22" fill="#0a0a0c"/>
-                  <circle cx="92" cy="148" r="11" fill="#1a1d22"/>
-                  <circle cx="228" cy="148" r="22" fill="#0a0a0c"/>
-                  <circle cx="228" cy="148" r="11" fill="#1a1d22"/>
-                </svg>
-              </div>
-            </div>
-            <span class="tint-cta__hint">3D · MonoCarbon · 35&nbsp;%</span>
+
+        <div class="sim-stage">
+          <div class="car-wrap">
+            <video class="sim-video" autoplay muted loop playsinline preload="metadata" poster="img/tint-hero-poster.jpg">
+              <source src="img/tint-hero.webm" type="video/webm">
+              <source src="img/tint-hero.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1068,6 +1081,7 @@
   <script src="js/custom.js"></script>
   <script src="js/contact-form.js?v=workersfix1"></script>
   <script src="js/yandex-goals.js"></script>
+  <script src="js/sections-redesign.js?v=handoff-2026-04-29"></script>
 
   <script>
     // News Carousel Navigation

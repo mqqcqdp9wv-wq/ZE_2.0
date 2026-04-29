@@ -18,24 +18,12 @@ interface ControlPanelProps {
 
 const MATERIAL_KEYS: MaterialKey[] = Object.keys(TINT_CONFIG) as MaterialKey[];
 
-/** Подпись над группой контролов: «① Зона», «② Плёнка», «③ Светопропускание» */
-function StepLabel({ num, children }: { num: number; children: React.ReactNode }) {
+/** Подпись над группой контролов: «Зона», «Плёнка», «Светопропускание» */
+function GroupLabel({ children }: { children: React.ReactNode }) {
     return (
-        <div className="flex items-center gap-1.5 select-none">
-            <span
-                className="flex items-center justify-center w-3.5 h-3.5 rounded-full text-[8px] font-bold leading-none"
-                style={{
-                    background: "rgba(35,165,146,0.18)",
-                    color: "#23a592",
-                    border: "1px solid rgba(35,165,146,0.4)",
-                }}
-            >
-                {num}
-            </span>
-            <span className="text-[8px] font-semibold uppercase tracking-[0.2em] text-white/45">
-                {children}
-            </span>
-        </div>
+        <span className="text-[8px] font-semibold uppercase tracking-[0.22em] text-white/40 select-none">
+            {children}
+        </span>
     );
 }
 
@@ -170,7 +158,7 @@ export function ControlPanel({
                     <div className="flex items-end justify-center gap-3 sm:gap-4">
                         {/* ── 1. ЗОНА ── */}
                         <div className="flex flex-col items-center gap-1.5">
-                            <StepLabel num={1}>Зона</StepLabel>
+                            <GroupLabel>Зона</GroupLabel>
                             <div className="flex gap-1 bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-lg p-0.5">
                                 {(["front", "rear"] as const).map((z) => {
                                     const active = zone === z;
@@ -196,7 +184,7 @@ export function ControlPanel({
                         {/* ── 2. ПЛЁНКА ── */}
                         {MATERIAL_KEYS.length > 1 && (
                             <div className="flex flex-col items-center gap-1.5">
-                                <StepLabel num={2}>Плёнка</StepLabel>
+                                <GroupLabel>Плёнка</GroupLabel>
                                 <div className="flex gap-1 bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-lg p-0.5">
                                     {MATERIAL_KEYS.map((key) => {
                                         const mat    = TINT_CONFIG[key];
@@ -226,7 +214,7 @@ export function ControlPanel({
 
                     {/* ── 3. СВЕТО% ── */}
                     <div className="flex flex-col items-center gap-1.5">
-                        <StepLabel num={3}>Светопропускание</StepLabel>
+                        <GroupLabel>Светопропускание</GroupLabel>
                         <div className="flex items-center justify-center gap-1 sm:gap-1.5 flex-wrap">
                             {config.levels.map((lvl) => {
                                 const active = activeVlt === lvl.vlt;
@@ -234,20 +222,12 @@ export function ControlPanel({
                                     <button
                                         key={lvl.vlt}
                                         onClick={() => handleVltChange(lvl.vlt)}
-                                        className="relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-all duration-200"
+                                        className="relative flex items-center justify-center min-w-[48px] px-3 py-1.5 rounded-lg transition-all duration-200"
                                         style={{
                                             background: active ? "rgba(35,165,146,0.22)" : "transparent",
                                             border:     active ? "1.5px solid rgba(35,165,146,0.85)" : "1.5px solid rgba(255,255,255,0.08)",
                                         }}
                                     >
-                                        <div
-                                            className="w-3 h-3 rounded-full shrink-0"
-                                            style={{
-                                                background: lvl.color,
-                                                border: "1px solid rgba(255,255,255,0.4)",
-                                                boxShadow: active ? "0 0 0 2px rgba(35,165,146,0.35)" : "none",
-                                            }}
-                                        />
                                         <span
                                             className="text-[13px] font-bold transition-colors"
                                             style={{ color: active ? "#23a592" : "rgba(255,255,255,0.65)" }}
@@ -258,13 +238,13 @@ export function ControlPanel({
                                 );
                             })}
 
-                            {/* Info toggle */}
+                            {/* Info toggle — тот же стиль что у VLT-кнопок, иконка-«i» вместо процентов */}
                             <button
                                 onClick={() => setInfoOpen((o) => !o)}
-                                className="flex items-center justify-center w-9 h-9 rounded-lg backdrop-blur-md transition-all duration-200 ml-0.5"
+                                className="flex items-center justify-center px-2 py-1.5 rounded-lg transition-all duration-200 ml-0.5"
                                 style={{
-                                    background: infoOpen ? "rgba(35,165,146,0.22)" : "rgba(255,255,255,0.06)",
-                                    border:     infoOpen ? "1.5px solid rgba(35,165,146,0.85)" : "1.5px solid rgba(255,255,255,0.12)",
+                                    background: infoOpen ? "rgba(35,165,146,0.22)" : "transparent",
+                                    border:     infoOpen ? "1.5px solid rgba(35,165,146,0.85)" : "1.5px solid rgba(255,255,255,0.08)",
                                 }}
                                 aria-label="Информация о плёнке"
                             >

@@ -281,37 +281,21 @@
             </div>
           </div>
           <div class="col-md-5 offset-lg-2" data-aos="fade-in" data-aos-delay="50">
-            <div class="ze-meter" data-delay="0">
-              <div class="ze-meter__head">
-                <span class="ze-meter__label">Многолетний опыт</span>
-                <span class="ze-meter__value">0%</span>
-              </div>
-              <div class="ze-meter__track">
-                <div class="ze-meter__fill"></div>
-                <div class="ze-meter__comet"></div>
+            <h6 class="mt-0 text-uppercase">МНОГОЛЕТНИЙ ОПЫТ</h6>
+            <div class="progress mb-5">
+              <div class="progress-bar" role="progressbar" data-aos="width" style="width: 100%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100">
               </div>
             </div>
-
-            <div class="ze-meter" data-delay="220">
-              <div class="ze-meter__head">
-                <span class="ze-meter__label">Персональный подход</span>
-                <span class="ze-meter__value">0%</span>
-              </div>
-              <div class="ze-meter__track">
-                <div class="ze-meter__fill"></div>
-                <div class="ze-meter__comet"></div>
-              </div>
+            <h6 class="text-uppercase">ПЕРСОНАЛЬНЫЙ ПОДХОД</h6>
+            <div class="progress mb-5">
+              <div class="progress-bar" role="progressbar" data-aos="width" style="width: 100%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-
-            <div class="ze-meter" data-delay="440">
-              <div class="ze-meter__head">
-                <span class="ze-meter__label">Гарантия качества</span>
-                <span class="ze-meter__value">0%</span>
-              </div>
-              <div class="ze-meter__track">
-                <div class="ze-meter__fill"></div>
-                <div class="ze-meter__comet"></div>
-              </div>
+            <h6 class="text-uppercase">ГАРАНТИЯ КАЧЕСТВА</h6>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" data-aos="width" style="width: 100%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
         </div>
@@ -1474,44 +1458,6 @@
         btn.classList.toggle('visible', window.scrollY > 400);
       });
     })();
-  </script>
-
-  <!-- ze-meter: анимация прогресс-баров в секции About -->
-  <script>
-  (function(){
-    if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('.ze-meter').forEach(el=>{
-        el.classList.add('in-view','done');
-        const v = el.querySelector('.ze-meter__value');
-        if (v) v.textContent = '100%';
-      });
-      return;
-    }
-    const animateValue = (el, dur=1400) => {
-      const t0 = performance.now();
-      const step = (t) => {
-        const p = Math.min((t - t0) / dur, 1);
-        el.textContent = Math.round(p * 100) + '%';
-        if (p < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    };
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if (!e.isIntersecting) return;
-        const el = e.target;
-        const delay = +el.dataset.delay || 0;
-        setTimeout(()=>{
-          el.classList.add('in-view');
-          const v = el.querySelector('.ze-meter__value');
-          if (v) animateValue(v);
-          setTimeout(()=>el.classList.add('done'), 1500);
-        }, delay);
-        io.unobserve(el);
-      });
-    }, { threshold:.4 });
-    document.querySelectorAll('.ze-meter').forEach(el => io.observe(el));
-  })();
   </script>
 
 </body>

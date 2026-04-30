@@ -357,7 +357,7 @@
    scale(1.06) скрывает водяной знак Veo за маской по краям видео. */
 .sim-card.light .sim-video,
 .sim-card.light .video-placeholder{
-  transform:translateZ(0) scale(1.06);
+  transform:translateZ(0) scale(1.10);
   transform-origin:center center;
   -webkit-backface-visibility:hidden;
   backface-visibility:hidden;

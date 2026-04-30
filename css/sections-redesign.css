@@ -674,24 +674,27 @@ section.bg-light .btn:active{
   }
 }
 
-/* ─── Бирюзовый фонарик в тёмной CTA «ПОЗВОНИТЬ» ─── */
+/* ─── Бирюзовый фонарик в тёмной CTA «ПОЗВОНИТЬ» (бегущий блик) ─── */
 .btn-below-primary,
 .hero-desktop-btn.filled{
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  /* border-radius наследуется из unified-блока (4px) — кнопка остаётся квадратной */
 }
 .btn-below-primary::before,
 .hero-desktop-btn.filled::before{
   content: "";
   position: absolute;
-  top: -50%; left: -30%;
-  width: 50%; height: 200%;
+  top: -60%; left: -40%;
+  width: 70%; height: 220%;
   background: radial-gradient(ellipse at center,
-    rgba(35,165,146,.65) 0%,
-    rgba(35,165,146,.30) 40%,
-    transparent 70%);
-  filter: blur(20px);
+    rgba(60,210,190,1) 0%,
+    rgba(35,165,146,.85) 30%,
+    rgba(35,165,146,.40) 55%,
+    transparent 75%);
+  filter: blur(14px);
+  mix-blend-mode: screen;
   animation: ze-beam 4s linear infinite;
   pointer-events: none;
   z-index: 0;

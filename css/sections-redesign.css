@@ -353,10 +353,12 @@
   will-change:transform;
 }
 
-/* Видео внутри маски — тоже на GPU, чтобы границы маски и видео двигались синхронно */
+/* Видео внутри маски — тоже на GPU, чтобы границы маски и видео двигались синхронно.
+   scale(1.06) скрывает водяной знак Veo за маской по краям видео. */
 .sim-card.light .sim-video,
 .sim-card.light .video-placeholder{
-  transform:translateZ(0);
+  transform:translateZ(0) scale(1.06);
+  transform-origin:center center;
   -webkit-backface-visibility:hidden;
   backface-visibility:hidden;
 }

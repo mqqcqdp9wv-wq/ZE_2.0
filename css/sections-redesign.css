@@ -682,6 +682,68 @@ section.bg-light .btn:active{
   color: #ffffff !important;
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   АНИМАЦИИ ИКОНОК В CTA-КНОПКАХ
+   Все ненавязчивые: короткая фаза «жест», потом длинная пауза.
+   prefers-reduced-motion отключает всё — уважаем системную настройку.
+   ────────────────────────────────────────────────────────────────── */
+
+/* ПОЗВОНИТЬ — трубка «звонит»: качание -12°/+12° с паузой 5 сек */
+@keyframes phone-ring{
+  0%, 65%, 100% { transform: rotate(0deg); }
+  68%, 78% { transform: rotate(-14deg); }
+  72%, 76% { transform: rotate(14deg); }
+  82% { transform: rotate(-8deg); }
+  86% { transform: rotate(8deg); }
+  90% { transform: rotate(0deg); }
+}
+.hero-desktop-btn.filled ion-icon[name="call-outline"],
+.hero-cta-below-video .btn-below-primary ion-icon[name="call-outline"]{
+  display: inline-block;
+  transform-origin: 50% 70%;
+  animation: phone-ring 4.5s ease-in-out infinite;
+}
+
+/* НАПИСАТЬ — письмо «дышит»: мягкий float вверх-вниз 3.5 сек */
+@keyframes mail-float{
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2.5px); }
+}
+section.bg-light .btn ion-icon[name="mail-outline"]{
+  display: inline-block;
+  animation: mail-float 3.5s ease-in-out infinite;
+}
+
+/* СИМУЛЯТОР 3D — куб медленно вращается (3D-метафора) */
+@keyframes cube-spin{
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+.sim-card.light .sim-cta ion-icon[name="cube-outline"]{
+  display: inline-block;
+  animation: cube-spin 6s linear infinite;
+  /* perspective создаёт ощущение объёма у плоской иконки */
+  transform-style: preserve-3d;
+}
+
+/* На hover все анимации замирают — пользователь сосредоточен на действии */
+.hero-desktop-btn.filled:hover ion-icon[name="call-outline"],
+.hero-cta-below-video .btn-below-primary:hover ion-icon[name="call-outline"],
+section.bg-light .btn:hover ion-icon[name="mail-outline"],
+.sim-card.light .sim-cta:hover ion-icon[name="cube-outline"]{
+  animation-play-state: paused;
+}
+
+/* Уважаем настройку «уменьшить движение» */
+@media (prefers-reduced-motion: reduce){
+  .hero-desktop-btn.filled ion-icon,
+  .hero-cta-below-video .btn-below-primary ion-icon,
+  section.bg-light .btn ion-icon,
+  .sim-card.light .sim-cta ion-icon{
+    animation: none !important;
+  }
+}
+
 /* На мобильных <420px — слегка сужаем чтобы влезало в столбец */
 @media (max-width: 420px){
   .hero-desktop-btn,

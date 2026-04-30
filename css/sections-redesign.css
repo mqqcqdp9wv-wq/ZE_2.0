@@ -686,16 +686,17 @@ section.bg-light .btn:active{
 .hero-desktop-btn.filled::before{
   content: "";
   position: absolute;
-  top: -60%; left: -40%;
-  width: 70%; height: 220%;
+  top: -50%; left: -90%;
+  width: 90%; height: 200%;
   background: radial-gradient(ellipse at center,
-    rgba(60,210,190,1) 0%,
-    rgba(35,165,146,.85) 30%,
-    rgba(35,165,146,.40) 55%,
-    transparent 75%);
-  filter: blur(14px);
+    rgba(80,230,210,1) 0%,
+    rgba(35,165,146,.90) 25%,
+    rgba(35,165,146,.45) 50%,
+    rgba(35,165,146,.15) 70%,
+    transparent 85%);
+  filter: blur(10px);
   mix-blend-mode: screen;
-  animation: ze-beam 4s linear infinite;
+  animation: ze-beam 5s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
 }
@@ -706,10 +707,10 @@ section.bg-light .btn:active{
   z-index: 1;
 }
 @keyframes ze-beam{
-  0%   { transform: translateX(-100%); opacity: 0; }
-  15%  { opacity: 1; }
-  85%  { opacity: 1; }
-  100% { transform: translateX(380%);  opacity: 0; }
+  0%   { transform: translateX(0%);    opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(200%);  opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce){
   .btn-below-primary::before,

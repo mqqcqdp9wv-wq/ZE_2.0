@@ -649,6 +649,41 @@ section.bg-light .btn:active{
   border-color: transparent !important;
 }
 
+/* На мобильном — жёстко прячем все pseudo-элементы вокруг sim-cta
+   и над .sim-card, чтобы они не давали белые полоски/градиенты. */
+@media (max-width: 780px){
+  .sim-card::before,
+  .sim-card::after,
+  .sim-card.light::before,
+  .sim-card.light::after,
+  .sim-card.light .sim-cta::before,
+  .sim-card.light .sim-cta::after,
+  .sim-card.light .sim-text::before,
+  .sim-card.light .sim-text::after{
+    display: none !important;
+    content: none !important;
+    background: none !important;
+  }
+
+  /* .sim-card имеет overflow:hidden — на мобильном он обрезал
+     левый border-radius у кнопки СИМУЛЯТОР, потому что кнопка
+     с min-width:200px упиралась в левый край контейнера.
+     Снимаем overflow и центрируем кнопку с воздухом по бокам. */
+  .sim-card.light{
+    overflow: visible !important;
+  }
+  .sim-card.light .sim-text{
+    align-items: center !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .sim-card.light .sim-cta{
+    align-self: center !important;
+    min-width: 0 !important;
+    max-width: calc(100% - 32px) !important;
+  }
+}
+
 /* ── OUTLINE (светлая стеклянная): ВКОНТАКТЕ ── */
 .hero-desktop-btn.outline,
 .hero-cta-below-video .btn-below-secondary{

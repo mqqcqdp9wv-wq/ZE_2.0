@@ -815,8 +815,10 @@ ion-icon{
   .navbar-mobile{ background: rgba(10,10,10,.92); }
 }
 
-/* Аурора — три бегущих по диагонали бирюзовых «фонарика» */
-.navbar-mobile .aurora{
+/* Аурора — три бегущих по диагонали бирюзовых «фонарика».
+   Временно отключена — пробуем чистое стекло над видео-фоном hero. */
+.navbar-mobile .aurora{ display: none; }
+.navbar-mobile .aurora-disabled{
   position: absolute; inset: 0;
   z-index: -1;
   overflow: hidden;

@@ -688,42 +688,48 @@ section.bg-light .btn:active{
    prefers-reduced-motion отключает всё — уважаем системную настройку.
    ────────────────────────────────────────────────────────────────── */
 
-/* ПОЗВОНИТЬ — трубка «звонит»: качание -12°/+12° с паузой 5 сек */
+/* ПОЗВОНИТЬ — трубка «звонит»: серия покачиваний ±20°, потом пауза */
 @keyframes phone-ring{
-  0%, 65%, 100% { transform: rotate(0deg); }
-  68%, 78% { transform: rotate(-14deg); }
-  72%, 76% { transform: rotate(14deg); }
-  82% { transform: rotate(-8deg); }
-  86% { transform: rotate(8deg); }
-  90% { transform: rotate(0deg); }
+  0%, 50%, 100% { transform: rotate(0deg); }
+  5%  { transform: rotate(-22deg); }
+  10% { transform: rotate(22deg); }
+  15% { transform: rotate(-18deg); }
+  20% { transform: rotate(18deg); }
+  25% { transform: rotate(-14deg); }
+  30% { transform: rotate(14deg); }
+  35% { transform: rotate(-8deg); }
+  40% { transform: rotate(8deg); }
+  45% { transform: rotate(0deg); }
 }
 .hero-desktop-btn.filled ion-icon[name="call-outline"],
 .hero-cta-below-video .btn-below-primary ion-icon[name="call-outline"]{
-  display: inline-block;
+  display: inline-block !important;
   transform-origin: 50% 70%;
-  animation: phone-ring 4.5s ease-in-out infinite;
+  will-change: transform;
+  animation: phone-ring 2.4s ease-in-out infinite;
 }
 
-/* НАПИСАТЬ — письмо «дышит»: мягкий float вверх-вниз 3.5 сек */
+/* НАПИСАТЬ — письмо «отправляется»: float вверх + scale + лёгкий fade */
 @keyframes mail-float{
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-2.5px); }
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.08); }
 }
 section.bg-light .btn ion-icon[name="mail-outline"]{
-  display: inline-block;
-  animation: mail-float 3.5s ease-in-out infinite;
+  display: inline-block !important;
+  will-change: transform;
+  animation: mail-float 2s ease-in-out infinite;
 }
 
-/* СИМУЛЯТОР 3D — куб медленно вращается (3D-метафора) */
+/* СИМУЛЯТОР 3D — куб вращается в плоскости + лёгкий tilt (видно сразу) */
 @keyframes cube-spin{
-  from { transform: rotateY(0deg); }
-  to   { transform: rotateY(360deg); }
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.12); }
+  100% { transform: rotate(360deg) scale(1); }
 }
 .sim-card.light .sim-cta ion-icon[name="cube-outline"]{
-  display: inline-block;
-  animation: cube-spin 6s linear infinite;
-  /* perspective создаёт ощущение объёма у плоской иконки */
-  transform-style: preserve-3d;
+  display: inline-block !important;
+  will-change: transform;
+  animation: cube-spin 3s linear infinite;
 }
 
 /* На hover все анимации замирают — пользователь сосредоточен на действии */

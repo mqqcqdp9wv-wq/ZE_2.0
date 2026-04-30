@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="32" fill="#23a592"/>
+  <text x="32" y="44" text-anchor="middle"
+        font-family="Montserrat, system-ui, -apple-system, sans-serif"
+        font-weight="800" font-size="38"
+        fill="#ffffff"
+        letter-spacing="-1.5">ze</text>
+</svg>

@@ -23,7 +23,6 @@ export const metadata: Metadata = {
         locale: "ru_RU",
         type: "website",
     },
-    icons: { icon: "/favicon.ico" },
 };
 
 export const viewport = {

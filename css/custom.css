@@ -1906,4 +1906,69 @@ section#services.bg-gray .text-primary {
   transform: translate3d(0, 0, 0) scale(1);
 }
 
+/* ─── ze-meter: пустая дорожка → бирюзовая комета → залитая полоска + счётчик 0→100% ─── */
+.ze-meter{ margin-bottom: 28px; }
+.ze-meter__head{
+  display:flex; justify-content:space-between; align-items:baseline;
+  margin-bottom: 10px;
+}
+.ze-meter__label{
+  font-family:'Montserrat',sans-serif;
+  font-size:11px; font-weight:600;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:#343434;
+}
+.ze-meter__value{
+  font-family:'Montserrat',sans-serif;
+  font-size:11px; font-weight:700;
+  color:#23a592;
+  font-variant-numeric: tabular-nums;
+  letter-spacing:.04em;
+}
+.ze-meter__track{
+  position:relative;
+  height:4px; background:#ececec; border-radius:2px;
+  overflow:hidden;
+}
+.ze-meter__fill{
+  position:absolute; left:0; top:0; bottom:0;
+  width:100%;
+  background:#23a592;
+  border-radius:2px;
+  transform:scaleX(0); transform-origin:left;
+  transition:transform 1.4s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 0 12px rgba(35,165,146,.35);
+}
+.ze-meter__comet{
+  position:absolute; top:50%; left:0;
+  width:14px; height:14px;
+  margin-top:-7px;
+  border-radius:50%;
+  background:radial-gradient(circle, #78e6d2 0%, #23a592 45%, transparent 75%);
+  filter:blur(1px);
+  box-shadow:0 0 18px rgba(35,165,146,.85), 0 0 36px rgba(35,165,146,.4);
+  opacity:0;
+  transform:translateX(-7px);
+  transition:transform 1.4s cubic-bezier(.2,.8,.2,1), opacity .3s ease;
+}
+.ze-meter.in-view .ze-meter__fill{ transform:scaleX(1); }
+.ze-meter.in-view .ze-meter__comet{
+  opacity:1;
+  transform:translateX(calc(100% - 7px));
+}
+/* после финиша огонёк мягко пульсирует */
+.ze-meter.done .ze-meter__comet{
+  animation: ze-meter-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ze-meter-pulse{
+  0%,100% { box-shadow:0 0 14px rgba(35,165,146,.65), 0 0 28px rgba(35,165,146,.3); }
+  50%     { box-shadow:0 0 22px rgba(35,165,146,.95), 0 0 44px rgba(35,165,146,.5); }
+}
+@media (prefers-reduced-motion: reduce){
+  .ze-meter__fill{ transition:none; transform:scaleX(1); }
+  .ze-meter__comet{ display:none; }
+}
 
+
+
+/* ─── ze-meter: пустая дорожка → бирюзовая комета → залитая полоска + счётчик 0→100

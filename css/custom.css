@@ -1928,7 +1928,18 @@ section#services.bg-gray .text-primary {
 .ze-meter__track{
   position:relative;
   height:4px; background:#ececec; border-radius:2px;
-  overflow:hidden;
+  overflow:visible; /* чтобы точки на концах вылазили за границы полоски */
+}
+/* Левая статичная точка — стартовая, видна сразу */
+.ze-meter__track::before{
+  content:"";
+  position:absolute; top:50%; left:-3px;
+  width:10px; height:10px;
+  margin-top:-5px;
+  border-radius:50%;
+  background:#23a592;
+  box-shadow:0 0 10px rgba(35,165,146,.6);
+  z-index:2;
 }
 .ze-meter__fill{
   position:absolute; left:0; top:0; bottom:0;
@@ -1939,6 +1950,7 @@ section#services.bg-gray .text-primary {
   transition:transform 1.4s cubic-bezier(.2,.8,.2,1);
   box-shadow:0 0 12px rgba(35,165,146,.35);
 }
+/* Комета — бежит с фронтом полоски во время заливки */
 .ze-meter__comet{
   position:absolute; top:50%; left:0;
   width:14px; height:14px;
@@ -1950,23 +1962,49 @@ section#services.bg-gray .text-primary {
   opacity:0;
   transform:translateX(-7px);
   transition:transform 1.4s cubic-bezier(.2,.8,.2,1), opacity .3s ease;
+  z-index:3;
 }
 .ze-meter.in-view .ze-meter__fill{ transform:scaleX(1); }
 .ze-meter.in-view .ze-meter__comet{
   opacity:1;
   transform:translateX(calc(100% - 7px));
 }
-/* после финиша огонёк мягко пульсирует */
+/* После финиша обе точки (стартовая слева и комета справа) пульсируют */
+.ze-meter.done .ze-meter__track::before,
 .ze-meter.done .ze-meter__comet{
-  animation: ze-meter-pulse 2.4s ease-in-out infinite;
+  animation: ze-meter-pulse 1.8s ease-in-out infinite;
+}
+.ze-meter.done .ze-meter__track::before{
+  animation-delay: -.9s; /* противофаза с правой точкой — мерцают по очереди */
 }
 @keyframes ze-meter-pulse{
-  0%,100% { box-shadow:0 0 14px rgba(35,165,146,.65), 0 0 28px rgba(35,165,146,.3); }
-  50%     { box-shadow:0 0 22px rgba(35,165,146,.95), 0 0 44px rgba(35,165,146,.5); }
+  0%,100% {
+    transform: translateX(calc(100% - 7px)) scale(1);
+    box-shadow:0 0 12px rgba(35,165,146,.55), 0 0 24px rgba(35,165,146,.25);
+  }
+  50% {
+    transform: translateX(calc(100% - 7px)) scale(1.25);
+    box-shadow:0 0 22px rgba(35,165,146,.95), 0 0 44px rgba(35,165,146,.55);
+  }
+}
+/* Левая точка пульсирует НА МЕСТЕ — без translateX */
+@keyframes ze-meter-pulse-left{
+  0%,100% {
+    transform: scale(1);
+    box-shadow:0 0 10px rgba(35,165,146,.55), 0 0 20px rgba(35,165,146,.25);
+  }
+  50% {
+    transform: scale(1.25);
+    box-shadow:0 0 18px rgba(35,165,146,.95), 0 0 36px rgba(35,165,146,.55);
+  }
+}
+.ze-meter.done .ze-meter__track::before{
+  animation: ze-meter-pulse-left 1.8s ease-in-out infinite -.9s;
 }
 @media (prefers-reduced-motion: reduce){
   .ze-meter__fill{ transition:none; transform:scaleX(1); }
   .ze-meter__comet{ display:none; }
+  .ze-meter__track::before{ animation:none !important; }
 }
 
 

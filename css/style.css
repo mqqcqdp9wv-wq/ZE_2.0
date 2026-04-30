@@ -791,20 +791,66 @@ ion-icon{
   width: 100%;
   height: 100%;
   z-index: 100;
-  background-color: #fff;
-  overflow-x: auto;
+  /* Tinted Glass — тёмное тонированное стекло, метафора плёнки */
+  background: rgba(10,10,10,0.62);
+  -webkit-backdrop-filter: blur(30px) saturate(1.6);
+  backdrop-filter: blur(30px) saturate(1.6);
+  box-shadow: inset 1px 0 0 rgba(255,255,255,.08), 0 0 50px rgba(0,0,0,0.4);
+  isolation: isolate;
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  display: -ms-flexbox;
-  box-shadow:0 0 50px rgba(0,0,0,0.1);
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   -o-transform: translateX(100%);
   transform: translateX(100%);
   display: flex;
   flex-direction: column;
-  -webkit-transition: all 0.6s ease;
-  -o-transition: all 0.6s ease;
-  transition: all 0.6s ease;
+  -webkit-transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+  -o-transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+  transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+}
+/* Fallback для старых iOS Safari без backdrop-filter */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
+  .navbar-mobile{ background: rgba(10,10,10,.92); }
+}
+
+/* Аурора — три бегущих по диагонали бирюзовых «фонарика» */
+.navbar-mobile .aurora{
+  position: absolute; inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.navbar-mobile .aurora .blob{
+  position: absolute;
+  width: 55%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: -30%; left: -30%;
+  filter: blur(45px);
+  mix-blend-mode: screen;
+  will-change: transform;
+  background: radial-gradient(circle, rgba(35,165,146,.85) 0%, rgba(35,165,146,.45) 35%, transparent 65%);
+  animation: aurora-beam 6s linear infinite;
+}
+.navbar-mobile .aurora .b1{ animation-delay: 0s; }
+.navbar-mobile .aurora .b2{
+  animation-delay: -2s;
+  background: radial-gradient(circle, rgba(60,200,180,.80) 0%, rgba(60,200,180,.40) 35%, transparent 65%);
+}
+.navbar-mobile .aurora .b3{
+  animation-delay: -4s;
+  background: radial-gradient(circle, rgba(20,140,125,.85) 0%, rgba(20,140,125,.40) 35%, transparent 65%);
+}
+@keyframes aurora-beam{
+  0%   { transform: translate(0%, 0%) scale(.9); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate(180%, 200%) scale(1.1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .navbar-mobile .aurora .blob{ animation: none; opacity: .5; }
 }
 
 .navbar-mobile .social-icons{
@@ -816,12 +862,13 @@ ion-icon{
   right: 1rem;
   top:0.5rem;
   font-size: 3rem;
-  color: #343434;
-  transition:all 0.3s ease;
+  color: rgba(245,245,245,.55);
+  transition: color 0.2s ease;
   cursor: pointer;
 }
 
 .navbar-mobile .close:hover{
+  color: #f5f5f5;
   opacity: 1;
 }
 
@@ -848,12 +895,19 @@ ion-icon{
 }
 
 .navbar-nav-mobile li a{
-  color:#a7a7a7;
+  color: rgba(245,245,245,.65);
+  transition: color 0.2s ease;
 }
 
 .navbar-nav-mobile li .active,
 .navbar-nav-mobile  li a:hover{
-  color:#343434;
+  color: #f5f5f5;
+}
+
+.navbar-mobile-footer p{
+  color: rgba(245,245,245,.4);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .menu-is-open{

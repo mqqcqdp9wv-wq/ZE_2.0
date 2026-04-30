@@ -620,12 +620,12 @@ section.bg-light .btn:active{
   section.bg-light .btn{ background: #0a0a0a !important; }
 }
 
-/* ПОЗВОНИТЬ поверх hero-видео — сплошной чёрный без blur.
-   blur пропускал светлые кадры видео сквозь полупрозрачный фон,
-   кнопка выглядела серой. Убираем backdrop-filter и делаем фон
-   полностью непрозрачным. */
+/* Filled-кнопки поверх видео (ПОЗВОНИТЬ + СИМУЛЯТОР) —
+   сплошной чёрный без blur. blur пропускал светлые кадры
+   видео сквозь полупрозрачный фон, кнопки выглядели серыми. */
 .hero-desktop-btn.filled,
-.hero-cta-below-video .btn-below-primary{
+.hero-cta-below-video .btn-below-primary,
+.sim-card.light .sim-cta{
   background: #000000 !important;
   background-color: #000000 !important;
   -webkit-backdrop-filter: none !important;
@@ -636,7 +636,9 @@ section.bg-light .btn:active{
 .hero-desktop-btn.filled:hover,
 .hero-desktop-btn.filled:active,
 .hero-cta-below-video .btn-below-primary:hover,
-.hero-cta-below-video .btn-below-primary:active{
+.hero-cta-below-video .btn-below-primary:active,
+.sim-card.light .sim-cta:hover,
+.sim-card.light .sim-cta:focus{
   background: #23a592 !important;
   background-color: #23a592 !important;
 }
@@ -670,11 +672,14 @@ section.bg-light .btn:active{
   .hero-cta-below-video .btn-below-secondary{ background: rgba(255,255,255,0.92) !important; }
 }
 
-/* Стрелка в .sim-cta — нейтрализуем старый круглый бэкграунд */
-.sim-card.light .sim-cta .arrow{
-  width: auto !important; height: auto !important;
-  background: transparent !important; border-radius: 0 !important;
-  color: inherit !important; font-size: 14px !important; font-weight: 600 !important;
+/* «3D» внутри СИМУЛЯТОР — бирюзовый акцент, остальной текст белый */
+.sim-card.light .sim-cta .sim-cta-accent{
+  color: #23a592 !important;
+  font-weight: 700 !important;
+}
+.sim-card.light .sim-cta:hover .sim-cta-accent,
+.sim-card.light .sim-cta:focus .sim-cta-accent{
+  color: #ffffff !important;
 }
 
 /* На мобильных <420px — слегка сужаем чтобы влезало в столбец */

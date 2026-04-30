@@ -717,6 +717,47 @@ section.bg-light .btn:active{
   .hero-desktop-btn.filled::before{ animation: none; opacity: 0; }
 }
 
+/* ─── Тот же бирюзовый блик в ВКонтакте, в противофазе ───
+   Идея: пока на ПОЗВОНИТЬ блик в одной фазе цикла, на ВКонтакте
+   он в противоположной — свет визуально «передаётся» с одной
+   кнопки на другую. На белом стекле используем mix-blend-mode:
+   multiply (на белом → бирюзовое затемнение, на чёрной иконке
+   ВК фон обычно прозрачный → не мешает). */
+.btn-below-secondary,
+.hero-desktop-btn.outline{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-below-secondary::before,
+.hero-desktop-btn.outline::before{
+  content: "";
+  position: absolute;
+  top: -50%; left: -90%;
+  width: 90%; height: 200%;
+  background: radial-gradient(ellipse at center,
+    rgba(35,165,146,.55) 0%,
+    rgba(35,165,146,.35) 30%,
+    rgba(35,165,146,.18) 55%,
+    rgba(35,165,146,.05) 75%,
+    transparent 90%);
+  filter: blur(12px);
+  mix-blend-mode: multiply;
+  animation: ze-beam 5s ease-in-out infinite;
+  animation-delay: -2.5s; /* противофаза: ВК подсвечивается когда ПОЗВОНИТЬ темнеет */
+  pointer-events: none;
+  z-index: 0;
+}
+.btn-below-secondary > *,
+.hero-desktop-btn.outline > *{
+  position: relative;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce){
+  .btn-below-secondary::before,
+  .hero-desktop-btn.outline::before{ animation: none; opacity: 0; }
+}
+
 /* ── OUTLINE (светлая стеклянная): ВКОНТАКТЕ ── */
 .hero-desktop-btn.outline,
 .hero-cta-below-video .btn-below-secondary{

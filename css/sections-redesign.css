@@ -674,6 +674,45 @@ section.bg-light .btn:active{
   }
 }
 
+/* ─── Бирюзовый фонарик в тёмной CTA «ПОЗВОНИТЬ» ─── */
+.btn-below-primary,
+.hero-desktop-btn.filled{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-below-primary::before,
+.hero-desktop-btn.filled::before{
+  content: "";
+  position: absolute;
+  top: -50%; left: -30%;
+  width: 50%; height: 200%;
+  background: radial-gradient(ellipse at center,
+    rgba(35,165,146,.65) 0%,
+    rgba(35,165,146,.30) 40%,
+    transparent 70%);
+  filter: blur(20px);
+  animation: ze-beam 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+/* контент кнопки поверх фонарика */
+.btn-below-primary > *,
+.hero-desktop-btn.filled > *{
+  position: relative;
+  z-index: 1;
+}
+@keyframes ze-beam{
+  0%   { transform: translateX(-100%); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translateX(380%);  opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .btn-below-primary::before,
+  .hero-desktop-btn.filled::before{ animation: none; opacity: 0; }
+}
+
 /* ── OUTLINE (светлая стеклянная): ВКОНТАКТЕ ── */
 .hero-desktop-btn.outline,
 .hero-cta-below-video .btn-below-secondary{

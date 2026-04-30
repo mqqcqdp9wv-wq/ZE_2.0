@@ -572,13 +572,28 @@ section.bg-light .btn{
 .hero-cta-below-video .btn-below-primary,
 .sim-card.light .sim-cta,
 section.bg-light .btn{
-  background: rgba(10,10,10,0.85) !important;
+  background: rgba(0,0,0,0.92) !important;
   -webkit-backdrop-filter: blur(20px) saturate(1.5);
   backdrop-filter: blur(20px) saturate(1.5);
   border: 1px solid rgba(255,255,255,0.18) !important;
   box-shadow:
-    0 10px 28px rgba(0,0,0,0.40),
+    0 10px 28px rgba(0,0,0,0.45),
     inset 0 1px 0 rgba(255,255,255,0.14) !important;
+  color: #ffffff !important;
+}
+/* Иконки и стрелки внутри чёрных filled-кнопок — бирюзовый бренд-акцент */
+.hero-desktop-btn.filled ion-icon,
+.hero-cta-below-video .btn-below-primary ion-icon,
+.sim-card.light .sim-cta .arrow,
+section.bg-light .btn ion-icon{
+  color: #23a592 !important;
+  transition: color .3s ease !important;
+}
+/* На hover иконка остаётся бирюзовой (фон уже бирюзовый) — переход на белую */
+.hero-desktop-btn.filled:hover ion-icon,
+.hero-cta-below-video .btn-below-primary:hover ion-icon,
+.sim-card.light .sim-cta:hover .arrow,
+section.bg-light .btn:hover ion-icon{
   color: #ffffff !important;
 }
 .hero-desktop-btn.filled:hover,
@@ -602,7 +617,7 @@ section.bg-light .btn:active{
   .hero-desktop-btn.filled,
   .hero-cta-below-video .btn-below-primary,
   .sim-card.light .sim-cta,
-  section.bg-light .btn{ background: rgba(10,10,10,0.95) !important; }
+  section.bg-light .btn{ background: #0a0a0a !important; }
 }
 
 /* ── OUTLINE (светлая стеклянная): ВКОНТАКТЕ ── */

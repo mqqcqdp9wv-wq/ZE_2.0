@@ -531,12 +531,132 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   GLASS BUTTONS — стеклянные кнопки в едином стиле с мобильным меню.
-   Три варианта:
-   1) бирюзовое стекло — главная CTA «Связаться со мной»
-   2) тёмное стекло — primary поверх hero-видео (ПОЗВОНИТЬ)
-   3) светлое стекло — outline поверх hero-видео (ВКОНТАКТЕ)
+   UNIFIED CTA GLASS BUTTONS
+   Все 4 ключевые кнопки на сайте — одной формы/типографики.
+   Цвета по семантике: filled (чёрная) и outline (светлая).
    ────────────────────────────────────────────────────────────────── */
+
+/* ── База: форма + типографика для всех 4 кнопок ── */
+.hero-desktop-btn,
+.hero-cta-below-video .btn-below-primary,
+.hero-cta-below-video .btn-below-secondary,
+.sim-card.light .sim-cta,
+section.bg-light .btn{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-width: 200px !important;
+  height: 50px !important;
+  padding: 0 32px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  border-radius: 4px !important;
+  white-space: nowrap !important;
+  border: 1px solid transparent !important;
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease,
+    color .3s ease !important;
+  box-sizing: border-box !important;
+}
+
+/* ── FILLED (чёрные стеклянные): ПОЗВОНИТЬ, СИМУЛЯТОР, НАПИСАТЬ ── */
+.hero-desktop-btn.filled,
+.hero-cta-below-video .btn-below-primary,
+.sim-card.light .sim-cta,
+section.bg-light .btn{
+  background: rgba(10,10,10,0.85) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.40),
+    inset 0 1px 0 rgba(255,255,255,0.14) !important;
+  color: #ffffff !important;
+}
+.hero-desktop-btn.filled:hover,
+.hero-desktop-btn.filled:active,
+.hero-cta-below-video .btn-below-primary:hover,
+.hero-cta-below-video .btn-below-primary:active,
+.sim-card.light .sim-cta:hover,
+.sim-card.light .sim-cta:focus,
+section.bg-light .btn:hover,
+section.bg-light .btn:focus,
+section.bg-light .btn:active{
+  background: rgba(35,165,146,0.85) !important;
+  transform: translateY(-2px) !important;
+  box-shadow:
+    0 14px 36px rgba(35,165,146,0.40),
+    inset 0 1px 0 rgba(255,255,255,0.22) !important;
+  border-color: rgba(255,255,255,0.28) !important;
+  color: #ffffff !important;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
+  .hero-desktop-btn.filled,
+  .hero-cta-below-video .btn-below-primary,
+  .sim-card.light .sim-cta,
+  section.bg-light .btn{ background: rgba(10,10,10,0.95) !important; }
+}
+
+/* ── OUTLINE (светлая стеклянная): ВКОНТАКТЕ ── */
+.hero-desktop-btn.outline,
+.hero-cta-below-video .btn-below-secondary{
+  background: rgba(255,255,255,0.78) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255,255,255,0.65) !important;
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.30),
+    inset 0 1px 0 rgba(255,255,255,0.85) !important;
+  color: #0a0a0a !important;
+}
+.hero-desktop-btn.outline:hover,
+.hero-desktop-btn.outline:active,
+.hero-cta-below-video .btn-below-secondary:hover,
+.hero-cta-below-video .btn-below-secondary:active{
+  background: rgba(255,255,255,0.95) !important;
+  transform: translateY(-2px) !important;
+  box-shadow:
+    0 14px 36px rgba(0,0,0,0.40),
+    inset 0 1px 0 rgba(255,255,255,1) !important;
+  border-color: rgba(255,255,255,0.85) !important;
+  color: #0a0a0a !important;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
+  .hero-desktop-btn.outline,
+  .hero-cta-below-video .btn-below-secondary{ background: rgba(255,255,255,0.92) !important; }
+}
+
+/* Стрелка в .sim-cta — нейтрализуем старый круглый бэкграунд */
+.sim-card.light .sim-cta .arrow{
+  width: auto !important; height: auto !important;
+  background: transparent !important; border-radius: 0 !important;
+  color: inherit !important; font-size: 14px !important; font-weight: 600 !important;
+}
+
+/* На мобильных <420px — слегка сужаем чтобы влезало в столбец */
+@media (max-width: 420px){
+  .hero-desktop-btn,
+  .hero-cta-below-video .btn-below-primary,
+  .hero-cta-below-video .btn-below-secondary,
+  .sim-card.light .sim-cta,
+  section.bg-light .btn{
+    min-width: 180px !important;
+    padding: 0 24px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ─── НИЖЕ — старые правила оставлены для справки, но они не должны
+       перебивать unified-блок выше. Оставляю чтобы не плодить
+       merge-конфликты, но они уже не применяются. ─── */
 
 /* 1. Главная CTA «Написать» — бирюзовое стекло, форма как hero-desktop-btn */
 section.bg-light .btn{

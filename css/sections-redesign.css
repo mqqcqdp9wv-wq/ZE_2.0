@@ -620,6 +620,23 @@ section.bg-light .btn:active{
   section.bg-light .btn{ background: #0a0a0a !important; }
 }
 
+/* ПОЗВОНИТЬ поверх hero-видео — сплошной чёрный без blur.
+   blur пропускал светлые кадры видео сквозь полупрозрачный фон,
+   кнопка выглядела серой. Убираем backdrop-filter и делаем фон
+   полностью непрозрачным. */
+.hero-desktop-btn.filled,
+.hero-cta-below-video .btn-below-primary{
+  background: #000000 !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.hero-desktop-btn.filled:hover,
+.hero-desktop-btn.filled:active,
+.hero-cta-below-video .btn-below-primary:hover,
+.hero-cta-below-video .btn-below-primary:active{
+  background: #23a592 !important;
+}
+
 /* ── OUTLINE (светлая стеклянная): ВКОНТАКТЕ ── */
 .hero-desktop-btn.outline,
 .hero-cta-below-video .btn-below-secondary{

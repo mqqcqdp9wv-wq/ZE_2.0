@@ -27,3 +27,9 @@ temp/
 tmp/
 .vercel
 .env*.local
+
+# deepsec workspace
+.deepsec/
+
+# untracked local design tool (self-XSS in innerHTML, fixed locally)
+clip-cover-generator.html

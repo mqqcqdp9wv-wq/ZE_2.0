@@ -1186,7 +1186,7 @@
         if (!modal) return;
 
         const modalPs = modal.querySelectorAll('.modal-description p');
-        if (modalPs[0] && editedData.modalP1) modalPs[0].innerHTML = editedData.modalP1;
+        if (modalPs[0] && editedData.modalP1) modalPs[0].textContent = editedData.modalP1;
         if (modalPs[1] && editedData.modalP2) modalPs[1].textContent = editedData.modalP2;
         if (modalPs[2] && editedData.modalP3) modalPs[2].textContent = editedData.modalP3;
 
@@ -1241,7 +1241,7 @@
         if (!modal) return;
 
         const modalPs = modal.querySelectorAll('.modal-description p');
-        if (modalPs[0]) addEditListener(modalPs[0], 'modalP1', true);
+        if (modalPs[0]) addEditListener(modalPs[0], 'modalP1');
         if (modalPs[1]) addEditListener(modalPs[1], 'modalP2');
         if (modalPs[2]) addEditListener(modalPs[2], 'modalP3');
 

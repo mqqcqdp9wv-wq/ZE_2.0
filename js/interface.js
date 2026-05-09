@@ -236,43 +236,4 @@
         }
     });
 
-    /* Subscribe Form */
-	$('.js-subscribe-form').ajaxChimp({
-        language: 'cm',
-        url: 'http://csmthemes.us3.list-manage.com/subscribe/post?u=9666c25a337f497687875a388&id=5b881a50fb'
-            //http://xxx.xxx.list-manage.com/subscribe/post?u=xxx&id=xxx
-    });
-    $.ajaxChimp.translations.cm = {
-        'submit': 'Submitting...',
-        0: 'Awesome! We have sent you a confirmation email',
-        1: 'Please enter a value',
-        2: 'An email address must contain a single @',
-        3: 'The domain portion of the email address is invalid (the portion after the @: )',
-        4: 'The username portion of the email address is invalid (the portion before the @: )',
-        5: 'This email address looks fake or invalid. Please enter a real email address'
-    };
-
-    /* Send form */
-	if ($('.js-ajax-form').length) {
-		$('.js-ajax-form').each(function(){
-			$(this).validate({
-				errorClass: 'error',
-			    submitHandler: function(form){
-		        	$.ajax({
-			            type: "POST",
-			            url:"mail.php",
-			            data: $(form).serialize(),
-			            success: function() {
-		                	$('#success-message').show();
-		                },
-
-		                error: function(){
-		                	$('#error-message').show();
-			            }
-			        });
-			    }
-			});
-		});
-	}
-
 })(jQuery);

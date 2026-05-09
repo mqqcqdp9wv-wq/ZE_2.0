@@ -12,7 +12,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
 
       - name: Create clean URLs
         run: |
@@ -41,7 +41,10 @@ jobs:
             --exclude "vercel.json" \
             --exclude "node_modules/*" \
             --exclude "api/*" \
-            --exclude "3d/*"
+            --exclude "3d/*" \
+            --exclude "scripts/*" \
+            --exclude ".pre-commit-config.yaml" \
+            --exclude ".deepsec/*"
 
           # Загрузить HTML-файлы, которые конфликтуют с подпапками
           aws s3 cp blog.html s3://ze-studio48.ru/blog \

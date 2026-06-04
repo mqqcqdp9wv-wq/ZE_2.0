@@ -1,22 +1,36 @@
 # Dependabot configuration
 #
 # Назначение: защитить 3D-симулятор тонировки (папка 3d/, https://3d.ze-studio48.ru)
-# от автоматического обновления Next.js и React-стека.
+# от ПОШТУЧНОГО автообновления WebGL-стека (Next / React / three / react-three-fiber / drei).
 #
-# Причина: react-three-fiber v8 НЕ совместим с React 19, который тянут Next 14/15.
-# 30 мая 2026 Dependabot security-update поднял Next 13.5.11 → 15.5.18 — прод упал
-# с крашем "ReactCurrentBatchConfig" в браузере, хотя сборка проходила "успешно".
-# Откат и фикс: git commit eaae83f. Рабочая связка: Next 13.5 + React 18 + R3F v8.
+# История: 30 мая 2026 Dependabot security-update поднял ТОЛЬКО Next 13.5.11 → 15.5.18.
+# Next 15 потянул React 19, а тогдашний react-three-fiber v8 с React 19 несовместим —
+# прод упал с крашем "ReactCurrentBatchConfig" в браузере (сборка при этом проходила
+# «успешно», поломка только в рантайме). Откат тогда: git commit eaae83f.
 #
-# Что делает этот конфиг:
-#   - version-update PR для 3d/ выключены (open-pull-requests-limit: 0) — без лишнего шума;
-#   - next / react / react-dom / @react-three/fiber / @react-three/drei / three
-#     в ignore — Dependabot НЕ предложит их обновление ни как version, ни как security PR;
-#   - security-патчи прочих пакетов в 3d/ (postcss и т.п.) продолжают приходить.
+# 4 июня 2026 стек апгрейднут ВСЕМ КОМПЛЕКТОМ сразу и проверен в статической сборке:
+#   Next 15.5.19 · React 19.2.7 · react-dom 19.2.7 ·
+#   @react-three/fiber 9.6.1 · @react-three/drei 10.7.7 · three 0.169.0
 #
-# Размораживать стек только вручную и ВСЕМ комплектом сразу
-# (R3F v9 + drei v10 + React 19 + Next 15), обязательно проверяя рендер модели
-# в статической сборке (npx next build → serve out), т.к. dev-режим баг маскирует.
+# Почему заморозка ОСТАЁТСЯ и после апгрейда (это постоянное правило, не временная мера):
+#   WebGL-стек жёстко связан по peer-зависимостям (R3F ↔ React ↔ three ↔ drei).
+#   Любое ОДИНОЧНОЕ автообновление снова рассогласует связку и уронит прод так же,
+#   как Next 15 в мае. Живой пример прямо сейчас: R3F 9.6.1 требует React ">=19 <19.3" —
+#   автобамп React до 19.3 повторит инцидент один-в-один.
+#   Сайт — статический экспорт (output: export) на CDN, серверного рантайма нет →
+#   риск от «замороженных» клиентских зависимостей минимален. Security-алерты GitHub
+#   (вкладка Security) приходят независимо от этого ignore — Влад их увидит и при
+#   необходимости обновит вручную.
+#
+# Как обновлять в будущем: ТОЛЬКО вручную и всем комплектом сразу
+# (R3F + drei + React + react-dom + three + Next согласованными версиями),
+# обязательно проверяя рендер модели в статической сборке
+# (npx next build → serve out/ → консоль чистая + грузится crossover.glb + blob-ресурсы),
+# т.к. dev-режим (npm run dev) рантайм-краш маскирует.
+#
+# open-pull-requests-limit: 0 — version-update PR для 3d/ выключены (без шума);
+# ignore ниже — Dependabot не предложит обновление WebGL-стека ни как version, ни как
+# security PR. Security-патчи ПРОЧИХ пакетов 3d/ (postcss, tailwind и т.п.) приходят.
 
 version: 2
 updates:

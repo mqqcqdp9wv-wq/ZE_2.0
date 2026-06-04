@@ -1,0 +1,34 @@
+# Dependabot configuration
+#
+# Назначение: защитить 3D-симулятор тонировки (папка 3d/, https://3d.ze-studio48.ru)
+# от автоматического обновления Next.js и React-стека.
+#
+# Причина: react-three-fiber v8 НЕ совместим с React 19, который тянут Next 14/15.
+# 30 мая 2026 Dependabot security-update поднял Next 13.5.11 → 15.5.18 — прод упал
+# с крашем "ReactCurrentBatchConfig" в браузере, хотя сборка проходила "успешно".
+# Откат и фикс: git commit eaae83f. Рабочая связка: Next 13.5 + React 18 + R3F v8.
+#
+# Что делает этот конфиг:
+#   - version-update PR для 3d/ выключены (open-pull-requests-limit: 0) — без лишнего шума;
+#   - next / react / react-dom / @react-three/fiber / @react-three/drei / three
+#     в ignore — Dependabot НЕ предложит их обновление ни как version, ни как security PR;
+#   - security-патчи прочих пакетов в 3d/ (postcss и т.п.) продолжают приходить.
+#
+# Размораживать стек только вручную и ВСЕМ комплектом сразу
+# (R3F v9 + drei v10 + React 19 + Next 15), обязательно проверяя рендер модели
+# в статической сборке (npx next build → serve out), т.к. dev-режим баг маскирует.
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/3d"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
+    ignore:
+      - dependency-name: "next"
+      - dependency-name: "react"
+      - dependency-name: "react-dom"
+      - dependency-name: "@react-three/fiber"
+      - dependency-name: "@react-three/drei"
+      - dependency-name: "three"
